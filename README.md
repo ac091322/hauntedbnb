@@ -53,8 +53,8 @@ Returns the information about the current user that is logged in.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /api/session
   * Body: none
 
 * Successful Response when there is a logged in user
@@ -94,8 +94,8 @@ information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /api/session
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -153,6 +153,30 @@ information.
     }
     ```
 
+### Log Out a User
+
+Logs out a current user with valid credentials and returns a message. Doesn't check if there is already a logged in user.
+
+* Require Authentication: true
+* Request
+  * Method: DELETE
+  * URL: /api/session
+  * Headers:
+    * Content-Type: application/json
+  * Body: none
+
+* Successful Response when there is a logged in user
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "message": "success"
+    }
+    ```
+
 ### Sign Up a User
 
 Creates a new user, logs them in as the current user, and returns the current
@@ -160,8 +184,8 @@ user's information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /api/users
   * Headers:
     * Content-Type: application/json
   * Body:
