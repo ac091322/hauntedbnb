@@ -23,20 +23,6 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [2, 30]
-        }
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [2, 30]
-        }
-      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -44,6 +30,14 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256],
           isEmail: true
         }
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,

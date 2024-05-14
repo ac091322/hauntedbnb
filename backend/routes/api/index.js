@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+// const usersRouter = require(""./spots.js") // comment in when creating route handlers for spots
 const { restoreUser } = require('../../utils/auth.js');
 // const { setTokenCookie } = require('../../utils/auth.js');
 // const { requireAuth } = require('../../utils/auth.js');
+
 const { User } = require('../../db/models');
 
 

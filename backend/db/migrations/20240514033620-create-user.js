@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,14 +16,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true
       },
       email: {
-        type: Sequelize.STRING(256),
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
