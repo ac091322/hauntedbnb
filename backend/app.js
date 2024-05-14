@@ -79,4 +79,9 @@ app.use((err, _req, res, _next) => {
 });
 
 
+app.get("/", async (req, res) => {
+  res.send("Hello, welcome to my backend site!");
+});
+
+
 module.exports = app;
