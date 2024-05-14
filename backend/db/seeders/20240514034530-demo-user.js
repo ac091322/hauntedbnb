@@ -1,6 +1,8 @@
 'use strict';
+
 const { User } = require('../models');
 const bcrypt = require("bcryptjs");
+
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -28,6 +30,7 @@ module.exports = {
       }
     ], { validate: true });
   },
+
   async down(queryInterface, Sequelize) {
     options.tableName = 'Users';
     const Op = Sequelize.Op;

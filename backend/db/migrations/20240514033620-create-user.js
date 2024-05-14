@@ -1,11 +1,9 @@
 'use strict';
 
-const { defaultValueSchemable, toDefaultValue } = require('sequelize/lib/utils');
-
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;  // define your schema in options object
-};
+}
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -34,17 +32,17 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    }, options);
+    });
   },
   async down(queryInterface, Sequelize) {
-    // options.tableName = "Users";
-    return queryInterface.dropTable("Users");
+    options.tableName = "Users";
+    return queryInterface.dropTable(options);
   }
 };

@@ -2,8 +2,8 @@ const router = require("express").Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const { restoreUser } = require('../../utils/auth.js');
-const { setTokenCookie } = require('../../utils/auth.js');
-const { requireAuth } = require('../../utils/auth.js');
+// const { setTokenCookie } = require('../../utils/auth.js');
+// const { requireAuth } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 
 
@@ -28,17 +28,17 @@ router.post("/test", function (req, res) {
 //   return res.json({ user: user });
 // });
 
+
 // GET /api/restore-user
 // router.get('/restore-user', (req, res) => {
 //   return res.json(req.user);
-// }
-// );
+// });
+
 
 // GET /api/require-auth
 // router.get('/require-auth', requireAuth, (req, res) => {
 //   return res.json(req.user);
-// }
-// );
+// });
 
 
 module.exports = router;
