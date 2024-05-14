@@ -10,6 +10,7 @@ const { User } = require('../../db/models');
 router.use(restoreUser);
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+// router.use("/spots/", spotsRouter); // comment in when creating route handlers for spots
 
 
 router.post("/test", function (req, res) {

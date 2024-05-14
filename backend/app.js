@@ -18,11 +18,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-app.get("/", async (req, res) => {
-  res.send("Hello, welcome to my backend site!");
-});
-
-
 // security middleware
 if (!isProduction) {
   // enable cors only in development
@@ -48,6 +43,12 @@ app.use(
     }
   })
 );
+
+
+app.get("/", async (req, res) => {
+  res.send("Hello, welcome to my backend site!");
+});
+
 
 app.use(routes);
 
