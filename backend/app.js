@@ -17,11 +17,18 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
 
+
+app.get("/", async (req, res) => {
+  res.send("Hello, welcome to my backend site!");
+});
+
+
 // security middleware
 if (!isProduction) {
   // enable cors only in development
   app.use(cors());
 }
+
 
 // helmet helps set a variety of headers to better secure your app
 app.use(
@@ -29,6 +36,7 @@ app.use(
     policy: "cross-origin"
   })
 );
+
 
 // set the _csrf token and create req.csrfToken method
 app.use(
@@ -42,6 +50,7 @@ app.use(
 );
 
 app.use(routes);
+
 
 // catch unhandled requests and forward to error handler
 app.use((_req, _res, next) => {
@@ -66,6 +75,7 @@ app.use((err, _req, _res, next) => {
   next(err);
 });
 
+
 // error formatter
 app.use((err, _req, res, _next) => {
   res.status(err.status || 500);
@@ -76,11 +86,6 @@ app.use((err, _req, res, _next) => {
     errors: err.errors,
     stack: isProduction ? null : err.stack
   });
-});
-
-
-app.get("/", async (req, res) => {
-  res.send("Hello, welcome to my backend site!");
 });
 
 
