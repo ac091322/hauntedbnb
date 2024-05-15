@@ -34,6 +34,23 @@ const validateSignup = [
 ];
 
 
+//find all users
+router.get("/all", async (req, res) => {
+  let allUsers = await User.findAll();
+  res.status(200);
+  return res.json(allUsers);
+});
+
+
+// delete all users by dropping table
+router.delete("/delete", async (req, res) => {
+  await User.drop();  // drops table
+  await User.sync();  // recreates table using same schema
+  res.status(200);
+  return res.json({ message: "All users deleted" });
+});
+
+
 // sign up
 router.post('/', validateSignup, async (req, res) => {
   const { username, email, firstName, lastName, password, } = req.body;
