@@ -12,8 +12,8 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   async up(queryInterface, Sequelize) {
     options.tableName = "Users";
-    return queryInterface.bulkInsert(options, [
-      // await User.bulkCreate([
+    // return queryInterface.bulkInsert(options, [
+    await User.bulkCreate(options, [
       {
         username: 'Demo-lition',
         email: 'demo@user.io',
@@ -56,6 +56,7 @@ module.exports = {
         email: 'maggie@gmail.com',
         hashedPassword: bcrypt.hashSync('password')
       }
+      // ], {});
     ], { validate: true });
   },
 
