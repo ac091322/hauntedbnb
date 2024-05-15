@@ -13,7 +13,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     options.tableName = "Users";
     return queryInterface.bulkInsert(options, [
-    // await User.bulkCreate([
+      // await User.bulkCreate([
       {
         username: 'Demo-lition',
         email: 'demo@user.io',
@@ -56,8 +56,7 @@ module.exports = {
         email: 'maggie@gmail.com',
         hashedPassword: bcrypt.hashSync('password')
       }
-    ], {});
-    // ], { validate: true });
+    ], { validate: true });
   },
 
   async down(queryInterface, Sequelize) {
