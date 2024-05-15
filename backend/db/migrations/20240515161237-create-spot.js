@@ -44,7 +44,7 @@ module.exports = {
         allowNull: false
       },
       name: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false
       },
       description: {
@@ -54,6 +54,14 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL,
         allowNull: false
+      },
+      previewImage: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      avgRating: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

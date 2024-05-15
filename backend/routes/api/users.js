@@ -43,6 +43,7 @@ router.get("/all", async (req, res) => {
 
 
 // delete all users by dropping table
+// bad because this prevents seeding new data
 router.delete("/delete", async (req, res) => {
   await User.drop();  // drops table
   await User.sync();  // recreates table using same schema
