@@ -71,7 +71,8 @@ app.use((err, _req, _res, next) => {
     for (let error of err.errors) {
       errors[error.path] = error.message;
     }
-    err.title = 'Validation error';
+    // err.title = 'Validation error';
+    err.message = 'User already exists';
     err.errors = errors;
   }
   next(err);
