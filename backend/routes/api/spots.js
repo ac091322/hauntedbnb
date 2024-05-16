@@ -10,7 +10,7 @@ router.get("/current", async (req, res) => {
     where: {
       ownerId: currentUser.id
     }
-  })
+  });
   res.status(200);
   return res.json({ "Spots": spots });
 });
@@ -27,6 +27,7 @@ router.get("/", async (req, res) => {
 // get details of a spot by spotId
 router.get("/:spotId", async (req, res) => {
   let spotId = req.params.spotId;
+
   let spot = await Spot.findByPk(spotId, {
     attributes: ["id", "ownerId", "address", "city", "state", "country", "lat", "lng", "name", "description", "price", "createdAt", "updatedAt"],
     include: [
@@ -50,7 +51,6 @@ router.get("/:spotId", async (req, res) => {
   }
 
   let numReviews = await Review.aggregate("spotId", "count", { where: { spotId } });
-
   let findSumOfStarRatings = await Review.findOne({
     attributes: [
       [Spot.sequelize.literal("SUM(stars)"), "totalStars"]
@@ -59,8 +59,8 @@ router.get("/:spotId", async (req, res) => {
       spotId: spot.id
     }
   });
-  let sumOfStarRating = findSumOfStarRatings.dataValues.totalStars
 
+  let sumOfStarRating = findSumOfStarRatings.dataValues.totalStars
   let numberOfStarRatings = await Review.count({
     where: {
       spotId: spot.id
@@ -98,13 +98,11 @@ router.get("/:spotId", async (req, res) => {
 //get all reviews of a spot
 router.get("/:spotId/reviews", async (req, res) => {
   let spotId = req.params.spotId;
-
-  let spot = await Spot.findByPk(spotId)
+  let spot = await Spot.findByPk(spotId);
   if (!spot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
   }
-
   let reviews = await Review.findAll({
     where: { spotId: spotId },
     include: [
@@ -112,10 +110,12 @@ router.get("/:spotId/reviews", async (req, res) => {
         model: User,
         attributes: ["id", "firstName", "lastName"]
       },
-      { model: ReviewImage }
+      {
+        model: ReviewImage,
+        attributes: ["id", "url"]
+      }
     ]
   });
-
   res.status(200);
   return res.json({ "Reviews": reviews });
 });
@@ -124,6 +124,7 @@ router.get("/:spotId/reviews", async (req, res) => {
 //create a spot belonging to the current user
 router.post("/", async (req, res) => {
   let currentUser = req.user;
+
   let { address, city, state, country, lat, lng, name, description, price } = req.body;
 
   let errors = {};
@@ -144,6 +145,7 @@ router.post("/", async (req, res) => {
       errors
     });
   }
+
   let createSpot = await Spot.create({
     ownerId: currentUser.id, address, city, state, country, lat, lng, name, description, price
   });
@@ -156,7 +158,9 @@ router.post("/", async (req, res) => {
 router.put("/:spotId", async (req, res) => {
   let currentUser = req.user;
   let spotId = req.params.spotId;
+
   let { address, city, state, country, lat, lng, name, description, price } = req.body;
+
   let editSpot = await Spot.findOne({
     where: {
       id: spotId,
@@ -198,6 +202,7 @@ router.put("/:spotId", async (req, res) => {
   editSpot.price = price;
 
   await editSpot.save();
+  res.status(200);
   return res.json(editSpot);
 });
 
@@ -220,6 +225,7 @@ router.post("/:spotId/images", async (req, res) => {
   }
 
   let { url, preview } = req.body;
+
   let postImage = await SpotImage.create({
     spotId, url, preview
   });
@@ -255,20 +261,11 @@ router.post("/:spotId/reviews", async (req, res) => {
     }
   });
 
-  if (existingReview) {
-    res.status(500);
-    return res.json({ "message": "User already has a review for this spot" });
-  }
-
   let { review, stars } = req.body;
-  let createReview = await Review.create({
-    spotId, userId: currentUser.id, review, stars
-  });
 
   let errors = {};
   if (!review) errors.review = "Review text is required";
   if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
-
   if (Object.keys(errors).length > 0) {
     res.status(400);
     return res.json({
@@ -277,8 +274,16 @@ router.post("/:spotId/reviews", async (req, res) => {
     })
   }
 
-  res.status(201);
-  return res.json({ createReview });
+  if (existingReview) {
+    res.status(500);
+    return res.json({ "message": "User already has a review for this spot" });
+  } else {
+    let createReview = await Review.create({
+      spotId, userId: currentUser.id, review, stars
+    });
+    res.status(201);
+    return res.json({ createReview });
+  }
 });
 
 
@@ -286,19 +291,22 @@ router.post("/:spotId/reviews", async (req, res) => {
 router.delete("/:spotId", async (req, res) => {
   let currentUser = req.user;
   let spotId = req.params.spotId;
+
   let deleteSpot = await Spot.findOne({
     where: {
       id: spotId,
       ownerId: currentUser.id
     }
   });
+
   if (!deleteSpot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
+  } else {
+    await deleteSpot.destroy();
+    res.status(200);
+    return res.json({ "message": "Spot successfully deleted" });
   }
-  await deleteSpot.destroy();
-  res.status(200);
-  return res.json({ "message": "Spot successfully deleted" });
 });
 
 
