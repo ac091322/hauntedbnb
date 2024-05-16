@@ -75,17 +75,11 @@ router.post("/", async (req, res) => {
       errors
     });
   }
-  try {
-    let createSpot = await Spot.create({
-      ownerId: currentUser.id, address, city, state, country, lat, lng, name, description, price
-    });
-    res.status(201);
-    return res.json(createSpot);
-  } catch (e) {
-    console.error("error");
-    res.status(500)
-    return res.json({ "message": "Internal server error" })
-  }
+  let createSpot = await Spot.create({
+    ownerId: currentUser.id, address, city, state, country, lat, lng, name, description, price
+  });
+  res.status(201);
+  return res.json(createSpot);
 });
 
 
