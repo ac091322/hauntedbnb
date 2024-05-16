@@ -2,11 +2,9 @@
 
 ## Database Schema Design
 
-![db-schema1]
-![db-schema2]
+![db-schema]
 
-[db-schema1]: ./images/airbnb-db-schema1.png
-[db-schema2]: ./images/airbnb-db-schema2.png
+[db-schema]: ./images/airbnb-db-schema.png
 
 ## API Documentation
 
@@ -314,8 +312,8 @@ Returns all the spots owned (created) by the current user.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /api/spots/current
   * Body: none
 
 * Successful Response
@@ -354,8 +352,8 @@ Returns the details of a spot specified by its id.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /api/spots/:spotId
   * Body: none
 
 * Successful Response
@@ -493,8 +491,8 @@ Create and return a new image for a spot specified by id.
 * Require Authentication: true
 * Require proper authorization: Spot must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /api/:spotId/images
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -539,8 +537,8 @@ Updates and returns an existing spot.
 * Require Authentication: true
 * Require proper authorization: Spot must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: PUT
+  * URL: /api/spots/:spotId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -625,8 +623,8 @@ Deletes an existing spot.
 * Require Authentication: true
 * Require proper authorization: Spot must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: DELETE
+  * URL: /api/spots/:spotId
   * Body: none
 
 * Successful Response
@@ -1344,8 +1342,8 @@ Delete an existing image for a Spot.
 * Require Authentication: true
 * Require proper authorization: Spot must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: DELETE
+  * URL: /api/spot-images/:imageId
   * Body: none
 
 * Successful Response

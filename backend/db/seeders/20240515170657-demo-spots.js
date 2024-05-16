@@ -21,7 +21,9 @@ module.exports = {
         lng: -122.4194,
         name: "Cozy Apartment in SF",
         description: "A cozy one-bedroom apartment in the heart of San Francisco.",
-        price: 150.00
+        price: 150.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 1,
@@ -33,7 +35,9 @@ module.exports = {
         lng: -122.3321,
         name: "Stylish Apartment in Seattle",
         description: "A stylish apartment in downtown Seattle.",
-        price: 180.00
+        price: 180.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 1,
@@ -45,10 +49,12 @@ module.exports = {
         lng: -81.3792,
         name: "Family House in Orlando",
         description: "A spacious house perfect for family vacations.",
-        price: 280.00
+        price: 280.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 2,
+        ownerId: 1,
         address: "1313 Hickory Ln",
         city: "Phoenix",
         state: "AZ",
@@ -57,7 +63,9 @@ module.exports = {
         lng: -112.0740,
         name: "Desert Oasis in Phoenix",
         description: "A beautiful desert oasis with a pool.",
-        price: 240.00
+        price: 240.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 2,
@@ -69,7 +77,9 @@ module.exports = {
         lng: -74.0060,
         name: "Modern Loft in NYC",
         description: "A modern loft with stunning city views.",
-        price: 250.00
+        price: 250.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 2,
@@ -81,10 +91,12 @@ module.exports = {
         lng: -97.7431,
         name: "Eclectic Home in Austin",
         description: "An eclectic home with a unique charm.",
-        price: 220.00
+        price: 220.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 3,
+        ownerId: 2,
         address: "909 Cypress Ave",
         city: "Nashville",
         state: "TN",
@@ -93,10 +105,12 @@ module.exports = {
         lng: -86.7816,
         name: "Music City Condo in Nashville",
         description: "A condo located in the heart of Music City.",
-        price: 210.00
+        price: 210.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 3,
+        ownerId: 2,
         address: "1414 Poplar St",
         city: "Charlotte",
         state: "NC",
@@ -105,7 +119,9 @@ module.exports = {
         lng: -80.8431,
         name: "Elegant Apartment in Charlotte",
         description: "An elegant apartment in a prime location.",
-        price: 190.00
+        price: 190.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 3,
@@ -117,7 +133,9 @@ module.exports = {
         lng: -87.6298,
         name: "Charming Bungalow in Chicago",
         description: "A charming bungalow perfect for a weekend getaway.",
-        price: 130.00
+        price: 130.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 3,
@@ -129,10 +147,12 @@ module.exports = {
         lng: -104.9903,
         name: "Mountain Retreat in Denver",
         description: "A cozy retreat near the mountains.",
-        price: 200.00
+        price: 200.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 4,
+        ownerId: 3,
         address: "1010 Juniper St",
         city: "Boston",
         state: "MA",
@@ -141,10 +161,12 @@ module.exports = {
         lng: -71.0589,
         name: "Historic Apartment in Boston",
         description: "A historic apartment with modern amenities.",
-        price: 230.00
+        price: 230.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 4,
+        ownerId: 3,
         address: "1515 Magnolia Blvd",
         city: "Houston",
         state: "TX",
@@ -153,7 +175,9 @@ module.exports = {
         lng: -95.3698,
         name: "Spacious Home in Houston",
         description: "A spacious home perfect for large groups.",
-        price: 270.00
+        price: 270.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 4,
@@ -165,7 +189,9 @@ module.exports = {
         lng: -118.2437,
         name: "Luxury Condo in LA",
         description: "A luxurious condo with a beautiful city view.",
-        price: 300.00
+        price: 300.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 4,
@@ -177,10 +203,12 @@ module.exports = {
         lng: -122.6784,
         name: "Chic Studio in Portland",
         description: "A chic studio apartment in the trendy district.",
-        price: 160.00
+        price: 160.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
-        ownerId: 5,
+        ownerId: 4,
         address: "1111 Fir St",
         city: "Philadelphia",
         state: "PA",
@@ -189,19 +217,9 @@ module.exports = {
         lng: -75.1652,
         name: "Quaint Home in Philadelphia",
         description: "A quaint home near historic sites.",
-        price: 170.00
-      },
-      {
-        ownerId: 5,
-        address: "1616 Chestnut St",
-        city: "Las Vegas",
-        state: "NV",
-        country: "USA",
-        lat: 36.1699,
-        lng: -115.1398,
-        name: "Luxurious Condo in Las Vegas",
-        description: "A luxurious condo with a view of the Strip.",
-        price: 310.00
+        price: 170.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 5,
@@ -211,21 +229,67 @@ module.exports = {
         country: "USA",
         lat: 25.7617,
         lng: -80.1918,
-        name: "Beach House in Miami",
-        description: "A beautiful beach house steps away from the ocean.",
-        price: 400.00
+        name: "Beachfront Villa in Miami",
+        description: "A luxurious beachfront villa with stunning ocean views.",
+        price: 400.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
+      },
+      {
+        ownerId: 5,
+        address: "606 Ocean Dr",
+        city: "Los Angeles",
+        state: "CA",
+        country: "USA",
+        lat: 34.0522,
+        lng: -118.2437,
+        name: "Luxury Mansion in LA",
+        description: "A luxurious mansion with panoramic views of Los Angeles.",
+        price: 1200.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
+      },
+      {
+        ownerId: 5,
+        address: "606 Ocean Ave",
+        city: "Santa Monica",
+        state: "CA",
+        country: "USA",
+        lat: 34.0094,
+        lng: -118.4965,
+        name: "Beachfront Condo in Santa Monica",
+        description: "A luxurious beachfront condo with stunning ocean views.",
+        price: 400.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
+      },
+      {
+        ownerId: 5,
+        address: "909 Palm St",
+        city: "Miami",
+        state: "FL",
+        country: "USA",
+        lat: 25.7824,
+        lng: -80.2988,
+        name: "Modern Apartment in Miami",
+        description: "A modern apartment located in the heart of Miami.",
+        price: 220.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       },
       {
         ownerId: 6,
-        address: "707 Redwood Blvd",
-        city: "San Diego",
+        address: "550 Bluecrest Way",
+        city: "Newport Beach",
         state: "CA",
         country: "USA",
-        lat: 32.7157,
-        lng: -117.1611,
-        name: "Seaside Villa in San Diego",
-        description: "A beautiful seaside villa with ocean views.",
-        price: 350.00
+        lat: 34.0094,
+        lng: -118.4965,
+        name: "Cliffhouse in Newport Beach",
+        description: "A beautiful cliffhouse overlooing the bay.",
+        price: 400.00,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        avgRating: null
       }
     ], { validate: true });
   },
