@@ -22,7 +22,7 @@ module.exports = {
         name: "Cozy Apartment in SF",
         description: "A cozy one-bedroom apartment in the heart of San Francisco.",
         price: 150.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -36,7 +36,7 @@ module.exports = {
         name: "Stylish Apartment in Seattle",
         description: "A stylish apartment in downtown Seattle.",
         price: 180.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -50,7 +50,7 @@ module.exports = {
         name: "Family House in Orlando",
         description: "A spacious house perfect for family vacations.",
         price: 280.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -64,7 +64,7 @@ module.exports = {
         name: "Desert Oasis in Phoenix",
         description: "A beautiful desert oasis with a pool.",
         price: 240.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -78,7 +78,7 @@ module.exports = {
         name: "Modern Loft in NYC",
         description: "A modern loft with stunning city views.",
         price: 250.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -92,7 +92,7 @@ module.exports = {
         name: "Eclectic Home in Austin",
         description: "An eclectic home with a unique charm.",
         price: 220.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -106,7 +106,7 @@ module.exports = {
         name: "Music City Condo in Nashville",
         description: "A condo located in the heart of Music City.",
         price: 210.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -120,7 +120,7 @@ module.exports = {
         name: "Elegant Apartment in Charlotte",
         description: "An elegant apartment in a prime location.",
         price: 190.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -134,7 +134,7 @@ module.exports = {
         name: "Charming Bungalow in Chicago",
         description: "A charming bungalow perfect for a weekend getaway.",
         price: 130.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -148,7 +148,7 @@ module.exports = {
         name: "Mountain Retreat in Denver",
         description: "A cozy retreat near the mountains.",
         price: 200.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -162,7 +162,7 @@ module.exports = {
         name: "Historic Apartment in Boston",
         description: "A historic apartment with modern amenities.",
         price: 230.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -176,7 +176,7 @@ module.exports = {
         name: "Spacious Home in Houston",
         description: "A spacious home perfect for large groups.",
         price: 270.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -190,7 +190,7 @@ module.exports = {
         name: "Luxury Condo in LA",
         description: "A luxurious condo with a beautiful city view.",
         price: 300.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -204,7 +204,7 @@ module.exports = {
         name: "Chic Studio in Portland",
         description: "A chic studio apartment in the trendy district.",
         price: 160.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -218,7 +218,7 @@ module.exports = {
         name: "Quaint Home in Philadelphia",
         description: "A quaint home near historic sites.",
         price: 170.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -232,7 +232,7 @@ module.exports = {
         name: "Beachfront Villa in Miami",
         description: "A luxurious beachfront villa with stunning ocean views.",
         price: 400.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -246,7 +246,7 @@ module.exports = {
         name: "Luxury Mansion in LA",
         description: "A luxurious mansion with panoramic views of Los Angeles.",
         price: 1200.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -260,7 +260,7 @@ module.exports = {
         name: "Beachfront Condo in Santa Monica",
         description: "A luxurious beachfront condo with stunning ocean views.",
         price: 400.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -274,7 +274,7 @@ module.exports = {
         name: "Modern Apartment in Miami",
         description: "A modern apartment located in the heart of Miami.",
         price: 220.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       },
       {
@@ -288,7 +288,7 @@ module.exports = {
         name: "Cliffhouse in Newport Beach",
         description: "A beautiful cliffhouse overlooing the bay.",
         price: 400.00,
-        previewImage: null,
+        previewImage: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
         avgRating: null
       }
     ], { validate: true });

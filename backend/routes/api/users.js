@@ -42,13 +42,13 @@ router.get("/all", async (req, res) => {
 });
 
 
-// delete all users by dropping table
-// bad because this prevents seeding new data
-router.delete("/delete", async (req, res) => {
-  await User.drop();  // drops table
-  await User.sync();  // recreates table using same schema
+// delete a user
+router.delete("/:userId", async (req, res) => {
+  let userId = req.params.userId;
+  let deleteUser = await User.findByPk(userId);
+  await deleteUser.destroy();
   res.status(200);
-  return res.json({ message: "All users deleted" });
+  return res.json({ "message": `User of the id ${userId} was deleted` });
 });
 
 

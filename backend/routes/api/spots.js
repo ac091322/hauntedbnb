@@ -1,5 +1,5 @@
 const express = require('express')
-const { Spot, User } = require('../../db/models');
+const { Spot, User, SpotImage } = require('../../db/models');
 const router = express.Router();
 
 
@@ -28,7 +28,13 @@ router.get("/", async (req, res) => {
 router.get("/:spotId", async (req, res) => {
   let spotId = req.params.spotId;
   let spot = await Spot.findByPk(spotId, {
+    attributes: ["id", "ownerId", "address", "city", "state", "country", "lat", "lng", "name", "description", "price", "createdAt", "updatedAt"],
     include: [
+      {
+        model: SpotImage,
+        as: "SpotImages",
+        attributes: ["id", "url", "preview"]
+      },
       {
         model: User,
         as: "Owner",
@@ -80,7 +86,7 @@ router.post("/", async (req, res) => {
     res.status(500)
     return res.json({ "message": "Internal server error" })
   }
-})
+});
 
 
 // edit a spot belonging to current user
@@ -133,6 +139,37 @@ router.put("/:spotId", async (req, res) => {
 });
 
 
+// // add an image to a spot
+router.post("/:spotId/images", async (req, res) => {
+  let currentUser = req.user
+  let spotId = req.params.spotId;
+
+  let spot = await Spot.findOne({
+    where: {
+      id: spotId,
+      ownerId: currentUser.id
+    }
+  });
+
+  if (!spot) {
+    res.status(404);
+    return res.json({ "message": "Spot could not be found" });
+  }
+
+  let { url, preview } = req.body;
+  let postImage = await SpotImage.create({
+    spotId, url, preview
+  });
+  // console.log(postImage)
+  res.status(200);
+  return res.json({
+    id: postImage.id,
+    url: postImage.url,
+    preview: postImage.preview
+  });
+});
+
+
 // delete a spot belonging to current user
 router.delete("/:spotId", async (req, res) => {
   let currentUser = req.user;
@@ -150,7 +187,7 @@ router.delete("/:spotId", async (req, res) => {
   await deleteSpot.destroy();
   res.status(200);
   return res.json({ "message": "Spot successfully deleted" });
-})
+});
 
 
 module.exports = router;
