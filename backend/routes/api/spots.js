@@ -1,5 +1,5 @@
 const express = require('express')
-const { Spot, User, SpotImage, Review } = require('../../db/models');
+const { Spot, User, SpotImage, Review, ReviewImage } = require('../../db/models');
 const router = express.Router();
 
 
@@ -95,6 +95,32 @@ router.get("/:spotId", async (req, res) => {
 });
 
 
+//get all reviews of a spot
+router.get("/:spotId/reviews", async (req, res) => {
+  let spotId = req.params.spotId;
+
+  let spot = await Spot.findByPk(spotId)
+  if (!spot) {
+    res.status(404);
+    return res.json({ "message": "Spot could not be found" });
+  }
+
+  let reviews = await Review.findAll({
+    where: { spotId: spotId },
+    include: [
+      {
+        model: User,
+        attributes: ["id", "firstName", "lastName"]
+      },
+      { model: ReviewImage }
+    ]
+  });
+
+  res.status(200);
+  return res.json({ "Reviews": reviews });
+});
+
+
 //create a spot belonging to the current user
 router.post("/", async (req, res) => {
   let currentUser = req.user;
@@ -176,7 +202,7 @@ router.put("/:spotId", async (req, res) => {
 });
 
 
-// // add an image to a spot
+// add an image to a spot
 router.post("/:spotId/images", async (req, res) => {
   let currentUser = req.user
   let spotId = req.params.spotId;
@@ -197,13 +223,62 @@ router.post("/:spotId/images", async (req, res) => {
   let postImage = await SpotImage.create({
     spotId, url, preview
   });
-  // console.log(postImage)
+
   res.status(200);
   return res.json({
     id: postImage.id,
     url: postImage.url,
     preview: postImage.preview
   });
+});
+
+// create a review for a spot
+router.post("/:spotId/reviews", async (req, res) => {
+  let currentUser = req.user;
+  let spotId = req.params.spotId;
+
+  let spot = await Spot.findOne({
+    where: {
+      id: spotId,
+    }
+  });
+
+  if (!spot) {
+    res.status(404);
+    return res.json({ "message": "Spot could not be found" });
+  }
+
+  let existingReview = await Review.findOne({
+    where: {
+      spotId: spotId,
+      userId: currentUser.id
+    }
+  });
+
+  if (existingReview) {
+    res.status(500);
+    return res.json({ "message": "User already has a review for this spot" });
+  }
+
+  let { review, stars } = req.body;
+  let createReview = await Review.create({
+    spotId, userId: currentUser.id, review, stars
+  });
+
+  let errors = {};
+  if (!review) errors.review = "Review text is required";
+  if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
+
+  if (Object.keys(errors).length > 0) {
+    res.status(400);
+    return res.json({
+      "message": "Bad Request",
+      errors
+    })
+  }
+
+  res.status(201);
+  return res.json({ createReview });
 });
 
 
