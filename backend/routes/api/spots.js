@@ -1,5 +1,5 @@
 const express = require('express')
-const { Spot, User, SpotImage } = require('../../db/models');
+const { Spot, User, SpotImage, Review } = require('../../db/models');
 const router = express.Router();
 
 
@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 });
 
 
-// get spot by spotId
+// get details of a spot by spotId
 router.get("/:spotId", async (req, res) => {
   let spotId = req.params.spotId;
   let spot = await Spot.findByPk(spotId, {
@@ -43,12 +43,55 @@ router.get("/:spotId", async (req, res) => {
     ],
 
   });
+
   if (!spot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
   }
+
+  let numReviews = await Review.aggregate("spotId", "count", { where: { spotId } });
+
+  let findSumOfStarRatings = await Review.findOne({
+    attributes: [
+      [Spot.sequelize.literal("SUM(stars)"), "totalStars"]
+    ],
+    where: {
+      spotId: spot.id
+    }
+  });
+  let sumOfStarRating = findSumOfStarRatings.dataValues.totalStars
+
+  let numberOfStarRatings = await Review.count({
+    where: {
+      spotId: spot.id
+    }
+  });
+
+  let avgStarRating = Math.round((sumOfStarRating / numberOfStarRatings) * 10) / 10;
+
+  spot.dataValues.numReviews = numReviews;
+  spot.dataValues.avgStarRating = avgStarRating;
+
   res.status(200);
-  return res.json(spot);
+  return res.json({
+    id: spot.id,
+    ownerId: spot.ownerId,
+    address: spot.address,
+    city: spot.city,
+    state: spot.state,
+    country: spot.country,
+    lat: spot.lat,
+    lng: spot.lng,
+    name: spot.name,
+    description: spot.description,
+    price: spot.price,
+    numReviews: spot.dataValues.numReviews,
+    avgStarRating: spot.dataValues.avgStarRating,
+    createdAt: spot.createdAt,
+    updatedAt: spot.updatedAt,
+    SpotImages: spot.SpotImages,
+    Owner: spot.Owner
+  });
 });
 
 
