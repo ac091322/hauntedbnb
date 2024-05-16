@@ -1,5 +1,5 @@
 const express = require('express')
-const { Spot, SpotImage, User } = require('../../db/models');
+const { Spot, SpotImage } = require('../../db/models');
 const router = express.Router();
 
 
@@ -16,9 +16,10 @@ router.get("/:imageId", async (req, res) => {
 router.delete("/:imageId", async (req, res) => {
   let currentUser = req.user;
   let imageId = req.params.imageId;
+
   let deleteImage = await SpotImage.findOne({
     where: {
-      id: imageId
+      id: imageId,
     },
     include: [
       {
@@ -34,11 +35,11 @@ router.delete("/:imageId", async (req, res) => {
   if (!deleteImage) {
     res.status(404);
     return res.json({ "message": "Spot Image could not be found" });
+  } else {
+    await deleteImage.destroy();
+    res.status(200);
+    return res.json({ "message": "Spot Image successfully deleted" });
   }
-
-  await deleteImage.destroy();
-  res.status(200);
-  return res.json({ "message": "Spot Image successfully deleted" });
 });
 
 
