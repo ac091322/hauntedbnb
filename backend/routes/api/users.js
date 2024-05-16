@@ -34,6 +34,29 @@ const validateSignup = [
 ];
 
 
+// sign up
+router.post(
+  '/',
+  async (req, res) => {
+    const { email, password, username } = req.body;
+    const hashedPassword = bcrypt.hashSync(password);
+    const user = await User.create({ email, username, hashedPassword });
+
+    const safeUser = {
+      id: user.id,
+      email: user.email,
+      username: user.username,
+    };
+
+    await setTokenCookie(res, safeUser);
+
+    return res.json({
+      user: safeUser
+    });
+  }
+);
+
+
 //find all users
 router.get("/all", async (req, res) => {
   let allUsers = await User.findAll();
@@ -49,28 +72,6 @@ router.delete("/:userId", async (req, res) => {
   await deleteUser.destroy();
   res.status(200);
   return res.json({ "message": `User of the id ${userId} was deleted` });
-});
-
-
-// sign up
-router.post('/', validateSignup, async (req, res) => {
-  const { username, email, firstName, lastName, password, } = req.body;
-  const hashedPassword = bcrypt.hashSync(password);
-  const user = await User.create({ username, email, firstName, lastName, hashedPassword });
-
-  const safeUser = {
-    id: user.id,
-    username: user.username,
-    email: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName
-  };
-
-  await setTokenCookie(res, safeUser);
-
-  return res.json({
-    user: safeUser
-  });
 });
 
 
