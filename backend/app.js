@@ -72,7 +72,7 @@ app.use((err, _req, _res, next) => {
       errors[error.path] = error.message;
     }
     err.title = 'Validation error';
-    err.message = 'User already exists';
+    // err.message = 'Custom error message here';
     err.errors = errors;
   }
   next(err);
