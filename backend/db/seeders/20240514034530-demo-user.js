@@ -8,61 +8,59 @@ if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;  // define your schema in options object
 }
 
-
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     options.tableName = "Users";
     // return queryInterface.bulkInsert(options, [
     await User.bulkCreate([
       {
-        username: 'Demo-lition',
-        email: 'demo@user.io',
+        username: "Demo-lition",
+        email: "demo@user.io",
         firstName: "Demo",
         lastName: "Lition",
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'Homey',
-        email: 'homer@gmail.com',
+        username: "Homey",
+        email: "homer@gmail.com",
         firstName: "Homer",
         lastName: "Simpson",
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'Margey',
+        username: "Margey",
         firstName: "Marge",
         lastName: "Simpson",
-        email: 'marge@gmail.com',
-        hashedPassword: bcrypt.hashSync('password')
+        email: "marge@gmail.com",
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'Barty',
+        username: "Barty",
         firstName: "Bart",
         lastName: "Simpson",
-        email: 'bart@gmail.com',
-        hashedPassword: bcrypt.hashSync('password')
+        email: "bart@gmail.com",
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'Lisy',
+        username: "Lisy",
         firstName: "Lisa",
         lastName: "Simpson",
-        email: 'lisa@gmail.com',
-        hashedPassword: bcrypt.hashSync('password')
+        email: "lisa@gmail.com",
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'Maggy',
+        username: "Maggy",
         firstName: "Maggie",
         lastName: "Simpson",
-        email: 'maggie@gmail.com',
-        hashedPassword: bcrypt.hashSync('password')
+        email: "maggie@gmail.com",
+        hashedPassword: bcrypt.hashSync("password")
       }
       // ], {});
     ], { validate: true });
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = 'Users';
+    options.tableName = "Users";
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       username: { [Op.in]: ["Demo-lition", "Homey", "Margey", "Barty", "Lisy", "Maggy"] }
