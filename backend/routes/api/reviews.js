@@ -1,5 +1,5 @@
 const express = require('express')
-const { Spot, User, Review, ReviewImage } = require('../../db/models');
+const { Review, ReviewImage, Spot, User} = require('../../db/models');
 const router = express.Router();
 
 

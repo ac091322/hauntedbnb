@@ -1,5 +1,6 @@
 const express = require('express')
-const { Spot, User, SpotImage, Review, ReviewImage } = require('../../db/models');
+const { Spot, SpotImage, Review, ReviewImage, User, Booking } = require('../../db/models');
+const { Op } = require("sequelize");
 const router = express.Router();
 
 
@@ -13,6 +14,45 @@ router.get("/current", async (req, res) => {
   });
   res.status(200);
   return res.json({ "Spots": spots });
+});
+
+
+// get all bookings of a spot by spotId
+router.get("/:spotId/bookings", async (req, res) => {
+  let currentUser = req.user;
+  let spotId = req.params.spotId;
+
+  let spot = await Spot.findOne({
+    where: { id: spotId }
+  });
+
+  if (!spot) {
+    res.status(404);
+    return res.json({ "message": "Spot could not be found" });
+  }
+
+  if (spot.ownerId === currentUser.id) {
+    let bookings = await Booking.findAll({
+      where: { spotId: spotId },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName"]
+        }
+      ]
+    });
+
+    res.status(200);
+    return res.json({ "Bookings": bookings })
+  } else {
+    let bookings = await Booking.findAll({
+      where: { spotId: spotId },
+      attributes: ["spotId", "startDate", "endDate"]
+    });
+
+    res.status(200);
+    return res.json({ "Bookings": bookings });
+  }
 });
 
 
@@ -219,23 +259,22 @@ router.post("/:spotId/images", async (req, res) => {
     }
   });
 
+  let { url, preview } = req.body;
+
   if (!spot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
+  } else {
+    let postImage = await SpotImage.create({
+      spotId, url, preview
+    });
+    res.status(200);
+    return res.json({
+      id: postImage.id,
+      url: postImage.url,
+      preview: postImage.preview
+    });
   }
-
-  let { url, preview } = req.body;
-
-  let postImage = await SpotImage.create({
-    spotId, url, preview
-  });
-
-  res.status(200);
-  return res.json({
-    id: postImage.id,
-    url: postImage.url,
-    preview: postImage.preview
-  });
 });
 
 // create a review for a spot
@@ -283,6 +322,68 @@ router.post("/:spotId/reviews", async (req, res) => {
     });
     res.status(201);
     return res.json({ createReview });
+  }
+});
+
+
+// create a booking for a spot
+router.post("/:spotId/bookings", async (req, res) => {
+  let currentUser = req.user;
+  let spotId = req.params.spotId;
+
+  let spot = await Spot.findOne({
+    where: { id: spotId }
+  });
+
+  let booking = await Booking.findAll({
+    where: { spotId: spotId }
+  });
+
+  let { startDate, endDate } = req.body
+  let errors = {};
+
+  for (const key in booking) {
+    // console.log("CONSOLE.LOG:", new Date(booking[key].startDate));
+    if (new Date(startDate) >= new Date(booking[key].startDate) &&
+      new Date(startDate) <= new Date(booking[key].endDate)) {
+      errors.startDate = "Start date conflicts with an existing booking";
+
+    } else if (new Date(endDate) >= new Date(booking[key].startDate) &&
+      new Date(startDate) <= new Date(booking[key].endDate)) {
+      errors.endDate = "End date conflicts with an existing booking";
+    }
+  }
+
+  if (Object.keys(errors).length > 0) {
+    res.status(403);
+    return res.json({
+      "message": "Sorry, this spot is already booked for the specified dates",
+      errors
+    });
+  }
+
+  if (!spot) {
+    res.status(400);
+    return res.json({ "message": "Spot could not be found" });
+
+  } else if (spot.ownerId === currentUser.id) {
+    res.status(500);
+    return res.json({ "message": "You cannot book your own spot" });
+
+  } else if (new Date(startDate) >= new Date(endDate)) {
+    errors.endDate = "endDate cannot be on or before startDate";
+    res.status(400);
+    return res.json({
+      "message": "Bad Request",
+      errors
+    });
+
+  } else {
+    let createBooking = await Booking.create({
+      spotId: +spotId, userId: currentUser.id, startDate, endDate
+    });
+    res.status(200);
+    return res.json(createBooking);
   }
 });
 
