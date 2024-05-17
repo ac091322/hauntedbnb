@@ -1,11 +1,13 @@
 const express = require("express");
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Booking, Spot } = require("../../db/models");
 const { Op } = require("sequelize");
+
 const router = express.Router();
 
 
 // get all bookings by current user
-router.get("/:bookings/", async (req, res) => {
+router.get("/:bookings/", requireAuth, async (req, res) => {
   let currentUser = req.user;
 
   let bookings = await Booking.findAll({
@@ -24,7 +26,7 @@ router.get("/:bookings/", async (req, res) => {
 
 
 // edit a booking belonging to current user
-router.put("/:bookingId", async (req, res) => {
+router.put("/:bookingId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let bookingId = req.params.bookingId;
 
@@ -98,7 +100,7 @@ router.put("/:bookingId", async (req, res) => {
 
 
 // delete a booking
-router.delete("/:bookingId", async (req, res) => {
+router.delete("/:bookingId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let bookingId = req.params.bookingId;
 

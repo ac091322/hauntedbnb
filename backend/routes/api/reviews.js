@@ -1,10 +1,12 @@
 const express = require('express')
-const { Review, ReviewImage, Spot, User} = require('../../db/models');
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { Review, ReviewImage, Spot, User } = require('../../db/models');
+
 const router = express.Router();
 
 
 // get all reviews of current user
-router.get("/current", async (req, res) => {
+router.get("/current", requireAuth, async (req, res) => {
   let currentUser = req.user;
 
   let reviews = await Review.findAll({
@@ -30,7 +32,7 @@ router.get("/current", async (req, res) => {
 
 
 // edit an existing review
-router.put("/:reviewId", async (req, res) => {
+router.put("/:reviewId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
 
@@ -68,7 +70,7 @@ router.put("/:reviewId", async (req, res) => {
 
 
 // add an image to a review
-router.post("/:reviewId/images", async (req, res) => {
+router.post("/:reviewId/images", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
 
@@ -116,7 +118,7 @@ router.post("/:reviewId/images", async (req, res) => {
 
 
 // delete a review belonging to current user
-router.delete("/:reviewId", async (req, res) => {
+router.delete("/:reviewId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
 

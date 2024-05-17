@@ -1,10 +1,10 @@
 const express = require('express')
-const { Op } = require('sequelize');
 const bcrypt = require('bcryptjs');
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth');
 const { handleValidationErrors } = require('../../utils/validation');
 const { User } = require('../../db/models');
 const { check } = require('express-validator');
+const { Op } = require('sequelize');
 const router = express.Router();
 
 
@@ -56,7 +56,7 @@ router.post('/', validateLogin, async (req, res, next) => {
 
 
 // log out
-router.delete('/', (_req, res) => {
+router.delete('/', requireAuth, (_req, res) => {
   res.clearCookie('token');
   return res.json({ message: 'success' });
 });
