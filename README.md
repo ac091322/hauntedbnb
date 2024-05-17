@@ -914,7 +914,7 @@ Update and return an existing review.
     ```json
     {
       "review": "This was an awesome spot!",
-      "stars": 5,
+      "stars": 5
     }
     ```
 

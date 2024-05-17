@@ -1,10 +1,12 @@
 const express = require("express");
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Review, ReviewImage } = require("../../db/models");
+
 const router = express.Router();
 
 
 // delete an image for a review belonging to current user
-router.delete("/:imageId", async (req, res) => {
+router.delete("/:imageId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let imageId = req.params.imageId;
 
@@ -12,7 +14,7 @@ router.delete("/:imageId", async (req, res) => {
     where: { id: imageId },
     include: [{
       model: Review,
-      userId: currentUser.id
+      where: { userId: currentUser.id }
     }]
   });
 

@@ -1,10 +1,12 @@
 const express = require('express')
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Spot, SpotImage } = require('../../db/models');
+
 const router = express.Router();
 
 
 // find an image by id
-router.get("/:imageId", async (req, res) => {
+router.get("/:imageId", requireAuth, async (req, res) => {
   let imageId = req.params.imageId;
   let image = await SpotImage.findByPk(imageId);
   res.status(200);
@@ -13,7 +15,7 @@ router.get("/:imageId", async (req, res) => {
 
 
 // delete an image for a spot belonging to current user
-router.delete("/:imageId", async (req, res) => {
+router.delete("/:imageId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let imageId = req.params.imageId;
 
