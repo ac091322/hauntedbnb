@@ -5,6 +5,7 @@ const spotsRouter = require("./spots.js");
 const spotImagesRouter = require("./spot-images.js");
 const reviewRouter = require("./reviews.js");
 const reviewImagesRouter = require("./review-images.js");
+const bookingsRouter = require("./bookings.js");
 const { restoreUser } = require('../../utils/auth.js');
 // const { setTokenCookie } = require('../../utils/auth.js');
 // const { requireAuth } = require('../../utils/auth.js');
@@ -18,6 +19,7 @@ router.use("/spots", spotsRouter);
 router.use("/spot-images", spotImagesRouter);
 router.use("/reviews", reviewRouter);
 router.use("/review-images", reviewImagesRouter);
+router.use("/bookings", bookingsRouter);
 
 
 // test using fetch
