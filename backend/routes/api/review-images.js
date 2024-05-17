@@ -12,7 +12,7 @@ router.delete("/:imageId", async (req, res) => {
     where: { id: imageId },
     include: [{
       model: Review,
-      userId: currentUser.id
+      where: { userId: currentUser.id }
     }]
   });
 
