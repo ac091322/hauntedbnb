@@ -27,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     stars: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isNumeric: true,
-        isIn: [[1, 2, 3, 4, 5]]
-      }
+      // validate: {
+      //   isNumeric: true,
+      //   isIn: [[1, 2, 3, 4, 5]]
+      // }
     }
   }, {
     sequelize,
