@@ -1,6 +1,6 @@
 const express = require('express')
 const { Spot, SpotImage, Review, ReviewImage, User, Booking } = require('../../db/models');
-const { Op } = require("sequelize");
+const { Op } = require('sequelize');
 const router = express.Router();
 
 
@@ -58,9 +58,99 @@ router.get("/:spotId/bookings", async (req, res) => {
 
 // get all spots
 router.get("/", async (req, res) => {
-  let allSpots = await Spot.findAll();
+  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+  let pagination = {};
+  let where = {};
+  let errors = {};
+
+  spotCcount = await Spot.count({});
+
+  if (!page || isNaN(page) || !size || isNaN(size)) {
+    page = 1;
+    size = 20;
+  }
+  if (page <= 0 || page > 10) {
+    errors.page = "Page must be greater than or equal to 1 and less than or equal to 10";
+  }
+  if (size <= 0 || size > 20) {
+    errors.size = "Size must be greater than or equal to 1 and less than or equal to 20";
+  }
+
+  page = parseInt(page);
+  size = parseInt(size);
+  pagination.limit = size;
+  pagination.offset = size * (page - 1);
+
+
+
+  if (minLat) {
+    if (!isNaN(minLat)) {
+      where.lat = { ...where.lat, [Op.gte]: parseFloat(minLat) };
+    } else {
+      errors.minLat = "Minimum latitude is invalid";
+    }
+  }
+
+  if (maxLat) {
+    if (!isNaN(maxLat)) {
+      where.lat = { ...where.lat, [Op.lte]: parseFloat(maxLat) };
+    } else {
+      errors.maxaLat = "Maximum latitude is invalid";
+    }
+  }
+
+  if (minLng) {
+    if (!isNaN(minLng)) {
+      where.lng = { ...where.lng, [Op.gte]: parseFloat(minLng) };
+    } else {
+      errors.minLng = "Minimum longitude is invalid";
+    }
+  }
+
+  if (maxLng) {
+    if (!isNaN(maxLng)) {
+      where.lng = { ...where.lng, [Op.lte]: parseFloat(maxLng) };
+    } else {
+      errors.maxLng = "Maximum longitude is invalid";
+    }
+  }
+
+  if (minPrice) {
+    if (!isNaN(minPrice) && minPrice >= 0) {
+      where.price = { ...where.price, [Op.gte]: parseFloat(minPrice) };
+    } else {
+      errors.minPrice = "Minimum price must be greater than or equal to 0";
+    }
+  }
+
+  if (maxPrice) {
+    if (!isNaN(maxPrice) && maxPrice >= 0) {
+      where.price = { ...where.price, [Op.lte]: parseFloat(maxPrice) };
+    } else {
+      errors.maxPrice = "Maximum price must be greater than or equal to 0"
+    }
+  }
+
+  let allSpots = await Spot.findAll({
+    where,
+    ...pagination
+  });
+
+  if (Object.keys(errors).length > 0) {
+    res.status(400);
+    return res.json({
+      "message": "Bad Request",
+      errors
+    });
+  }
+
   res.status(200);
-  return res.json({ "Spots": allSpots });
+  return res.json({
+    "Spots": allSpots,
+    page,
+    size,
+    spotCcount
+  });
 });
 
 
