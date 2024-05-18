@@ -8,6 +8,8 @@ const router = express.Router();
 
 // get spot by current user
 router.get("/current", requireAuth, async (req, res) => {
+  // const { user } = req;
+  // if (user) {
   let currentUser = req.user;
   let spots = await Spot.findAll({
     where: {
@@ -16,6 +18,10 @@ router.get("/current", requireAuth, async (req, res) => {
   });
   res.status(200);
   return res.json({ "Spots": spots });
+  // } else {
+  //   res.status(401);
+  //   return res.json({ "message": "Authentication required" });
+  // }
 });
 
 

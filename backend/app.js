@@ -46,6 +46,7 @@ app.use(
 );
 
 
+// homepage hello message to stop the 404s (own route)
 app.get("/", async (req, res) => {
   res.send("Hello, welcome to my backend site!");
 });

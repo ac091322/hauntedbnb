@@ -37,35 +37,43 @@ router.put("/:reviewId", requireAuth, async (req, res) => {
   let reviewId = req.params.reviewId;
 
   let { review, stars } = req.body;
-  let editReview = await Review.findOne({
-    where: {
-      id: reviewId,
-      userId: currentUser.id
-    }
-  });
 
-  if (!editReview) {
+  let existingReview = await Review.findByPk(reviewId);
+  if (!existingReview) {
     res.status(404);
     return res.json({ "message": "Review could not be found" });
-  }
 
-  let errors = {};
-  if (!review) errors.review = "Review text is required";
-  if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
-  if (Object.keys(errors).length > 0) {
-    res.status(400);
-    return res.json({
-      "message": "Bad Request",
-      errors
+  } else if (currentUser.id !== existingReview.userId) {
+    res.status(403);
+    return res.json({ "message": "Forbidden" });
+
+  } else {
+
+    let editReview = await Review.findOne({
+      where: {
+        id: reviewId,
+        userId: currentUser.id
+      }
     });
+
+    editReview.review = review;
+    editReview.stars = stars;
+
+    let errors = {};
+    if (!review) errors.review = "Review text is required";
+    if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Stars must be an integer from 1 to 5";
+    if (Object.keys(errors).length > 0) {
+      res.status(400);
+      return res.json({
+        "message": "Bad Request",
+        errors
+      });
+    }
+
+    await editReview.save();
+    res.status(200);
+    return res.json(editReview);
   }
-
-  editReview.review = review;
-  editReview.stars = stars;
-
-  await editReview.save();
-  res.status(200);
-  return res.json(editReview);
 });
 
 
@@ -122,17 +130,23 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
 
-  let deleteReview = await Review.findOne({
-    where: {
-      id: reviewId,
-      userId: currentUser.id
-    }
-  });
-
-  if (!deleteReview) {
+  let existingReview = await Review.findByPk(reviewId);
+  if (!existingReview) {
     res.status(404);
     return res.json({ "message": "Review could not be found" });
+
+  } else if (currentUser.id !== existingReview.userId) {
+    res.status(403);
+    return res.json({ "message": "Forbidden" });
+
   } else {
+    let deleteReview = await Review.findOne({
+      where: {
+        id: reviewId,
+        userId: currentUser.id
+      }
+    });
+
     await deleteReview.destroy();
     res.status(200);
     return res.json({ "message": "Review successfully deleted" });

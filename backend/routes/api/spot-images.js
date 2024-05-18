@@ -5,7 +5,7 @@ const { Spot, SpotImage } = require('../../db/models');
 const router = express.Router();
 
 
-// find an image by id
+// find an image by id (own route)
 router.get("/:imageId", requireAuth, async (req, res) => {
   let imageId = req.params.imageId;
   let image = await SpotImage.findByPk(imageId);
@@ -19,28 +19,36 @@ router.delete("/:imageId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let imageId = req.params.imageId;
 
-  let deleteImage = await SpotImage.findOne({
-    where: {
-      id: imageId,
-    },
-    include: [
-      {
-        model: Spot,
-        as: "SpotImages",
-        where: {
-          ownerId: currentUser.id
-        }
-      },
-    ]
-  });
-
-  if (!deleteImage) {
+  let image = await SpotImage.findByPk(imageId);
+  if (!image) {
     res.status(404);
     return res.json({ "message": "Spot Image could not be found" });
+
   } else {
-    await deleteImage.destroy();
-    res.status(200);
-    return res.json({ "message": "Spot Image successfully deleted" });
+    let spot = await Spot.findOne({
+      where: { id: image.spotId }
+    });
+
+    if (currentUser.id !== spot.ownerId) {
+      res.status(403);
+      return res.json({ "message": "Forbidden" });
+
+    } else {
+      let deleteImage = await SpotImage.findOne({
+        where: { id: imageId },
+        include: [
+          {
+            model: Spot,
+            as: "SpotImages",
+            where: { ownerId: currentUser.id }
+          },
+        ]
+      });
+
+      await deleteImage.destroy();
+      res.status(200);
+      return res.json({ "message": "Spot Image successfully deleted" });
+    }
   }
 });
 
