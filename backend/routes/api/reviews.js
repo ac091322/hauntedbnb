@@ -82,45 +82,51 @@ router.post("/:reviewId/images", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
 
-  let review = await Review.findOne({
-    where: {
-      id: reviewId,
-      userId: currentUser.id
-    }
-  });
-
-  let { url } = req.body;
-
-  if (!review) {
+  let existingReview = await Review.findByPk(reviewId);
+  if (!existingReview) {
     res.status(404);
     return res.json({ "message": "Review could not be found" });
-  }
 
-  let imageCount = await ReviewImage.count({
-    where: { reviewId: reviewId }
-  });
-
-  if (imageCount <= 9) {
-
-    let postImage = await ReviewImage.create({
-      reviewId, url
-    });
-
-    res.status(200);
-    return res.json({
-      reviewImageId: postImage.id,
-      reviewId: review.id,
-      userId: currentUser.id,
-      spotId: review.spotId,
-      review: review.review,
-      stars: review.stars,
-      url: url,
-      createdAt: postImage.createdAt,
-      updatedAt: postImage.updatedAt
-    });
-  } else {
+  } else if (currentUser.id !== existingReview.userId) {
     res.status(403);
-    return res.json({ "message": "Maximum number of images for this resource reached" });
+    return res.json({ "message": "Forbidden" });
+
+  } else {
+    let review = await Review.findOne({
+      where: {
+        id: reviewId,
+        userId: currentUser.id
+      }
+    });
+
+    let { url } = req.body;
+
+    let imageCount = await ReviewImage.count({
+      where: { reviewId: reviewId }
+    });
+
+    if (imageCount <= 9) {
+
+      let postImage = await ReviewImage.create({
+        reviewId, url
+      });
+
+      res.status(200);
+      return res.json({
+        reviewImageId: postImage.id,
+        reviewId: review.id,
+        userId: currentUser.id,
+        spotId: review.spotId,
+        review: review.review,
+        stars: review.stars,
+        url: url,
+        createdAt: postImage.createdAt,
+        updatedAt: postImage.updatedAt
+      });
+    } else {
+      res.status(403);
+      return res.json({ "message": "Maximum number of images for this resource reached" });
+    }
   }
 });
 
