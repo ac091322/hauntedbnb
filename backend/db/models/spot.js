@@ -27,11 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     state: {
       type: DataTypes.STRING,
       allowNull: false
-      // validate: {
-      //   isAlpha: true,
-      //   isUppercase: true,
-      //   len: [2, 2]
-      // }
     },
     country: {
       type: DataTypes.STRING,

@@ -779,7 +779,7 @@ Create and return a new review for a spot specified by id.
     ```json
     {
       "review": "This was an awesome spot!",
-      "stars": 5,
+      "stars": 5
     }
     ```
 

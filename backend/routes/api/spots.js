@@ -39,8 +39,9 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
     return res.json({ "message": "Spot could not be found" });
   }
 
+  let bookings;
   if (spot.ownerId === currentUser.id) {
-    let bookings = await Booking.findAll({
+    bookings = await Booking.findAll({
       where: { spotId: spotId },
       include: [
         {
@@ -53,7 +54,7 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
     res.status(200);
     return res.json({ "Bookings": bookings })
   } else {
-    let bookings = await Booking.findAll({
+    bookings = await Booking.findAll({
       where: { spotId: spotId },
       attributes: ["spotId", "startDate", "endDate"]
     });
@@ -294,51 +295,57 @@ router.put("/:spotId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let spotId = req.params.spotId;
 
-  let { address, city, state, country, lat, lng, name, description, price } = req.body;
-
-  let editSpot = await Spot.findOne({
-    where: {
-      id: spotId,
-      ownerId: currentUser.id
-    }
-  });
-
-  if (!editSpot) {
+  let existingSpot = await Spot.findByPk(spotId);
+  if (!existingSpot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
+
+  } else if (currentUser.id !== existingSpot.ownerId) {
+    res.status(403);
+    return res.json({ "message": "Forbidden" });
+
+  } else {
+    let { address, city, state, country, lat, lng, name, description, price } = req.body;
+
+    let editSpot = await Spot.findOne({
+      where: {
+        id: spotId,
+        ownerId: currentUser.id
+      }
+    });
+
+    let errors = {};
+    if (!address) errors.address = "Street address is required";
+    if (!city) errors.city = "City is required";
+    if (!state) errors.state = "State is required";
+    if (!country) errors.country = "Countryt is required";
+    if (!lat || isNaN(lat)) errors.lat = "Latitude is invalid";
+    if (!lng || isNaN(lng)) errors.lng = "Longitude is invalid";
+    if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
+    if (!description) errors.description = "Description is required";
+    if (!price || isNaN(price)) errors.price = "Price per day is required and must be a number";
+
+    if (Object.keys(errors).length > 0) {
+      res.status(400);
+      return res.json({
+        "message": "Bad Request",
+        errors
+      })
+    }
+
+    editSpot.address = address;
+    editSpot.city = city;
+    editSpot.country = country;
+    editSpot.lat = lat;
+    editSpot.lng = lng;
+    editSpot.name = name;
+    editSpot.description = description;
+    editSpot.price = price;
+
+    await editSpot.save();
+    res.status(200);
+    return res.json(editSpot);
   }
-
-  let errors = {};
-  if (!address) errors.address = "Street address is required";
-  if (!city) errors.city = "City is required";
-  if (!state) errors.state = "State is required";
-  if (!country) errors.country = "Countryt is required";
-  if (!lat || isNaN(lat)) errors.lat = "Latitude is invalid";
-  if (!lng || isNaN(lng)) errors.lng = "Longitude is invalid";
-  if (!name) errors.name = "Name must be less than 50 characters";
-  if (!description) errors.description = "Description is required";
-  if (!price || isNaN(price)) errors.price = "Price per day is required";
-
-  if (Object.keys(errors).length > 0) {
-    res.status(400);
-    return res.json({
-      "message": "Bad Request",
-      errors
-    })
-  }
-
-  editSpot.address = address;
-  editSpot.city = city;
-  editSpot.country = country;
-  editSpot.lat = lat;
-  editSpot.lng = lng;
-  editSpot.name = name;
-  editSpot.description = description;
-  editSpot.price = price;
-
-  await editSpot.save();
-  res.status(200);
-  return res.json(editSpot);
 });
 
 
@@ -347,19 +354,25 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
   let currentUser = req.user
   let spotId = req.params.spotId;
 
-  let spot = await Spot.findOne({
-    where: {
-      id: spotId,
-      ownerId: currentUser.id
-    }
-  });
-
-  let { url, preview } = req.body;
-
-  if (!spot) {
+  let existingSpot = await Spot.findByPk(spotId);
+  if (!existingSpot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
+
+  } else if (currentUser.id !== existingSpot.ownerId) {
+    res.status(403);
+    return res.json({ "message": "Forbidden" });
+
   } else {
+    existingSpot = await Spot.findOne({
+      where: {
+        id: spotId,
+        ownerId: currentUser.id
+      }
+    });
+
+    let { url, preview } = req.body;
+
     let postImage = await SpotImage.create({
       spotId, url, preview
     });
@@ -399,7 +412,7 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
 
   let errors = {};
   if (!review) errors.review = "Review text is required";
-  if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
+  if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Stars must be an integer from 1 to 5";
   if (Object.keys(errors).length > 0) {
     res.status(400);
     return res.json({
@@ -416,7 +429,7 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
       spotId, userId: currentUser.id, review, stars
     });
     res.status(201);
-    return res.json({ createReview });
+    return res.json(createReview);
   }
 });
 
@@ -444,8 +457,12 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
       errors.startDate = "Start date conflicts with an existing booking";
 
     } else if (new Date(endDate) >= new Date(booking[key].startDate) &&
-      new Date(startDate) <= new Date(booking[key].endDate)) {
+      new Date(endDate) <= new Date(booking[key].endDate)) {
       errors.endDate = "End date conflicts with an existing booking";
+
+    } else if (new Date(booking[key].startDate) >= new Date(startDate) &&
+      new Date(booking[key].endDate) <= new Date(endDate)) {
+      errors.conflicts = "Start date and end date conflict with an existing booking"
     }
   }
 
@@ -462,7 +479,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
     return res.json({ "message": "Spot could not be found" });
 
   } else if (spot.ownerId === currentUser.id) {
-    res.status(500);
+    res.status(403);
     return res.json({ "message": "You cannot book your own spot" });
 
   } else if (new Date(startDate) >= new Date(endDate)) {
@@ -488,18 +505,24 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let spotId = req.params.spotId;
 
-  let deleteSpot = await Spot.findOne({
-    where: {
-      id: spotId,
-      ownerId: currentUser.id
-    }
-  });
-
-  if (!deleteSpot) {
+  let existingSpot = await Spot.findByPk(spotId);
+  if (!existingSpot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
+
+  } else if (currentUser.id !== existingSpot.ownerId) {
+    res.status(403);
+    return res.json({ "message": "Forbidden" });
+
   } else {
-    await deleteSpot.destroy();
+    existingSpot = await Spot.findOne({
+      where: {
+        id: spotId,
+        ownerId: currentUser.id
+      }
+    });
+
+    await existingSpot.destroy();
     res.status(200);
     return res.json({ "message": "Spot successfully deleted" });
   }
