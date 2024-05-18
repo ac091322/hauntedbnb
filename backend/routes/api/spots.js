@@ -450,7 +450,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   let { startDate, endDate } = req.body
   let errors = {};
 
-  for (const key in booking) {
+  for (let key in booking) {
     // console.log("CONSOLE.LOG:", new Date(booking[key].startDate));
     if (new Date(startDate) >= new Date(booking[key].startDate) &&
       new Date(startDate) <= new Date(booking[key].endDate)) {

@@ -40,8 +40,6 @@ router.put("/:bookingId", requireAuth, async (req, res) => {
     return res.json({ "message": "Forbidden" });
 
   } else {
-    let { startDate, endDate } = req.body;
-
     existingBooking = await Booking.findOne({
       where: {
         id: bookingId,
@@ -49,8 +47,8 @@ router.put("/:bookingId", requireAuth, async (req, res) => {
       }
     });
 
+    let { startDate, endDate } = req.body;
     let currentDate = new Date();
-
     let errors = {};
 
     if (!startDate) errors.startDate = "Need startDate";
