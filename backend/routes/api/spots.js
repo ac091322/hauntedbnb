@@ -74,16 +74,20 @@ router.get("/", async (req, res) => {
 
   spotCcount = await Spot.count({});
 
-  if (!page || isNaN(page) || !size || isNaN(size)) {
+  if (!page) {
     page = 1;
+  } else if (isNaN(page)) {
+    errors.page = "Page must be a number";
+  }
+
+  if (!size) {
     size = 20;
+  } else if (isNaN(size)) {
+    errors.size = "Size must be a number";
   }
-  if (page <= 0 || page > 10) {
-    errors.page = "Page must be greater than or equal to 1 and less than or equal to 10";
-  }
-  if (size <= 0 || size > 20) {
-    errors.size = "Size must be greater than or equal to 1 and less than or equal to 20";
-  }
+
+  if (page <= 0 || page > 10) errors.page = "Page must be greater than or equal to 1 and less than or equal to 10";
+  if (size <= 0 || size > 20) errors.size = "Size must be greater than or equal to 1 and less than or equal to 20";
 
   page = parseInt(page);
   size = parseInt(size);
@@ -138,11 +142,6 @@ router.get("/", async (req, res) => {
     }
   }
 
-  let allSpots = await Spot.findAll({
-    where,
-    ...pagination
-  });
-
   if (Object.keys(errors).length > 0) {
     res.status(400);
     return res.json({
@@ -150,6 +149,11 @@ router.get("/", async (req, res) => {
       errors
     });
   }
+
+  let allSpots = await Spot.findAll({
+    where,
+    ...pagination
+  });
 
   res.status(200);
   return res.json({
