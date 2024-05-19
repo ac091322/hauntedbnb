@@ -452,18 +452,21 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   let errors = {};
 
   for (let key in booking) {
-    // console.log("CONSOLE.LOG:", new Date(booking[key].startDate));
-    if (new Date(startDate) >= new Date(booking[key].startDate) &&
+    if (new Date(booking[key].startDate) > new Date(startDate) &&
+      new Date(booking[key].endDate) < new Date(endDate)) {
+      errors.conflicts = "Start date and end date conflict with an existing booking"
+
+    } else if (new Date(booking[key].startDate) <= new Date(startDate) &&
+      new Date(booking[key].endDate) >= new Date(endDate)) {
+      errors.conflicts = "Start date and end date conflict with an existing booking"
+
+    } else if (new Date(startDate) >= new Date(booking[key].startDate) &&
       new Date(startDate) <= new Date(booking[key].endDate)) {
       errors.startDate = "Start date conflicts with an existing booking";
 
     } else if (new Date(endDate) >= new Date(booking[key].startDate) &&
       new Date(endDate) <= new Date(booking[key].endDate)) {
       errors.endDate = "End date conflicts with an existing booking";
-
-    } else if (new Date(booking[key].startDate) >= new Date(startDate) &&
-      new Date(booking[key].endDate) <= new Date(endDate)) {
-      errors.conflicts = "Start date and end date conflict with an existing booking"
     }
   }
 
@@ -491,7 +494,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
       errors
     });
 
-  } else if (new Date(startDate) < currentDate || new Date(endDate) <= currentDate) {
+  } else if (new Date(startDate) <= currentDate || new Date(endDate) <= currentDate) {
     errors.pastDates = "Cannot book past dates"
     res.status(403);
     return res.json({
