@@ -270,9 +270,9 @@ router.post("/", requireAuth, async (req, res) => {
   if (!country) errors.country = "Countryt is required";
   if (!lat || isNaN(lat)) errors.lat = "Latitude is invalid";
   if (!lng || isNaN(lng)) errors.lng = "Longitude is invalid";
-  if (!name) errors.name = "Name must be less than 50 characters";
+  if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
   if (!description) errors.description = "Description is required";
-  if (!price || isNaN(price)) errors.price = "Price per day is required";
+  if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
 
   if (Object.keys(errors).length > 0) {
     res.status(400);
@@ -323,7 +323,7 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     if (!lng || isNaN(lng)) errors.lng = "Longitude is invalid";
     if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
     if (!description) errors.description = "Description is required";
-    if (!price || isNaN(price)) errors.price = "Price per day is required and must be a number";
+    if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
 
     if (Object.keys(errors).length > 0) {
       res.status(400);
@@ -448,6 +448,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   });
 
   let { startDate, endDate } = req.body
+  let currentDate = new Date();
   let errors = {};
 
   for (let key in booking) {
@@ -475,7 +476,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   }
 
   if (!spot) {
-    res.status(400);
+    res.status(404);
     return res.json({ "message": "Spot could not be found" });
 
   } else if (spot.ownerId === currentUser.id) {
@@ -489,6 +490,14 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
       "message": "Bad Request",
       errors
     });
+
+  } else if (new Date(startDate) < currentDate || new Date(endDate) <= currentDate) {
+    errors.pastDates = "Cannot book past dates"
+    res.status(403);
+    return res.json({
+      "message": "Bad Request",
+      errors
+    })
 
   } else {
     let createBooking = await Booking.create({
