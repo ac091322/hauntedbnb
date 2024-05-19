@@ -28,12 +28,12 @@ router.delete("/:imageId", requireAuth, async (req, res) => {
 
     if (!review) {
       res.status(403);
-      res.json({ "message": "Forbidden" });
+      return res.json({ "message": "Forbidden" });
 
     } else {
       await image.destroy();
       res.status(200);
-      res.json({ "message": "Review image successfully deleted" });
+      return res.json({ "message": "Review image successfully deleted" });
     }
   }
 });
