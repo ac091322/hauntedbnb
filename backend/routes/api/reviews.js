@@ -112,17 +112,8 @@ router.post("/:reviewId/images", requireAuth, async (req, res) => {
       });
 
       res.status(200);
-      return res.json({
-        reviewImageId: postImage.id,
-        reviewId: review.id,
-        userId: currentUser.id,
-        spotId: review.spotId,
-        review: review.review,
-        stars: review.stars,
-        url: url,
-        createdAt: postImage.createdAt,
-        updatedAt: postImage.updatedAt
-      });
+      return res.json(postImage);
+
     } else {
       res.status(403);
       return res.json({ "message": "Maximum number of images for this resource reached" });
