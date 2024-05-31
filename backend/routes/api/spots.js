@@ -236,7 +236,7 @@ router.get("/:spotId", async (req, res) => {
 
 
 //get all reviews of a spot
-router.get("/:spotId/reviews", requireAuth, async (req, res) => {
+router.get("/:spotId/reviews", async (req, res) => {
   let spotId = req.params.spotId;
   let spot = await Spot.findByPk(spotId);
   if (!spot) {
