@@ -57,7 +57,7 @@ router.post('/', validateSignup, async (req, res) => {
 );
 
 
-//find all users
+//find all users (own route)
 router.get("/all", async (req, res) => {
   let allUsers = await User.findAll();
   res.status(200);
@@ -65,7 +65,7 @@ router.get("/all", async (req, res) => {
 });
 
 
-// delete a user
+// delete a user (own route)
 router.delete("/:userId", async (req, res) => {
   let userId = req.params.userId;
   let deleteUser = await User.findByPk(userId);
