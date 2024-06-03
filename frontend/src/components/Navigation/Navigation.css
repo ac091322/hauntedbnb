@@ -1,7 +1,32 @@
+#header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#profile-button {
+  font-size: 2em;
+  color: #FF385C;
+}
+
 .profile-dropdown {
   position: absolute;
+  top: 70px;
+  list-style-type: none;
+  text-align: center;
+  border: 2px solid gray;
+  padding: 0 10px;
 }
 
 .hidden {
   display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
 }

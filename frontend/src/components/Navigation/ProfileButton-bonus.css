@@ -1,0 +1,13 @@
+#account-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.drop-down-container{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 5px;
+  padding: 10px 0;
+}
