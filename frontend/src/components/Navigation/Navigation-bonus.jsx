@@ -10,7 +10,7 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav id="header-container">
-      <NavLink to="/"><img src={logo} id="logo" style={{ height: "50px" }}></img></NavLink>
+      <NavLink to="/"><img src={logo} id="logo"></img></NavLink>
       {isLoaded && <ProfileButton id="profile-button" user={sessionUser} />}
     </nav>
   );

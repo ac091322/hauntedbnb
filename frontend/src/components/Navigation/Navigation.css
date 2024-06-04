@@ -1,11 +1,14 @@
 #header-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px
 }
 
 #profile-button {
   font-size: 2em;
   color: #FF385C;
+  margin-bottom: 5px;
 }
 
 .profile-dropdown {
@@ -13,18 +16,17 @@
   top: 70px;
   list-style-type: none;
   text-align: center;
-  border: 2px solid gray;
-  padding: 0 10px;
+  border: 1px solid gray;
+  z-index: 2;
+  background-color: white;
+}
+
+#logo {
+  height: 50px;
 }
 
 .hidden {
   display: none;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 li {

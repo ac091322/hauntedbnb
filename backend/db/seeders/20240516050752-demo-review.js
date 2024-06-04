@@ -13,7 +13,7 @@ module.exports = {
     await Review.bulkCreate([
       {
         spotId: 5,
-        userId: 1,
+        userId: 2,
         review: "This rental spot exceeded our expectations! The host was extremely accommodating, and the spot itself was even better than the photos. We had a fantastic time and would definitely stay here again.",
         stars: 5
       },
@@ -67,19 +67,19 @@ module.exports = {
       },
       {
         spotId: 9,
-        userId: 2,
+        userId: 3,
         review: "Unfortunately, our experience at this spot was not as expected. The cleanliness was lacking and the amenities were outdated. Disappointing.",
         stars: 2
       },
       {
         spotId: 9,
-        userId: 2,
+        userId: 5,
         review: "The spot was decent, but not as expected. Some amenities were lacking and the cleanliness could be improved. Overall, an average experience.",
         stars: 3
       },
       {
         spotId: 10,
-        userId: 2,
+        userId: 4,
         review: "Had a pleasant stay at this spot. The location was convenient and the spot had everything needed for a comfortable stay. Would recommend!",
         stars: 4
       },
@@ -235,37 +235,37 @@ module.exports = {
       },
       {
         spotId: 20,
-        userId: 5,
+        userId: 1,
         review: "Absolutely loved this spot! Everything was perfect, from the location to the amenities. Will definitely be returning!",
         stars: 5
       },
       {
         spotId: 10,
-        userId: 6,
+        userId: 5,
         review: "Had an amazing time at this spot! The location was perfect and the spot had everything we needed for a comfortable stay. Would definitely recommend!",
         stars: 5
       },
       {
         spotId: 17,
-        userId: 6,
+        userId: 5,
         review: "The spot was decent, but not as expected. Some amenities were lacking and the cleanliness could be improved. Overall, an average experience.",
         stars: 3
       },
       {
         spotId: 18,
-        userId: 6,
+        userId: 5,
         review: "Had a pleasant stay at this spot. The location was convenient and the spot had everything needed for a comfortable stay. Would recommend!",
         stars: 4
       },
       {
         spotId: 19,
-        userId: 6,
+        userId: 2,
         review: "Enjoyed our time at this spot. The host was welcoming and the spot was clean. However, some amenities could be improved. Overall, a good experience.",
         stars: 4
       },
       {
         spotId: 20,
-        userId: 6,
+        userId: 3,
         review: "Absolutely loved this spot! Everything was perfect, from the location to the amenities. Will definitely be returning!",
         stars: 5
       }
