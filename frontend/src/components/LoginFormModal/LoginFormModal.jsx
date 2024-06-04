@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './LoginForm.css';
+
 
 function LoginFormModal() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [validations, setValidations] = useState({});
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    let formErrors = {};
+    if (credential.length < 4) formErrors.credential = "Username must be 4 characters or more"
+    if (password.length < 6) formErrors.password = "Password must be 6 characters or more"
+    setValidations(formErrors);
+  }, [credential, password]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,32 +34,34 @@ function LoginFormModal() {
   };
 
   return (
-    <>
+    <div id="login-popup-container">
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.credential && <p>{errors.credential}</p>}
-        <button type="submit">Log In</button>
+      <form id="login-form-container" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+          placeholder=" Username or Email"
+          className="input-field"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          placeholder=" Password"
+          className="input-field"
+        />
+        <button type="submit"
+          className="input-field"
+          disabled={Object.values(validations).length > 0}
+          >Log In</button>
       </form>
-    </>
+      {errors.credential && <span>{errors.credential}</span>}
+    </div>
   );
 }
+
 
 export default LoginFormModal;
