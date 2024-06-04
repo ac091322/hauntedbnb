@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
@@ -7,11 +8,11 @@ import SignupFormModal from '../SignupFormModal';
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import "./ProfileButton-bonus.css";
 
-
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const navigate = useNavigate();
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // keep from bubbling up to document and triggering closeMenu
@@ -38,6 +39,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    navigate("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -48,7 +50,7 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="drop-down-container">
-            <li>Hello, {user.lastName}</li>
+            <li>Hello, {user.firstName}</li>
             <hr/>
             <li>Username: {user.username}</li>
             <hr/>

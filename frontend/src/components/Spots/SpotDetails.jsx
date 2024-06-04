@@ -28,7 +28,7 @@ const SpotDetails = () => {
             key={image.id}
             className={`small-image small-image-${index + 1}`}
             src={image.url}
-            alt={`small-spot-image ${index + 1}`}
+            alt={`small-spot-image}`}
           />
         ))}
       </div>
