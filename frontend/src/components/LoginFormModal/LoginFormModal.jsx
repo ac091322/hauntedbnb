@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './LoginForm.css';
-
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -56,9 +56,10 @@ function LoginFormModal() {
         <button type="submit"
           className="input-field"
           disabled={Object.values(validations).length > 0}
-          >Log In</button>
+        >Log In</button>
+        {errors.credential && <span id="invalid-credentials">{errors.credential}</span>}
+        <span>Log in as demo user</span>
       </form>
-      {errors.credential && <span>{errors.credential}</span>}
     </div>
   );
 }

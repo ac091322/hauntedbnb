@@ -21,3 +21,7 @@
   color: var(--primary-color);
   align-self: flex-start;
 }
+
+#invalid-credentials {
+  color: var(--primary-color)
+}
