@@ -13,302 +13,501 @@ module.exports = {
     await SpotImage.bulkCreate([
       {
         spotId: 1,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 1,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU61",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 1,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 2,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 2,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 2,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 3,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 3,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 3,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 4,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 4,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 4,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 5,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 5,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 5,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 6,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 6,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 6,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 7,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 7,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 7,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 8,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 8,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      }, {
+        spotId: 8,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 8,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 9,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 9,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 9,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 10,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 10,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 10,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 11,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 11,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 11,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 12,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 12,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 12,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 13,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
-        preview: true
-      },
-      {
-        spotId: 13,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 13,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://picsum.photos/300/300",
+        preview: true
+      },
+      {
+        spotId: 13,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 14,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 14,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 14,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 15,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 15,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 15,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 16,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 16,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 16,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 17,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 17,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 17,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 17,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 17,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 18,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 18,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 18,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 18,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 18,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 19,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 19,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 19,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 19,
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 19,
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 20,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 20,
+        url: "https://picsum.photos/300/300",
         preview: true
       },
       {
         spotId: 20,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
         preview: false
       },
       {
         spotId: 20,
-        url: "https://images.app.goo.gl/e2Q6ELh75e97dxHU6",
+        url: "https://picsum.photos/300/300",
+        preview: false
+      },
+      {
+        spotId: 20,
+        url: "https://picsum.photos/300/300",
         preview: false
       }
     ], { validate: true });

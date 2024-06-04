@@ -1,0 +1,110 @@
+#spot-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#spot-name {
+  margin-bottom: 20px;
+}
+
+#spot-address {
+  margin-bottom: 10px;
+}
+
+#spot-images-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "big small1 small2"
+    "big small3 small4";
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.big-image {
+  grid-area: big;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.small-image {
+  width: 100%;
+  height: 100%;
+}
+
+.small-image-1 {
+  grid-area: small1;
+}
+
+.small-image-2 {
+  grid-area: small2;
+  border-top-right-radius: 15px;
+}
+
+.small-image-3 {
+  grid-area: small3;
+}
+
+.small-image-4 {
+  grid-area: small4;
+  border-bottom-right-radius: 15px
+}
+
+#description-reviews-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "description reviews";
+    gap: 40px;
+}
+
+#spot-description {
+  grid-area: description;
+}
+
+#reviews-container {
+  grid-area: reviews;
+}
+
+#reviews-container{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "price number stars"
+  "button button button";
+  grid-row-gap: 10px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+#price-container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#spot-details-price{
+  font-size: 2em;
+}
+
+#number-of-reviews{
+  justify-self: end;
+  align-self: center;
+}
+
+#average-star-rating{
+  justify-self: end;
+  align-self: center;
+}
+
+#booking-button {
+  grid-area: button;
+  justify-self: center;
+  height: 30px;
+  width: 300px;
+}
