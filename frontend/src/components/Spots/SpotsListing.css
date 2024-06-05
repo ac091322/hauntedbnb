@@ -12,7 +12,7 @@
 }
 
 #spot-image {
-  border-radius: 25px;
+  border-radius: 15px;
   min-width: 100%;
   max-width: 100%;
   height: auto;
@@ -20,4 +20,15 @@
 
 #grid-container-parent{
   margin-bottom: 100px;
+}
+
+#spot-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+#tooltip{
+  padding-left: 5px;
+  font-size: 0.75rem;
+  position: absolute;
 }

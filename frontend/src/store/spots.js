@@ -68,7 +68,7 @@ export const spotsReducer = (state = initialState, action) => {
     }
 
     case LOAD_SPOT_DETAILS: {
-      const spotDetailsState = { ...state };
+      const spotDetailsState = { ...state};
       spotDetailsState[action.spot.id] = action.spot;
       return spotDetailsState;
     }
