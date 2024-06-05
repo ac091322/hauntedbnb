@@ -1,0 +1,23 @@
+#review-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#name-rating-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+#rating-star-container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#review-date {
+  font-size: 0.75em;
+  font-style: italic;
+}
