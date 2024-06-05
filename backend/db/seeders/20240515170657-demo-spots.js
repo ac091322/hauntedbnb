@@ -22,7 +22,7 @@ module.exports = {
         name: "Cozy Apartment in SF",
         description: "A cozy one-bedroom apartment in the heart of San Francisco.",
         price: 150.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=1",
         avgRating: null
       },
       {
@@ -36,7 +36,7 @@ module.exports = {
         name: "Stylish Apartment in Seattle",
         description: "A stylish apartment in downtown Seattle.",
         price: 180.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=2",
         avgRating: null
       },
       {
@@ -50,7 +50,7 @@ module.exports = {
         name: "Family House in Orlando",
         description: "A spacious house perfect for family vacations.",
         price: 280.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=3",
         avgRating: null
       },
       {
@@ -64,7 +64,7 @@ module.exports = {
         name: "Desert Oasis in Phoenix",
         description: "A beautiful desert oasis with a pool.",
         price: 240.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=4",
         avgRating: null
       },
       {
@@ -78,7 +78,7 @@ module.exports = {
         name: "Modern Loft in NYC",
         description: "A modern loft with stunning city views.",
         price: 550.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=5",
         avgRating: null
       },
       {
@@ -92,7 +92,7 @@ module.exports = {
         name: "Eclectic Home in Austin",
         description: "An eclectic home with a unique charm.",
         price: 320.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=6",
         avgRating: null
       },
       {
@@ -106,7 +106,7 @@ module.exports = {
         name: "Music City Condo in Nashville",
         description: "A condo located in the heart of Music City.",
         price: 790.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=7",
         avgRating: null
       },
       {
@@ -120,7 +120,7 @@ module.exports = {
         name: "Elegant Apartment in Charlotte",
         description: "An elegant apartment in a prime location.",
         price: 190.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=8",
         avgRating: null
       },
       {
@@ -134,7 +134,7 @@ module.exports = {
         name: "Charming Bungalow in Chicago",
         description: "A charming bungalow perfect for a weekend getaway.",
         price: 130.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=9",
         avgRating: null
       },
       {
@@ -147,8 +147,8 @@ module.exports = {
         lng: -104.9903,
         name: "Mountain Retreat in Denver",
         description: "A cozy retreat near the mountains.",
-        price: 200.00,
-        previewImage: "https://picsum.photos/300/300",
+        price: 205.00,
+        previewImage: "https://picsum.photos/300/300?random=10",
         avgRating: null
       },
       {
@@ -162,7 +162,7 @@ module.exports = {
         name: "Historic Apartment in Boston",
         description: "A historic apartment with modern amenities.",
         price: 230.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=11",
         avgRating: null
       },
       {
@@ -176,7 +176,7 @@ module.exports = {
         name: "Spacious Home in Houston",
         description: "A spacious home perfect for large groups.",
         price: 3270.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=12",
         avgRating: null
       },
       {
@@ -190,7 +190,7 @@ module.exports = {
         name: "Luxury Condo in LA",
         description: "A luxurious condo with a beautiful city view.",
         price: 300.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=13",
         avgRating: null
       },
       {
@@ -204,7 +204,7 @@ module.exports = {
         name: "Chic Studio in Portland",
         description: "A chic studio apartment in the trendy district.",
         price: 60.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=14",
         avgRating: null
       },
       {
@@ -218,7 +218,7 @@ module.exports = {
         name: "Quaint Home in Philadelphia",
         description: "A quaint home near historic sites.",
         price: 970.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=15",
         avgRating: null
       },
       {
@@ -232,7 +232,7 @@ module.exports = {
         name: "Beachfront Villa in Miami",
         description: "A luxurious beachfront villa with stunning ocean views.",
         price: 400.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=16",
         avgRating: null
       },
       {
@@ -245,8 +245,8 @@ module.exports = {
         lng: -118.2437,
         name: "Luxury Mansion in LA",
         description: "A luxurious mansion with panoramic views of Los Angeles.",
-        price: 1200.00,
-        previewImage: "https://picsum.photos/300/300",
+        price: 1300.00,
+        previewImage: "https://picsum.photos/300/300?random=17",
         avgRating: null
       },
       {
@@ -260,7 +260,7 @@ module.exports = {
         name: "Beachfront Condo in Santa Monica",
         description: "A luxurious beachfront condo with stunning ocean views.",
         price: 400.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=18",
         avgRating: null
       },
       {
@@ -274,7 +274,7 @@ module.exports = {
         name: "Modern Apartment in Miami",
         description: "A modern apartment located in the heart of Miami.",
         price: 450.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=19",
         avgRating: null
       },
       {
@@ -288,7 +288,7 @@ module.exports = {
         name: "Cliffhouse in Newport Beach",
         description: "A beautiful cliffhouse overlooing the bay.",
         price: 700.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=20",
         avgRating: null
       },
       {
@@ -302,7 +302,7 @@ module.exports = {
         name: "A seeder spot where I live",
         description: "This is a fake spot that you should book.",
         price: 100.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=21",
         avgRating: null
       },
       {
@@ -316,7 +316,7 @@ module.exports = {
         name: "The city where I used to work.",
         description: "I used to work in this over-priced city across the Bay.",
         price: 980.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=22",
         avgRating: null
       },
       {
@@ -330,7 +330,7 @@ module.exports = {
         name: "Nice quiet spot in Oakland.",
         description: "No shootings nearby, it's safe to book.",
         price: 10.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=23",
         avgRating: null
       },
       {
@@ -344,7 +344,7 @@ module.exports = {
         name: "Fake address.",
         description: "I don't think this address even exists.",
         price: 10.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=24",
         avgRating: null
       },
       {
@@ -358,7 +358,7 @@ module.exports = {
         name: "Fake house by the sea.",
         description: "Overlooking the bay, this fake spot is incredible.",
         price: 610.00,
-        previewImage: "https://picsum.photos/300/300",
+        previewImage: "https://picsum.photos/300/300?random=25",
         avgRating: null
       }
     ], { validate: true });
