@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
+import { LuDot } from "react-icons/lu";
 import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
 import Reviews from "../Reviews/Reviews";
@@ -30,9 +31,11 @@ const SpotDetails = () => {
   return (
     <>
       <div id="spot-details-container">
+
         <h2 id="spot-name">{spot.name}</h2>
         <h3 id="spot-location">{spot.city}, {spot.state}, {spot.country}</h3>
         <span id="spot-address">{spot.address}</span>
+
         <div id="images-container">
           {spot.SpotImages &&
             <img className="big-image" src={spot.SpotImages[0].url} alt="big-spot-image" />
@@ -52,28 +55,43 @@ const SpotDetails = () => {
             <h2 id="spot-host">Hosted by... { }</h2>
             <p id="spot-description">{spot.description}</p>
           </div>
-          <div id="reviews-container">
-            <div id="price-container">
-              <span id="spot-details-price">${spot.price}</span>
-              <span id="night-text">night</span>
+
+          <div id="reserve-container">
+            <div id="price-review-rating-container">
+              <div id="price-container">
+                <span id="spot-details-price">${spot.price}</span>
+                <span id="night-text">night</span>
+              </div>
+
+              <div id="rating-review-container">
+                <div id="star-rating-container">
+                  <span>{spot.avgStarRating}</span>
+                  <FaStar id="star-icon" />
+                </div>
+                <LuDot id="dot1" />
+                <span>{spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</span>
+              </div>
             </div>
-            <span id="number-of-reviews">{spot.numReviews} reviews</span>
-            <div id="star-rating-container">
-              <span>{spot.avgStarRating}</span>
-              <FaStar id="star-icon" />
-            </div>
-            <button id="booking-button"
+
+            <button
+              id="booking-button"
               type="button"
               onClick={() => setShowPopup(true)}
             >Reserve</button>
           </div>
+
         </div>
+
       </div>
 
-      {showPopup && <div id="popup-container">
-        <div id="inner-popup-container">
+      {showPopup && <div id="popup-container" onClick={() => setShowPopup(false)}>
+        <div
+          id="inner-popup-container"
+          onClick={e => { e.stopPropagation() }}
+        >
           <div>Feature coming soon!</div>
-          <button id="close-button"
+          <button
+            id="close-button"
             onClick={() => setShowPopup(false)}
           >Close</button>
         </div>
@@ -81,6 +99,14 @@ const SpotDetails = () => {
       }
 
       <hr id="description-review-separator" />
+
+      <div id="ratings-container">
+        <span>{spot.avgStarRating}</span>
+        <FaStar id="star-icon" />
+        <span>out of 5 stars</span>
+        <LuDot id="dot2" />
+        <span>{spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</span>
+      </div>
 
       {reviews.map(review => (
         <Reviews review={review} key={review.id} />

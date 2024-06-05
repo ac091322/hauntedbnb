@@ -68,48 +68,53 @@
   gap: 10px;
 }
 
-#reviews-container {
-  grid-area: reviews;
-}
-
-#reviews-container {
+#reserve-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
-    "price number stars"
-    "button button button";
+    "price"
+    "button";
   grid-row-gap: 10px;
   border: 2px solid gray;
   border-radius: 15px;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 40px 20px 40px;
+}
+
+#price-review-rating-container {
+  grid-area: price;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #price-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 #spot-details-price {
   font-size: 2em;
 }
 
-#number-of-reviews {
-  justify-self: end;
-  align-self: center;
+#rating-review-container {
+  display: flex;
+  align-items: center;
 }
 
-#star-rating-container {
+#star-rating-container{
   display: flex;
-  justify-self: end;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 #star-icon {
   font-size: 1.5em;
-  margin-bottom: 2px;
+}
+
+#dot1 {
+  font-size: 3em;
 }
 
 #booking-button {
@@ -131,9 +136,10 @@
   flex-direction: column;
   gap: 20px;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
 }
 
-#inner-popup-container{
+#inner-popup-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,11 +149,23 @@
   padding: 40px 40px;
 }
 
-#close-button{
+#close-button {
   height: 30px;
   width: 200px;
 }
 
-#description-review-separator{
+#description-review-separator {
   margin-top: 40px;
+}
+
+#ratings-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 40px 0 20px 0;
+  font-size: 2em;
+}
+
+#dot2 {
+  font-size: 2em;
 }

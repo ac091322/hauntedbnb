@@ -50,6 +50,7 @@ function LoginFormModal() {
     <div id="login-popup-container">
       <h1>Log In</h1>
       <form id="login-form-container" onSubmit={handleSubmit}>
+
         <input
           type="text"
           value={credential}
@@ -58,6 +59,7 @@ function LoginFormModal() {
           placeholder=" Username or Email"
           className="input-field"
         />
+
         <input
           type="password"
           value={password}
@@ -66,16 +68,22 @@ function LoginFormModal() {
           placeholder=" Password"
           className="input-field"
         />
+
         {errors.credential && <span id="invalid-credentials">{errors.credential}</span>}
-        <button type="submit"
+
+        <button
+          type="submit"
           className="input-field"
           disabled={Object.values(validations).length > 0}
         >Log In</button>
-        <button id="demo-user-button"
+
+        <button
+          id="demo-user-button"
           type="submit"
           className="input-field"
           onClick={(e) => handleSubmit(e, true)}
         >Log in as Demo User</button>
+
       </form>
     </div>
   );

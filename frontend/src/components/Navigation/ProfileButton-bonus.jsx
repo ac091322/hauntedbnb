@@ -8,6 +8,7 @@ import SignupFormModal from '../SignupFormModal';
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import "./ProfileButton-bonus.css";
 
+
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -51,11 +52,11 @@ function ProfileButton({ user }) {
         {user ? (
           <div className="drop-down-container">
             <li>Hello, {user.firstName}</li>
-            <hr/>
+            <hr />
             <li>Username: {user.username}</li>
-            <hr/>
+            <hr />
             <li>{user.email}</li>
-            <hr/>
+            <hr />
             <button id="logout-button" onClick={logout}>Log out</button>
           </div>
         ) : (
@@ -65,7 +66,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
-            <hr/>
+            <hr />
             <OpenModalMenuItem
               itemText="Sign up"
               onItemClick={closeMenu}

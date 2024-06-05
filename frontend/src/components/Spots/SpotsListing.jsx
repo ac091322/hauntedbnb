@@ -5,7 +5,7 @@ import { getAllSpots } from "../../store/spots";
 import "./SpotsListing.css"
 
 
-const SpotsListing = ({avgStarRating}) => {
+const SpotsListing = ({ avgStarRating }) => {
 
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
@@ -19,6 +19,7 @@ const SpotsListing = ({avgStarRating}) => {
 
   return (
     <div id="spot-container">
+
       {spots.map(spot => (
         <div key={spot.id}
           onMouseEnter={() => setVisibleSpotId(spot.id)}
@@ -32,7 +33,9 @@ const SpotsListing = ({avgStarRating}) => {
               <span id="rating" className="spot-text">{avgStarRating}</span>
             </div>
           </Link>
+
           {visibleSpotId === spot.id && <span id="tooltip">{spot.name}</span>}
+
         </div>
       ))}
     </div>
