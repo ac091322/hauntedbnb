@@ -5,7 +5,8 @@ import { getAllSpots } from "../../store/spots";
 import "./SpotsListing.css"
 
 
-const SpotsListing = () => {
+const SpotsListing = ({avgStarRating}) => {
+
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const SpotsListing = () => {
             <div className="spot-content-container">
               <span id="location" className="spot-text">{spot.city}, {spot.state}</span>
               <span id="price" className="spot-text">${spot.price} night</span>
-              <span id="rating" className="spot-text">{spot.avgStarRating}</span>
+              <span id="rating" className="spot-text">{avgStarRating}</span>
             </div>
           </Link>
           {visibleSpotId === spot.id && <span id="tooltip">{spot.name}</span>}

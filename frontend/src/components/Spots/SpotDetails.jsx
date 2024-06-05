@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getASpot } from "../../store/spots";
-import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
+import { getASpot } from "../../store/spots";
+import { getSpotReviews } from "../../store/reviews";
+import Reviews from "../Reviews/Reviews";
 import "./SpotDetails.css";
 
 
 const SpotDetails = () => {
   const { spotId } = useParams();
   const spot = useSelector(state => state.spots[spotId]);
-  const dispatch = useDispatch();
 
+  const reviewsObj = useSelector(state => state.reviews);
+  const reviews = Object.values(reviewsObj);
+
+  const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    dispatch(getASpot(spotId));
+    dispatch(getASpot(spotId)).then(() => (dispatch(getSpotReviews(spotId))));
   }, [dispatch, spotId]);
+
+
+  if (!spot) {
+    return <span>Loading...</span>;
+  }
 
   return (
     <>
@@ -24,7 +33,7 @@ const SpotDetails = () => {
         <h2 id="spot-name">{spot.name}</h2>
         <h3 id="spot-location">{spot.city}, {spot.state}, {spot.country}</h3>
         <span id="spot-address">{spot.address}</span>
-        <div id="spot-images-container">
+        <div id="images-container">
           {spot.SpotImages &&
             <img className="big-image" src={spot.SpotImages[0].url} alt="big-spot-image" />
           }
@@ -37,6 +46,7 @@ const SpotDetails = () => {
             />
           ))}
         </div>
+
         <div id="description-reviews-container">
           <div id="description-container">
             <h2 id="spot-host">Hosted by... { }</h2>
@@ -58,16 +68,23 @@ const SpotDetails = () => {
             >Reserve</button>
           </div>
         </div>
-        {showPopup && <div id="popup-container">
-          <div id="inner-popup-container">
-            <div>Feature coming soon!</div>
-            <button id="close-button"
-              onClick={() => setShowPopup(false)}
-            >Close</button>
-          </div>
-        </div>
-        }
       </div>
+
+      {showPopup && <div id="popup-container">
+        <div id="inner-popup-container">
+          <div>Feature coming soon!</div>
+          <button id="close-button"
+            onClick={() => setShowPopup(false)}
+          >Close</button>
+        </div>
+      </div>
+      }
+
+      <hr id="description-review-separator" />
+
+      {reviews.map(review => (
+        <Reviews review={review} key={review.id} />
+      ))}
     </>
   );
 }

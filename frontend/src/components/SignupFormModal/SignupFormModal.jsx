@@ -30,9 +30,9 @@ function SignupFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors({});
 
     if (password === confirmPassword) {
-      setErrors({});
       return dispatch(
         sessionActions.signup({
           email,
