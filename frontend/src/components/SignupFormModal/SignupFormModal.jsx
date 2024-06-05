@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import * as sessionActions from '../../store/session';
@@ -14,13 +14,25 @@ function SignupFormModal() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [validations, setValidations] = useState({});
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    let formErrors = {};
+    if (!email) formErrors.email = "Email cannot be empty"
+    if (!username) formErrors.username = "Username cannot be empty"
+    if (!firstName) formErrors.firstName = "First Name cannot be empty"
+    if (!lastName) formErrors.lastName = "Last Name cannot be empty"
+    if (!password) formErrors.password = "Password cannot be empty"
+    if (!confirmPassword) formErrors.confirmPassword = "Confirm Password cannot be empty"
+    setValidations(formErrors);
+  }, [email, username, firstName, lastName, password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors({});
 
     if (password === confirmPassword) {
-      setErrors({});
       return dispatch(
         sessionActions.signup({
           email,
@@ -47,6 +59,7 @@ function SignupFormModal() {
     <div id="signup-popup-container">
       <h1>Sign Up</h1>
       <form id="signup-form-container" onSubmit={handleSubmit}>
+
         <input
           type="text"
           className="input-field"
@@ -56,6 +69,7 @@ function SignupFormModal() {
           required
         />
         {errors.email && <span>{errors.email}</span>}
+
         <input
           type="text"
           className="input-field"
@@ -65,6 +79,7 @@ function SignupFormModal() {
           required
         />
         {errors.username && <span>{errors.username}</span>}
+
         <input
           type="text"
           className="input-field"
@@ -73,6 +88,7 @@ function SignupFormModal() {
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
+
         {errors.firstName && <span>{errors.firstName}</span>}
         <input
           type="text"
@@ -83,6 +99,7 @@ function SignupFormModal() {
           required
         />
         {errors.lastName && <span>{errors.lastName}</span>}
+
         <input
           type="password"
           className="input-field"
@@ -92,6 +109,7 @@ function SignupFormModal() {
           required
         />
         {errors.password && <span>{errors.password}</span>}
+
         <input
           type="password"
           className="input-field"
@@ -101,12 +119,17 @@ function SignupFormModal() {
           required
         />
         {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
-        <button type="submit"
-        className="input-field"
+
+        <button
+          type="submit"
+          className="input-field"
+          disabled={Object.values(validations).length > 0}
         >Sign up</button>
+
       </form>
     </div>
   );
 }
+
 
 export default SignupFormModal;

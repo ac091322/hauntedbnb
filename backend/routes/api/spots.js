@@ -53,6 +53,7 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
 
     res.status(200);
     return res.json({ "Bookings": bookings })
+
   } else {
     bookings = await Booking.findAll({
       where: { spotId: spotId },

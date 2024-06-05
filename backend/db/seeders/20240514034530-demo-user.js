@@ -13,38 +13,38 @@ module.exports = {
     options.tableName = "Users";
     await User.bulkCreate([
       {
-        username: 'HomerS',
-        email: 'homer@gmail.com',
-        firstName: "Homer",
-        lastName: "Simpson",
+        username: 'Demo-User',
+        email: 'demo-user@hauntedbnb.io',
+        firstName: "Demo",
+        lastName: "User",
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        username: 'MargeS',
-        firstName: "Marge",
-        lastName: "Simpson",
-        email: 'marge@gmail.com',
+        username: 'DelphineL',
+        firstName: "Delphine",
+        lastName: "LaLaurie",
+        email: 'delphine@horror.story',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        username: 'BartS',
-        firstName: "Bart",
-        lastName: "Simpson",
-        email: 'bart@gmail.com',
+        username: 'MyrtleS',
+        firstName: "Myrtle",
+        lastName: "Snow",
+        email: 'myrtle@horror.story',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        username: 'LisaS',
-        firstName: "Lisa",
-        lastName: "Simpson",
-        email: 'lisa@gmail.com',
+        username: 'FionaG',
+        firstName: "Fiona",
+        lastName: "Goode",
+        email: 'fiona@horror.story',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        username: 'MaggieS',
-        firstName: "Maggie",
-        lastName: "Simpson",
-        email: 'maggie@gmail.com',
+        username: 'MadisonM',
+        firstName: "Madison",
+        lastName: "Montgomery",
+        email: 'madison@horror.story',
         hashedPassword: bcrypt.hashSync('password')
       }
     ], { validate: true });

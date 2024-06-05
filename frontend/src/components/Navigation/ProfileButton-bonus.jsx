@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
@@ -12,6 +13,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const navigate = useNavigate();
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // keep from bubbling up to document and triggering closeMenu
@@ -38,6 +40,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    navigate("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -48,13 +51,13 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="drop-down-container">
-            <li>Hello, {user.lastName}</li>
-            <hr/>
+            <li>Hello, {user.firstName}</li>
+            <hr />
             <li>Username: {user.username}</li>
-            <hr/>
+            <hr />
             <li>{user.email}</li>
-            <hr/>
-            <button onClick={logout}>Log Out</button>
+            <hr />
+            <button id="logout-button" onClick={logout}>Log out</button>
           </div>
         ) : (
           <div className="drop-down-container">
@@ -63,7 +66,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
-            <hr/>
+            <hr />
             <OpenModalMenuItem
               itemText="Sign up"
               onItemClick={closeMenu}

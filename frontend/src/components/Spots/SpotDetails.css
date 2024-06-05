@@ -11,7 +11,7 @@
   margin-bottom: 10px;
 }
 
-#spot-images-container {
+#images-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: repeat(2, 1fr);
@@ -58,48 +58,63 @@
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
     "description reviews";
-    gap: 40px;
+  gap: 40px;
 }
 
-#spot-description {
+#description-container {
   grid-area: description;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#reviews-container {
-  grid-area: reviews;
-}
-
-#reviews-container{
+#reserve-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
-  "price number stars"
-  "button button button";
+    "price"
+    "button";
   grid-row-gap: 10px;
   border: 2px solid gray;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px 40px 20px 40px;
 }
 
-#price-container{
+#price-review-rating-container {
+  grid-area: price;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: space-between;
 }
 
-#spot-details-price{
+#price-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#spot-details-price {
   font-size: 2em;
 }
 
-#number-of-reviews{
-  justify-self: end;
-  align-self: center;
+#rating-review-container {
+  display: flex;
+  align-items: center;
 }
 
-#average-star-rating{
-  justify-self: end;
-  align-self: center;
+#star-rating-container{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#star-icon {
+  font-size: 1.5em;
+}
+
+#dot1 {
+  font-size: 3em;
 }
 
 #booking-button {
@@ -107,4 +122,50 @@
   justify-self: center;
   height: 30px;
   width: 300px;
+}
+
+#popup-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+#inner-popup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  padding: 40px 40px;
+}
+
+#close-button {
+  height: 30px;
+  width: 200px;
+}
+
+#description-review-separator {
+  margin-top: 40px;
+}
+
+#ratings-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 40px 0 20px 0;
+  font-size: 2em;
+}
+
+#dot2 {
+  font-size: 2em;
 }

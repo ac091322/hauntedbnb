@@ -13,7 +13,7 @@ export const loadSpotDetails = (spot) => {
     type: LOAD_SPOT_DETAILS,
     spot
   }
-}
+};
 
 export const getAllSpots = () => async (dispatch) => {
   try {
@@ -33,7 +33,7 @@ export const getAllSpots = () => async (dispatch) => {
     console.error(err);
     return err;
   }
-}
+};
 
 export const getASpot = (spotId) => async (dispatch) => {
   try {
@@ -42,6 +42,7 @@ export const getASpot = (spotId) => async (dispatch) => {
     });
     if (res.ok) {
       const aSpot = await res.json();
+
       dispatch(loadSpotDetails(aSpot));
       return aSpot;
     } else {
@@ -52,7 +53,7 @@ export const getASpot = (spotId) => async (dispatch) => {
     console.error(err);
     return err;
   }
-}
+};
 
 let initialState = {};
 
@@ -69,7 +70,7 @@ export const spotsReducer = (state = initialState, action) => {
 
     case LOAD_SPOT_DETAILS: {
       const spotDetailsState = { ...state };
-      spotDetailsState[action.spot.id] = action.spot; // Updated to handle a single spot
+      spotDetailsState[action.spot.id] = action.spot;
       return spotDetailsState;
     }
 
