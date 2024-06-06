@@ -48,6 +48,7 @@ const ReviewForm = ({ spotId, onClose }) => {
       >
         <h2>How was your stay?</h2>
         <form id="review-form-container" onSubmit={handleSubmit}>
+
           <textarea
             id="review-text-area"
             placeholder="Leave your review here..."
@@ -59,35 +60,40 @@ const ReviewForm = ({ spotId, onClose }) => {
           <div id="blood-rating-container">
             <span>Blood-drop rating:</span>
             <div className="rating-input">
-              <div className={hoverRating >= 1 || rating >= 1 ? "filled" : "empty"}
+              <div
+                className={hoverRating >= 1 || rating >= 1 ? "filled" : "empty"}
                 onMouseEnter={() => setHoverRating(1)}
                 onMouseLeave={() => setHoverRating(0)}
                 onClick={() => handleIconClick(1)}
               >
                 <TbDropletFilled className="blood-icon-position" />
               </div>
-              <div className={hoverRating >= 2 || rating >= 2 ? "filled" : "empty"}
+              <div
+                className={hoverRating >= 2 || rating >= 2 ? "filled" : "empty"}
                 onMouseEnter={() => setHoverRating(2)}
                 onMouseLeave={() => setHoverRating(0)}
                 onClick={() => handleIconClick(2)}
               >
                 <TbDropletFilled className="blood-icon-position" />
               </div>
-              <div className={hoverRating >= 3 || rating >= 3 ? "filled" : "empty"}
+              <div
+                className={hoverRating >= 3 || rating >= 3 ? "filled" : "empty"}
                 onMouseEnter={() => setHoverRating(3)}
                 onMouseLeave={() => setHoverRating(0)}
                 onClick={() => handleIconClick(3)}
               >
                 <TbDropletFilled className="blood-icon-position" />
               </div>
-              <div className={hoverRating >= 4 || rating >= 4 ? "filled" : "empty"}
+              <div
+                className={hoverRating >= 4 || rating >= 4 ? "filled" : "empty"}
                 onMouseEnter={() => setHoverRating(4)}
                 onMouseLeave={() => setHoverRating(0)}
                 onClick={() => handleIconClick(4)}
               >
                 <TbDropletFilled className="blood-icon-position" />
               </div>
-              <div className={hoverRating >= 5 || rating >= 5 ? "filled" : "empty"}
+              <div
+                className={hoverRating >= 5 || rating >= 5 ? "filled" : "empty"}
                 onMouseEnter={() => setHoverRating(5)}
                 onMouseLeave={() => setHoverRating(0)}
                 onClick={() => handleIconClick(5)}
@@ -95,7 +101,6 @@ const ReviewForm = ({ spotId, onClose }) => {
                 <TbDropletFilled className="blood-icon-position" />
               </div>
             </div>
-
           </div>
           {Object.values(validations).length > 0 && <span className="review-error-text">{validations.rating}</span>}
 
@@ -111,6 +116,7 @@ const ReviewForm = ({ spotId, onClose }) => {
               Submit
             </button>
           </div>
+
         </form>
       </div >
     </div >

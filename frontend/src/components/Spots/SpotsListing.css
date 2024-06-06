@@ -5,7 +5,7 @@
   row-gap: 4%;
 }
 
-#spot-content-container{
+#spot-content-container {
   display: flex;
   justify-content: space-between;
 }

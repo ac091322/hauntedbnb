@@ -125,7 +125,10 @@ const SpotDetails = (rating) => {
             )}
         </div>
 
-        {spot.numReviews === 0 && currentUser && currentUser.id !== spot.ownerId ? <span>Be the first to post a review!</span> : <></>}
+        {spot.numReviews === 0 && currentUser && currentUser.id !== spot.ownerId ?
+          <span>Be the first to post a review!</span>
+          :
+          <></>}
 
         {reviews.some(review => (
           review.userId === currentUser?.id && review.spotId === spotId
@@ -149,17 +152,14 @@ const SpotDetails = (rating) => {
           initialRating={activeRating}
           onClose={() => setShowReviewPopup(false)}
         />
-      )
-      }
+      )}
 
-      {
-        reviews.map(review => (
-          review.spotId === spot.id ?
-            <Reviews review={review} key={review.id} />
-            :
-            <></>
-        ))
-      }
+      {reviews.map(review => (
+        review.spotId === spot.id ?
+          <Reviews review={review} key={review.id} />
+          :
+          <></>
+      ))}
     </>
   );
 }

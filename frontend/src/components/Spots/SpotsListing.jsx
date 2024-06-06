@@ -28,7 +28,9 @@ const SpotsListing = () => {
   return (
     <div id="spot-container">
       {spots.map(spot => (
-        <div key={spot.id}
+        <div
+          id="individual-spot-container"
+          key={spot.id}
           onMouseEnter={() => handleMouseEnter(spot.id)}
           onMouseOut={handleMouseOut}
         >
