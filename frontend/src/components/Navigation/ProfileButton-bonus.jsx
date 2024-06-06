@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
@@ -47,18 +47,27 @@ function ProfileButton({ user }) {
 
   return (
     <div id="account-menu-container">
-      <RiAccountPinCircleLine id="profile-button" onClick={toggleMenu} />
+      <div id="create-spot-profile-container">
+        {user && (
+          <><Link to="" id="create-spot-link">
+            Create a Spot
+          </Link></>
+        )}
+        <><RiAccountPinCircleLine id="profile-button" onClick={toggleMenu} /></>
+      </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <div className="drop-down-container">
-            <li>Hello, {user.firstName}</li>
-            <hr />
-            <li>Username: {user.username}</li>
-            <hr />
-            <li>{user.email}</li>
-            <hr />
-            <button id="logout-button" onClick={logout}>Log out</button>
-          </div>
+          <>
+            <div className="drop-down-container">
+              <li>Hello, {user.firstName}</li>
+              <hr />
+              <li>Username: {user.username}</li>
+              <hr />
+              <li>{user.email}</li>
+              <hr />
+              <button id="logout-button" onClick={logout}>Log out</button>
+            </div>
+          </>
         ) : (
           <div className="drop-down-container">
             <OpenModalMenuItem

@@ -23,7 +23,6 @@ module.exports = {
         description: "A cozy one-bedroom apartment in the heart of San Francisco.",
         price: 150.00,
         previewImage: "https://picsum.photos/300/300?random=1",
-        avgRating: null
       },
       {
         ownerId: 1,
@@ -37,7 +36,6 @@ module.exports = {
         description: "A stylish apartment in downtown Seattle.",
         price: 180.00,
         previewImage: "https://picsum.photos/300/300?random=2",
-        avgRating: null
       },
       {
         ownerId: 1,
@@ -51,7 +49,6 @@ module.exports = {
         description: "A spacious house perfect for family vacations.",
         price: 280.00,
         previewImage: "https://picsum.photos/300/300?random=3",
-        avgRating: null
       },
       {
         ownerId: 1,
@@ -65,7 +62,6 @@ module.exports = {
         description: "A beautiful desert oasis with a pool.",
         price: 240.00,
         previewImage: "https://picsum.photos/300/300?random=4",
-        avgRating: null
       },
       {
         ownerId: 1,
@@ -79,7 +75,6 @@ module.exports = {
         description: "A modern loft with stunning city views.",
         price: 550.00,
         previewImage: "https://picsum.photos/300/300?random=5",
-        avgRating: null
       },
       {
         ownerId: 2,
@@ -93,7 +88,6 @@ module.exports = {
         description: "An eclectic home with a unique charm.",
         price: 320.00,
         previewImage: "https://picsum.photos/300/300?random=6",
-        avgRating: null
       },
       {
         ownerId: 2,
@@ -107,7 +101,6 @@ module.exports = {
         description: "A condo located in the heart of Music City.",
         price: 790.00,
         previewImage: "https://picsum.photos/300/300?random=7",
-        avgRating: null
       },
       {
         ownerId: 2,
@@ -121,7 +114,6 @@ module.exports = {
         description: "An elegant apartment in a prime location.",
         price: 190.00,
         previewImage: "https://picsum.photos/300/300?random=8",
-        avgRating: null
       },
       {
         ownerId: 2,
@@ -135,7 +127,6 @@ module.exports = {
         description: "A charming bungalow perfect for a weekend getaway.",
         price: 130.00,
         previewImage: "https://picsum.photos/300/300?random=9",
-        avgRating: null
       },
       {
         ownerId: 2,
@@ -149,10 +140,9 @@ module.exports = {
         description: "A cozy retreat near the mountains.",
         price: 205.00,
         previewImage: "https://picsum.photos/300/300?random=10",
-        avgRating: null
       },
       {
-        ownerId: 2,
+        ownerId: 3,
         address: "1010 Juniper St",
         city: "Boston",
         state: "MA",
@@ -163,7 +153,6 @@ module.exports = {
         description: "A historic apartment with modern amenities.",
         price: 230.00,
         previewImage: "https://picsum.photos/300/300?random=11",
-        avgRating: null
       },
       {
         ownerId: 3,
@@ -177,7 +166,6 @@ module.exports = {
         description: "A spacious home perfect for large groups.",
         price: 3270.00,
         previewImage: "https://picsum.photos/300/300?random=12",
-        avgRating: null
       },
       {
         ownerId: 3,
@@ -191,7 +179,6 @@ module.exports = {
         description: "A luxurious condo with a beautiful city view.",
         price: 300.00,
         previewImage: "https://picsum.photos/300/300?random=13",
-        avgRating: null
       },
       {
         ownerId: 3,
@@ -205,7 +192,6 @@ module.exports = {
         description: "A chic studio apartment in the trendy district.",
         price: 60.00,
         previewImage: "https://picsum.photos/300/300?random=14",
-        avgRating: null
       },
       {
         ownerId: 3,
@@ -219,10 +205,9 @@ module.exports = {
         description: "A quaint home near historic sites.",
         price: 970.00,
         previewImage: "https://picsum.photos/300/300?random=15",
-        avgRating: null
       },
       {
-        ownerId: 5,
+        ownerId: 4,
         address: "202 Cedar St",
         city: "Miami",
         state: "FL",
@@ -233,10 +218,9 @@ module.exports = {
         description: "A luxurious beachfront villa with stunning ocean views.",
         price: 400.00,
         previewImage: "https://picsum.photos/300/300?random=16",
-        avgRating: null
       },
       {
-        ownerId: 3,
+        ownerId: 4,
         address: "606 Ocean Dr",
         city: "Los Angeles",
         state: "CA",
@@ -247,7 +231,6 @@ module.exports = {
         description: "A luxurious mansion with panoramic views of Los Angeles.",
         price: 1300.00,
         previewImage: "https://picsum.photos/300/300?random=17",
-        avgRating: null
       },
       {
         ownerId: 4,
@@ -261,7 +244,6 @@ module.exports = {
         description: "A luxurious beachfront condo with stunning ocean views.",
         price: 400.00,
         previewImage: "https://picsum.photos/300/300?random=18",
-        avgRating: null
       },
       {
         ownerId: 4,
@@ -275,7 +257,6 @@ module.exports = {
         description: "A modern apartment located in the heart of Miami.",
         price: 450.00,
         previewImage: "https://picsum.photos/300/300?random=19",
-        avgRating: null
       },
       {
         ownerId: 4,
@@ -289,7 +270,6 @@ module.exports = {
         description: "A beautiful cliffhouse overlooing the bay.",
         price: 700.00,
         previewImage: "https://picsum.photos/300/300?random=20",
-        avgRating: null
       },
       {
         ownerId: 5,
@@ -303,10 +283,9 @@ module.exports = {
         description: "This is a fake spot that you should book.",
         price: 100.00,
         previewImage: "https://picsum.photos/300/300?random=21",
-        avgRating: null
       },
       {
-        ownerId: 4,
+        ownerId: 5,
         address: "699 Fake Ave",
         city: "Millbrae",
         state: "CA",
@@ -317,10 +296,9 @@ module.exports = {
         description: "I used to work in this over-priced city across the Bay.",
         price: 980.00,
         previewImage: "https://picsum.photos/300/300?random=22",
-        avgRating: null
       },
       {
-        ownerId: 4,
+        ownerId: 5,
         address: "911 Police St",
         city: "Oakland",
         state: "CA",
@@ -331,7 +309,6 @@ module.exports = {
         description: "No shootings nearby, it's safe to book.",
         price: 10.00,
         previewImage: "https://picsum.photos/300/300?random=23",
-        avgRating: null
       },
       {
         ownerId: 5,
@@ -345,7 +322,6 @@ module.exports = {
         description: "I don't think this address even exists.",
         price: 10.00,
         previewImage: "https://picsum.photos/300/300?random=24",
-        avgRating: null
       },
       {
         ownerId: 5,
@@ -359,7 +335,6 @@ module.exports = {
         description: "Overlooking the bay, this fake spot is incredible.",
         price: 610.00,
         previewImage: "https://picsum.photos/300/300?random=25",
-        avgRating: null
       }
     ], { validate: true });
   },

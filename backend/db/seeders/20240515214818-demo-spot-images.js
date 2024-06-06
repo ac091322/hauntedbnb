@@ -382,7 +382,7 @@ module.exports = {
       },
       {
         spotId: 15,
-        url: "https://picsum.photos/300/30h0?random=70",
+        url: "https://picsum.photos/300/300?random=70",
         preview: false
       },
       {

@@ -4,7 +4,13 @@
   align-items: end;
 }
 
-.drop-down-container{
+#create-spot-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drop-down-container {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -16,4 +22,9 @@
   border: none;
   background: none;
   font-size: 1rem;
+}
+
+#create-spot-link {
+  text-decoration: none;
+  color: inherit;
 }
