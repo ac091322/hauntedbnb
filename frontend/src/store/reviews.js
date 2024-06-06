@@ -1,4 +1,5 @@
-const LOAD_REVIEWS = "REVIEWS/load_reviews"
+const LOAD_REVIEWS = "REVIEWS/load_reviews";
+const SUBMIT_REVIEW = "REVIEWS/submit-review";
 
 export const loadReviews = (reviews) => {
   return {
@@ -7,20 +8,51 @@ export const loadReviews = (reviews) => {
   }
 };
 
+export const reviewForm = (review) => {
+  return {
+    type: SUBMIT_REVIEW,
+    review
+  }
+}
+
 export const getSpotReviews = (spotId) => async (dispatch) => {
-  try {
-    const res = await fetch(`/api/spots/${spotId}/reviews`);
-    if (res.ok) {
-      const reviews = await res.json();
-      dispatch(loadReviews(reviews));
-      return reviews;
-    } else {
-      const error = await res.json();
-      console.error(error)
-    }
-  } catch (err) {
-    console.error(err);
-    return err;
+  const res = await fetch(`/api/spots/${spotId}/reviews`, {
+    method: "GET"
+  });
+  if (res.ok) {
+    const reviews = await res.json();
+    dispatch(loadReviews(reviews));
+    return reviews;
+
+  } else {
+    const error = await res.json();
+    console.error(error)
+  }
+};
+
+export const submitReview = (spotId, reviewData) => async (dispatch) => {
+  const csrfToken = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('XSRF-TOKEN='))
+    ?.split('=')[1];
+
+  const res = await fetch(`/api/spots/${spotId}/reviews`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-TOKEN": csrfToken
+    },
+    body: JSON.stringify(reviewData)
+  });
+
+  if (res.ok) {
+    const review = await res.json();
+    dispatch(reviewForm(review));
+    dispatch(getSpotReviews(spotId));
+    return review;
+  } else {
+    const error = await res.json();
+    console.error(error);
   }
 };
 
@@ -35,6 +67,12 @@ export const reviewsReducer = (state = initialState, action) => {
         reviewsState[review.id] = review;
       });
       return reviewsState;
+    }
+
+    case SUBMIT_REVIEW: {
+      const reviewformState = { ...state };
+      reviewformState[action.review.id] = action.review;
+      return reviewformState;
     }
 
     default:

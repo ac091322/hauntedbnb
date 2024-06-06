@@ -61,7 +61,7 @@ router.put("/:reviewId", requireAuth, async (req, res) => {
 
     let errors = {};
     if (!review) errors.review = "Review text is required";
-    if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Stars must be an integer from 1 to 5";
+    if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Blood drops must be from 1 to 5";
     if (Object.keys(errors).length > 0) {
       res.status(400);
       return res.json({

@@ -2,14 +2,11 @@ const express = require('express');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Spot, SpotImage, Review, ReviewImage, User, Booking } = require('../../db/models');
 const { Op } = require('sequelize');
-
 const router = express.Router();
 
 
 // get spot by current user
 router.get("/current", requireAuth, async (req, res) => {
-  // const { user } = req;
-  // if (user) {
   let currentUser = req.user;
   let spots = await Spot.findAll({
     where: {
@@ -18,10 +15,6 @@ router.get("/current", requireAuth, async (req, res) => {
   });
   res.status(200);
   return res.json({ "Spots": spots });
-  // } else {
-  //   res.status(401);
-  //   return res.json({ "message": "Authentication required" });
-  // }
 });
 
 
@@ -153,8 +146,30 @@ router.get("/", async (req, res) => {
 
   let allSpots = await Spot.findAll({
     where,
-    ...pagination
+    ...pagination,
   });
+
+  for (let spot of allSpots) {
+    let spotId = spot.id;
+
+    let numReviews = await Review.count({ where: { spotId } });
+    let findSumOfStarRatings = await Review.findOne({
+      attributes: [
+        [Spot.sequelize.literal("SUM(stars)"), "totalStars"]
+      ],
+      where: { spotId }
+    });
+
+    let sumOfStarRating = findSumOfStarRatings.dataValues.totalStars;
+    let numberOfStarRatings = numReviews;
+
+    let avgStarRating = numberOfStarRatings > 0
+      ? Math.round((sumOfStarRating / numberOfStarRatings) * 10) / 10
+      : 0;
+
+    spot.dataValues.numReviews = numReviews;
+    spot.dataValues.avgStarRating = avgStarRating;
+  }
 
   res.status(200);
   return res.json({
@@ -417,7 +432,7 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
 
   let errors = {};
   if (!review) errors.review = "Review text is required";
-  if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Stars must be an integer from 1 to 5";
+  if (!stars || isNaN(stars) || stars > 5 || stars < 1) errors.stars = "Blood drops must be from 1 to 5";
   if (Object.keys(errors).length > 0) {
     res.status(400);
     return res.json({

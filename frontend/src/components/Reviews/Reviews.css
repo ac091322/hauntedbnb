@@ -11,7 +11,7 @@
   align-items: center
 }
 
-#rating-star-container{
+#rating-star-container {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -20,4 +20,8 @@
 #review-date {
   font-size: 0.75em;
   font-style: italic;
+}
+
+.blood-icon {
+  color: var(--blood-color)
 }

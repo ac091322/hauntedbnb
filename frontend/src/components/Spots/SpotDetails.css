@@ -79,6 +79,7 @@
   border: 2px solid gray;
   border-radius: 15px;
   padding: 10px 40px 20px 40px;
+  min-width: 460px;
 }
 
 #price-review-rating-container {
@@ -98,19 +99,20 @@
   font-size: 2em;
 }
 
-#rating-review-container {
+#rating-review-container-top {
   display: flex;
   align-items: center;
 }
 
-#star-rating-container{
+#star-rating-container {
   display: flex;
   align-items: center;
   gap: 2px;
 }
 
-#star-icon {
+.blood-icon {
   font-size: 1.5em;
+  color: var(--blood-color);
 }
 
 #dot1 {
@@ -124,7 +126,7 @@
   width: 300px;
 }
 
-#popup-container {
+.popup-container {
   position: fixed;
   top: 0;
   right: 0;
@@ -136,10 +138,10 @@
   flex-direction: column;
   gap: 20px;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  z-index: 1;
 }
 
-#inner-popup-container {
+#inner-reserve-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,12 +162,33 @@
 
 #ratings-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 5px;
   margin: 40px 0 20px 0;
   font-size: 2em;
 }
 
+#ratings-subcontainer {
+  display: flex;
+  align-items: center;
+}
+
 #dot2 {
   font-size: 2em;
+}
+
+#review-button {
+  height: 30px;
+  width: 300px;
+}
+
+#inner-review-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  padding: 40px 40px;
 }
