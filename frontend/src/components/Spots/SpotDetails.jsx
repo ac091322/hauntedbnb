@@ -125,7 +125,10 @@ const SpotDetails = (rating) => {
             )}
         </div>
 
-        {spot.numReviews === 0 && currentUser && currentUser.id !== spot.ownerId ?
+        {spot.numReviews === 0 &&
+          currentUser
+          && currentUser.id !== spot.ownerId
+          ?
           <span>Be the first to post a review!</span>
           :
           <></>}
@@ -139,7 +142,8 @@ const SpotDetails = (rating) => {
           type="button"
           hidden={
             !currentUser ||
-            currentUser.id === spot.ownerId
+            currentUser.id === spot.ownerId ||
+            reviews.some(review => review.spotId === spot.id && review.userId === currentUser.id)
           }
           onClick={() => setShowReviewPopup(true)}
         >Leave Review

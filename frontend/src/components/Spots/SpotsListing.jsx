@@ -59,8 +59,8 @@ const SpotsListing = () => {
               </div>
             </div>
           </Link>
-
           {toolTip === spot.id && <span id="tooltip">{spot.name}</span>}
+
         </div >
       ))}
     </div >
