@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { submitReview } from "../../store/reviews";
@@ -12,9 +12,18 @@ const ReviewForm = ({ spotId, onClose }) => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [validations, setValidations] = useState({});
+  const [submit, setSubmit] = useState(false);
+
+  useEffect(() => {
+    let formErrors = {};
+    if (text.length < 10) formErrors.text = "Review can't be too short";
+    if (!rating) formErrors.rating = "Blood-rating can't be empty";
+    setValidations(formErrors);
+  }, [text, rating]);
 
   const handleIconClick = (newRating) => {
     setRating(newRating);
+    setSubmit(true);
   };
 
   const handleSubmit = (e) => {
@@ -33,6 +42,7 @@ const ReviewForm = ({ spotId, onClose }) => {
       stars: rating,
       userId: currentUser.id
     };
+
     dispatch(submitReview(spotId, review)).then(() => onClose());
   };
 
@@ -55,7 +65,8 @@ const ReviewForm = ({ spotId, onClose }) => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          {Object.values(validations).length > 0 && <span className="review-error-text">{validations.text}</span>}
+
+          {submit && validations.text && <span className="review-error-text">{validations.text}</span>}
 
           <div id="blood-rating-container">
             <span>Blood-drop rating:</span>
@@ -102,7 +113,8 @@ const ReviewForm = ({ spotId, onClose }) => {
               </div>
             </div>
           </div>
-          {Object.values(validations).length > 0 && <span className="review-error-text">{validations.rating}</span>}
+
+          {submit && validations.rating && <span className="review-error-text">{validations.rating}</span>}
 
           <div id="review-buttons-container">
             <button className="review-buttons" type="button" onClick={onClose}>
@@ -112,6 +124,7 @@ const ReviewForm = ({ spotId, onClose }) => {
             <button
               className="review-buttons"
               type="submit"
+              disabled={Object.values(validations).length > 0}
             >
               Submit
             </button>

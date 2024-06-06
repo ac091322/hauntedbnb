@@ -49,7 +49,7 @@ function ProfileButton({ user }) {
     <div id="account-menu-container">
       <div id="create-spot-profile-container">
         {user && (
-          <><Link id="create-spot-link">
+          <><Link to="/spots/create" id="create-spot-link">
             Create a Spot
           </Link></>
         )}

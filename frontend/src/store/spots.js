@@ -1,5 +1,8 @@
+import { csrfFetch } from "./csrf";
+
 const LOAD_SPOTS = "SPOTS/load_spots";
 const LOAD_SPOT_DETAILS = "SPOTS/load_spot_detail";
+const CREATE_SPOT = "SPOTS/create_spot";
 
 export const loadSpots = (spots) => {
   return {
@@ -15,19 +18,28 @@ export const loadSpotDetails = (spot) => {
   }
 };
 
+export const loadNewSpot = (spot) => {
+  return {
+    type: CREATE_SPOT,
+    spot
+  }
+};
+
 export const getAllSpots = () => async (dispatch) => {
   try {
     const res = await fetch("/api/spots", {
       method: "GET"
     });
+
     if (res.ok) {
       const data = await res.json();
       const spots = data.Spots;
       dispatch(loadSpots(spots));
       return spots
+
     } else {
       const error = await res.json();
-      console.error(error)
+      console.error(error);
     }
   } catch (err) {
     console.error(err);
@@ -40,20 +52,45 @@ export const getASpot = (spotId) => async (dispatch) => {
     const res = await fetch(`/api/spots/${spotId}`, {
       method: "GET"
     });
+
     if (res.ok) {
       const aSpot = await res.json();
-
       dispatch(loadSpotDetails(aSpot));
       return aSpot;
+
     } else {
       const error = await res.json();
-      console.error(error)
+      console.error(error);
     }
   } catch (err) {
     console.error(err);
     return err;
   }
 };
+
+export const createSpot = (spotData) => async (dispatch) => {
+  try {
+    const res = await csrfFetch(`/api/spots`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(spotData)
+    });
+
+    if (res.ok) {
+      const spot = await res.json();
+      dispatch(loadNewSpot(spot));
+      return spot;
+
+    } else {
+      const error = await res.json();
+      console.error(error)
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 let initialState = {};
 
@@ -72,6 +109,11 @@ export const spotsReducer = (state = initialState, action) => {
       const spotDetailsState = { ...state };
       spotDetailsState[action.spot.id] = action.spot;
       return spotDetailsState;
+    }
+
+    case CREATE_SPOT: {
+      const spotState = { ...state };
+      spotState[action.spot.id] = action.spot;
     }
 
     default:
