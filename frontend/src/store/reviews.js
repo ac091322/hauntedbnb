@@ -67,16 +67,17 @@ export const reviewsReducer = (state = initialState, action) => {
 
     case LOAD_REVIEWS: {
       const reviewsState = { ...state };
-      action.reviews.Reviews.forEach(review => {
-        reviewsState[review.id] = review;
-      });
+      action.reviews.Reviews
+        .forEach(review => {
+          reviewsState[review.id] = review;
+        });
       return reviewsState;
     }
 
     case SUBMIT_REVIEW: {
-      const reviewformState = { ...state };
-      reviewformState[action.review.id] = action.review;
-      return reviewformState;
+      const reviewFormState = { ...state };
+      reviewFormState[action.review.id] = action.review;
+      return reviewFormState;
     }
 
     default:

@@ -99,9 +99,10 @@ export const spotsReducer = (state = initialState, action) => {
 
     case LOAD_SPOTS: {
       const spotsState = { ...state };
-      action.spots.forEach((spot) => {
-        spotsState[spot.id] = spot;
-      });
+      action.spots
+        .forEach(spot => {
+          spotsState[spot.id] = spot;
+        });
       return spotsState;
     }
 
@@ -113,7 +114,7 @@ export const spotsReducer = (state = initialState, action) => {
 
     case CREATE_SPOT: {
       const spotState = { ...state };
-      spotState[action.spot.id] = action.spot;
+      return spotState
     }
 
     default:

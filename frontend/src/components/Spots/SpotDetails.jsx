@@ -158,12 +158,14 @@ const SpotDetails = (rating) => {
         />
       )}
 
-      {reviews.map(review => (
-        review.spotId === spot.id ?
-          <Reviews review={review} key={review.id} />
-          :
-          <></>
-      ))}
+      {reviews
+        .sort((a, b) => (b.id) - (a.id))
+        .map(review => (
+          review.spotId === spot.id ?
+            <Reviews review={review} key={review.id} />
+            :
+            <></>
+        ))}
     </>
   );
 }
