@@ -6,7 +6,7 @@ import "./ReviewForm.css";
 
 const ReviewForm = ({ spotId, onClose }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector(state => state.session.user);
 
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
@@ -17,7 +17,7 @@ const ReviewForm = ({ spotId, onClose }) => {
   useEffect(() => {
     let formErrors = {};
     if (text.length < 10) formErrors.text = "Review can't be too short";
-    if (!rating) formErrors.rating = "Blood-rating can't be empty";
+    if (!rating) formErrors.rating = "Blood drops can't be empty";
     setValidations(formErrors);
   }, [text, rating]);
 
@@ -43,7 +43,8 @@ const ReviewForm = ({ spotId, onClose }) => {
       userId: currentUser.id
     };
 
-    dispatch(submitReview(spotId, review)).then(() => onClose());
+    dispatch(submitReview(spotId, review))
+      .then(() => onClose());
   };
 
   if (!currentUser) return null;

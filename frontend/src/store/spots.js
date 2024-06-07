@@ -21,7 +21,7 @@ export const loadSpotDetails = (spot) => {
 export const loadNewSpot = (spot) => {
   return {
     type: CREATE_SPOT,
-    spot
+    payload: spot
   }
 };
 
@@ -61,6 +61,7 @@ export const getASpot = (spotId) => async (dispatch) => {
     } else {
       const error = await res.json();
       console.error(error);
+      return error;
     }
   } catch (err) {
     console.error(err);
@@ -86,9 +87,11 @@ export const createSpot = (spotData) => async (dispatch) => {
     } else {
       const error = await res.json();
       console.error(error)
+      return error;
     }
   } catch (err) {
     console.error(err);
+    return err;
   }
 }
 
@@ -114,6 +117,8 @@ export const spotsReducer = (state = initialState, action) => {
 
     case CREATE_SPOT: {
       const spotState = { ...state };
+      const newSpot = action.spot;
+      spotState[newSpot.id] = newSpot;
       return spotState
     }
 
