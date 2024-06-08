@@ -4,7 +4,7 @@ import { TbDropletFilled } from "react-icons/tb";
 import { submitReview } from "../../store/reviews";
 import "./ReviewForm.css";
 
-const ReviewForm = ({ spotId, onClose }) => {
+const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
 
@@ -44,30 +44,35 @@ const ReviewForm = ({ spotId, onClose }) => {
     };
 
     dispatch(submitReview(spotId, review))
-      .then(() => onClose());
+      .then(() => {
+        onReviewSubmit()
+        onClose()
+
+      });
   };
 
   if (!currentUser) return null;
 
   return (
-    <div className="popup-container" onClick={onClose}>
+    <div className="popup-container-reserve-review" onClick={onClose}>
       <div
-        id="inner-review-container"
+        id="review-form-background"
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <h2>How was your stay?</h2>
-        <form id="review-form-container" onSubmit={handleSubmit}>
+        <form id="form-container-review" onSubmit={handleSubmit}>
 
-          <textarea
-            id="review-text-area"
-            placeholder="Leave your review here..."
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-
-          {submit && validations.text && <span className="review-error-text">{validations.text}</span>}
+          <div id="review-textarea-container">
+            <textarea
+              id="leave-review-textarea"
+              placeholder=" Leave your review here..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            {submit && validations.text && <span className="form-error-text">{validations.text}</span>}
+          </div>
 
           <div id="blood-rating-container">
             <span>Blood-drop rating:</span>
@@ -113,18 +118,20 @@ const ReviewForm = ({ spotId, onClose }) => {
                 <TbDropletFilled className="blood-icon-position" />
               </div>
             </div>
+            {submit && validations.rating && <span className="form-error-text">{validations.rating}</span>}
           </div>
 
-          {submit && validations.rating && <span className="review-error-text">{validations.rating}</span>}
-
-          <div id="review-buttons-container">
-            <button className="review-buttons" type="button" onClick={onClose}>
+          <div id="buttons-container-review">
+            <button
+              type="button"
+              className="review-buttons"
+              onClick={onClose}>
               Close
             </button>
 
             <button
-              className="review-buttons"
               type="submit"
+              className="review-buttons"
               disabled={Object.values(validations).length > 0}
             >
               Submit

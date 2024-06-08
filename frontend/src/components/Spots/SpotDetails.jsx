@@ -25,19 +25,24 @@ const SpotDetails = (rating) => {
   const [activeRating, setActiveRating] = useState(rating);
 
   useEffect(() => {
-    dispatch(getASpot(spotId)).then(() => (dispatch(getSpotReviews(spotId))));
+    dispatch(getASpot(spotId)).then(() =>
+      (dispatch(getSpotReviews(spotId))));
   }, [dispatch, spotId]);
 
   useEffect(() => {
     setActiveRating(rating)
   }, [rating])
 
+  const handleReviewSubmit = () => {
+    dispatch(getASpot(spotId));
+    dispatch(getSpotReviews(spotId));
+  };
+
   if (!spot) return null;
 
   return (
     <>
       <div id="spot-details-container">
-
         <h2 id="spot-name">{spot.name}</h2>
         <h3 id="spot-location">{spot.city}, {spot.state}, {spot.country}</h3>
         <span id="spot-address">{spot.address}</span>
@@ -56,59 +61,54 @@ const SpotDetails = (rating) => {
           ))}
         </div>
 
-        <div id="description-reviews-container">
-          <div id="description-container">
+        <div id="description-details-container">
+          <div id="description-details-left-container">
             <h2>Hosted by {spot?.Owner?.firstName} {spot?.Owner?.lastName}</h2>
             <p>{spot.description}</p>
           </div>
 
-          <div id="reserve-container">
-            <div id="price-review-rating-container">
+          <div id="description-details-right-container">
+            <div id="price-rating-review-container">
               <div id="price-container">
-                <span id="spot-details-price">${spot.price}</span>
+                <span id="spot-price">${spot.price}</span>
                 <span>night</span>
               </div>
 
-              <div id="rating-review-container-top">
-                <div id="star-rating-container">
-                  <span>{spot.avgStarRating}</span>
-                  <TbDropletFilled className="blood-icon" />
-                  {spot.numReviews === 0 ? <>New spot!</> : <></>}
-                </div>
-                <LuDot id="dot1" />
+              <div id="rating-review-container">
+                <span>{spot.avgStarRating}</span>
+                <TbDropletFilled className="blood-icon" />
+                {spot.numReviews === 0 ? <>New spot!</> : <></>}
+                <LuDot id="dot-top" />
                 {spot.numReviews} {spot.numReviews === 1 ? <>review</> : <>reviews</>}
               </div>
             </div>
 
             <button
-              id="booking-button"
+              id="button-reserve"
               type="button"
               onClick={() => setShowReservePopup(true)}
             >Reserve</button>
           </div>
-
         </div>
-
       </div>
 
-      {showReservePopup && <div className="popup-container" onClick={() => setShowReservePopup(false)}>
+      {showReservePopup && <div className="popup-container-reserve-review" onClick={() => setShowReservePopup(false)}>
         <div
-          id="inner-reserve-container"
+          id="reserve-form-background"
           onClick={e => { e.stopPropagation() }}
         >
           <div>Feature coming soon!</div>
           <button
-            id="close-button"
+            id="button-close"
             onClick={() => setShowReservePopup(false)}
           >Close</button>
         </div>
       </div>
       }
 
-      <hr id="description-review-separator" />
+      <hr id="section-separator" />
 
-      <div id="ratings-container">
-
+      <div id="ratings-container-bottom">
         <div id="ratings-subcontainer">
           <span>{spot.avgStarRating}</span>
           <TbDropletFilled className="blood-icon" />
@@ -138,7 +138,7 @@ const SpotDetails = (rating) => {
         ))}
 
         <button
-          id="review-button"
+          id="button-review"
           type="button"
           hidden={
             !currentUser ||
@@ -155,6 +155,7 @@ const SpotDetails = (rating) => {
           spotId={spotId}
           initialRating={activeRating}
           onClose={() => setShowReviewPopup(false)}
+          onReviewSubmit={handleReviewSubmit}
         />
       )}
 

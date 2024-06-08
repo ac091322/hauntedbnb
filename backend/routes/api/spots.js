@@ -305,6 +305,7 @@ router.post("/", requireAuth, async (req, res) => {
   let createSpot = await Spot.create({
     ownerId: currentUser.id, address, city, state, country, lat, lng, name, description, price
   });
+  console.log("🚀 ~ router.post ~ createSpot:", createSpot)
   res.status(201);
   return res.json(createSpot);
 });

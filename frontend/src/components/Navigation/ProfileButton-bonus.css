@@ -19,9 +19,11 @@
 }
 
 #logout-button {
+  text-decoration: none;
   border: none;
   background: none;
   font-size: 1rem;
+  color: inherit;
 }
 
 #create-spot-link {

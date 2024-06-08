@@ -14,8 +14,12 @@ main {
 }
 
 :root {
-  --primary-color: #FF385C;
+  --primary-color: #FC5F62;
   --blood-color: rgb(136, 8, 8);
+}
+
+li {
+  list-style-type: none;
 }
 
 footer {
@@ -29,4 +33,31 @@ footer>div {
   max-width: 1760px;
   margin: 0 auto;
   width: 90%;
+}
+
+button {
+  height: 30px;
+  cursor: pointer;
+}
+
+input {
+  height: 30px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.error-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-error-text {
+  color: var(--primary-color);
+  font-size: 0.75em;
+}
+
+.blood-icon {
+  color: var(--blood-color)
 }

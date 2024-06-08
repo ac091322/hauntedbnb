@@ -69,7 +69,7 @@ export const getASpot = (spotId) => async (dispatch) => {
   }
 };
 
-export const createSpot = (spotData) => async (dispatch) => {
+export const createSpot = (spotData, userId) => async (dispatch) => {
   try {
     const res = await csrfFetch(`/api/spots`, {
       method: "POST",

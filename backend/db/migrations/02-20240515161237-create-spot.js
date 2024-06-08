@@ -9,10 +9,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Spots', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        primaryKey: true
       },
       ownerId: {
         type: Sequelize.INTEGER,

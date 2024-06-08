@@ -5,7 +5,7 @@
   gap: 10px;
 }
 
-#create-spot-form{
+#form-container form {
   max-width: 600px;
 }
 
@@ -13,34 +13,33 @@
   margin-bottom: 40px;
 }
 
-form hr{
-  margin-top: 15px;
-  margin-bottom: 5px;
+form hr {
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
-#location-container>p {
-  margin-bottom: 5px;
-}
-
-#location-fields-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#create-spot-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.input-field-container {
+.section-container-create-spot {
   display: flex;
   flex-direction: column;
 }
 
-.input-field-create-spot {
-  height: 30px;
+#location-fields-container-create-spot {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#country-address-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.left-right-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 #city-state-container {
@@ -63,46 +62,16 @@ form hr{
   width: 40%;
 }
 
-#city{
+#city {
   width: 100%;
 }
 
-#state{
+#state {
   width: 100%;
 }
 
-#long-lat-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  gap: 7px;
-}
-
-#longitude-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-#latitude-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-#city{
-  width: 100%;
-}
-
-#state{
-  width: 100%;
-}
-
-
-#text-area-create-spot {
+#description-create-spot {
   height: 100px;
-  resize: vertical;
 }
 
 #price-container-create-spot {
@@ -115,14 +84,12 @@ form hr{
   width: 100%;
 }
 
-#url-container {
+#image-urls-container-create-spot {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
-#submit-create-spot-form{
-  height: 30px;
-  margin-top: 15px;
+#button-create-spot {
+  width: 100%;
+  margin-top: 10px;
 }

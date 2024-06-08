@@ -16,7 +16,7 @@ function ProfileButton({ user }) {
   const navigate = useNavigate();
 
   const toggleMenu = (e) => {
-    e.stopPropagation(); // keep from bubbling up to document and triggering closeMenu
+    e.stopPropagation();
     setShowMenu(!showMenu);
   };
 
@@ -65,7 +65,7 @@ function ProfileButton({ user }) {
               <hr />
               <li>{user.email}</li>
               <hr />
-              <button id="logout-button" onClick={logout}>Log out</button>
+              <Link id="logout-button" onClick={logout}>Log out</Link>
             </div>
           </>
         ) : (

@@ -1,4 +1,4 @@
-#login-popup-container {
+#popup-container-login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,22 +6,18 @@
   gap: 20px;
 }
 
-#login-form-container {
+#form-container-login {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.input-field {
-  height: 30px;
+.input-field-login {
   width: 400px;
 }
 
-#login-popup-container>span {
-  color: var(--primary-color);
-  align-self: flex-start;
-}
+.error-group{
+  display: flex;
+  flex-direction: column;
 
-#invalid-credentials {
-  color: var(--primary-color)
 }
