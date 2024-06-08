@@ -22,7 +22,7 @@ module.exports = {
         name: "Cozy Apartment in SF",
         description: "A cozy one-bedroom apartment in the heart of San Francisco.",
         price: 150.00,
-        previewImage: "https://picsum.photos/300/300?random=1",
+        // previewImage: "https://picsum.photos/300/300?random=1",
       },
       {
         ownerId: 1,
@@ -35,7 +35,7 @@ module.exports = {
         name: "Stylish Apartment in Seattle",
         description: "A stylish apartment in downtown Seattle.",
         price: 180.00,
-        previewImage: "https://picsum.photos/300/300?random=2",
+        // previewImage: "https://picsum.photos/300/300?random=2",
       },
       {
         ownerId: 1,
@@ -48,7 +48,7 @@ module.exports = {
         name: "Family House in Orlando",
         description: "A spacious house perfect for family vacations.",
         price: 280.00,
-        previewImage: "https://picsum.photos/300/300?random=3",
+        // previewImage: "https://picsum.photos/300/300?random=3",
       },
       {
         ownerId: 1,
@@ -61,7 +61,7 @@ module.exports = {
         name: "Desert Oasis in Phoenix",
         description: "A beautiful desert oasis with a pool.",
         price: 240.00,
-        previewImage: "https://picsum.photos/300/300?random=4",
+        // previewImage: "https://picsum.photos/300/300?random=4",
       },
       {
         ownerId: 1,
@@ -74,7 +74,7 @@ module.exports = {
         name: "Modern Loft in NYC",
         description: "A modern loft with stunning city views.",
         price: 550.00,
-        previewImage: "https://picsum.photos/300/300?random=5",
+        // previewImage: "https://picsum.photos/300/300?random=5",
       },
       {
         ownerId: 2,
@@ -87,7 +87,7 @@ module.exports = {
         name: "Eclectic Home in Austin",
         description: "An eclectic home with a unique charm.",
         price: 320.00,
-        previewImage: "https://picsum.photos/300/300?random=6",
+        // previewImage: "https://picsum.photos/300/300?random=6",
       },
       {
         ownerId: 2,
@@ -100,7 +100,7 @@ module.exports = {
         name: "Music City Condo in Nashville",
         description: "A condo located in the heart of Music City.",
         price: 790.00,
-        previewImage: "https://picsum.photos/300/300?random=7",
+        // previewImage: "https://picsum.photos/300/300?random=7",
       },
       {
         ownerId: 2,
@@ -113,7 +113,7 @@ module.exports = {
         name: "Elegant Apartment in Charlotte",
         description: "An elegant apartment in a prime location.",
         price: 190.00,
-        previewImage: "https://picsum.photos/300/300?random=8",
+        // previewImage: "https://picsum.photos/300/300?random=8",
       },
       {
         ownerId: 2,
@@ -126,7 +126,7 @@ module.exports = {
         name: "Charming Bungalow in Chicago",
         description: "A charming bungalow perfect for a weekend getaway.",
         price: 130.00,
-        previewImage: "https://picsum.photos/300/300?random=9",
+        // previewImage: "https://picsum.photos/300/300?random=9",
       },
       {
         ownerId: 2,
@@ -139,7 +139,7 @@ module.exports = {
         name: "Mountain Retreat in Denver",
         description: "A cozy retreat near the mountains.",
         price: 205.00,
-        previewImage: "https://picsum.photos/300/300?random=10",
+        // previewImage: "https://picsum.photos/300/300?random=10",
       },
       {
         ownerId: 3,
@@ -165,7 +165,7 @@ module.exports = {
         name: "Spacious Home in Houston",
         description: "A spacious home perfect for large groups.",
         price: 3270.00,
-        previewImage: "https://picsum.photos/300/300?random=12",
+        // previewImage: "https://picsum.photos/300/300?random=12",
       },
       {
         ownerId: 3,
@@ -178,7 +178,7 @@ module.exports = {
         name: "Luxury Condo in LA",
         description: "A luxurious condo with a beautiful city view.",
         price: 300.00,
-        previewImage: "https://picsum.photos/300/300?random=13",
+        // previewImage: "https://picsum.photos/300/300?random=13",
       },
       {
         ownerId: 3,
@@ -191,7 +191,7 @@ module.exports = {
         name: "Chic Studio in Portland",
         description: "A chic studio apartment in the trendy district.",
         price: 60.00,
-        previewImage: "https://picsum.photos/300/300?random=14",
+        // previewImage: "https://picsum.photos/300/300?random=14",
       },
       {
         ownerId: 3,
@@ -204,7 +204,7 @@ module.exports = {
         name: "Quaint Home in Philadelphia",
         description: "A quaint home near historic sites.",
         price: 970.00,
-        previewImage: "https://picsum.photos/300/300?random=15",
+        // previewImage: "https://picsum.photos/300/300?random=15",
       },
       {
         ownerId: 4,
@@ -217,7 +217,7 @@ module.exports = {
         name: "Beachfront Villa in Miami",
         description: "A luxurious beachfront villa with stunning ocean views.",
         price: 400.00,
-        previewImage: "https://picsum.photos/300/300?random=16",
+        // previewImage: "https://picsum.photos/300/300?random=16",
       },
       {
         ownerId: 4,
@@ -230,7 +230,7 @@ module.exports = {
         name: "Luxury Mansion in LA",
         description: "A luxurious mansion with panoramic views of Los Angeles.",
         price: 1300.00,
-        previewImage: "https://picsum.photos/300/300?random=17",
+        // previewImage: "https://picsum.photos/300/300?random=17",
       },
       {
         ownerId: 4,
@@ -243,7 +243,7 @@ module.exports = {
         name: "Beachfront Condo in Santa Monica",
         description: "A luxurious beachfront condo with stunning ocean views.",
         price: 400.00,
-        previewImage: "https://picsum.photos/300/300?random=18",
+        // previewImage: "https://picsum.photos/300/300?random=18",
       },
       {
         ownerId: 4,
@@ -256,7 +256,7 @@ module.exports = {
         name: "Modern Apartment in Miami",
         description: "A modern apartment located in the heart of Miami.",
         price: 450.00,
-        previewImage: "https://picsum.photos/300/300?random=19",
+        // previewImage: "https://picsum.photos/300/300?random=19",
       },
       {
         ownerId: 4,
@@ -269,7 +269,7 @@ module.exports = {
         name: "Cliffhouse in Newport Beach",
         description: "A beautiful cliffhouse overlooing the bay.",
         price: 700.00,
-        previewImage: "https://picsum.photos/300/300?random=20",
+        // previewImage: "https://picsum.photos/300/300?random=20",
       },
       {
         ownerId: 5,
@@ -282,7 +282,7 @@ module.exports = {
         name: "A seeder spot where I live",
         description: "This is a fake spot that you should book.",
         price: 100.00,
-        previewImage: "https://picsum.photos/300/300?random=21",
+        // previewImage: "https://picsum.photos/300/300?random=21",
       },
       {
         ownerId: 5,
@@ -295,7 +295,7 @@ module.exports = {
         name: "The city where I used to work.",
         description: "I used to work in this over-priced city across the Bay.",
         price: 980.00,
-        previewImage: "https://picsum.photos/300/300?random=22",
+        // previewImage: "https://picsum.photos/300/300?random=22",
       },
       {
         ownerId: 5,
@@ -321,7 +321,7 @@ module.exports = {
         name: "Fake address.",
         description: "I don't think this address even exists.",
         price: 10.00,
-        previewImage: "https://picsum.photos/300/300?random=24",
+        // previewImage: "https://picsum.photos/300/300?random=24",
       },
       {
         ownerId: 5,
@@ -334,7 +334,7 @@ module.exports = {
         name: "Fake house by the sea.",
         description: "Overlooking the bay, this fake spot is incredible.",
         price: 610.00,
-        previewImage: "https://picsum.photos/300/300?random=25",
+        // previewImage: "https://picsum.photos/300/300?random=25",
       }
     ], { validate: true });
   },

@@ -14,14 +14,16 @@ const SpotForm = ({ spotData }) => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
   const [description, setDescription] = useState("");
   const [spotName, setSpotName] = useState("");
   const [price, setPrice] = useState("");
   const [primaryURL, setPrimaryURL] = useState("");
-  // const [imageURL1, setImageURL1] = useState("");
-  // const [imageURL2, setImageURL2] = useState("");
-  // const [imageURL3, setImageURL3] = useState("");
-  // const [imageURL4, setImageURL4] = useState("");
+  const [imageURL1, setImageURL1] = useState("");
+  const [imageURL2, setImageURL2] = useState("");
+  const [imageURL3, setImageURL3] = useState("");
+  const [imageURL4, setImageURL4] = useState("");
   const [validations, setValidations] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -31,14 +33,16 @@ const SpotForm = ({ spotData }) => {
       if (!country) formErrors.country = "Country is required";
       if (!address) formErrors.address = "Address is required";
       if (!city) formErrors.city = "City is required";
-      if (typeof state !== "string" || state.length !== 2) formErrors.state = "State must be 2 letters";
+      if (typeof state !== "string" || state.length !== 2 || !/^[a-zA-Z]+$/.test(state)) formErrors.state = "State must be 2 letters";
+      if (!longitude || !Number.isInteger(Number(longitude))) formErrors.longitude = "Longitude must be an integer"
+      if (!latitude || !Number.isInteger(Number(latitude))) formErrors.latitude = "Latitude must be an integer"
       if (description.length < 30) formErrors.description = "Description must be 30 characters or more";
       if (!spotName) formErrors.spotName = "Spot name is required";
       if (!price || !Number.isInteger(Number(price))) formErrors.price = "Price must be an integer";
       if (!primaryURL) formErrors.primaryURL = "Primary URL is required";
       setValidations(formErrors);
     }
-  }, [country, address, city, state, description, spotName, price, primaryURL, submitted]);
+  }, [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL, submitted]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +54,10 @@ const SpotForm = ({ spotData }) => {
       !city ||
       typeof state !== "string" ||
       state.length !== 2 ||
+      !longitude ||
+      !Number.isInteber(Number(longitude)) ||
+      !latitude ||
+      !Number.isInteber(Number(latitude)) ||
       description.length < 30 ||
       !spotName ||
       !price ||
@@ -65,6 +73,8 @@ const SpotForm = ({ spotData }) => {
       city: city,
       state: state.toUpperCase(),
       country: country,
+      longitude: Number(longitude),
+      latitude: Number(latitude),
       name: spotName,
       description: description,
       price: Number(price),
@@ -149,6 +159,39 @@ const SpotForm = ({ spotData }) => {
                 />
               </div>
             </div>
+
+            <div className="lng-lat-container">
+              <div className="lng-lat-subcontainer">
+                <div className="left-right-container">
+                  <label htmlFor="city">Longitude</label>
+                  {submitted && validations.longitude && <span className="form-error-text">{validations.longitude}</span>}
+                </div>
+                <input
+                  value={longitude}
+                  type="text"
+                  className="lng-lat"
+                  name="longitude"
+                  placeholder="Longitude"
+                  onChange={e => setLongitude(e.target.value)}
+                />
+              </div>
+              <span>,</span>
+              <div className="lng-lat-subcontainer">
+                <div className="left-right-container">
+                  <label htmlFor="state">Latitude</label>
+                  {submitted && validations.latitude && <span className="form-error-text">{validations.latitude}</span>}
+                </div>
+                <input
+                  value={latitude}
+                  type="text"
+                  className="lng-lat"
+                  name="latitude"
+                  placeholder=" Latitude"
+                  onChange={e => setLatitude(e.target.value)}
+                />
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -208,39 +251,41 @@ const SpotForm = ({ spotData }) => {
           <h3>Liven up your spot with photos</h3>
           <p>Submit a link to at least one photo to publish your spot.</p>
           <div id="image-urls-container-create-spot">
+            <div className="error-group">
+              <input
+                value={primaryURL}
+                type="text"
+                className="url-field-create-spot"
+                name="url"
+                placeholder=" Preview image URL"
+                onChange={e => setPrimaryURL(e.target.value)}
+              />
+              {submitted && validations.primaryURL && <span className="form-error-text">{validations.primaryURL}</span>}
+            </div>
             <input
-              value={primaryURL}
-              type="text"
-              className="url-field-create-spot"
-              name="url"
-              placeholder=" Preview image URL"
-              onChange={e => setPrimaryURL(e.target.value)}
-            />
-            {submitted && validations.primaryURL && <span className="form-error-text">{validations.primaryURL}</span>}
-            {/* <input
-              // value={imageURL1}
+              value={imageURL1}
               type="text"
               className="url-field-create-spot"
               name="url"
               placeholder=" Image URL" />
             <input
-              // value={imageURL2}
+              value={imageURL2}
               type="text"
               className="url-field-create-spot"
               name="url"
               placeholder=" Image URL" />
             <input
-              // value={imageURL3}
+              value={imageURL3}
               type="text"
               className="url-field-create-spot"
               name="url"
               placeholder=" Image URL" />
             <input
-              // value={imageURL4}
+              value={imageURL4}
               type="text"
               className="url-field-create-spot"
               name="url"
-              placeholder=" Image URL" /> */}
+              placeholder=" Image URL" />
           </div>
           <hr />
         </div>

@@ -147,6 +147,10 @@ router.get("/", async (req, res) => {
   let allSpots = await Spot.findAll({
     where,
     ...pagination,
+    include: [
+      { model: SpotImage },
+      { model: Review }
+    ],
   });
 
   for (let spot of allSpots) {
@@ -229,25 +233,7 @@ router.get("/:spotId", async (req, res) => {
   spot.dataValues.avgStarRating = avgStarRating;
 
   res.status(200);
-  return res.json({
-    id: spot.id,
-    ownerId: spot.ownerId,
-    address: spot.address,
-    city: spot.city,
-    state: spot.state,
-    country: spot.country,
-    lat: spot.lat,
-    lng: spot.lng,
-    name: spot.name,
-    description: spot.description,
-    price: spot.price,
-    numReviews: spot.dataValues.numReviews,
-    avgStarRating: spot.dataValues.avgStarRating,
-    createdAt: spot.createdAt,
-    updatedAt: spot.updatedAt,
-    SpotImages: spot.SpotImages,
-    Owner: spot.Owner
-  });
+  return res.json(spot);
 });
 
 
@@ -293,6 +279,7 @@ router.post("/", requireAuth, async (req, res) => {
   if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
   if (!description) errors.description = "Description is required";
   if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
+  // if (!previewImage) errors.previewImage = "Preview image is required";
 
   if (Object.keys(errors).length > 0) {
     res.status(400);
@@ -305,7 +292,7 @@ router.post("/", requireAuth, async (req, res) => {
   let createSpot = await Spot.create({
     ownerId: currentUser.id, address, city, state, country, lat, lng, name, description, price
   });
-  console.log("🚀 ~ router.post ~ createSpot:", createSpot)
+
   res.status(201);
   return res.json(createSpot);
 });
@@ -326,7 +313,7 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     return res.json({ "message": "Forbidden" });
 
   } else {
-    let { address, city, state, country, lat, lng, name, description, price } = req.body;
+    let { address, city, state, country, lat, lng, name, description, price, previewImage } = req.body;
 
     let editSpot = await Spot.findOne({
       where: {
@@ -345,6 +332,7 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
     if (!description) errors.description = "Description is required";
     if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
+    if (!previewImage) errors.previewImage = "Preview image is required";
 
     if (Object.keys(errors).length > 0) {
       res.status(400);
@@ -362,6 +350,7 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     editSpot.name = name;
     editSpot.description = description;
     editSpot.price = price;
+    editSpot.previewImage = previewImage;
 
     await editSpot.save();
     res.status(200);
@@ -376,6 +365,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
   let spotId = req.params.spotId;
 
   let existingSpot = await Spot.findByPk(spotId);
+
   if (!existingSpot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
@@ -397,6 +387,12 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     let postImage = await SpotImage.create({
       spotId, url, preview
     });
+
+    if (preview) {
+      existingSpot.previewImage = url;
+      await existingSpot.save();
+    }
+
     res.status(200);
     return res.json({
       id: postImage.id,

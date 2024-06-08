@@ -14,7 +14,7 @@ module.exports = {
       {
         spotId: 1,
         url: "https://picsum.photos/300/300?random=1",
-        preview: true
+        preview: false
       },
       {
         spotId: 1,
@@ -24,7 +24,7 @@ module.exports = {
       {
         spotId: 1,
         url: "https://picsum.photos/300/300?random=3",
-        preview: false
+        preview: true
       },
       {
         spotId: 1,
@@ -39,12 +39,12 @@ module.exports = {
       {
         spotId: 2,
         url: "https://picsum.photos/300/300?random=6",
-        preview: false
+        preview: true
       },
       {
         spotId: 2,
         url: "https://picsum.photos/300/300?random=7",
-        preview: true
+        preview: false
       },
       {
         spotId: 2,
@@ -64,7 +64,7 @@ module.exports = {
       {
         spotId: 3,
         url: "https://picsum.photos/300/300?random=11",
-        preview: false
+        preview: true
       },
       {
         spotId: 3,
@@ -84,7 +84,7 @@ module.exports = {
       {
         spotId: 3,
         url: "https://picsum.photos/300/300?random=15",
-        preview: true
+        preview: false
       },
       {
         spotId: 4,
@@ -114,7 +114,7 @@ module.exports = {
       {
         spotId: 5,
         url: "https://picsum.photos/300/300?random=16",
-        preview: false
+        preview: true
       },
       {
         spotId: 5,
@@ -124,7 +124,7 @@ module.exports = {
       {
         spotId: 5,
         url: "https://picsum.photos/300/300?random=18",
-        preview: true
+        preview: false
       },
       {
         spotId: 5,
@@ -139,7 +139,7 @@ module.exports = {
       {
         spotId: 6,
         url: "https://picsum.photos/300/300?random=21",
-        preview: false
+        preview: true
       },
       {
         spotId: 6,
@@ -159,7 +159,7 @@ module.exports = {
       {
         spotId: 6,
         url: "https://picsum.photos/300/300?random=25",
-        preview: true
+        preview: false
       },
       {
         spotId: 7,
@@ -189,7 +189,7 @@ module.exports = {
       {
         spotId: 8,
         url: "https://picsum.photos/300/300?random=31",
-        preview: false
+        preview: true
       },
       {
         spotId: 8,
@@ -203,7 +203,7 @@ module.exports = {
       {
         spotId: 8,
         url: "https://picsum.photos/300/300?random=34",
-        preview: true
+        preview: false
       },
       {
         spotId: 8,
@@ -213,7 +213,7 @@ module.exports = {
       {
         spotId: 9,
         url: "https://picsum.photos/300/300?random=36",
-        preview: false
+        preview: true
       },
       {
         spotId: 9,
@@ -233,7 +233,7 @@ module.exports = {
       {
         spotId: 9,
         url: "https://picsum.photos/300/300?random=40",
-        preview: true
+        preview: false
       },
       {
         spotId: 10,
@@ -263,12 +263,12 @@ module.exports = {
       {
         spotId: 11,
         url: "https://picsum.photos/300/300?random=46",
-        preview: false
+        preview: true
       },
       {
         spotId: 11,
         url: "https://picsum.photos/300/300?random=47",
-        preview: true
+        preview: false
       },
       {
         spotId: 11,
@@ -288,12 +288,12 @@ module.exports = {
       {
         spotId: 12,
         url: "https://picsum.photos/300/300?random=51",
-        preview: false
+        preview: true
       },
       {
         spotId: 12,
         url: "https://picsum.photos/300/300?random=52",
-        preview: true
+        preview: false
       },
       {
         spotId: 12,
@@ -313,7 +313,7 @@ module.exports = {
       {
         spotId: 13,
         url: "https://picsum.photos/300/300?random=56",
-        preview: false
+        preview: true
       },
       {
         spotId: 13,
@@ -323,7 +323,7 @@ module.exports = {
       {
         spotId: 13,
         url: "https://picsum.photos/300/300?random=58",
-        preview: true
+        preview: false
       },
       {
         spotId: 13,
@@ -338,7 +338,7 @@ module.exports = {
       {
         spotId: 14,
         url: "https://picsum.photos/300/300?random=61",
-        preview: false
+        preview: true
       },
       {
         spotId: 14,
@@ -353,7 +353,7 @@ module.exports = {
       {
         spotId: 14,
         url: "https://picsum.photos/300/300?random=64",
-        preview: true
+        preview: false
       },
       {
         spotId: 14,
@@ -363,7 +363,7 @@ module.exports = {
       {
         spotId: 15,
         url: "https://picsum.photos/300/300?random=66",
-        preview: false
+        preview: true
       },
       {
         spotId: 15,
@@ -378,7 +378,7 @@ module.exports = {
       {
         spotId: 15,
         url: "https://picsum.photos/300/300?random=69",
-        preview: true
+        preview: false
       },
       {
         spotId: 15,
@@ -413,7 +413,7 @@ module.exports = {
       {
         spotId: 17,
         url: "https://picsum.photos/300/300?random=76",
-        preview: false
+        preview: true
       },
       {
         spotId: 17,
@@ -428,7 +428,7 @@ module.exports = {
       {
         spotId: 17,
         url: "https://picsum.photos/300/300?random=79",
-        preview: true
+        preview: false
       },
       {
         spotId: 17,
@@ -438,7 +438,7 @@ module.exports = {
       {
         spotId: 18,
         url: "https://picsum.photos/300/300?random=81",
-        preview: false
+        preview: true
       },
       {
         spotId: 18,
@@ -453,7 +453,7 @@ module.exports = {
       {
         spotId: 18,
         url: "https://picsum.photos/300/300?random=84",
-        preview: true
+        preview: false
       },
       {
         spotId: 18,
@@ -488,12 +488,12 @@ module.exports = {
       {
         spotId: 20,
         url: "https://picsum.photos/300/300?random=91",
-        preview: false
+        preview: true
       },
       {
         spotId: 20,
         url: "https://picsum.photos/300/300?random=92",
-        preview: true
+        preview: false
       },
       {
         spotId: 20,

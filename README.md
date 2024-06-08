@@ -433,7 +433,8 @@ Creates and returns a new spot.
       "lng": -122.4730327,
       "name": "App Academy",
       "description": "Place where web developers are created",
-      "price": 123
+      "price": 123,
+      "previewImage": "https://picsum.photos/300/300?random=1"
     }
     ```
 

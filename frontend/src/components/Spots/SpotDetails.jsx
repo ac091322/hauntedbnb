@@ -48,17 +48,27 @@ const SpotDetails = (rating) => {
         <span id="spot-address">{spot.address}</span>
 
         <div id="images-container">
-          {spot.SpotImages &&
-            <img className="big-image" src={spot.SpotImages[0].url} alt="big-spot-image" />
-          }
-          {spot.SpotImages && spot.SpotImages.slice(1, 5).map((image, index) => (
-            <img
-              key={image.id}
-              className={`small-image small-image-${index + 1}`}
-              src={image.url}
-              alt={`small-spot-image}`}
-            />
-          ))}
+          {spot.SpotImages && (
+            <>
+              <img
+                className="big-image"
+                src={spot.SpotImages.find(image => image.preview)?.url}
+                alt="big-spot-image" />
+
+              {spot.SpotImages
+                .filter(image => !image.preview)
+                .slice(0, 4)
+                .map((image, index) => (
+                  <img
+                    key={image.id}
+                    className={`small-image small-image-${index + 1}`}
+                    src={image.url}
+                    alt={`small-spot-image`}
+                  />
+                ))
+              }
+            </>
+          )}
         </div>
 
         <div id="description-details-container">
