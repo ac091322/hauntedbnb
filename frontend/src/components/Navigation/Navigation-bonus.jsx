@@ -12,6 +12,7 @@ function Navigation({ isLoaded }) {
     <nav id="header-container">
       <NavLink to="/"><img src={logo} id="logo"></img></NavLink>
       {isLoaded && <ProfileButton id="profile-button" user={sessionUser} />}
+
     </nav>
   );
 }

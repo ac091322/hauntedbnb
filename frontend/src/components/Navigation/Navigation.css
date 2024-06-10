@@ -24,6 +24,7 @@
 
 #logo {
   height: 50px;
+  display: block;
 }
 
 .hidden {
