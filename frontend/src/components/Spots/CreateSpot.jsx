@@ -109,8 +109,8 @@ const SpotForm = () => {
       <form onSubmit={handleSubmit}>
 
         <div className="section-container-create-spot">
-          <h3>Where's your place located?</h3>
-          <p>Guests will get your exact location once they've booked a reservation.</p>
+          <h3>Where&apos;s your place located?</h3>
+          <p>Guests will get your exact location once they&apos;ve booked a reservation.</p>
           <div id="location-fields-container-create-spot">
 
             <div id="country-address-container">
@@ -228,7 +228,7 @@ const SpotForm = () => {
 
         <div className="section-container-create-spot">
           <h3>Create a title for your spot</h3>
-          <p>Catch guests' attention with a spot title that highlights what makes your place special.</p>
+          <p>Catch guests&apos; attention with a spot title that highlights what makes your place special.</p>
           <input
             value={spotName}
             type="text"

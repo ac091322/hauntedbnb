@@ -140,19 +140,19 @@ export const spotsReducer = (state = initialState, action) => {
           spotsState[spot.id] = spot;
         });
       return spotsState;
-    };
+    }
 
     case LOAD_SPOT_DETAILS: {
       const spotDetailsState = { ...state };
       spotDetailsState[action.spot.id] = action.spot;
       return spotDetailsState;
-    };
+    }
 
     case CREATE_SPOT: {
       const spotState = { ...state };
       spotState[action.payload.id] = action.payload;
       return spotState;
-    };
+    }
 
     case CREATE_SPOT_IMAGE: {
       const imageState = { ...state };
@@ -161,7 +161,7 @@ export const spotsReducer = (state = initialState, action) => {
         imageState[spotId].images = [...(imageState[spotId].images || []), { url, preview }];
       }
       return imageState;
-    };
+    }
 
     default:
       return state;
