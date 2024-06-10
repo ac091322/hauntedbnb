@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { createSpot } from "../../store/spots";
+import { createSpot, createSpotImage } from "../../store/spots";
 import "./CreateSpot.css";
 
 
-const SpotForm = ({ spotData }) => {
+const SpotForm = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const navigate = useNavigate();
@@ -55,13 +55,13 @@ const SpotForm = ({ spotData }) => {
       typeof state !== "string" ||
       state.length !== 2 ||
       !longitude ||
-      !Number.isInteber(Number(longitude)) ||
+      !Number.isFinite(Number(longitude)) ||
       !latitude ||
-      !Number.isInteber(Number(latitude)) ||
+      !Number.isFinite(Number(latitude)) ||
       description.length < 30 ||
       !spotName ||
       !price ||
-      !Number.isInteger(Number(price)) ||
+      !Number.isFinite(Number(price)) ||
       !primaryURL
     ) {
       return;
@@ -78,14 +78,29 @@ const SpotForm = ({ spotData }) => {
       name: spotName,
       description: description,
       price: Number(price),
-      lat: null,
-      lng: null,
-      previewImage: primaryURL
+      lat: latitude,
+      lng: longitude
     };
 
-    dispatch(createSpot(newSpot))
-      .then((newSpot) => navigate(`/spots/${newSpot.id}`));
-  }
+    try {
+      const createdSpot = await dispatch(createSpot(newSpot));
+
+      const imagePayloads = [
+        { spotId: createdSpot.id, url: primaryURL, preview: true },
+        ...(imageURL1 ? [{ spotId: createdSpot.id, url: imageURL1, preview: false }] : []),
+        ...(imageURL2 ? [{ spotId: createdSpot.id, url: imageURL2, preview: false }] : []),
+        ...(imageURL3 ? [{ spotId: createdSpot.id, url: imageURL3, preview: false }] : []),
+        ...(imageURL4 ? [{ spotId: createdSpot.id, url: imageURL4, preview: false }] : [])
+      ];
+
+      const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImage(imagePayload)));
+      await Promise.all(imageCreationPromises);
+      navigate(`/spots/${createdSpot.id}`);
+
+    } catch (err) {
+      console.error("Failed to create spot or images:", err);
+    }
+  };
 
   return (
     <div id="form-container">
@@ -249,7 +264,8 @@ const SpotForm = ({ spotData }) => {
 
         <div className="section-container-create-spot">
           <h3>Liven up your spot with photos</h3>
-          <p>Submit a link to at least one photo to publish your spot.</p>
+          <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px.</p>
+          <p className="form-error-text">Can copy and paste the following link: https://picsum.photos/300/300?random=1</p>
           <div id="image-urls-container-create-spot">
             <div className="error-group">
               <input
@@ -267,25 +283,32 @@ const SpotForm = ({ spotData }) => {
               type="text"
               className="url-field-create-spot"
               name="url"
-              placeholder=" Image URL" />
+              placeholder=" Image URL"
+              onChange={e => setImageURL1(e.target.value)}
+            />
             <input
               value={imageURL2}
               type="text"
               className="url-field-create-spot"
               name="url"
-              placeholder=" Image URL" />
+              placeholder=" Image URL"
+              onChange={e => setImageURL2(e.target.value)}
+            />
             <input
               value={imageURL3}
               type="text"
               className="url-field-create-spot"
               name="url"
-              placeholder=" Image URL" />
+              placeholder=" Image URL"
+              onChange={e => setImageURL3(e.target.value)}
+            />
             <input
               value={imageURL4}
               type="text"
               className="url-field-create-spot"
               name="url"
-              placeholder=" Image URL" />
+              placeholder=" Image URL"
+              onChange={e => setImageURL4(e.target.value)} />
           </div>
           <hr />
         </div>

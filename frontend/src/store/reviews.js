@@ -34,16 +34,10 @@ export const getSpotReviews = (spotId) => async (dispatch) => {
 };
 
 export const submitReview = (spotId, reviewData) => async (dispatch) => {
-  // const csrfToken = document.cookie
-  //   .split('; ')
-  //   .find(row => row.startsWith('XSRF-TOKEN='))
-  //   ?.split('=')[1];
-
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
-      // "X-CSRF-TOKEN": csrfToken
     },
     body: JSON.stringify(reviewData)
   });

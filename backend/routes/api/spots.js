@@ -61,92 +61,92 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
 
 // get all spots
 router.get("/", async (req, res) => {
-  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
-  let pagination = {};
+  // let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+  // let pagination = {};
   let where = {};
-  let errors = {};
+  // let errors = {};
 
-  spotCcount = await Spot.count({});
+  // spotCcount = await Spot.count({});
 
-  if (!page) {
-    page = 1;
-  } else if (isNaN(page)) {
-    errors.page = "Page must be a number";
-  }
+  // if (!page) {
+  //   page = 1;
+  // } else if (isNaN(page)) {
+  //   errors.page = "Page must be an integer";
+  // }
 
-  if (!size) {
-    size = 20;
-  } else if (isNaN(size)) {
-    errors.size = "Size must be a number";
-  }
+  // if (!size) {
+  //   size = 20;
+  // } else if (isNaN(size)) {
+  //   errors.size = "Size must be an integer";
+  // }
 
-  if (page <= 0 || page > 10) errors.page = "Page must be greater than or equal to 1 and less than or equal to 10";
-  if (size <= 0 || size > 20) errors.size = "Size must be greater than or equal to 1 and less than or equal to 20";
+  // if (page <= 0 || page > 10) errors.page = "Page must be greater than or equal to 1 and less than or equal to 10";
+  // if (size <= 0 || size > 20) errors.size = "Size must be greater than or equal to 1 and less than or equal to 20";
 
-  page = parseInt(page);
-  size = parseInt(size);
-  pagination.limit = size;
-  pagination.offset = size * (page - 1);
+  // page = parseInt(page);
+  // size = parseInt(size);
+  // pagination.limit = size;
+  // pagination.offset = size * (page - 1);
 
-  if (minLat) {
-    if (!isNaN(minLat)) {
-      where.lat = { ...where.lat, [Op.gte]: parseFloat(minLat) };
-    } else {
-      errors.minLat = "Minimum latitude is invalid";
-    }
-  }
+  // if (minLat) {
+  //   if (!isNaN(minLat)) {
+  //     where.lat = { ...where.lat, [Op.gte]: parseFloat(minLat) };
+  //   } else {
+  //     errors.minLat = "Minimum latitude is invalid";
+  //   }
+  // }
 
-  if (maxLat) {
-    if (!isNaN(maxLat)) {
-      where.lat = { ...where.lat, [Op.lte]: parseFloat(maxLat) };
-    } else {
-      errors.maxaLat = "Maximum latitude is invalid";
-    }
-  }
+  // if (maxLat) {
+  //   if (!isNaN(maxLat)) {
+  //     where.lat = { ...where.lat, [Op.lte]: parseFloat(maxLat) };
+  //   } else {
+  //     errors.maxaLat = "Maximum latitude is invalid";
+  //   }
+  // }
 
-  if (minLng) {
-    if (!isNaN(minLng)) {
-      where.lng = { ...where.lng, [Op.gte]: parseFloat(minLng) };
-    } else {
-      errors.minLng = "Minimum longitude is invalid";
-    }
-  }
+  // if (minLng) {
+  //   if (!isNaN(minLng)) {
+  //     where.lng = { ...where.lng, [Op.gte]: parseFloat(minLng) };
+  //   } else {
+  //     errors.minLng = "Minimum longitude is invalid";
+  //   }
+  // }
 
-  if (maxLng) {
-    if (!isNaN(maxLng)) {
-      where.lng = { ...where.lng, [Op.lte]: parseFloat(maxLng) };
-    } else {
-      errors.maxLng = "Maximum longitude is invalid";
-    }
-  }
+  // if (maxLng) {
+  //   if (!isNaN(maxLng)) {
+  //     where.lng = { ...where.lng, [Op.lte]: parseFloat(maxLng) };
+  //   } else {
+  //     errors.maxLng = "Maximum longitude is invalid";
+  //   }
+  // }
 
-  if (minPrice) {
-    if (!isNaN(minPrice) && minPrice >= 0) {
-      where.price = { ...where.price, [Op.gte]: parseFloat(minPrice) };
-    } else {
-      errors.minPrice = "Minimum price must be greater than or equal to 0";
-    }
-  }
+  // if (minPrice) {
+  //   if (!isNaN(minPrice) && minPrice >= 0) {
+  //     where.price = { ...where.price, [Op.gte]: parseFloat(minPrice) };
+  //   } else {
+  //     errors.minPrice = "Minimum price must be greater than or equal to 0";
+  //   }
+  // }
 
-  if (maxPrice) {
-    if (!isNaN(maxPrice) && maxPrice >= 0) {
-      where.price = { ...where.price, [Op.lte]: parseFloat(maxPrice) };
-    } else {
-      errors.maxPrice = "Maximum price must be greater than or equal to 0"
-    }
-  }
+  // if (maxPrice) {
+  //   if (!isNaN(maxPrice) && maxPrice >= 0) {
+  //     where.price = { ...where.price, [Op.lte]: parseFloat(maxPrice) };
+  //   } else {
+  //     errors.maxPrice = "Maximum price must be greater than or equal to 0"
+  //   }
+  // }
 
-  if (Object.keys(errors).length > 0) {
-    res.status(400);
-    return res.json({
-      "message": "Bad Request",
-      errors
-    });
-  }
+  // if (Object.keys(errors).length > 0) {
+  //   res.status(400);
+  //   return res.json({
+  //     "message": "Bad Request",
+  //     errors
+  //   });
+  // }
 
   let allSpots = await Spot.findAll({
     where,
-    ...pagination,
+    // ...pagination,
     include: [
       { model: SpotImage },
       { model: Review }
@@ -167,9 +167,7 @@ router.get("/", async (req, res) => {
     let sumOfStarRating = findSumOfStarRatings.dataValues.totalStars;
     let numberOfStarRatings = numReviews;
 
-    let avgStarRating = numberOfStarRatings > 0
-      ? Math.round((sumOfStarRating / numberOfStarRatings) * 10) / 10
-      : 0;
+    let avgStarRating = numberOfStarRatings > 0 ? Math.round((sumOfStarRating / numberOfStarRatings) * 10) / 10 : 0;
 
     spot.dataValues.numReviews = numReviews;
     spot.dataValues.avgStarRating = avgStarRating;
@@ -178,9 +176,9 @@ router.get("/", async (req, res) => {
   res.status(200);
   return res.json({
     "Spots": allSpots,
-    page,
-    size,
-    spotCcount
+    // page,
+    // size,
+    // spotCcount
   });
 });
 
@@ -279,7 +277,6 @@ router.post("/", requireAuth, async (req, res) => {
   if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
   if (!description) errors.description = "Description is required";
   if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
-  // if (!previewImage) errors.previewImage = "Preview image is required";
 
   if (Object.keys(errors).length > 0) {
     res.status(400);
@@ -387,11 +384,6 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     let postImage = await SpotImage.create({
       spotId, url, preview
     });
-
-    if (preview) {
-      existingSpot.previewImage = url;
-      await existingSpot.save();
-    }
 
     res.status(200);
     return res.json({

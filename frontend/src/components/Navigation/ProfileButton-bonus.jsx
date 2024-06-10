@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
@@ -10,6 +10,7 @@ import "./ProfileButton-bonus.css";
 
 
 function ProfileButton({ user }) {
+  const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -64,6 +65,13 @@ function ProfileButton({ user }) {
               <li>Username: {user.username}</li>
               <hr />
               <li>{user.email}</li>
+              <hr />
+              <Link
+                id="manage-spots-link"
+                to={`/spots/${currentUser.id}/manage`}
+                onClick={closeMenu}
+              >Manage Spots
+              </Link>
               <hr />
               <Link id="logout-button" onClick={logout}>Log out</Link>
             </div>

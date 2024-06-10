@@ -31,7 +31,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
 
     let formErrors = {};
     if (text.length < 10) formErrors.text = "Review can't be too short";
-    if (!rating) formErrors.rating = "Blood-rating can't be empty";
+    if (!rating) formErrors.rating = "Must give a bloody rating can't be empty";
     setValidations(formErrors);
     if (Object.keys(formErrors).length > 0) {
       return formErrors;

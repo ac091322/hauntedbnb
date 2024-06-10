@@ -26,6 +26,11 @@
   color: inherit;
 }
 
+#manage-spots-link{
+  text-decoration: none;
+  color: inherit;
+}
+
 #create-spot-link {
   text-decoration: none;
   color: inherit;

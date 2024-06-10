@@ -13,16 +13,15 @@ module.exports = {
     await Spot.bulkCreate([
       {
         ownerId: 1,
-        address: "123 Elm St",
-        city: "San Francisco",
-        state: "CA",
+        address: "13 Rue Toulouse",
+        city: "New Orleans",
+        state: "LA",
         country: "USA",
-        lat: 37.7749,
-        lng: -122.4194,
-        name: "Cozy Apartment in SF",
-        description: "A cozy one-bedroom apartment in the heart of San Francisco.",
-        price: 150.00,
-        // previewImage: "https://picsum.photos/300/300?random=1",
+        lat: 29.9330,
+        lng: -90.0756,
+        name: "Unveiling Whispers: The Blackwood Manor",
+        description: "Dare to step into the captivating, yet eerily silent, Blackwood Manor. Nestled in the heart of New Orleans' historic Garden District, this meticulously restored Victorian mansion holds secrets beneath its ornate facade. Soaring ceilings and intricate moldings cast long shadows, while rich hardwood floors creak with whispers of the past. Four spacious guest rooms await, each elegantly appointed with period furniture and plush bedding. But will sleep find you? Or will you be kept awake by the unseen residents who linger within these walls? Unwind by a crackling fireplace in the grand parlor, if you dare.  Indulge in a cup of tea in the sunroom overlooking the lush courtyard, but keep an eye out for fleeting shadows that flit across the glass. Explore the hidden nooks and crannies of this captivating residence, but remember, you may not be alone. Blackwood Manor offers a unique experience, perfect for those seeking a taste of history... and perhaps a brush with the unknown.",
+        price: 260
       },
       {
         ownerId: 1,
@@ -34,8 +33,7 @@ module.exports = {
         lng: -122.3321,
         name: "Stylish Apartment in Seattle",
         description: "A stylish apartment in downtown Seattle.",
-        price: 180.00,
-        // previewImage: "https://picsum.photos/300/300?random=2",
+        price: 180
       },
       {
         ownerId: 1,
@@ -47,8 +45,7 @@ module.exports = {
         lng: -81.3792,
         name: "Family House in Orlando",
         description: "A spacious house perfect for family vacations.",
-        price: 280.00,
-        // previewImage: "https://picsum.photos/300/300?random=3",
+        price: 280
       },
       {
         ownerId: 1,
@@ -60,24 +57,10 @@ module.exports = {
         lng: -112.0740,
         name: "Desert Oasis in Phoenix",
         description: "A beautiful desert oasis with a pool.",
-        price: 240.00,
-        // previewImage: "https://picsum.photos/300/300?random=4",
+        price: 240.00
       },
       {
         ownerId: 1,
-        address: "456 Maple Ave",
-        city: "New York",
-        state: "NY",
-        country: "USA",
-        lat: 40.7128,
-        lng: -74.0060,
-        name: "Modern Loft in NYC",
-        description: "A modern loft with stunning city views.",
-        price: 550.00,
-        // previewImage: "https://picsum.photos/300/300?random=5",
-      },
-      {
-        ownerId: 2,
         address: "404 Spruce St",
         city: "Austin",
         state: "TX",
@@ -86,8 +69,19 @@ module.exports = {
         lng: -97.7431,
         name: "Eclectic Home in Austin",
         description: "An eclectic home with a unique charm.",
-        price: 320.00,
-        // previewImage: "https://picsum.photos/300/300?random=6",
+        price: 320
+      },
+      {
+        ownerId: 2,
+        address: " 679 Blackwood Lane",
+        city: "Sleepy Hollow",
+        state: "NY",
+        country: "USA",
+        lat: 41.1345,
+        lng: -73.8917,
+        name: "Sleepy Hollow's Secret: The Crypt Awaits",
+        description: "Descend into a bygone era at the Whispering Crypt, a hauntingly beautiful bed and breafast nestled beneath a forgotten chapel. This captivating crypt offers a unique accommodation experience, steeped in history and a touch of the otherworldly. Explore the labyrinthine corridors, adorned with weathered stone and cryptic symbols, and lose yourself in the captivating atmosphere.",
+        price: 350
       },
       {
         ownerId: 2,
@@ -99,8 +93,7 @@ module.exports = {
         lng: -86.7816,
         name: "Music City Condo in Nashville",
         description: "A condo located in the heart of Music City.",
-        price: 790.00,
-        // previewImage: "https://picsum.photos/300/300?random=7",
+        price: 790.00
       },
       {
         ownerId: 2,
@@ -112,8 +105,7 @@ module.exports = {
         lng: -80.8431,
         name: "Elegant Apartment in Charlotte",
         description: "An elegant apartment in a prime location.",
-        price: 190.00,
-        // previewImage: "https://picsum.photos/300/300?random=8",
+        price: 190
       },
       {
         ownerId: 2,
@@ -125,8 +117,7 @@ module.exports = {
         lng: -87.6298,
         name: "Charming Bungalow in Chicago",
         description: "A charming bungalow perfect for a weekend getaway.",
-        price: 130.00,
-        // previewImage: "https://picsum.photos/300/300?random=9",
+        price: 130.00
       },
       {
         ownerId: 2,
@@ -138,21 +129,19 @@ module.exports = {
         lng: -104.9903,
         name: "Mountain Retreat in Denver",
         description: "A cozy retreat near the mountains.",
-        price: 205.00,
-        // previewImage: "https://picsum.photos/300/300?random=10",
+        price: 205
       },
       {
         ownerId: 3,
-        address: "1010 Juniper St",
-        city: "Boston",
-        state: "MA",
+        address: "130 Coffin Gate Avenue",
+        city: "St. Augustine",
+        state: "Florida",
         country: "USA",
-        lat: 42.3601,
-        lng: -71.0589,
-        name: "Historic Apartment in Boston",
-        description: "A historic apartment with modern amenities.",
-        price: 230.00,
-        previewImage: "https://picsum.photos/300/300?random=11",
+        lat: 29.89,
+        lng: 81.31,
+        name: "Wysteria Manor",
+        description: "Step into a bygone era at The Wysteria Manor, a meticulously restored Victorian gem nestled amidst a bustling modern city. Its crimson brick facade, adorned with delicate white trim and overflowing wisteria vines, whispers of a bygone elegance. But beneath the surface, a darker history lingers. The Wysteria Manor isn't for the faint of heart. It's a place where the veil between worlds seems thin, where shadows dance with a life of their own, and the air is thick with the scent of forgotten memories. Are you brave enough to become part of its chilling legacy?",
+        price: 1500
       },
       {
         ownerId: 3,
@@ -164,8 +153,7 @@ module.exports = {
         lng: -95.3698,
         name: "Spacious Home in Houston",
         description: "A spacious home perfect for large groups.",
-        price: 3270.00,
-        // previewImage: "https://picsum.photos/300/300?random=12",
+        price: 3270
       },
       {
         ownerId: 3,
@@ -177,8 +165,7 @@ module.exports = {
         lng: -118.2437,
         name: "Luxury Condo in LA",
         description: "A luxurious condo with a beautiful city view.",
-        price: 300.00,
-        // previewImage: "https://picsum.photos/300/300?random=13",
+        price: 300
       },
       {
         ownerId: 3,
@@ -190,8 +177,7 @@ module.exports = {
         lng: -122.6784,
         name: "Chic Studio in Portland",
         description: "A chic studio apartment in the trendy district.",
-        price: 60.00,
-        // previewImage: "https://picsum.photos/300/300?random=14",
+        price: 60
       },
       {
         ownerId: 3,
@@ -203,8 +189,19 @@ module.exports = {
         lng: -75.1652,
         name: "Quaint Home in Philadelphia",
         description: "A quaint home near historic sites.",
-        price: 970.00,
-        // previewImage: "https://picsum.photos/300/300?random=15",
+        price: 970.00
+      },
+      {
+        ownerId: 4,
+        address: "Point Reyes National Seashore",
+        city: "Bodega Bay",
+        state: "CA",
+        country: "USA",
+        lat: 38.3332,
+        lng: -123.0481,
+        name: "The Harbinger of Despair",
+        description: "Experience the chilling allure of The Harbinger of Despair, a once-luxurious cruise liner forever moored off the coast of Bodega Bay, California. Its opulent halls are now silent tombs, whispers of tragedy clinging to the decaying grandeur. Legends of a doomed voyage and restless spirits linger in the salty air. Dare to embark on a paranormal adventure unlike any other.",
+        price: 800
       },
       {
         ownerId: 4,
@@ -216,22 +213,9 @@ module.exports = {
         lng: -80.1918,
         name: "Beachfront Villa in Miami",
         description: "A luxurious beachfront villa with stunning ocean views.",
-        price: 400.00,
-        // previewImage: "https://picsum.photos/300/300?random=16",
+        price: 400
       },
-      {
-        ownerId: 4,
-        address: "606 Ocean Dr",
-        city: "Los Angeles",
-        state: "CA",
-        country: "USA",
-        lat: 34.0522,
-        lng: -118.2437,
-        name: "Luxury Mansion in LA",
-        description: "A luxurious mansion with panoramic views of Los Angeles.",
-        price: 1300.00,
-        // previewImage: "https://picsum.photos/300/300?random=17",
-      },
+
       {
         ownerId: 4,
         address: "606 Ocean Ave",
@@ -242,8 +226,7 @@ module.exports = {
         lng: -118.4965,
         name: "Beachfront Condo in Santa Monica",
         description: "A luxurious beachfront condo with stunning ocean views.",
-        price: 400.00,
-        // previewImage: "https://picsum.photos/300/300?random=18",
+        price: 400
       },
       {
         ownerId: 4,
@@ -255,8 +238,7 @@ module.exports = {
         lng: -80.2988,
         name: "Modern Apartment in Miami",
         description: "A modern apartment located in the heart of Miami.",
-        price: 450.00,
-        // previewImage: "https://picsum.photos/300/300?random=19",
+        price: 450
       },
       {
         ownerId: 4,
@@ -268,74 +250,68 @@ module.exports = {
         lng: -118.4965,
         name: "Cliffhouse in Newport Beach",
         description: "A beautiful cliffhouse overlooing the bay.",
-        price: 700.00,
-        // previewImage: "https://picsum.photos/300/300?random=20",
+        price: 700
       },
-      {
-        ownerId: 5,
-        address: "123 Seeder Blvd",
-        city: "Union City",
-        state: "CA",
-        country: "USA",
-        lat: 34.0094,
-        lng: -118.4965,
-        name: "A seeder spot where I live",
-        description: "This is a fake spot that you should book.",
-        price: 100.00,
-        // previewImage: "https://picsum.photos/300/300?random=21",
-      },
-      {
-        ownerId: 5,
-        address: "699 Fake Ave",
-        city: "Millbrae",
-        state: "CA",
-        country: "USA",
-        lat: 34.0094,
-        lng: -118.4965,
-        name: "The city where I used to work.",
-        description: "I used to work in this over-priced city across the Bay.",
-        price: 980.00,
-        // previewImage: "https://picsum.photos/300/300?random=22",
-      },
-      {
-        ownerId: 5,
-        address: "911 Police St",
-        city: "Oakland",
-        state: "CA",
-        country: "USA",
-        lat: 34.0094,
-        lng: -118.4965,
-        name: "Nice quiet spot in Oakland.",
-        description: "No shootings nearby, it's safe to book.",
-        price: 10.00,
-        previewImage: "https://picsum.photos/300/300?random=23",
-      },
-      {
-        ownerId: 5,
-        address: "000 Nonexistent Ln",
-        city: "Fremont",
-        state: "CA",
-        country: "USA",
-        lat: 34.0094,
-        lng: -118.4965,
-        name: "Fake address.",
-        description: "I don't think this address even exists.",
-        price: 10.00,
-        // previewImage: "https://picsum.photos/300/300?random=24",
-      },
-      {
-        ownerId: 5,
-        address: "999 Last Seeder Ct",
-        city: "Santa Cruz",
-        state: "CA",
-        country: "USA",
-        lat: 34.0094,
-        lng: -118.4965,
-        name: "Fake house by the sea.",
-        description: "Overlooking the bay, this fake spot is incredible.",
-        price: 610.00,
-        // previewImage: "https://picsum.photos/300/300?random=25",
-      }
+      // {
+      //   ownerId: 5,
+      //   address: "123 Seeder Blvd",
+      //   city: "Union City",
+      //   state: "CA",
+      //   country: "USA",
+      //   lat: 34.0094,
+      //   lng: -118.4965,
+      //   name: "A seeder spot where I live",
+      //   description: "This is a fake spot that you should book.",
+      //   price: 100
+      // },
+      // {
+      //   ownerId: 5,
+      //   address: "699 Fake Ave",
+      //   city: "Millbrae",
+      //   state: "CA",
+      //   country: "USA",
+      //   lat: 34.0094,
+      //   lng: -118.4965,
+      //   name: "The city where I used to work.",
+      //   description: "I used to work in this over-priced city across the Bay.",
+      //   price: 980
+      // },
+      // {
+      //   ownerId: 5,
+      //   address: "911 Police St",
+      //   city: "Oakland",
+      //   state: "CA",
+      //   country: "USA",
+      //   lat: 34.0094,
+      //   lng: -118.4965,
+      //   name: "Nice quiet spot in Oakland.",
+      //   description: "No shootings nearby, it's safe to book.",
+      //   price: 10
+      // },
+      // {
+      //   ownerId: 5,
+      //   address: "000 Nonexistent Ln",
+      //   city: "Fremont",
+      //   state: "CA",
+      //   country: "USA",
+      //   lat: 34.0094,
+      //   lng: -118.4965,
+      //   name: "Fake address.",
+      //   description: "I don't think this address even exists.",
+      //   price: 10
+      // },
+      // {
+      //   ownerId: 5,
+      //   address: "999 Last Seeder Ct",
+      //   city: "Santa Cruz",
+      //   state: "CA",
+      //   country: "USA",
+      //   lat: 34.0094,
+      //   lng: -118.4965,
+      //   name: "Fake house by the sea.",
+      //   description: "Overlooking the bay, this fake spot is incredible.",
+      //   price: 610
+      // }
     ], { validate: true });
   },
 

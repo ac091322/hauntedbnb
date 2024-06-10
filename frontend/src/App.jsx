@@ -7,6 +7,7 @@ import { Modal } from './context/Modal';
 import SpotsListing from './components/Spots/SpotsListing';
 import SpotDetails from './components/Spots/SpotDetails';
 import SpotForm from './components/Spots/CreateSpot';
+import ManageSpots from './components/Spots/ManageSpots';
 
 
 function Layout() {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/spots/create",
         element: <SpotForm />
+      },
+      {
+        path: "/spots/:userId/manage",
+        element: <ManageSpots />
       }
     ]
   }

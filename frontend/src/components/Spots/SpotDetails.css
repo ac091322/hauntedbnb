@@ -81,8 +81,9 @@
   grid-row-gap: 10px;
   border: 2px solid gray;
   border-radius: 15px;
-  padding: 10px 40px 20px 40px;
+  padding: 10px 40px 25px 40px;
   min-width: 460px;
+  max-height: 140px;
 }
 
 #price-rating-review-container {

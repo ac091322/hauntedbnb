@@ -13,52 +13,52 @@ module.exports = {
     await SpotImage.bulkCreate([
       {
         spotId: 1,
-        url: "https://picsum.photos/300/300?random=1",
-        preview: false
-      },
-      {
-        spotId: 1,
-        url: "https://picsum.photos/300/300?random=2",
-        preview: false
-      },
-      {
-        spotId: 1,
-        url: "https://picsum.photos/300/300?random=3",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk8q2zyk8q2zy.jpg",
         preview: true
       },
       {
         spotId: 1,
-        url: "https://picsum.photos/300/300?random=4",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk7q2zyk7q2zy.jpg",
         preview: false
       },
       {
         spotId: 1,
-        url: "https://picsum.photos/300/300?random=5",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk6q2zyk6q2zy.jpg",
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk4q2zyk4q2zy.jpg",
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk5q2zyk5q2zy.jpg",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=6",
+        url: "https://picsum.photos/300/300?random=16",
         preview: true
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=7",
+        url: "https://picsum.photos/300/300?random=17",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=8",
+        url: "https://picsum.photos/300/300?random=18",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=9",
+        url: "https://picsum.photos/300/300?random=19",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=10",
+        url: "https://picsum.photos/300/300?random=20",
         preview: false
       },
       {
@@ -113,52 +113,52 @@ module.exports = {
       },
       {
         spotId: 5,
-        url: "https://picsum.photos/300/300?random=16",
-        preview: true
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=17",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=18",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=19",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=20",
-        preview: false
-      },
-      {
-        spotId: 6,
         url: "https://picsum.photos/300/300?random=21",
         preview: true
       },
       {
-        spotId: 6,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=22",
         preview: false
       },
       {
-        spotId: 6,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=23",
         preview: false
       },
       {
-        spotId: 6,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=24",
         preview: false
       },
       {
-        spotId: 6,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=25",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_mvhg96mvhg96mvhg.jpeg",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_9cqlrc9cqlrc9cql.jpeg",
+        preview: true
+      },
+      {
+        spotId: 6,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_loc71jloc71jloc7.jpeg",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_mvhg94mvhg94mvhg.jpeg",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_esh4vqesh4vqesh4.jpeg",
         preview: false
       },
       {
@@ -237,52 +237,52 @@ module.exports = {
       },
       {
         spotId: 10,
-        url: "https://picsum.photos/300/300?random=41",
-        preview: true
-      },
-      {
-        spotId: 10,
-        url: "https://picsum.photos/300/300?random=42",
-        preview: false
-      },
-      {
-        spotId: 10,
-        url: "https://picsum.photos/300/300?random=43",
-        preview: false
-      },
-      {
-        spotId: 10,
-        url: "https://picsum.photos/300/300?random=44",
-        preview: false
-      },
-      {
-        spotId: 10,
-        url: "https://picsum.photos/300/300?random=45",
-        preview: false
-      },
-      {
-        spotId: 11,
         url: "https://picsum.photos/300/300?random=46",
         preview: true
       },
       {
-        spotId: 11,
+        spotId: 10,
         url: "https://picsum.photos/300/300?random=47",
         preview: false
       },
       {
-        spotId: 11,
+        spotId: 10,
         url: "https://picsum.photos/300/300?random=48",
         preview: false
       },
       {
-        spotId: 11,
+        spotId: 10,
         url: "https://picsum.photos/300/300?random=49",
         preview: false
       },
       {
-        spotId: 11,
+        spotId: 10,
         url: "https://picsum.photos/300/300?random=50",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+11/Gemini_Generated_Image_rsmdvsrsmdvsrsmd.jpeg",
+        preview: true
+      },
+      {
+        spotId: 11,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+11/Gemini_Generated_Image_chw4tochw4tochw4.jpeg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+11/Gemini_Generated_Image_chw4tqchw4tqchw4.jpeg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+11/Gemini_Generated_Image_uxoc8wuxoc8wuxoc.jpeg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+11/Gemini_Generated_Image_chw4tpchw4tpchw4.jpeg",
         preview: false
       },
       {
@@ -387,27 +387,27 @@ module.exports = {
       },
       {
         spotId: 16,
-        url: "https://picsum.photos/300/300?random=71",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+16/Gemini_Generated_Image_7zrzog7zrzog7zrz.jpeg",
         preview: true
       },
       {
         spotId: 16,
-        url: "https://picsum.photos/300/300?random=72",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+16/Gemini_Generated_Image_igreezigreezigre.jpeg",
         preview: false
       },
       {
         spotId: 16,
-        url: "https://picsum.photos/300/300?random=73",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+16/Gemini_Generated_Image_oy684poy684poy68.jpeg",
         preview: false
       },
       {
         spotId: 16,
-        url: "https://picsum.photos/300/300?random=74",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+16/Gemini_Generated_Image_wdk55bwdk55bwdk5.jpeg",
         preview: false
       },
       {
         spotId: 16,
-        url: "https://picsum.photos/300/300?random=75",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+16/Gemini_Generated_Image_nrg9frnrg9frnrg9.jpeg",
         preview: false
       },
       {
