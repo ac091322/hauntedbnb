@@ -13,27 +13,27 @@ module.exports = {
     await SpotImage.bulkCreate([
       {
         spotId: 1,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk8q2zyk8q2zy.jpg",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+01/Gemini_Generated_Image_q2zyk8q2zyk8q2zy.jpg",
         preview: true
       },
       {
         spotId: 1,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk7q2zyk7q2zy.jpg",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+01/Gemini_Generated_Image_q2zyk6q2zyk6q2zy.jpg",
         preview: false
       },
       {
         spotId: 1,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk6q2zyk6q2zy.jpg",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+01/Gemini_Generated_Image_q2zyk4q2zyk4q2zy.jpg",
         preview: false
       },
       {
         spotId: 1,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk4q2zyk4q2zy.jpg",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+01/Gemini_Generated_Image_q2zyk5q2zyk5q2zy.jpg",
         preview: false
       },
       {
         spotId: 1,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+1/Gemini_Generated_Image_q2zyk5q2zyk5q2zy.jpg",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+01/Gemini_Generated_Image_q2zyk7q2zyk7q2zy.jpg",
         preview: false
       },
       {
