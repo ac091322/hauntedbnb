@@ -1,49 +1,58 @@
-  #review-form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 400px;
-  }
+#review-form-background{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  padding: 40px 40px;
+}
 
-  #blood-rating-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+#form-container-review {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
 
-  #review-buttons-container {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-  }
+#review-textarea-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  #review-text-area {
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-  }
+#blood-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  .review-buttons {
-    height: 30px;
-    width: 200px;
-  }
+#buttons-container-review {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
 
-  .rating-input {
-    display: flex;
-  }
+#leave-review-textarea {
+  height: 100px;
+  width: 100%;
+}
 
-  .rating-input .filled {
-    color: var(--blood-color);
-  }
+.review-buttons {
+  width: 200px;
+}
 
-  .rating-input .empty {
-    color: gray;
-  }
+.rating-input {
+  display: flex;
+}
 
-  .review-error-text {
-    color: var(--primary-color);
-  }
+.filled {
+  color: var(--blood-color);
+}
 
-  .blood-icon-position {
-    margin-top: 7px;
-  }
+.empty {
+  color: gray;
+}
+
+.blood-icon-position {
+  margin-top: 7px;
+}

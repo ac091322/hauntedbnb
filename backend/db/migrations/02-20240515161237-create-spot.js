@@ -9,10 +9,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Spots', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        primaryKey: true
       },
       ownerId: {
         type: Sequelize.INTEGER,
@@ -41,11 +41,11 @@ module.exports = {
       },
       lat: {
         type: Sequelize.DECIMAL,
-        allowNull: false
+        allowNull: true
       },
       lng: {
         type: Sequelize.DECIMAL,
-        allowNull: false
+        allowNull: true
       },
       name: {
         type: Sequelize.STRING(50),
@@ -59,10 +59,10 @@ module.exports = {
         type: Sequelize.DECIMAL,
         allowNull: false
       },
-      previewImage: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
+      // previewImage: {
+      //   type: Sequelize.STRING,
+      //   allowNull: true,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

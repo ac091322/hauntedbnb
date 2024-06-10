@@ -9,6 +9,7 @@
   font-size: 2em;
   color: #FF385C;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .profile-dropdown {
@@ -27,8 +28,4 @@
 
 .hidden {
   display: none;
-}
-
-li {
-  list-style-type: none;
 }

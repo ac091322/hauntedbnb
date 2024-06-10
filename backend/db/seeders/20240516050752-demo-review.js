@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         spotId: 2,
-        userId: 5,
+        userId: 6,
         review: "Unfortunately, our experience at this spot was disappointing. The cleanliness was lacking and some amenities were broken. Would not recommend.",
         stars: 2
       },
@@ -85,7 +85,7 @@ module.exports = {
       },
       {
         spotId: 11,
-        userId: 4,
+        userId: 5,
         review: "Had a pleasant stay at this spot. The location was convenient and the spot had everything needed for a comfortable stay. Would recommend!",
         stars: 4
       },
@@ -113,6 +113,30 @@ module.exports = {
         review: "Absolutely hated my stay at this cozy spot! The location was perfect and the amenities provided were excellent. Would definitely recommend to anyone visiting the area.",
         stars: 2
       }
+      // {
+      //   spotId: 21,
+      //   userId: 1,
+      //   review: "Absolutely loved this spot! Everything was perfect, from the location to the amenities. Will definitely be returning!",
+      //   stars: 5
+      // },
+      // {
+      //   spotId: 21,
+      //   userId: 2,
+      //   review: "The spot was decent, but the price seemed a bit high for what it offered. Overall, an average experience.",
+      //   stars: 3
+      // },
+      // {
+      //   spotId: 21,
+      //   userId: 3,
+      //   review: "The spot was okay, but nothing special. Found it a bit overpriced for what it offered. Probably wouldn't stay here again.",
+      //   stars: 3
+      // },
+      // {
+      //   spotId: 21,
+      //   userId: 4,
+      //   review: "Absolutely hated my stay at this cozy spot! The location was perfect and the amenities provided were excellent. Would definitely recommend to anyone visiting the area.",
+      //   stars: 2
+      // }
     ], { validate: true });
   },
 
@@ -124,14 +148,3 @@ module.exports = {
     }, {});
   }
 };
-
-
-/*
-review logic:
-userID 1 should not leave reviews for spotIds 1, 2, 3, 4
-userID 2 should not leave reviews for spotIds 5, 6, 7, 8
-userID 3 should not leave reviews for spotIds 9, 10, 11, 12
-userID 4 should not leave reviews for spotIds 13, 14, 15
-userID 5 should not leave reviews for spotIds 16, 17, 18, 19
-userID 6 should not leave reviews for spotIds 20
-*/

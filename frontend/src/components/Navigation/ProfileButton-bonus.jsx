@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
@@ -10,13 +10,14 @@ import "./ProfileButton-bonus.css";
 
 
 function ProfileButton({ user }) {
+  const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const navigate = useNavigate();
 
   const toggleMenu = (e) => {
-    e.stopPropagation(); // keep from bubbling up to document and triggering closeMenu
+    e.stopPropagation();
     setShowMenu(!showMenu);
   };
 
@@ -49,7 +50,7 @@ function ProfileButton({ user }) {
     <div id="account-menu-container">
       <div id="create-spot-profile-container">
         {user && (
-          <><Link to="" id="create-spot-link">
+          <><Link to="/spots/create" id="create-spot-link">
             Create a Spot
           </Link></>
         )}
@@ -65,7 +66,14 @@ function ProfileButton({ user }) {
               <hr />
               <li>{user.email}</li>
               <hr />
-              <button id="logout-button" onClick={logout}>Log out</button>
+              <Link
+                id="manage-spots-link"
+                to={`/spots/${currentUser.id}/manage`}
+                onClick={closeMenu}
+              >Manage Spots
+              </Link>
+              <hr />
+              <Link id="logout-button" onClick={logout}>Log out</Link>
             </div>
           </>
         ) : (

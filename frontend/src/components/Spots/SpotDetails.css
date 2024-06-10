@@ -11,6 +11,7 @@
   margin-bottom: 10px;
 }
 
+
 #images-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -53,7 +54,8 @@
   border-bottom-right-radius: 15px
 }
 
-#description-reviews-container {
+
+#description-details-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
@@ -61,14 +63,15 @@
   gap: 40px;
 }
 
-#description-container {
+#description-details-left-container {
   grid-area: description;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#reserve-container {
+#description-details-right-container {
+  grid-area: reviews;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -78,11 +81,12 @@
   grid-row-gap: 10px;
   border: 2px solid gray;
   border-radius: 15px;
-  padding: 10px 40px 20px 40px;
+  padding: 10px 40px 25px 40px;
   min-width: 460px;
+  max-height: 140px;
 }
 
-#price-review-rating-container {
+#price-rating-review-container {
   grid-area: price;
   display: flex;
   align-items: center;
@@ -95,16 +99,11 @@
   gap: 2px;
 }
 
-#spot-details-price {
+#spot-price {
   font-size: 2em;
 }
 
-#rating-review-container-top {
-  display: flex;
-  align-items: center;
-}
-
-#star-rating-container {
+#rating-review-container {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -115,18 +114,17 @@
   color: var(--blood-color);
 }
 
-#dot1 {
+#dot-top {
   font-size: 3em;
 }
 
-#booking-button {
+#button-reserve {
   grid-area: button;
   justify-self: center;
-  height: 30px;
   width: 300px;
 }
 
-.popup-container {
+.popup-container-reserve-review {
   position: fixed;
   top: 0;
   right: 0;
@@ -141,7 +139,7 @@
   z-index: 1;
 }
 
-#inner-reserve-container {
+#reserve-form-background {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,16 +149,17 @@
   padding: 40px 40px;
 }
 
-#close-button {
-  height: 30px;
+#button-close {
   width: 200px;
 }
 
-#description-review-separator {
+
+#section-separator {
   margin-top: 40px;
 }
 
-#ratings-container {
+
+#ratings-container-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -178,17 +177,6 @@
   font-size: 2em;
 }
 
-#review-button {
-  height: 30px;
+#button-review {
   width: 300px;
-}
-
-#inner-review-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  background-color: white;
-  padding: 40px 40px;
 }

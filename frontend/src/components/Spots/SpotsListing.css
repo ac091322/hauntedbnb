@@ -1,8 +1,9 @@
-#spot-container {
+#all-spots-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(16.666%), 1fr));
-  column-gap: 2%;
-  row-gap: 4%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 20px;
+  row-gap: 40px;
 }
 
 #spot-content-container {
@@ -23,13 +24,7 @@
 
 #spot-image {
   border-radius: 15px;
-  min-width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-#grid-container-parent {
-  margin-bottom: 100px;
+  width: 100%;
 }
 
 #spot-link {

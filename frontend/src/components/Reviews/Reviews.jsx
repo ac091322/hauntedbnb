@@ -25,11 +25,11 @@ const Reviews = ({ review }) => {
   }
 
   return (
-    <div id="review-container">
+    <div id="reviews-container">
       <div id="name-rating-container">
         <h3 id="review-name">{firstName}</h3>
 
-        <div id="rating-star-container">
+        <div id="blood-star-container">
           <span>{review.stars}</span>
           <TbDropletFilled className="blood-icon" />
         </div>

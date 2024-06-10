@@ -13,40 +13,48 @@ module.exports = {
     options.tableName = "Users";
     await User.bulkCreate([
       {
-        username: 'Demo-User',
-        email: 'demo-user@hauntedbnb.io',
-        firstName: "Demo",
-        lastName: "User",
-        hashedPassword: bcrypt.hashSync('password')
+        username: 'FionaG',
+        firstName: "Fiona",
+        lastName: "Goode",
+        email: 'fiona@horror.story',
+        hashedPassword: bcrypt.hashSync("password")
       },
+
       {
         username: 'DelphineL',
         firstName: "Delphine",
         lastName: "LaLaurie",
         email: 'delphine@horror.story',
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
         username: 'MyrtleS',
         firstName: "Myrtle",
         lastName: "Snow",
         email: 'myrtle@horror.story',
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
-        username: 'FionaG',
-        firstName: "Fiona",
-        lastName: "Goode",
-        email: 'fiona@horror.story',
-        hashedPassword: bcrypt.hashSync('password')
+        username: "MarieL",
+        firstName: "Marie",
+        lastName: "Laveau",
+        email: "marie@horror.story",
+        hashedPassword: bcrypt.hashSync("password")
       },
       {
         username: 'MadisonM',
         firstName: "Madison",
         lastName: "Montgomery",
         email: 'madison@horror.story',
-        hashedPassword: bcrypt.hashSync('password')
-      }
+        hashedPassword: bcrypt.hashSync("password")
+      },
+      {
+        username: 'Demo-User',
+        email: 'demo-user@hauntedbnb.io',
+        firstName: "Demo",
+        lastName: "User",
+        hashedPassword: bcrypt.hashSync("password")
+      },
     ], { validate: true });
   },
 

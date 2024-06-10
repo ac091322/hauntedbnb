@@ -1,0 +1,111 @@
+#form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#form-container form {
+  max-width: 600px;
+}
+
+#form-container>h1 {
+  margin-bottom: 40px;
+}
+
+form hr {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.section-container-create-spot {
+  display: flex;
+  flex-direction: column;
+}
+
+#location-fields-container-create-spot {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#country-address-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.left-right-container {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+#city-state-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+#city-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#state-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+#city {
+  width: 100%;
+}
+
+#state {
+  width: 100%;
+}
+
+.lng-lat-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+.lng-lat-subcontainer{
+  width: 100%;
+}
+
+.lng-lat {
+  width: 100%;
+}
+
+#description-create-spot {
+  height: 100px;
+}
+
+#price-container-create-spot {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+#price {
+  width: 100%;
+}
+
+#image-urls-container-create-spot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#button-create-spot {
+  width: 100%;
+  margin-top: 10px;
+}

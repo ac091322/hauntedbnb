@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { submitReview } from "../../store/reviews";
 import "./ReviewForm.css";
 
-const ReviewForm = ({ spotId, onClose }) => {
+const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector(state => state.session.user);
 
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [validations, setValidations] = useState({});
+  const [submit, setSubmit] = useState(false);
+
+  useEffect(() => {
+    let formErrors = {};
+    if (text.length < 10) formErrors.text = "Review can't be too short";
+    if (!rating) formErrors.rating = "Blood drops can't be empty";
+    setValidations(formErrors);
+  }, [text, rating]);
 
   const handleIconClick = (newRating) => {
     setRating(newRating);
+    setSubmit(true);
   };
 
   const handleSubmit = (e) => {
@@ -22,7 +31,7 @@ const ReviewForm = ({ spotId, onClose }) => {
 
     let formErrors = {};
     if (text.length < 10) formErrors.text = "Review can't be too short";
-    if (!rating) formErrors.rating = "Blood-rating can't be empty";
+    if (!rating) formErrors.rating = "Must give a bloody rating can't be empty";
     setValidations(formErrors);
     if (Object.keys(formErrors).length > 0) {
       return formErrors;
@@ -33,29 +42,37 @@ const ReviewForm = ({ spotId, onClose }) => {
       stars: rating,
       userId: currentUser.id
     };
-    dispatch(submitReview(spotId, review)).then(() => onClose());
+
+    dispatch(submitReview(spotId, review))
+      .then(() => {
+        onReviewSubmit()
+        onClose()
+
+      });
   };
 
   if (!currentUser) return null;
 
   return (
-    <div className="popup-container" onClick={onClose}>
+    <div className="popup-container-reserve-review" onClick={onClose}>
       <div
-        id="inner-review-container"
+        id="review-form-background"
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <h2>How was your stay?</h2>
-        <form id="review-form-container" onSubmit={handleSubmit}>
+        <form id="form-container-review" onSubmit={handleSubmit}>
 
-          <textarea
-            id="review-text-area"
-            placeholder="Leave your review here..."
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          {Object.values(validations).length > 0 && <span className="review-error-text">{validations.text}</span>}
+          <div id="review-textarea-container">
+            <textarea
+              id="leave-review-textarea"
+              placeholder=" Leave your review here..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            {submit && validations.text && <span className="form-error-text">{validations.text}</span>}
+          </div>
 
           <div id="blood-rating-container">
             <span>Blood-drop rating:</span>
@@ -101,17 +118,21 @@ const ReviewForm = ({ spotId, onClose }) => {
                 <TbDropletFilled className="blood-icon-position" />
               </div>
             </div>
+            {submit && validations.rating && <span className="form-error-text">{validations.rating}</span>}
           </div>
-          {Object.values(validations).length > 0 && <span className="review-error-text">{validations.rating}</span>}
 
-          <div id="review-buttons-container">
-            <button className="review-buttons" type="button" onClick={onClose}>
+          <div id="buttons-container-review">
+            <button
+              type="button"
+              className="review-buttons"
+              onClick={onClose}>
               Close
             </button>
 
             <button
-              className="review-buttons"
               type="submit"
+              className="review-buttons"
+              disabled={Object.values(validations).length > 0}
             >
               Submit
             </button>
