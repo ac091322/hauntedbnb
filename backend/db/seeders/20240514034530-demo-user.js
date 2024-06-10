@@ -19,7 +19,6 @@ module.exports = {
         email: 'fiona@horror.story',
         hashedPassword: bcrypt.hashSync("password")
       },
-
       {
         username: 'DelphineL',
         firstName: "Delphine",
