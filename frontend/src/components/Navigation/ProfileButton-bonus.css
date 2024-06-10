@@ -18,6 +18,10 @@
   padding: 10px 0;
 }
 
+.drop-down-container>li {
+  cursor: pointer;
+}
+
 #logout-button {
   text-decoration: none;
   border: none;
@@ -26,7 +30,7 @@
   color: inherit;
 }
 
-#manage-spots-link{
+#manage-spots-link {
   text-decoration: none;
   color: inherit;
 }
