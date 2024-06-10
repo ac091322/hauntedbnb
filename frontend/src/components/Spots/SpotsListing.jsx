@@ -28,7 +28,8 @@ const SpotsListing = () => {
           <Link to={`/spots/${spot.id}`} id="spot-link">
             <img
               id="spot-image"
-              src={spot.SpotImages && spot.SpotImages?.find(image => image.preview).url}
+              // src={spot.SpotImages && spot.SpotImages?.find(image => image.preview).url}
+              src={spot.SpotImages?.find(image => image.preview)?.url}
               alt="spot-image"
             />
             <div
