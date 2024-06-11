@@ -27,17 +27,42 @@ const SpotForm = () => {
   const [validations, setValidations] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
+  let formErrors = {};
+
   useEffect(() => {
-    let formErrors = {};
     if (submitted) {
       if (!country) formErrors.country = "Country is required";
       if (!address) formErrors.address = "Address is required";
       if (!city) formErrors.city = "City is required";
+      if (city) {
+        if (city.length > 25) {
+          formErrors.city = "City name is too long";
+        }
+      }
       if (typeof state !== "string" || state.length !== 2 || !/^[a-zA-Z]+$/.test(state)) formErrors.state = "State must be 2 letters";
-      if (!longitude || !Number.isInteger(Number(longitude))) formErrors.longitude = "Longitude must be an integer"
-      if (!latitude || !Number.isInteger(Number(latitude))) formErrors.latitude = "Latitude must be an integer"
-      if (description.length < 30) formErrors.description = "Description must be 30 characters or more";
+      if (!longitude) formErrors.longitude = "Longitude is required"
+      if (longitude) {
+        if (isNaN(Number(longitude)) || Number(longitude) < -180 || Number(longitude) > 180) {
+          formErrors.longitude = "Must be between 180 and -180";
+        } else if (Number(longitude).toFixed(4) !== Number(longitude).toString()) {
+          formErrors.longitude = "Must have 4 decimal places";
+        }
+      }
+      if (!latitude) formErrors.latitude = "Latitude is required";
+      if (latitude) {
+        if (isNaN(Number(latitude)) || Number(latitude) < -90 || Number(latitude) > 90) {
+          formErrors.longitude = "Must be between 90 and -90";
+        } else if (Number(latitude).toFixed(4) !== Number(latitude).toString()) {
+          formErrors.latitude = "Must have 4 decimal places";
+        }
+      }
+      if (description.length < 30) formErrors.description = "Description is too short";
       if (!spotName) formErrors.spotName = "Spot name is required";
+      if (spotName) {
+        if (spotName.length > 50) {
+          formErrors.spotName = "Spot name is too long";
+        }
+      }
       if (!price || !Number.isInteger(Number(price))) formErrors.price = "Price must be an integer";
       if (!primaryURL) formErrors.primaryURL = "Primary URL is required";
       setValidations(formErrors);
@@ -52,16 +77,12 @@ const SpotForm = () => {
       !country ||
       !address ||
       !city ||
-      typeof state !== "string" ||
-      state.length !== 2 ||
+      !state ||
       !longitude ||
-      !Number.isFinite(Number(longitude)) ||
       !latitude ||
-      !Number.isFinite(Number(latitude)) ||
-      description.length < 30 ||
+      !description ||
       !spotName ||
       !price ||
-      !Number.isFinite(Number(price)) ||
       !primaryURL
     ) {
       return;

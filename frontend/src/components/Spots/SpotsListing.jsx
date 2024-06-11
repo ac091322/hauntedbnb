@@ -46,7 +46,8 @@ const SpotsListing = () => {
                   </>
                 ) : (
                   <>
-                    {spot.avgStarRating}<TbDropletFilled className="blood-icon" />
+                    {Number.isInteger(spot.avgStarRating) ? `${spot.avgStarRating}.0` : spot.avgStarRating}
+                    <TbDropletFilled className="blood-icon" />
                   </>
                 )}
               </div>

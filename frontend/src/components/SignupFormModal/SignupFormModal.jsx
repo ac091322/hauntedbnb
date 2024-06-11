@@ -19,12 +19,12 @@ function SignupFormModal() {
 
   useEffect(() => {
     let formErrors = {};
-    if (!email) formErrors.email = "Email cannot be empty"
-    if (!username) formErrors.username = "Username cannot be empty"
-    if (!firstName) formErrors.firstName = "First Name cannot be empty"
-    if (!lastName) formErrors.lastName = "Last Name cannot be empty"
-    if (!password) formErrors.password = "Password cannot be empty"
-    if (!confirmPassword) formErrors.confirmPassword = "Confirm Password cannot be empty"
+    if (!email) formErrors.email = "Email is required"
+    if (!username) formErrors.username = "Username is required"
+    if (!firstName) formErrors.firstName = "First name is required"
+    if (!lastName) formErrors.lastName = "Last name is required"
+    if (!password) formErrors.password = "Password is required"
+    if (!confirmPassword) formErrors.confirmPassword = "Confirm password is required"
     setValidations(formErrors);
   }, [email, username, firstName, lastName, password, confirmPassword]);
 

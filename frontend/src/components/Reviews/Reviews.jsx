@@ -30,7 +30,9 @@ const Reviews = ({ review }) => {
         <h3 id="review-name">{firstName}</h3>
 
         <div id="blood-star-container">
-          <span>{review.stars}</span>
+          <span>
+            {Number.isInteger(review.stars) ? `${review.stars}.0` : review.stars}
+          </span>
           <TbDropletFilled className="blood-icon" />
         </div>
       </div>

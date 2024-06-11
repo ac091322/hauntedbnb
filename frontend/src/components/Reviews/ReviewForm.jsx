@@ -16,8 +16,8 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
 
   useEffect(() => {
     let formErrors = {};
-    if (text.length < 10) formErrors.text = "Review can't be too short";
-    if (!rating) formErrors.rating = "Blood drops can't be empty";
+    if (text.length < 10) formErrors.text = "Review is too short";
+    if (!rating) formErrors.rating = "Blood-rating is required";
     setValidations(formErrors);
   }, [text, rating]);
 
@@ -30,8 +30,8 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
     e.preventDefault();
 
     let formErrors = {};
-    if (text.length < 10) formErrors.text = "Review can't be too short";
-    if (!rating) formErrors.rating = "Must give a bloody rating can't be empty";
+    if (text.length < 10) formErrors.text = "Review is too short";
+    if (!rating) formErrors.rating = "Blood-rating is required";
     setValidations(formErrors);
     if (Object.keys(formErrors).length > 0) {
       return formErrors;
