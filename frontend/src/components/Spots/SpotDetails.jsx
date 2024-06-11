@@ -55,18 +55,21 @@ const SpotDetails = (rating) => {
                 src={spot.SpotImages.find(image => image.preview)?.url}
                 alt="big-spot-image" />
 
-              {spot.SpotImages
-                .filter(image => !image.preview)
-                .slice(0, 4)
-                .map((image, index) => (
-                  <img
-                    key={image.id}
-                    className={`small-image small-image-${index + 1}`}
-                    src={image.url}
-                    alt={`small-spot-image`}
-                  />
-                ))
-              }
+              <div id="small-images-container">
+                {spot.SpotImages
+                  .filter(image => !image.preview)
+                  .slice(0, 4)
+                  .map((image, index) => (
+
+                    <img
+                      key={image.id}
+                      className={`small-image small-image-${index + 1}`}
+                      src={image.url}
+                      alt={`small-spot-image`}
+                    />
+                  ))
+                }
+              </div>
             </>
           )}
         </div>
@@ -85,7 +88,9 @@ const SpotDetails = (rating) => {
               </div>
 
               <div id="rating-review-container">
-                <span>{spot.avgStarRating}</span>
+                <span>
+                  {Number.isInteger(spot.avgStarRating) ? `${spot.avgStarRating}.0` : spot.avgStarRating}
+                </span>
                 <TbDropletFilled className="blood-icon" />
                 {spot.numReviews === 0 ? <>New spot!</> : <></>}
                 <LuDot id="dot-top" />
@@ -120,7 +125,9 @@ const SpotDetails = (rating) => {
 
       <div id="ratings-container-bottom">
         <div id="ratings-subcontainer">
-          <span>{spot.avgStarRating}</span>
+          <span>
+            {Number.isInteger(spot.avgStarRating) ? `${spot.avgStarRating}.0` : spot.avgStarRating}
+          </span>
           <TbDropletFilled className="blood-icon" />
           {spot.numReviews === 0 ?
             (<>
