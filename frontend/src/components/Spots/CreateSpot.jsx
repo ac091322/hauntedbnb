@@ -27,9 +27,8 @@ const SpotForm = () => {
   const [validations, setValidations] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  let formErrors = {};
-
   useEffect(() => {
+    let formErrors = {};
     if (submitted) {
       if (!country) formErrors.country = "Country is required";
       if (!address) formErrors.address = "Address is required";
@@ -51,7 +50,7 @@ const SpotForm = () => {
       if (!latitude) formErrors.latitude = "Latitude is required";
       if (latitude) {
         if (isNaN(Number(latitude)) || Number(latitude) < -90 || Number(latitude) > 90) {
-          formErrors.longitude = "Must be between 90 and -90";
+          formErrors.latitude = "Must be between 90 and -90";
         } else if (Number(latitude).toFixed(4) !== Number(latitude).toString()) {
           formErrors.latitude = "Must have 4 decimal places";
         }
@@ -73,18 +72,10 @@ const SpotForm = () => {
     e.preventDefault();
     setSubmitted(true);
 
-    if (
-      !country ||
-      !address ||
-      !city ||
-      !state ||
-      !longitude ||
-      !latitude ||
-      !description ||
-      !spotName ||
-      !price ||
-      !primaryURL
-    ) {
+    if (Object.values(validations).length !== 0) return;
+
+    const requiredFields = [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL];
+    if (requiredFields.some(field => field === "" || field === undefined || field === null)) {
       return;
     }
 
@@ -336,7 +327,10 @@ const SpotForm = () => {
 
         <button
           type="submit"
-          id="button-create-spot">Create Spot</button>
+          id="button-create-spot"
+        >Create Spot
+        </button>
+
       </form >
     </div >
   );
