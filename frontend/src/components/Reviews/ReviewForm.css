@@ -1,11 +1,16 @@
-#review-form-background{
+#review-form-background {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: white;
+  background-color: var(--palette2);
   padding: 40px 40px;
+  color: var(--palette1);
+}
+
+#review-form-background>h1 {
+  color: var(--palette1);
 }
 
 #form-container-review {
@@ -50,7 +55,7 @@
 }
 
 .empty {
-  color: gray;
+  color: var(--palette1);
 }
 
 .blood-icon-position {

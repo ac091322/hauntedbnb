@@ -7,7 +7,7 @@
 
 #profile-button {
   font-size: 2em;
-  color: #FF385C;
+  color: var(--primary-color);
   margin-bottom: 5px;
   cursor: pointer;
 }
@@ -19,12 +19,14 @@
   text-align: center;
   border: 1px solid gray;
   z-index: 2;
-  background-color: white;
+  background-color: var(--palette1);
+  color: var(--palette4);
 }
 
 #logo {
-  height: 50px;
   display: block;
+  height: 60px;
+
 }
 
 .hidden {

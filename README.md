@@ -4,7 +4,13 @@
 
 ![db-schema]
 
-[db-schema]: ./images/airbnb-db-schema.png
+[db-schema]: ./images/db-schema.png
+
+## Color Palette
+
+![color-palette]
+
+[color-palette]: ./images/color-palette.png
 
 ## API Documentation
 

@@ -112,7 +112,7 @@ const SpotDetails = (rating) => {
           id="reserve-form-background"
           onClick={e => { e.stopPropagation() }}
         >
-          <div>Feature coming soon!</div>
+          <div id="feature-text">Feature coming soon!</div>
           <button
             id="button-close"
             onClick={() => setShowReservePopup(false)}

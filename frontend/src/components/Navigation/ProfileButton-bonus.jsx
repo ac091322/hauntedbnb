@@ -60,11 +60,11 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <div className="drop-down-container">
-              <li>Hello, {user.firstName}</li>
+              <li style={{ cursor: "default" }}>Hello, {user.firstName}</li>
               <hr />
-              <li>Username: {user.username}</li>
+              <li style={{ cursor: "default" }}>Username: {user.username}</li>
               <hr />
-              <li>{user.email}</li>
+              <li style={{ cursor: "default" }}>{user.email}</li>
               <hr />
               <Link
                 id="manage-spots-link"

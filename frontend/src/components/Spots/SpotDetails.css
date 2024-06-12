@@ -15,7 +15,6 @@
 #images-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* grid-template-rows: auto; */
   grid-template-areas:
     "big-image small-images";
   gap: 10px;
@@ -38,7 +37,7 @@
   grid-template-areas:
     "small1 small2"
     "small3 small4";
-    gap: 10px;
+  gap: 10px;
 }
 
 .small-image {
@@ -89,7 +88,8 @@
     "price"
     "button";
   grid-row-gap: 10px;
-  border: 2px solid gray;
+  border: 1px solid var(--palette1);
+  background-color: var(--palette2);
   border-radius: 15px;
   padding: 10px 40px 25px 40px;
   min-width: 460px;
@@ -149,25 +149,31 @@
   z-index: 1;
 }
 
+#feature-popup {
+  background-color: var(--palette1);
+}
+
 #reserve-form-background {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: white;
+  background-color: var(--palette2);
   padding: 40px 40px;
+}
+
+#feature-text{
+  color: var(--palette1);
 }
 
 #button-close {
   width: 200px;
 }
 
-
 #section-separator {
   margin-top: 40px;
 }
-
 
 #ratings-container-bottom {
   display: flex;

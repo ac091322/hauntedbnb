@@ -4,6 +4,11 @@
   align-items: center;
   padding: 20px 40px 40px 40px;
   gap: 20px;
+  background-color: var(--palette2);
+}
+
+#spopup-container-signup>h1{
+  color: var(--palette1);
 }
 
 #form-container-signup {
