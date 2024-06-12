@@ -135,11 +135,9 @@ function SignupFormModal() {
 
         <button
           type="submit"
-          className="input-field-signup"
+          className={`input-field-signup ${Object.values(validations).length > 0 ? 'disabled' : ''}`}
           disabled={Object.values(validations).length > 0}
         >Sign up</button>
-
-
       </form>
     </div>
   );

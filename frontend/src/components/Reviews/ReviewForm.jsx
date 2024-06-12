@@ -61,7 +61,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
           e.stopPropagation();
         }}
       >
-        <h2>How was your stay?</h2>
+        <h1>How was your stay?</h1>
         <form id="form-container-review" onSubmit={handleSubmit}>
 
           <div id="review-textarea-container">
@@ -131,7 +131,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
 
             <button
               type="submit"
-              className="review-buttons"
+              className={`review-buttons ${Object.values(validations).length > 0 ? 'disabled' : ''}`}
               disabled={Object.values(validations).length > 0}
             >
               Submit

@@ -5,26 +5,41 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --primary-color: #FC5F62;
+  --blood-color: rgb(193, 0, 0);
+  --palette1: rgb(218, 214, 223);
+  --palette2: rgb(108, 90, 104);
+  --palette3: rgb(71, 59, 72);
+  --palette4: rgb(69, 48, 57);
+  --palette5: rgb(33, 30, 40);
+  --palette6: rgb(78, 76, 88);
+}
+
+body {
+  background-color: var(--palette3);
+  color: var(--palette1);
+}
+
 main {
   display: flex;
   flex-direction: column;
-  margin: 20px auto 0 auto;
+  margin: 20px auto;
   width: 90%;
   max-width: 1760px;
 }
 
-:root {
-  --primary-color: #FC5F62;
-  --blood-color:	rgb(193,0,0);
-}
-
-li {
-  list-style-type: none;
+#footer-spacing {
+  height: 200px;
+  display: block;
 }
 
 footer {
-  margin-top: 100px;
-  background-color: #B3C8CF;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--palette5);
+  color: var(--palette1);
 }
 
 footer>div {
@@ -32,12 +47,27 @@ footer>div {
   text-align: right;
   max-width: 1760px;
   margin: 0 auto;
-  width: 90%
+  width: 90%;
+  color: var(--blood-color)
+}
+
+h1 {
+  color: var(--palette2);
+  font-family: "Nosifer", sans-serif;
+}
+
+li {
+  list-style-type: none;
 }
 
 button {
   height: 30px;
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input {
@@ -48,7 +78,14 @@ textarea {
   resize: vertical;
 }
 
-.error-group{
+button {
+  border-radius: 8px;
+  border: none;
+  background-color: var(--palette5);
+  color: var(--blood-color);
+}
+
+.error-group {
   display: flex;
   flex-direction: column;
 }

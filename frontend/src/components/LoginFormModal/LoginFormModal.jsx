@@ -57,7 +57,7 @@ function LoginFormModal() {
           onChange={(e) => setCredential(e.target.value)}
           required
           placeholder=" Username or Email"
-          className="input-field input-field-login"
+          className="input-field-login"
         />
 
         <div className="error-group">
@@ -74,7 +74,7 @@ function LoginFormModal() {
 
         <button
           type="submit"
-          className="input-field input-field-login"
+          className={`input-field-login ${Object.values(validations).length > 0 ? 'disabled' : ''}`}
           disabled={Object.values(validations).length > 0}
         >Log In</button>
 

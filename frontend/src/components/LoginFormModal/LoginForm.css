@@ -4,6 +4,11 @@
   align-items: center;
   padding: 20px 40px 40px 40px;
   gap: 20px;
+  background-color: var(--palette2);
+}
+
+#popup-container-login>h1{
+  color: var(--palette1)
 }
 
 #form-container-login {
@@ -19,5 +24,4 @@
 .error-group{
   display: flex;
   flex-direction: column;
-
 }

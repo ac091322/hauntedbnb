@@ -115,7 +115,7 @@ const SpotForm = () => {
   };
 
   return (
-    <div id="form-container">
+    <div id="form-container-create-spot">
       <h1>Create a New Spot</h1>
 
       <form onSubmit={handleSubmit}>

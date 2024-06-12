@@ -3,7 +3,9 @@ import "./ManageSpots.css";
 
 const ManageSpots = () => {
   return (
-    <h1>Manage Spots</h1>
+    <div id="page-container-manage-spots">
+      <h1>Manage Spots</h1>
+    </div>
   );
 }
 
