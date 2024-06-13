@@ -38,102 +38,102 @@ module.exports = {
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=16",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+02/Gemini_Generated_Image_1c841q1c841q1c84.jpeg",
         preview: true
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=17",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+02/Gemini_Generated_Image_4p7nsa4p7nsa4p7n.jpeg",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=18",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+02/Gemini_Generated_Image_vu8r2zvu8r2zvu8r.jpeg",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=19",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+02/Gemini_Generated_Image_4p7ns74p7ns74p7n.jpeg",
         preview: false
       },
       {
         spotId: 2,
-        url: "https://picsum.photos/300/300?random=20",
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+02/Gemini_Generated_Image_4p7ns94p7ns94p7n.jpeg",
         preview: false
       },
       {
         spotId: 3,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+03/Gemini_Generated_Image_p8zmscp8zmscp8zm.jpeg",
+        preview: true
+      },
+      {
+        spotId: 3,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+03/Gemini_Generated_Image_vgvo75vgvo75vgvo.jpeg",
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+03/Gemini_Generated_Image_vgvo78vgvo78vgvo.jpeg",
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+03/Gemini_Generated_Image_66oze566oze566oz.jpeg",
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+03/Gemini_Generated_Image_xzs12ixzs12ixzs1.jpeg",
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: "https://picsum.photos/300/300?random=10",
+        preview: true
+      },
+      {
+        spotId: 4,
         url: "https://picsum.photos/300/300?random=11",
-        preview: true
+        preview: false
       },
       {
-        spotId: 3,
+        spotId: 4,
         url: "https://picsum.photos/300/300?random=12",
         preview: false
       },
       {
-        spotId: 3,
+        spotId: 4,
         url: "https://picsum.photos/300/300?random=13",
         preview: false
       },
       {
-        spotId: 3,
+        spotId: 4,
         url: "https://picsum.photos/300/300?random=14",
         preview: false
       },
       {
-        spotId: 3,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=15",
-        preview: false
-      },
-      {
-        spotId: 4,
-        url: "https://picsum.photos/300/300?random=16",
         preview: true
       },
       {
-        spotId: 4,
+        spotId: 5,
+        url: "https://picsum.photos/300/300?random=16",
+        preview: false
+      },
+      {
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=17",
         preview: false
       },
       {
-        spotId: 4,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=18",
         preview: false
       },
       {
-        spotId: 4,
+        spotId: 5,
         url: "https://picsum.photos/300/300?random=19",
-        preview: false
-      },
-      {
-        spotId: 4,
-        url: "https://picsum.photos/300/300?random=20",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=21",
-        preview: true
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=22",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=23",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=24",
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: "https://picsum.photos/300/300?random=25",
         preview: false
       },
       {

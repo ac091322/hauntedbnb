@@ -25,27 +25,27 @@ module.exports = {
       },
       {
         ownerId: 1,
-        address: "303 Birch St",
-        city: "Seattle",
-        state: "WA",
+        address: "113 Gallows Hill Road",
+        city: "Hancock",
+        state: "NY",
         country: "USA",
-        lat: 47.6062,
-        lng: -122.3321,
-        name: "Stylish Apartment in Seattle",
-        description: "A stylish apartment in downtown Seattle.",
-        price: 180
+        lat: 44.7872,
+        lng: -68.0128,
+        name: "Hollow Creek Asylum",
+        description: "Eerie silence hangs heavy in the air, broken only by the creak of floorboards underfoot and the unsettling sigh of the wind whistling through shattered windows. As you explore the deserted corridors of the abandoned Hollow Creek Asylum, a shiver crawls down your spine. The peeling wallpaper whispers forgotten stories, and the shadows seem to writhe with unseen movement. Here, in this crumbling monument to a bygone era of medicine, you'll swear you can feel the weight of countless anguished souls who once walked these very paths. Dare you spend a night in this paranormal playground? Just be prepared for the whispers in the dark...",
+        price: 790
       },
       {
         ownerId: 1,
-        address: "808 Palm St",
-        city: "Orlando",
-        state: "FL",
+        address: "13 Grim Pike Lane",
+        city: "Thurmond",
+        state: "WV",
         country: "USA",
-        lat: 28.5383,
-        lng: -81.3792,
-        name: "Family House in Orlando",
-        description: "A spacious house perfect for family vacations.",
-        price: 280
+        lat: 37.8000,
+        lng: -81.2333,
+        name: "Crimson Hook Slaughter",
+        description: "Nestled in the forgotten shadows of Shanksville, West Virginia, the Crimson Hook Slaughter stands as a chilling monument to a bygone era.  Erected in the late 18th century, the slaughterhouse processed countless souls before its closure in the early 1900s.  Legends of mistreated cattle and whispers of unexplained accidents linger in the decaying timber.  The locals avoid the area, their fear a palpable presence that chills you to the bone.  Now, the slaughterhouse awaits...could it be your next eerie escape? But be warned, the rumors of restless spirits and lingering moans may not be mere whispers.  The Crimson Hook Slaughter promises a hauntingly unforgettable stay,  but only for the brave souls who dare to unlock its dark secrets.",
+        price: 65
       },
       {
         ownerId: 1,
