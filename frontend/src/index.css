@@ -27,6 +27,7 @@ main {
   margin: 20px auto;
   width: 90%;
   max-width: 1760px;
+  height: 120vh;
 }
 
 #footer-spacing {
@@ -45,7 +46,6 @@ footer {
 footer>div {
   padding: 40px 0 40px 0;
   text-align: right;
-  max-width: 1760px;
   margin: 0 auto;
   width: 90%;
   color: var(--blood-color)
@@ -72,10 +72,12 @@ button:disabled {
 
 input {
   height: 30px;
+  outline: none;
 }
 
 textarea {
   resize: vertical;
+  outline: none;
 }
 
 button {

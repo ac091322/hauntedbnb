@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
 }
 
 #form-container-create-spot form {
@@ -99,7 +98,7 @@ form hr {
   width: 100%;
 }
 
-#image-urls-container-create-spot {
+#image-url-container {
   display: flex;
   flex-direction: column;
   gap: 10px;

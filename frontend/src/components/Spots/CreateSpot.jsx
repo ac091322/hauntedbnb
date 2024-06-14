@@ -278,57 +278,62 @@ const SpotForm = () => {
           <h3>Liven up your spot with photos</h3>
           <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px.</p>
           <p className="form-error-text">Can copy and paste the following link: https://picsum.photos/300/300?random=1</p>
-          <div id="image-urls-container-create-spot">
-            <div className="error-group">
+          <div id="image-url-container">
+            <div
+              className="error-group"
+            >
               <input
                 value={primaryURL}
                 type="text"
                 className="url-field-create-spot"
                 name="url"
                 placeholder=" Preview image URL"
+                id="primary-url-field"
                 onChange={e => setPrimaryURL(e.target.value)}
               />
               {submitted && validations.primaryURL && <span className="form-error-text">{validations.primaryURL}</span>}
             </div>
+
             <input
               value={imageURL1}
               type="text"
-              className="url-field-create-spot"
               name="url"
               placeholder=" Image URL"
+              className="optional-url-field"
               onChange={e => setImageURL1(e.target.value)}
             />
             <input
               value={imageURL2}
               type="text"
-              className="url-field-create-spot"
               name="url"
               placeholder=" Image URL"
+              className="optional-url-field"
               onChange={e => setImageURL2(e.target.value)}
             />
             <input
               value={imageURL3}
               type="text"
-              className="url-field-create-spot"
               name="url"
               placeholder=" Image URL"
+              className="optional-url-field"
               onChange={e => setImageURL3(e.target.value)}
             />
             <input
               value={imageURL4}
               type="text"
-              className="url-field-create-spot"
               name="url"
               placeholder=" Image URL"
+              className="optional-url-field"
               onChange={e => setImageURL4(e.target.value)} />
           </div>
-          <hr />
         </div>
+
+        <hr />
 
         <button
           type="submit"
           id="button-create-spot"
-        >Create Spot
+        >Create SpotF
         </button>
 
       </form >

@@ -1,11 +1,24 @@
 #header-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "logo toggle profile";
   align-items: center;
-  margin-bottom: 40px
+  margin-bottom: 60px;
+}
+
+#logo {
+  grid-area: logo;
+  display: block;
+  height: 60px;
+}
+
+#theme-toggle {
+  grid-area: toggle;
+  justify-self: center;
 }
 
 #profile-button {
+  grid-area: profile;
   font-size: 2em;
   color: var(--primary-color);
   margin-bottom: 5px;
@@ -18,15 +31,9 @@
   list-style-type: none;
   text-align: center;
   border: 1px solid gray;
-  z-index: 2;
+  z-index: 1;
   background-color: var(--palette1);
   color: var(--palette4);
-}
-
-#logo {
-  display: block;
-  height: 60px;
-
 }
 
 .hidden {
