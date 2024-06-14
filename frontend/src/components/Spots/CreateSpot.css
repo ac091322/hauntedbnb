@@ -98,7 +98,7 @@ form hr {
   width: 100%;
 }
 
-#image-urls-container-create-spot {
+#image-url-container {
   display: flex;
   flex-direction: column;
   gap: 10px;

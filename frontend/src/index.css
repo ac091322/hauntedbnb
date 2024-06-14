@@ -27,6 +27,7 @@ main {
   margin: 20px auto;
   width: 90%;
   max-width: 1760px;
+  height: 120vh;
 }
 
 #footer-spacing {
