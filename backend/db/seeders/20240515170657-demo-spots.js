@@ -45,7 +45,7 @@ module.exports = {
         lng: -81.2333,
         name: "Crimson Hook Slaughter",
         description: "Nestled in the forgotten shadows of Shanksville, West Virginia, the Crimson Hook Slaughter stands as a chilling monument to a bygone era.  Erected in the late 18th century, the slaughterhouse processed countless souls before its closure in the early 1900s.  Legends of mistreated cattle and whispers of unexplained accidents linger in the decaying timber.  The locals avoid the area, their fear a palpable presence that chills you to the bone.  Now, the slaughterhouse awaits...could it be your next eerie escape? But be warned, the rumors of restless spirits and lingering moans may not be mere whispers.  The Crimson Hook Slaughter promises a hauntingly unforgettable stay,  but only for the brave souls who dare to unlock its dark secrets.",
-        price: 65
+        price: 75
       },
       {
         ownerId: 1,
@@ -165,7 +165,7 @@ module.exports = {
         lng: -90.8779,
         name: "The Devil's Vestry: Chronicles St. Lucian's",
         description: "Welcome to 6613 Unholy Lane, a hauntingly beautiful B&B nestled in the heart of historic Vicksburg, Mississippi. Once a somber chapel known as The Devil's Vestry, this establishment exudes an eerie charm that captivates and unsettles in equal measure. Guests who dare to stay here often find themselves enveloped in an atmosphere thick with paranormal energy. Shadowy figures are glimpsed fleetingly in the corners of rooms, and disembodied whispers echo through the halls during the quiet hours of night. The air grows cold, and inexplicable drafts stir the curtains, leaving an undeniable sense of a presence just beyond the veil of reality. Despite its tranquil facade, the B&B's stained glass windows cast unsettling patterns across the antique furniture, as if hinting at stories untold and mysteries yet uncovered. For those with a penchant for the supernatural, 6613 Unholy Lane offers an unforgettable stay—a journey into the unknown where every creak of the floorboards and flicker of candlelight holds the promise of encountering the lingering spirits of its haunted past.",
-        price: 300
+        price: 313
       },
       {
         ownerId: 3,
@@ -189,7 +189,7 @@ module.exports = {
         lng: -123.0686,
         name: "Lost Souls Penitentiary",
         description: "ost Souls Penitentiary, situated on the outskirts of Oakwood Falls, Oregon, has stood as a somber sentinel since its construction in the late 19th century. Originally built to incarcerate the region's most hardened criminals, the prison quickly garnered a macabre reputation that lingers to this day. Within its formidable walls, stories abound of spectral figures wandering the dimly lit corridors, their presence felt but never seen by the living. Visitors and staff alike report inexplicable cold spots, disembodied voices whispering from empty cells, and the unsettling feeling of being watched by unseen eyes. Despite attempts at renovation and repurposing, the ghostly echoes of its dark past persist, drawing thrill-seekers and paranormal enthusiasts to Oakwood Falls in search of encounters with the lost souls that still call the penitentiary home.",
-        price: 313
+        price: 770
       },
       {
         ownerId: 4,
@@ -226,7 +226,7 @@ module.exports = {
         lng: -70.8833,
         name: "Draculesti Manor",
         description: "Atop the windswept cliffs overlooking the churning North Atlantic stands Draculesti Manor, a monument to a bygone age and a chilling testament to a timeless evil.  Carved from the dark, volcanic rock of the cliffs themselves, the manor appears as a natural extension of the ominous landscape.  Jagged gargoyle statues leer out from the crumbling facade, their vacant eyes seemingly tracking the movements of the gulls that wheel overhead.  An iron portcullis, adorned with the twisted visage of a raven, guards the single, narrow entrance. Inside, the air hangs heavy with the scent of aged parchment and woodsmoke.  Dim torches, flickering in iron sconces, cast an flickering, orange glow upon the cavernous halls.  Cobwebs, spun thick and dusty, drape from the vaulted ceilings, and suits of rusted armor stand sentinel in shadowed corners.  A long, ornately carved table, its surface etched with arcane symbols, dominates the central chamber.  Behind it, a massive stone fireplace, its maw perpetually black, seems to pulse with an unseen heat.  Draculesti Manor is a place of brooding presence and chilling power, a true Transylvanian haven for a creature of the night.",
-        price: 400
+        price: 410
       },
       {
         ownerId: 4,
@@ -238,7 +238,7 @@ module.exports = {
         lng: -79.0558,
         name: "The Candy Castle's Grim Grin",
         description: "Description: Step inside the Candy Castle, a haven bathed in sugary hues and adorned with the most adorable dolls you've ever seen. But don't be fooled by their button eyes and rosy cheeks. A sinister secret lurks beneath the frosting-trimmed windows. Pastel walls conceal cryptic symbols, and the dolls, though undeniably cute, hold unsettling smiles. Cobwebs cling to the rocking chair in the corner, and a single candle casts dancing shadows that hint at a darkness far deeper than pretend tea parties. The Candy Castle promises sweetness, but delivers a chilling truth: sometimes, the cutest things hide the most wicked intentions.",
-        price: 450
+        price: 550
       },
       {
         ownerId: 4,
@@ -250,7 +250,7 @@ module.exports = {
         lng: -71.5508,
         name: "Adventure: Zombie Island",
         description: "Welcome to Zombie Island, a once-tranquil paradise ravaged by a mysterious plague. Lush vegetation creeps over decaying buildings, a haunting reminder of the island's tragic past. The air hangs heavy with the moans of the restless dead, shuffling hordes that roam the island under the cloak of night.  Nature and undeath are locked in a perpetual struggle on this isolated landmass.",
-        price: 700
+        price: 890
       },
       // {
       //   ownerId: 5,
