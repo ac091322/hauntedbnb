@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Outlet, createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation-bonus';
 import * as sessionActions from './store/session';
 import { Modal } from './context/Modal';
@@ -55,6 +55,10 @@ const router = createBrowserRouter([
         element: <ManageSpots />
       }
     ]
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace={true} />
   }
 ]);
 

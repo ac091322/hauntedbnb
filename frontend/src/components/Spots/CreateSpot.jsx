@@ -89,9 +89,7 @@ const SpotForm = () => {
       latitude: Number(latitude),
       name: spotName,
       description: description,
-      price: Number(price),
-      lat: latitude,
-      lng: longitude
+      price: Number(price)
     };
 
     try {
@@ -333,7 +331,7 @@ const SpotForm = () => {
         <button
           type="submit"
           id="button-create-spot"
-        >Create SpotF
+        >Create Spot
         </button>
 
       </form >
