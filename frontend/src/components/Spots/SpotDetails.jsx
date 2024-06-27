@@ -182,7 +182,7 @@ const SpotDetails = (rating) => {
           review.spotId === spot.id ?
             <Reviews review={review} key={review.id} />
             :
-            <></>
+            null
         ))}
     </>
   );

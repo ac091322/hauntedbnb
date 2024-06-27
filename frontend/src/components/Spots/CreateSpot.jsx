@@ -72,45 +72,45 @@ const SpotForm = () => {
     e.preventDefault();
     setSubmitted(true);
 
-    if (Object.values(validations).length !== 0) return;
+    if (Object.values(validations).length === 0) {
+      const requiredFields = [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL];
+      if (requiredFields.some(field => field === "" || field === undefined || field === null)) {
+        return;
+      }
 
-    const requiredFields = [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL];
-    if (requiredFields.some(field => field === "" || field === undefined || field === null)) {
-      return;
-    }
+      const newSpot = {
+        ownerId: Number(currentUser.id),
+        address: address,
+        city: city,
+        state: state.toUpperCase(),
+        country: country,
+        longitude: Number(longitude),
+        latitude: Number(latitude),
+        name: spotName,
+        description: description,
+        price: Number(price),
+        lat: latitude,
+        lng: longitude
+      };
 
-    const newSpot = {
-      ownerId: Number(currentUser.id),
-      address: address,
-      city: city,
-      state: state.toUpperCase(),
-      country: country,
-      longitude: Number(longitude),
-      latitude: Number(latitude),
-      name: spotName,
-      description: description,
-      price: Number(price),
-      lat: latitude,
-      lng: longitude
-    };
+      try {
+        const createdSpot = await dispatch(createSpot(newSpot));
 
-    try {
-      const createdSpot = await dispatch(createSpot(newSpot));
+        const imagePayloads = [
+          { spotId: createdSpot.id, url: primaryURL, preview: true },
+          ...(imageURL1 ? [{ spotId: createdSpot.id, url: imageURL1, preview: false }] : []),
+          ...(imageURL2 ? [{ spotId: createdSpot.id, url: imageURL2, preview: false }] : []),
+          ...(imageURL3 ? [{ spotId: createdSpot.id, url: imageURL3, preview: false }] : []),
+          ...(imageURL4 ? [{ spotId: createdSpot.id, url: imageURL4, preview: false }] : [])
+        ];
 
-      const imagePayloads = [
-        { spotId: createdSpot.id, url: primaryURL, preview: true },
-        ...(imageURL1 ? [{ spotId: createdSpot.id, url: imageURL1, preview: false }] : []),
-        ...(imageURL2 ? [{ spotId: createdSpot.id, url: imageURL2, preview: false }] : []),
-        ...(imageURL3 ? [{ spotId: createdSpot.id, url: imageURL3, preview: false }] : []),
-        ...(imageURL4 ? [{ spotId: createdSpot.id, url: imageURL4, preview: false }] : [])
-      ];
+        const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImage(imagePayload)));
+        await Promise.all(imageCreationPromises);
+        navigate(`/spots/${createdSpot.id}`);
 
-      const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImage(imagePayload)));
-      await Promise.all(imageCreationPromises);
-      navigate(`/spots/${createdSpot.id}`);
-
-    } catch (err) {
-      console.error("Failed to create spot or images:", err);
+      } catch (err) {
+        console.error("Failed to create spot or images:", err);
+      }
     }
   };
 

@@ -106,8 +106,8 @@ information.
 
     ```json
     {
-      "credential": "john.smith@gmail.com",
-      "password": "secret password"
+      "credential": "demo-user@hauntedbnb.io",
+      "password": "password"
     }
     ```
 
@@ -270,6 +270,33 @@ user's information.
     }
     ```
 
+### Get all Users
+
+Gets all the users. Backend-only route. Email, password, and hashed password are excluded.
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: api/users/all
+  * Body: none
+
+Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    [
+      {
+        "id": 1,
+        "username": "FionaG",
+        "firstName": "Fiona",
+        "lastName": "Goode"
+      },
+    ]
+    ```
+
 ## SPOTS
 
 ### Get all Spots
@@ -296,17 +323,19 @@ Returns all the spots.
           "ownerId": 1,
           "address": "123 Disney Lane",
           "city": "San Francisco",
-          "state": "California",
+          "state": "CA",
           "country": "United States of America",
-          "lat": 37.7645358,
-          "lng": -122.4730327,
+          "lat": 37.7645,
+          "lng": -122.4730,
           "name": "App Academy",
           "description": "Place where web developers are created",
           "price": 123,
           "createdAt": "2021-11-19 20:39:36",
           "updatedAt": "2021-11-19 20:39:36",
-          "avgRating": 4.5,
-          "previewImage": "image url"
+          "numReviews": 0,
+          "avgStarRating": 0,
+          "SpotImages": [],
+          "Reviews": []
         }
       ]
     }
@@ -336,17 +365,15 @@ Returns all the spots owned (created) by the current user.
           "ownerId": 1,
           "address": "123 Disney Lane",
           "city": "San Francisco",
-          "state": "California",
+          "state": "CA",
           "country": "United States of America",
-          "lat": 37.7645358,
-          "lng": -122.4730327,
+          "lat": 37.7645,
+          "lng": -122.4730,
           "name": "App Academy",
           "description": "Place where web developers are created",
           "price": 123,
           "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36",
-          "avgRating": 4.5,
-          "previewImage": "image url"
+          "updatedAt": "2021-11-19 20:39:36"
         }
       ]
     }
@@ -374,15 +401,15 @@ Returns the details of a spot specified by its id.
       "ownerId": 1,
       "address": "123 Disney Lane",
       "city": "San Francisco",
-      "state": "California",
+      "state": "CA",
       "country": "United States of America",
-      "lat": 37.7645358,
-      "lng": -122.4730327,
+      "lat": 37.7645,
+      "lng": -122.4730,
       "name": "App Academy",
       "description": "Place where web developers are created",
       "price": 123,
       "createdAt": "2021-11-19 20:39:36",
-      "updatedAt": "2021-11-19 20:39:36" ,
+      "updatedAt": "2021-11-19 20:39:36",
       "numReviews": 5,
       "avgStarRating": 4.5,
       "SpotImages": [
@@ -433,14 +460,13 @@ Creates and returns a new spot.
     {
       "address": "123 Disney Lane",
       "city": "San Francisco",
-      "state": "California",
+      "state": "CA",
       "country": "United States of America",
-      "lat": 37.7645358,
-      "lng": -122.4730327,
+      "lat": 37.7645,
+      "lng": -122.4730,
       "name": "App Academy",
       "description": "Place where web developers are created",
-      "price": 123,
-      "previewImage": "https://picsum.photos/300/300?random=1"
+      "price": 123
     }
     ```
 
@@ -456,15 +482,19 @@ Creates and returns a new spot.
       "ownerId": 1,
       "address": "123 Disney Lane",
       "city": "San Francisco",
-      "state": "California",
+      "state": "CA",
       "country": "United States of America",
-      "lat": 37.7645358,
-      "lng": -122.4730327,
+      "lat": 37.7645,
+      "lng": -122.4730,
       "name": "App Academy",
       "description": "Place where web developers are created",
       "price": 123,
       "createdAt": "2021-11-19 20:39:36",
-      "updatedAt": "2021-11-19 20:39:36"
+      "updatedAt": "2021-11-19 20:39:36",
+      "numReviews": 0,
+      "avgStarRating": 0,
+      "SpotImages": [],
+      "Reviews": []
     }
     ```
 
@@ -554,7 +584,7 @@ Updates and returns an existing spot.
     {
       "address": "123 Disney Lane",
       "city": "San Francisco",
-      "state": "California",
+      "state": "CA",
       "country": "United States of America",
       "lat": 37.7645358,
       "lng": -122.4730327,
@@ -576,7 +606,7 @@ Updates and returns an existing spot.
       "ownerId": 1,
       "address": "123 Disney Lane",
       "city": "San Francisco",
-      "state": "California",
+      "state": "CA",
       "country": "United States of America",
       "lat": 37.7645358,
       "lng": -122.4730327,
@@ -697,13 +727,12 @@ Returns all the reviews written by the current user.
             "ownerId": 1,
             "address": "123 Disney Lane",
             "city": "San Francisco",
-            "state": "California",
+            "state": "CA",
             "country": "United States of America",
             "lat": 37.7645358,
             "lng": -122.4730327,
             "name": "App Academy",
-            "price": 123,
-            "previewImage": "image url"
+            "price": 123
           },
           "ReviewImages": [
             {
@@ -1030,24 +1059,23 @@ Return all the bookings that the current user has made.
         {
           "id": 1,
           "spotId": 1,
+          "userId": 2,
+          "startDate": "2021-11-19",
+          "endDate": "2021-11-20",
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36",
           "Spot": {
             "id": 1,
             "ownerId": 1,
             "address": "123 Disney Lane",
             "city": "San Francisco",
-            "state": "California",
+            "state": "CA",
             "country": "United States of America",
             "lat": 37.7645358,
             "lng": -122.4730327,
             "name": "App Academy",
-            "price": 123,
-            "previewImage": "image url"
-          },
-          "userId": 2,
-          "startDate": "2021-11-19",
-          "endDate": "2021-11-20",
-          "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36"
+            "price": 123
+          }
         }
       ]
     }
@@ -1445,7 +1473,7 @@ Return spots filtered by query parameters.
           "ownerId": 1,
           "address": "123 Disney Lane",
           "city": "San Francisco",
-          "state": "California",
+          "state": "CA",
           "country": "United States of America",
           "lat": 37.7645358,
           "lng": -122.4730327,
@@ -1454,12 +1482,16 @@ Return spots filtered by query parameters.
           "price": 123,
           "createdAt": "2021-11-19 20:39:36",
           "updatedAt": "2021-11-19 20:39:36",
-          "avgRating": 4.5,
-          "previewImage": "image url"
+          "numReviews": 0,
+          "avgStarRating": 0,
+          "SpotImages": [],
+          "Reviews": [],
         }
       ],
-      "page": 2,
-      "size": 25
+      "page": 1,
+      "size": 25,
+      "returnedSpots": 20,
+      "totalSpots": 20
     }
     ```
 

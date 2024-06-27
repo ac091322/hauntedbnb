@@ -349,7 +349,6 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     editSpot.name = name;
     editSpot.description = description;
     editSpot.price = price;
-    editSpot.previewImage = previewImage;
 
     await editSpot.save();
     res.status(200);

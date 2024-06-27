@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpots } from "../../store/spots";
@@ -10,17 +10,16 @@ const ManageSpots = () => {
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
   const currentUser = useSelector(state => state.session.user);
-  const [filteredSpots, setFilteredSpots] = useState([]);
 
   useEffect(() => {
     dispatch(getAllSpots());
   }, [dispatch]);
 
-  useEffect(() => {
+  const filteredSpots = useMemo(() => {
     if (currentUser) {
-      const filtered = spots.filter(spot => spot.ownerId === currentUser.id);
-      setFilteredSpots(filtered);
+      return spots.filter(spot => spot.ownerId === currentUser.id);
     }
+    return [];
   }, [currentUser, spots]);
 
   return (

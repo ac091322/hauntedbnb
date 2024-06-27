@@ -49,7 +49,10 @@ function LoginFormModal() {
   return (
     <div id="popup-container-login">
       <h1>Log In</h1>
-      <form id="form-container-login" onSubmit={handleSubmit}>
+      <form
+        className="form-container-login"
+        onSubmit={handleSubmit}
+      >
 
         <input
           type="text"
@@ -79,7 +82,6 @@ function LoginFormModal() {
         >Log In</button>
 
         <button
-          id="demo-user-button"
           type="submit"
           className="input-field-login"
           onClick={(e) => handleSubmit(e, true)}

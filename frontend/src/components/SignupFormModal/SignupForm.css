@@ -1,4 +1,4 @@
-#spopup-container-signup {
+#popup-container-signup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,11 +7,11 @@
   background-color: var(--palette2);
 }
 
-#spopup-container-signup>h1{
+#popup-container-signup>h1{
   color: var(--palette1);
 }
 
-#form-container-signup {
+.form-container-signup {
   display: flex;
   flex-direction: column;
   gap: 20px

@@ -56,9 +56,11 @@ function SignupFormModal() {
   };
 
   return (
-    <div id="spopup-container-signup">
+    <div id="popup-container-signup">
       <h1>Sign Up</h1>
-      <form id="form-container-signup" onSubmit={handleSubmit}>
+      <form
+        className="form-container-signup"
+        onSubmit={handleSubmit}>
 
         <div className="error-group">
           <input

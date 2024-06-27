@@ -11,7 +11,7 @@
   color: var(--palette1)
 }
 
-#form-container-login {
+.form-container-login {
   display: flex;
   flex-direction: column;
   gap: 20px;
