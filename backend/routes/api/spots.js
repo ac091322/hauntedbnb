@@ -241,10 +241,12 @@ router.get("/:spotId", async (req, res) => {
 router.get("/:spotId/reviews", async (req, res) => {
   let spotId = req.params.spotId;
   let spot = await Spot.findByPk(spotId);
+
   if (!spot) {
     res.status(404);
     return res.json({ "message": "Spot could not be found" });
   }
+
   let reviews = await Review.findAll({
     where: { spotId: spotId },
     include: [
@@ -258,6 +260,7 @@ router.get("/:spotId/reviews", async (req, res) => {
       }
     ]
   });
+
   res.status(200);
   return res.json({ "Reviews": reviews });
 });
@@ -434,6 +437,7 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
   if (existingReview) {
     res.status(500);
     return res.json({ "message": "User already has a review for this spot" });
+
   } else {
     let createReview = await Review.create({
       spotId, userId: currentUser.id, review, stars
