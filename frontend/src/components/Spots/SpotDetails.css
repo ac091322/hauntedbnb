@@ -18,7 +18,7 @@
   grid-template-areas:
     "big-image small-images";
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .big-image {

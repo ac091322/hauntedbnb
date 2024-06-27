@@ -27,12 +27,7 @@ main {
   margin: 20px auto;
   width: 90%;
   max-width: 1760px;
-  height: 120vh;
-}
-
-#footer-spacing {
-  height: 200px;
-  display: block;
+  margin-bottom: 400px;
 }
 
 footer {
