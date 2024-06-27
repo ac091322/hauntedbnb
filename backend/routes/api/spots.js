@@ -146,7 +146,7 @@ router.get("/", async (req, res) => {
     where,
     ...pagination,
     include: [
-      { model: SpotImage },
+      { model: SpotImage, as: "SpotImages" },
       { model: Review }
     ],
   });
@@ -331,7 +331,6 @@ router.put("/:spotId", requireAuth, async (req, res) => {
     if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
     if (!description) errors.description = "Description is required";
     if (!price || isNaN(price) || price < 0) errors.price = "Price per day is required and must be a number equal to or greater than 0";
-    if (!previewImage) errors.previewImage = "Preview image is required";
 
     if (Object.keys(errors).length > 0) {
       res.status(400);

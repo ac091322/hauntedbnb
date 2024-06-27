@@ -73,6 +73,7 @@ const SpotForm = () => {
     setSubmitted(true);
 
     if (Object.values(validations).length === 0) {
+      
       const requiredFields = [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL];
       if (requiredFields.some(field => field === "" || field === undefined || field === null)) {
         return;
@@ -333,7 +334,7 @@ const SpotForm = () => {
         <button
           type="submit"
           id="button-create-spot"
-        >Create SpotF
+        >Create Spot
         </button>
 
       </form >
