@@ -1,0 +1,14 @@
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--palette5);
+  color: var(--palette1);
+}
+
+footer>div {
+  padding: 40px 0 40px 0;
+  text-align: center;
+  color: var(--blood-color)
+}

@@ -8,6 +8,7 @@ import SpotsListing from './components/Spots/SpotsListing';
 import SpotDetails from './components/Spots/SpotDetails';
 import SpotForm from './components/Spots/CreateSpot';
 import ManageSpots from './components/Spots/ManageSpots';
+import Footer from './components/Footer/Footer';
 
 
 function Layout() {
@@ -59,7 +60,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Footer/>
+    </>
+  );
 }
+
 
 export default App;

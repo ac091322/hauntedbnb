@@ -19,6 +19,7 @@
 body {
   background-color: var(--palette3);
   color: var(--palette1);
+  min-height: 120vh;
 }
 
 main {
@@ -27,23 +28,7 @@ main {
   margin: 20px auto;
   width: 90%;
   max-width: 1760px;
-  margin-bottom: 400px;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--palette5);
-  color: var(--palette1);
-}
-
-footer>div {
-  padding: 40px 0 40px 0;
-  text-align: right;
-  margin: 0 auto;
-  width: 90%;
-  color: var(--blood-color)
+  margin-bottom: 20vh;
 }
 
 h1 {
