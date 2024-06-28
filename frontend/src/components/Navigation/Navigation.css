@@ -39,3 +39,9 @@
 .hidden {
   display: none;
 }
+
+@media screen and (max-width: 600px) {
+  #logo {
+    height: 40px;
+  }
+}

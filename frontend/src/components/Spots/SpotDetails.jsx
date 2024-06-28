@@ -40,6 +40,8 @@ const SpotDetails = (rating) => {
 
   if (!spot) return null;
 
+  const priceWithComma = new Intl.NumberFormat().format(spot.price);
+
   return (
     <>
       <div id="spot-details-container">
@@ -83,7 +85,7 @@ const SpotDetails = (rating) => {
           <div id="description-details-right-container">
             <div id="price-rating-review-container">
               <div id="price-container">
-                <span id="spot-price">${spot.price}</span>
+                <span id="spot-price">${priceWithComma}</span>
                 <span>night</span>
               </div>
 
