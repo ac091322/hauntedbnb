@@ -10,6 +10,7 @@
 
 #form-container-create-spot>h1 {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 form hr {
@@ -107,4 +108,26 @@ form hr {
 #button-create-spot {
   width: 100%;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  #city-state-container {
+    flex-direction: column;
+  }
+
+  .lng-lat-container {
+    flex-direction: column;
+  }
+
+  #city-container {
+    width: 100%;
+  }
+
+  #state-container {
+    width: 100%;
+  }
+
+  .comma {
+    display: none;
+  }
 }

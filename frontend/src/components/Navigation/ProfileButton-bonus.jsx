@@ -50,9 +50,11 @@ function ProfileButton({ user }) {
     <div id="account-menu-container">
       <div id="create-spot-profile-container">
         {user && (
-          <><Link className="create-spot-text" to="/spots/create" id="create-spot-link">
-            Create a Spot
-          </Link></>
+          <>
+            <Link className="create-spot-text" to="/spots/create" id="create-spot-link">
+              Create a Spot
+            </Link>
+          </>
         )}
         <><RiAccountPinCircleLine id="profile-button" onClick={toggleMenu} /></>
       </div>

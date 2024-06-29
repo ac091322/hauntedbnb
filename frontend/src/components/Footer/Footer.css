@@ -4,7 +4,6 @@ footer {
   right: 0;
   bottom: 0;
   background-color: var(--palette5);
-  color: var(--palette1);
 }
 
 footer>div {

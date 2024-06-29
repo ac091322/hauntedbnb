@@ -171,7 +171,7 @@ const SpotForm = () => {
                   onChange={e => setCity(e.target.value)}
                 />
               </div>
-              <span>,</span>
+              <span className="comma">,</span>
               <div id="state-container">
                 <div className="left-right-container">
                   <label htmlFor="state">State</label>
@@ -203,7 +203,7 @@ const SpotForm = () => {
                   onChange={e => setLongitude(e.target.value)}
                 />
               </div>
-              <span>,</span>
+              <span className="comma">,</span>
               <div className="lng-lat-subcontainer">
                 <div className="left-right-container">
                   <label htmlFor="state">Latitude</label>

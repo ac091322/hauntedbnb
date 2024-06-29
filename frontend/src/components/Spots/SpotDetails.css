@@ -162,8 +162,8 @@
   padding: 40px 40px;
 }
 
-#feature-text {
-  color: var(--palette1);
+#reserve-form-background>h1{
+  color: var(--palette1)
 }
 
 #button-close {

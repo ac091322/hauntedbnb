@@ -1,9 +1,85 @@
 #page-container-manage-spots {
   display: flex;
   flex-direction: column;
-  align-items: center;;
+  align-items: center;
+  ;
 }
 
 #page-container-manage-spots>h1 {
   margin-bottom: 40px;
+  text-align: center;
+}
+
+#create-spot-button-manage-spots {
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+#crud-buttons-container-manage-spots {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.manage-spots-buttons {
+  width: 100%;
+}
+
+.popup-container-delete-spot {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+#delete-spot-popup-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--palette2);
+  padding: 40px 40px;
+}
+
+#delete-popup-buttons-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+#delete-spot-popup-background>h1 {
+  color: var(--palette1);
+}
+
+#delete-spot-popup-background>p {
+  text-align: center;
+}
+
+.delete-spot-popup-buttons {
+  width: 100%;
+}
+
+#delete-spot-button-no {
+  background-color: var(--palette6);
+  color: var(--palette5);
+}
+
+#delete-spot-button-yes {
+  font-family: "Nosifer", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  #delete-spot-popup-background {
+    width: 400px;
+  }
 }

@@ -128,7 +128,6 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
               onClick={onClose}>
               Close
             </button>
-
             <button
               type="submit"
               className={`review-buttons ${Object.values(validations).length > 0 ? 'disabled' : ''}`}

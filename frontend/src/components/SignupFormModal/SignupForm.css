@@ -7,7 +7,7 @@
   background-color: var(--palette2);
 }
 
-#popup-container-signup>h1{
+#popup-container-signup>h1 {
   color: var(--palette1);
 }
 
@@ -19,4 +19,15 @@
 
 .input-field-signup {
   width: 400px;
+}
+
+
+@media screen and (max-width: 600px) {
+  #popup-container-signup {
+    width: 400px;
+  }
+
+  .input-field-signup {
+    width: 320px;
+  }
 }
