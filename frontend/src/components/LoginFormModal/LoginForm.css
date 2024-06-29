@@ -7,7 +7,7 @@
   background-color: var(--palette2);
 }
 
-#popup-container-login>h1{
+#popup-container-login>h1 {
   color: var(--palette1)
 }
 
@@ -21,7 +21,17 @@
   width: 400px;
 }
 
-.error-group{
+.error-group {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  #popup-container-login {
+    width: 400px;
+  }
+
+  .input-field-login {
+    width: 320px;
+  }
 }

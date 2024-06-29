@@ -6,11 +6,11 @@
   gap: 20px;
   background-color: var(--palette2);
   padding: 40px 40px;
-  color: var(--palette1);
 }
 
 #review-form-background>h1 {
-  color: var(--palette1);
+  text-align: center;
+  color: var(--palette1)
 }
 
 #form-container-review {
@@ -60,4 +60,22 @@
 
 .blood-icon-position {
   margin-top: 7px;
+}
+
+@media screen and (max-width: 600px) {
+  #review-form-background {
+    width: 400px;
+  }
+
+  #form-container-review {
+    align-items: center;
+  }
+
+  #leave-review-textarea {
+    width: 320px;
+  }
+
+  .review-buttons {
+    width: 150px;
+  }
 }

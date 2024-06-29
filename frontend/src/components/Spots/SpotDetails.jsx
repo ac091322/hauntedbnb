@@ -86,7 +86,7 @@ const SpotDetails = (rating) => {
             <div id="price-rating-review-container">
               <div id="price-container">
                 <span id="spot-price">${priceWithComma}</span>
-                <span>night</span>
+                <span>&nbsp;night</span>
               </div>
 
               <div id="rating-review-container">
@@ -109,19 +109,22 @@ const SpotDetails = (rating) => {
         </div>
       </div>
 
-      {showReservePopup && <div className="popup-container-reserve-review" onClick={() => setShowReservePopup(false)}>
+      {showReservePopup && <div
+        className="popup-container-reserve-review"
+        onClick={() => setShowReservePopup(false)}
+      >
         <div
           id="reserve-form-background"
           onClick={e => { e.stopPropagation() }}
         >
+          <h1>Reserve</h1>
           <div id="feature-text">Feature coming soon!</div>
           <button
             id="button-close"
             onClick={() => setShowReservePopup(false)}
           >Close</button>
         </div>
-      </div>
-      }
+      </div>}
 
       <hr id="section-separator" />
 

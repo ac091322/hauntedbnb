@@ -1,7 +1,7 @@
-import { useEffect, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllSpots } from "../../store/spots";
+import { getAllSpots, deleteSpot } from "../../store/spots";
 import { TbDropletFilled } from "react-icons/tb";
 import "./ManageSpots.css";
 
@@ -10,6 +10,9 @@ const ManageSpots = () => {
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
   const currentUser = useSelector(state => state.session.user);
+  const navigate = useNavigate();
+
+  const [spotToDelete, setSpotToDelete] = useState(null);
 
   useEffect(() => {
     dispatch(getAllSpots());
@@ -22,17 +25,36 @@ const ManageSpots = () => {
     return [];
   }, [currentUser, spots]);
 
+  const handleDelete = (spotId) => {
+    dispatch(deleteSpot(spotId));
+    setSpotToDelete(null);
+  };
+
+  const openDeletePopup = (spotId) => {
+    setSpotToDelete(spotId);
+  };
+
+  const closeDeletePopup = () => {
+    setSpotToDelete(null);
+  };
+
   return (
     <div id="page-container-manage-spots">
       <h1>Manage Spots</h1>
+
+      <button
+        id="create-spot-button-manage-spots"
+        onClick={() => navigate("/spots/create")}
+      >
+        Create a Spot
+      </button>
+
       <div id="all-spots-container">
         {filteredSpots.map(spot => {
           const priceWithComma = new Intl.NumberFormat().format(spot.price);
 
           return (
-            <div
-              key={spot.id}
-            >
+            <div key={spot.id}>
               <Link to={`/spots/${spot.id}`} id="spot-link">
                 <img
                   id="spot-image"
@@ -58,14 +80,48 @@ const ManageSpots = () => {
                   </div>
                 </div>
               </Link>
+
+              <div id="crud-buttons-container-manage-spots">
+                <button
+                  className="manage-spots-buttons"
+                  type="button"
+                  onClick={() => openDeletePopup(spot.id)}
+                >
+                  Delete
+                </button>
+                <button className="manage-spots-buttons">Edit</button>
+              </div>
+
+              {spotToDelete === spot.id && (
+                <div className="popup-container-delete-spot">
+                  <div id="delete-spot-popup-background">
+                    <h1>Delete</h1>
+                    <p>Are you sure you want to delete this spot?</p>
+                    <div id="delete-popup-buttons-container">
+                      <button
+                        className="delete-spot-popup-buttons"
+                        onClick={closeDeletePopup}
+                      >
+                        No, keep
+                      </button>
+                      <button
+                        className="delete-spot-popup-buttons"
+                        onClick={() => handleDelete(spot.id)}
+                      >
+                        Yes, delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
             </div>
-          )
+          );
 
         })}
       </div>
     </div>
   );
-}
-
+};
 
 export default ManageSpots;

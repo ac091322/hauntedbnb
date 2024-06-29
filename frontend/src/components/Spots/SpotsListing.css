@@ -51,6 +51,12 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  #spot-content-container{
+    font-size: 0.9em;
+  }
+}
+
 @media screen and (max-width: 900px) {
   #all-spots-container {
     grid-template-columns: 1fr 1fr;

@@ -4,6 +4,7 @@ const LOAD_SPOTS = "SPOTS/load_spots";
 const LOAD_SPOT_DETAILS = "SPOTS/load_spot_detail";
 const CREATE_SPOT = "SPOTS/create_spot";
 const CREATE_SPOT_IMAGE = "SPOTS/create_spot_image"
+const DELETE_SPOT = "SPOTS/delete_spot"
 
 export const loadSpots = (spots) => {
   return {
@@ -30,6 +31,13 @@ export const loadSpotImage = (spotImage) => {
   return {
     type: CREATE_SPOT_IMAGE,
     payload: spotImage
+  }
+};
+
+export const removeSpot = (spotId) => {
+  return {
+    type: DELETE_SPOT,
+    payload: spotId
   }
 };
 
@@ -128,6 +136,23 @@ export const createSpotImage = (imagePayload) => async (dispatch) => {
   }
 };
 
+export const deleteSpot = (spotId) => async (dispatch) => {
+  try {
+    const res = await csrfFetch(`/api/spots/${spotId}`, { method: "DELETE" });
+
+    if (res.ok) {
+      dispatch(removeSpot(spotId));
+    } else {
+      const error = await res.json();
+      console.error(error);
+    }
+
+  } catch (err) {
+    console.error(err)
+    return err;
+  }
+};
+
 let initialState = {};
 
 export const spotsReducer = (state = initialState, action) => {
@@ -161,6 +186,12 @@ export const spotsReducer = (state = initialState, action) => {
         imageState[spotId].images = [...(imageState[spotId].images || []), { url, preview }];
       }
       return imageState;
+    }
+
+    case DELETE_SPOT: {
+      const deleteState = { ...state };
+      delete deleteState[action.payload];
+      return deleteState;
     }
 
     default:
