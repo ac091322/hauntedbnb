@@ -105,7 +105,6 @@
 #price-container {
   display: flex;
   align-items: center;
-  gap: 2px;
 }
 
 #spot-price {
@@ -162,7 +161,7 @@
   padding: 40px 40px;
 }
 
-#reserve-form-background>h1{
+#reserve-form-background>h1 {
   color: var(--palette1)
 }
 
@@ -229,10 +228,13 @@
   }
 
   #description-details-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "reviews"
-      "description";
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  #description-details-right-container {
+    min-width: 100%;
   }
 
   #ratings-container-bottom {
@@ -273,14 +275,18 @@
   }
 
   #description-details-right-container {
+    gap: 0;
     height: 180px;
-    gap: 0px;
+  }
+
+  #description-details-left-container>h2 {
+    font-size: 1.2em;
   }
 }
 
 @media screen and (max-width: 500px) {
   #description-details-right-container {
-    min-width: 360px;
+    min-width: 380px;
   }
 
   #description-details-left-container {
