@@ -93,22 +93,30 @@ const ManageSpots = () => {
               </div>
 
               {spotToDelete === spot.id && (
-                <div className="popup-container-delete-spot">
-                  <div id="delete-spot-popup-background">
+                <div
+                  className="popup-container-delete-spot"
+                  onClick={closeDeletePopup}
+                >
+                  <div
+                    id="delete-spot-popup-background"
+                    onClick={e => e.stopPropagation()}
+                  >
                     <h1>Delete</h1>
                     <p>Are you sure you want to delete this spot?</p>
                     <div id="delete-popup-buttons-container">
                       <button
+                        id="delete-spot-button-no"
                         className="delete-spot-popup-buttons"
                         onClick={closeDeletePopup}
                       >
                         No, keep
                       </button>
                       <button
+                        id="delete-spot-button-yes"
                         className="delete-spot-popup-buttons"
                         onClick={() => handleDelete(spot.id)}
                       >
-                        Yes, delete
+                        Yes... delete
                       </button>
                     </div>
                   </div>

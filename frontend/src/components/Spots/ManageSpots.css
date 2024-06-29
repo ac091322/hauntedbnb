@@ -37,7 +37,7 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
@@ -67,4 +67,19 @@
 
 .delete-spot-popup-buttons {
   width: 100%;
+}
+
+#delete-spot-button-no {
+  background-color: var(--palette6);
+  color: var(--palette5);
+}
+
+#delete-spot-button-yes {
+  font-family: "Nosifer", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  #delete-spot-popup-background {
+    width: 400px;
+  }
 }
