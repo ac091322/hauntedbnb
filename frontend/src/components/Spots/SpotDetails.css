@@ -93,7 +93,7 @@
   border-radius: 15px;
   padding: 10px 40px 25px 40px;
   min-width: 460px;
-  max-height: 140px;
+  height: 140px;
 }
 
 #price-rating-review-container {
@@ -204,7 +204,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   #images-container {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -266,16 +266,20 @@
     border-radius: 15px;
   }
 
-  #description-details-container {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+  #price-rating-review-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #description-details-right-container {
+    height: 180px;
+    gap: 0px;
   }
 }
 
 @media screen and (max-width: 500px) {
   #description-details-right-container {
-    transform: scale(.8);
+    min-width: 360px;
   }
 
   #description-details-left-container {
@@ -284,11 +288,5 @@
 
   #ratings-container-bottom {
     font-size: 1em;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #description-details-right-container {
-    transform: scale(.70);
   }
 }
