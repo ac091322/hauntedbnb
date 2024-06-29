@@ -334,7 +334,7 @@ const SpotForm = () => {
         <button
           type="submit"
           id="button-create-spot"
-        >Create SpotF
+        >Create Spot
         </button>
 
       </form >
