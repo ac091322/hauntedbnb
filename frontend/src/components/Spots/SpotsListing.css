@@ -42,27 +42,23 @@
 @media screen and (max-width: 1600px){
   #all-spots-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
   }
 }
 
 @media screen and (max-width: 1300px) {
   #all-spots-container {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
   }
 }
 
 @media screen and (max-width: 900px) {
   #all-spots-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
   #all-spots-container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
   }
 }

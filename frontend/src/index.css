@@ -20,6 +20,7 @@ body {
   background-color: var(--palette3);
   color: var(--palette1);
   min-height: 120vh;
+  min-width: 380px;
 }
 
 main {
