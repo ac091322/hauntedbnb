@@ -17,13 +17,15 @@
 }
 
 #view-spots-container>button {
-  height: 60px;
-  width: 200px;
+  font-size: 1.2em;
+  height: 100px;
+  width: 300px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
 }
 
 #individual-reviews-container {
@@ -33,7 +35,7 @@
   margin-bottom: 40px;
 }
 
-#star-rating-blod-container-manage-spots{
+#star-rating-blod-container-manage-spots {
   display: flex;
   align-items: center;
 }

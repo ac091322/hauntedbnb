@@ -47,9 +47,9 @@ const ManageReviews = () => {
     setReviewToUpdate(reviewId);
   }
 
-  const closeUpdatePopup = () => {
-    setReviewToUpdate(null)
-  }
+  // const closeUpdatePopup = () => {
+  //   setReviewToUpdate(null)
+  // }
 
   const months = [
     "January", "February", "March", "April", "May", "June",
