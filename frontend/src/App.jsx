@@ -7,7 +7,10 @@ import { Modal } from './context/Modal';
 import SpotsListing from './components/Spots/SpotsListing';
 import SpotDetails from './components/Spots/SpotDetails';
 import SpotForm from './components/Spots/CreateSpot';
+import UpdateSpotForm from './components/Spots/UpdateSpot';
+import UpdateReviewForm from './components/Reviews/UpdateReview';
 import ManageSpots from './components/Spots/ManageSpots';
+import ManageReviews from './components/Reviews/ManageReviews';
 import Footer from './components/Footer/Footer';
 
 
@@ -52,8 +55,20 @@ const router = createBrowserRouter([
         element: <SpotForm />
       },
       {
+        path: "/spots/:spotId/edit",
+        element: <UpdateSpotForm />
+      },
+      {
         path: "/spots/:userId/manage",
         element: <ManageSpots />
+      },
+      {
+        path: "/reviews/:userId/manage",
+        element: <ManageReviews />
+      },
+      {
+        path: "/reviews/:reviewId",
+        element: <UpdateReviewForm />
       }
     ]
   }
@@ -63,7 +78,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <Footer/>
+      <Footer />
     </>
   );
 }

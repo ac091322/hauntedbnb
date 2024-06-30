@@ -45,9 +45,8 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
 
     dispatch(submitReview(spotId, review))
       .then(() => {
-        onReviewSubmit()
-        onClose()
-
+        onReviewSubmit();
+        onClose();
       });
   };
 
@@ -61,7 +60,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
           e.stopPropagation();
         }}
       >
-        <h1>How was your stay?</h1>
+        <h1>How Was Your Stay?</h1>
         <form id="form-container-review" onSubmit={handleSubmit}>
 
           <div id="review-textarea-container">
@@ -124,16 +123,18 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
           <div id="buttons-container-review">
             <button
               type="button"
+              id="leave-review-button-close"
               className="review-buttons"
               onClick={onClose}>
               Close
             </button>
             <button
               type="submit"
+              id="leave-review-button-submit"
               className={`review-buttons ${Object.values(validations).length > 0 ? 'disabled' : ''}`}
               disabled={Object.values(validations).length > 0}
             >
-              Submit
+              Submit Review
             </button>
           </div>
 

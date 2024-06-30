@@ -1,10 +1,11 @@
 import { csrfFetch } from "./csrf";
 
+
 const LOAD_SPOTS = "SPOTS/load_spots";
 const LOAD_SPOT_DETAILS = "SPOTS/load_spot_detail";
-const CREATE_SPOT = "SPOTS/create_spot";
-const CREATE_SPOT_IMAGE = "SPOTS/create_spot_image"
-const DELETE_SPOT = "SPOTS/delete_spot"
+const SUBMIT_SPOT = "SPOTS/submit_spot";
+const SUBMIT_SPOT_IMAGE = "SPOTS/submit_spot_image"
+const REMOVE_SPOT = "SPOTS/remove_spot"
 
 export const loadSpots = (spots) => {
   return {
@@ -22,21 +23,21 @@ export const loadSpotDetails = (spot) => {
 
 export const loadNewSpot = (spot) => {
   return {
-    type: CREATE_SPOT,
+    type: SUBMIT_SPOT,
     payload: spot
   }
 };
 
 export const loadSpotImage = (spotImage) => {
   return {
-    type: CREATE_SPOT_IMAGE,
+    type: SUBMIT_SPOT_IMAGE,
     payload: spotImage
   }
 };
 
 export const removeSpot = (spotId) => {
   return {
-    type: DELETE_SPOT,
+    type: REMOVE_SPOT,
     payload: spotId
   }
 };
@@ -138,7 +139,9 @@ export const createSpotImage = (imagePayload) => async (dispatch) => {
 
 export const deleteSpot = (spotId) => async (dispatch) => {
   try {
-    const res = await csrfFetch(`/api/spots/${spotId}`, { method: "DELETE" });
+    const res = await csrfFetch(`/api/spots/${spotId}`, {
+      method: "DELETE"
+    });
 
     if (res.ok) {
       dispatch(removeSpot(spotId));
@@ -173,25 +176,25 @@ export const spotsReducer = (state = initialState, action) => {
       return spotDetailsState;
     }
 
-    case CREATE_SPOT: {
-      const spotState = { ...state };
-      spotState[action.payload.id] = action.payload;
-      return spotState;
+    case SUBMIT_SPOT: {
+      const submitSpotState = { ...state };
+      submitSpotState[action.payload.id] = action.payload;
+      return submitSpotState;
     }
 
-    case CREATE_SPOT_IMAGE: {
-      const imageState = { ...state };
+    case SUBMIT_SPOT_IMAGE: {
+      const spotImageState = { ...state };
       const { spotId, url, preview } = action.payload;
-      if (spotId && imageState[spotId]) {
-        imageState[spotId].images = [...(imageState[spotId].images || []), { url, preview }];
+      if (spotId && spotImageState[spotId]) {
+        spotImageState[spotId].images = [...(spotImageState[spotId].images || []), { url, preview }];
       }
-      return imageState;
+      return spotImageState;
     }
 
-    case DELETE_SPOT: {
-      const deleteState = { ...state };
-      delete deleteState[action.payload];
-      return deleteState;
+    case REMOVE_SPOT: {
+      const removeSpotState = { ...state };
+      delete removeSpotState[action.payload];
+      return removeSpotState;
     }
 
     default:

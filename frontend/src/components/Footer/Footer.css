@@ -4,10 +4,14 @@ footer {
   right: 0;
   bottom: 0;
   background-color: var(--palette5);
-}
-
-footer>div {
   padding: 40px 0 40px 0;
   text-align: center;
-  color: var(--blood-color)
+  color: var(--blood-color);
+}
+
+
+@media screen and (max-width: 1000px) {
+  footer {
+    padding: 20px 0 20px 0;
+  }
 }

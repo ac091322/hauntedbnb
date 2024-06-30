@@ -62,17 +62,36 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <div className="drop-down-container">
-              <li style={{ cursor: "default" }}>Hello, {user.firstName}</li>
+              <li
+                style={{ cursor: "not-allowed", color: "gray" }}
+              >
+                Hello, {user.firstName}
+              </li>
               <hr />
-              <li style={{ cursor: "default" }}>Username: {user.username}</li>
+              <li
+                style={{ cursor: "not-allowed", color: "gray" }}
+              >
+                Username: {user.username}
+              </li>
               <hr />
-              <li style={{ cursor: "default" }}>{user.email}</li>
+              <li
+                style={{ cursor: "not-allowed", color: "gray" }}
+              >
+                {user.email}
+              </li>
               <hr />
               <Link
                 id="manage-spots-link"
                 to={`/spots/${currentUser.id}/manage`}
                 onClick={closeMenu}
               >Manage Spots
+              </Link>
+              <hr />
+              <Link
+                id="manage-spots-link"
+                to={`/reviews/${currentUser.id}/manage`}
+                onClick={closeMenu}
+              >Manage Reviews
               </Link>
               <hr />
               <Link id="logout-button" onClick={logout}>Log out</Link>

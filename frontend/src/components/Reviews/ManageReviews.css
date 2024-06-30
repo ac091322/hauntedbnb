@@ -1,0 +1,54 @@
+#page-container-manage-reviews {
+  display: flex;
+  flex-direction: column;
+}
+
+#page-container-manage-reviews>h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#view-spots-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#view-spots-container>button {
+  height: 60px;
+  width: 200px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#individual-reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 40px;
+}
+
+#star-rating-blod-container-manage-spots{
+  display: flex;
+  align-items: center;
+}
+
+#crud-reviews-buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+#crud-reviews-buttons-container>button {
+  width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  #crud-reviews-buttons-container {
+    flex-direction: column;
+  }
+}

@@ -10,9 +10,22 @@
   text-align: center;
 }
 
-#create-spot-button-manage-spots {
+#create-new-spot-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#create-new-spot-container>button {
+  height: 60px;
   width: 200px;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #crud-buttons-container-manage-spots {
@@ -49,20 +62,17 @@
   gap: 20px;
   background-color: var(--palette2);
   padding: 40px 40px;
+  text-align: center;
 }
 
 #delete-popup-buttons-container {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
 }
 
 #delete-spot-popup-background>h1 {
   color: var(--palette1);
-}
-
-#delete-spot-popup-background>p {
-  text-align: center;
 }
 
 .delete-spot-popup-buttons {
@@ -76,10 +86,4 @@
 
 #delete-spot-button-yes {
   font-family: "Nosifer", sans-serif;
-}
-
-@media screen and (max-width: 600px) {
-  #delete-spot-popup-background {
-    width: 400px;
-  }
 }

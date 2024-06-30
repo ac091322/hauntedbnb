@@ -21,6 +21,7 @@ body {
   color: var(--palette1);
   min-height: 120vh;
   min-width: 380px;
+
 }
 
 main {

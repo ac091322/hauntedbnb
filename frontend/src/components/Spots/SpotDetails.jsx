@@ -101,8 +101,8 @@ const SpotDetails = (rating) => {
             </div>
 
             <button
-              id="button-reserve"
               type="button"
+              id="button-reserve"
               onClick={() => setShowReservePopup(true)}
             >Reserve</button>
           </div>
@@ -120,6 +120,7 @@ const SpotDetails = (rating) => {
           <h1>Reserve</h1>
           <div id="feature-text">Feature coming soon!</div>
           <button
+            type="button"
             id="button-close"
             onClick={() => setShowReservePopup(false)}
           >Close</button>
@@ -168,7 +169,8 @@ const SpotDetails = (rating) => {
             reviews.some(review => review.spotId === spot.id && review.userId === currentUser.id)
           }
           onClick={() => setShowReviewPopup(true)}
-        >Leave Review
+        >
+          Leave Review
         </button>
       </div >
 
@@ -181,14 +183,16 @@ const SpotDetails = (rating) => {
         />
       )}
 
-      {reviews
-        .sort((a, b) => (b.id) - (a.id))
-        .map(review => (
-          review.spotId === spot.id ?
-            <Reviews review={review} key={review.id} />
-            :
-            null
-        ))}
+      <div id="reviews-container-spot-details-page">
+        {reviews
+          .sort((a, b) => (b.id) - (a.id))
+          .map(review => (
+            review.spotId === spot.id ?
+              <Reviews review={review} key={review.id} />
+              :
+              null
+          ))}
+      </div>
     </>
   );
 }

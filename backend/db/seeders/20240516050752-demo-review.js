@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         spotId: 2,
-        userId: 6,
+        userId: 5,
         review: "Unfortunately, our experience at this spot was disappointing. The cleanliness was lacking and some amenities were broken. Would not recommend.",
         stars: 2
       },

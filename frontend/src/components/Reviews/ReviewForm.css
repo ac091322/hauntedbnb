@@ -46,6 +46,15 @@
   width: 200px;
 }
 
+#leave-review-button-close {
+  background-color: var(--palette6);
+  color: var(--palette5);
+}
+
+#leave-review-button-submit {
+  font-family: "Nosifer", sans-serif;
+}
+
 .rating-input {
   display: flex;
 }
