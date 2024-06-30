@@ -180,6 +180,7 @@
   gap: 5px;
   margin: 40px 0 20px 0;
   font-size: 2em;
+
 }
 
 #ratings-subcontainer {
@@ -282,6 +283,10 @@
   #description-details-left-container>h2 {
     font-size: 1.2em;
   }
+}
+
+#reviews-container-spot-details-page {
+  margin-bottom: 20vh;
 }
 
 @media screen and (max-width: 500px) {

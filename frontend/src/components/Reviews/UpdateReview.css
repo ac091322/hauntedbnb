@@ -1,0 +1,10 @@
+#form-container-update-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-container-update-review>h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}

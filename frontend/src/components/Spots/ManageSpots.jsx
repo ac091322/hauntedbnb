@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpots, deleteSpot } from "../../store/spots";
 import { TbDropletFilled } from "react-icons/tb";
+import { FaArrowCircleRight } from "react-icons/fa";
 import "./ManageSpots.css";
 
 const ManageSpots = () => {
@@ -42,12 +43,17 @@ const ManageSpots = () => {
     <div id="page-container-manage-spots">
       <h1>Manage Spots</h1>
 
-      <button
-        id="create-spot-button-manage-spots"
-        onClick={() => navigate("/spots/create")}
-      >
-        Create a Spot
-      </button>
+      {filteredSpots.length === 0 &&
+        <div id="create-new-spot-container">
+          <p>You haven&apos;t created any spots yet, let&apos;s start by creating a spot using the button below.</p>
+          <button
+            type="button"
+            onClick={() => navigate("/spots/create")}
+          >
+            Create a New Spot <FaArrowCircleRight />
+          </button>
+        </div>
+      }
 
       <div id="all-spots-container">
         {filteredSpots.map(spot => {
@@ -83,13 +89,19 @@ const ManageSpots = () => {
 
               <div id="crud-buttons-container-manage-spots">
                 <button
-                  className="manage-spots-buttons"
                   type="button"
+                  className="manage-spots-buttons"
                   onClick={() => openDeletePopup(spot.id)}
                 >
                   Delete
                 </button>
-                <button className="manage-spots-buttons">Edit</button>
+                <button
+                  type="button"
+                  className="manage-spots-buttons"
+                  onClick={() => navigate(`/spots/${spot.id}/edit`)}
+                >
+                  Update
+                </button>
               </div>
 
               {spotToDelete === spot.id && (
@@ -105,18 +117,20 @@ const ManageSpots = () => {
                     <p>Are you sure you want to delete this spot?</p>
                     <div id="delete-popup-buttons-container">
                       <button
+                        type="button"
                         id="delete-spot-button-no"
                         className="delete-spot-popup-buttons"
                         onClick={closeDeletePopup}
                       >
-                        No, keep
+                        No, Keep
                       </button>
                       <button
+                        type="submit"
                         id="delete-spot-button-yes"
                         className="delete-spot-popup-buttons"
                         onClick={() => handleDelete(spot.id)}
                       >
-                        Yes... delete
+                        Yes... Delete
                       </button>
                     </div>
                   </div>

@@ -5,6 +5,10 @@
   margin-bottom: 40px;
 }
 
+#reviews-container>button {
+  width: 200px;
+}
+
 #name-rating-container {
   display: flex;
   justify-content: space-between;
@@ -20,4 +24,53 @@
 #review-date {
   font-size: 0.75em;
   font-style: italic;
+}
+
+#popup-container-delete-review {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+#delete-review-popup-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--palette2);
+  padding: 40px 40px;
+  text-align: center;
+}
+
+#delete-review-popup-background>h1 {
+  color: var(--palette1);
+}
+
+#delete-review-buttons-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.delete-review-buttons {
+  width: 100%;
+}
+
+#delete-review-button-no {
+  background-color: var(--palette6);
+  color: var(--palette5);
+}
+
+#delete-review-button-yes {
+  font-family: "Nosifer", sans-serif;
 }
