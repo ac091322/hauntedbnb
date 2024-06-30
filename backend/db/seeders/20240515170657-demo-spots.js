@@ -201,7 +201,7 @@ module.exports = {
         lng: -123.0481,
         name: "The Harbinger of Despair",
         description: "Experience the chilling allure of The Harbinger of Despair, a once-luxurious cruise liner forever moored off the coast of Bodega Bay, California. Its opulent halls are now silent tombs, whispers of tragedy clinging to the decaying grandeur. Legends of a doomed voyage and restless spirits linger in the salty air. Dare to embark on a paranormal adventure unlike any other.",
-        price: 800
+        price: 860
       },
       {
         ownerId: 4,
