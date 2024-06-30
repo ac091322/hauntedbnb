@@ -19,8 +19,9 @@
 }
 
 #create-new-spot-container>button {
-  height: 60px;
-  width: 200px;
+  font-size: 1.2em;
+  height: 100px;
+  width: 300px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
