@@ -56,7 +56,7 @@ module.exports = {
         allowNull: false
       },
       price: {
-        type: Sequelize.INTEGER(5),
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       // previewImage: {
