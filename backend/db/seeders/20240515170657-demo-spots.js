@@ -201,7 +201,7 @@ module.exports = {
         lng: -123.0481,
         name: "The Harbinger of Despair",
         description: "Experience the chilling allure of The Harbinger of Despair, a once-luxurious cruise liner forever moored off the coast of Bodega Bay, California. Its opulent halls are now silent tombs, whispers of tragedy clinging to the decaying grandeur. Legends of a doomed voyage and restless spirits linger in the salty air. Dare to embark on a paranormal adventure unlike any other.",
-        price: 860
+        price: 845
       },
       {
         ownerId: 4,
@@ -215,7 +215,6 @@ module.exports = {
         description: "Deep within the desolate expanse of the Great Basin Desert in Nevada lies The Blighted Acre.  This forgotten patch of earth, ravaged by scorching sun and relentless winds, is a stark cemetery where weathered headstones jut from the cracked earth.  Ghostly sagebrush rolls like waves across the barren landscape, the only movement in this desolate place.  The air hangs heavy with an oppressive silence, broken only by the mournful cry of ravens circling overhead.  Legends whisper of a mining disaster that claimed countless lives, leaving the restless spirits forever trapped within The Blighted Acre, searching for solace in the unforgiving desert night.",
         price: 99
       },
-
       {
         ownerId: 4,
         address: "27 Blackwood Manor Drive",
@@ -250,8 +249,8 @@ module.exports = {
         lng: -71.5508,
         name: "Adventure: Zombie Island",
         description: "Welcome to Zombie Island, a once-tranquil paradise ravaged by a mysterious plague. Lush vegetation creeps over decaying buildings, a haunting reminder of the island's tragic past. The air hangs heavy with the moans of the restless dead, shuffling hordes that roam the island under the cloak of night.  Nature and undeath are locked in a perpetual struggle on this isolated landmass.",
-        price: 890
-      },
+        price: 6390
+      }
       // {
       //   ownerId: 5,
       //   address: "123 Seeder Blvd",
