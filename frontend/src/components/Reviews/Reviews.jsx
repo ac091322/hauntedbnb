@@ -68,13 +68,14 @@ const Reviews = ({ review }) => {
         <span id="review-date">{formatDateTime(review.updatedAt)}</span>
         <span>{review.review}</span>
 
-        {review.User && currentUser.id === review.userId &&
+        {review.User && currentUser && currentUser.id === review.userId && (
           <button
             type="button"
             onClick={() => onDeletePopup(review.id)}
           >
             Delete Review
-          </button>}
+          </button>
+        )}
 
         {reviewToDelete === review.id && (
           <div
@@ -104,6 +105,7 @@ const Reviews = ({ review }) => {
             </div>
           </div>
         )}
+
       </div>
     </div >
   );

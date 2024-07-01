@@ -32,7 +32,7 @@ module.exports = {
         allowNull: false
       },
       state: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2),
         allowNull: false
       },
       country: {
@@ -56,7 +56,7 @@ module.exports = {
         allowNull: false
       },
       price: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.INTEGER(5),
         allowNull: false
       },
       // previewImage: {
