@@ -24,6 +24,7 @@ const SpotsListing = () => {
 
         return (
           <div
+            value={toolTip}
             key={spot.id}
             onMouseOut={() => setToolTip(null)}
             onMouseOver={() => setToolTip(spot.id)}

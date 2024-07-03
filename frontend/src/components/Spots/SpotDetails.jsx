@@ -7,25 +7,21 @@ import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
 import Reviews from "../Reviews/Reviews";
 import ReviewForm from "../Reviews/ReviewForm";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import "./SpotDetails.css";
 
 
 const SpotDetails = (rating) => {
-
   const dispatch = useDispatch();
   const { spotId } = useParams();
-
   const spot = useSelector(state => state.spots[spotId]);
   const currentUser = useSelector(state => state.session.user);
-
-
   const reviewsObj = useSelector(state => state.reviews);
   const reviews = Object.values(reviewsObj);
 
   const [showReservePopup, setShowReservePopup] = useState(false);
   const [showReviewPopup, setShowReviewPopup] = useState(false);
   const [activeRating, setActiveRating] = useState(rating);
-
 
   useEffect(() => {
     dispatch(getASpot(spotId)).then(() =>
@@ -41,6 +37,7 @@ const SpotDetails = (rating) => {
     dispatch(getSpotReviews(spotId));
   };
 
+  if (isNaN(spotId)) return <PageNotFound />
   if (!spot) return null;
 
   const priceWithComma = new Intl.NumberFormat().format(spot.price);
@@ -164,8 +161,8 @@ const SpotDetails = (rating) => {
         ))}
 
         <button
-          id="button-review"
           type="button"
+          id="button-review"
           hidden={
             !currentUser ||
             currentUser.id === spot.ownerId ||
@@ -179,8 +176,8 @@ const SpotDetails = (rating) => {
 
       {showReviewPopup && (
         <ReviewForm
+          value={showReviewPopup}
           spotId={spotId}
-          initialRating={activeRating}
           onClose={() => setShowReviewPopup(false)}
           onReviewSubmit={handleReviewSubmit}
         />
