@@ -11,7 +11,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import "./SpotDetails.css";
 
 
-const SpotDetails = (rating) => {
+const SpotDetails = () => {
   const dispatch = useDispatch();
   const { spotId } = useParams();
   const spot = useSelector(state => state.spots[spotId]);
@@ -21,16 +21,11 @@ const SpotDetails = (rating) => {
 
   const [showReservePopup, setShowReservePopup] = useState(false);
   const [showReviewPopup, setShowReviewPopup] = useState(false);
-  const [activeRating, setActiveRating] = useState(rating);
 
   useEffect(() => {
     dispatch(getASpot(spotId)).then(() =>
       (dispatch(getSpotReviews(spotId))));
   }, [dispatch, spotId]);
-
-  useEffect(() => {
-    setActiveRating(rating)
-  }, [rating])
 
   const handleReviewSubmit = () => {
     dispatch(getASpot(spotId));
@@ -121,7 +116,7 @@ const SpotDetails = (rating) => {
           <div id="feature-text">Feature coming soon!</div>
           <button
             type="button"
-            id="button-close"
+            id="reserve-button-close"
             onClick={() => setShowReservePopup(false)}
           >Close</button>
         </div>

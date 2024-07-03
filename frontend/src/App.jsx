@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Outlet, createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation-bonus';
 import * as sessionActions from './store/session';
 import { Modal } from './context/Modal';

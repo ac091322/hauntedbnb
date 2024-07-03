@@ -49,6 +49,7 @@
 #leave-review-button-close {
   background-color: var(--palette6);
   color: var(--palette5);
+  font-weight: bold;
 }
 
 #leave-review-button-submit {

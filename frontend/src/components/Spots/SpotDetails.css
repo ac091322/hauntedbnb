@@ -165,8 +165,9 @@
   color: var(--palette1)
 }
 
-#button-close {
+#reserve-button-close {
   width: 200px;
+  font-family: "Nosifer", sans-serif;
 }
 
 #section-separator {
