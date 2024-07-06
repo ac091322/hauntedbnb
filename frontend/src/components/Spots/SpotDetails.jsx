@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { LuDot } from "react-icons/lu";
+import { ImSpinner3 } from "react-icons/im";
 import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
 import Reviews from "../Reviews/Reviews";
@@ -21,10 +22,15 @@ const SpotDetails = () => {
 
   const [showReservePopup, setShowReservePopup] = useState(false);
   const [showReviewPopup, setShowReviewPopup] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getASpot(spotId)).then(() =>
-      (dispatch(getSpotReviews(spotId))));
+    setLoading(true);
+    dispatch(getASpot(spotId))
+      .then(() =>
+        dispatch(getSpotReviews(spotId))
+      )
+      .finally(() => setLoading(false));
   }, [dispatch, spotId]);
 
   const handleReviewSubmit = () => {
@@ -32,8 +38,25 @@ const SpotDetails = () => {
     dispatch(getSpotReviews(spotId));
   };
 
-  if (isNaN(spotId)) return <PageNotFound />
-  if (!spot) return null;
+  const handleReviewDelete = () => {
+    dispatch(getASpot(spotId));
+    dispatch(getSpotReviews(spotId));
+  };
+
+  if (loading) {
+    return (<div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "var(--palette2)"
+    }}>
+      <span>Loading</span>
+      <ImSpinner3 style={{ fontSize: "5em", }} />
+    </div>)
+  }
+
+  if (isNaN(parseInt(spotId)) || !spot || !spot.id) return <PageNotFound />;
 
   const priceWithComma = new Intl.NumberFormat().format(spot.price);
 
@@ -50,14 +73,14 @@ const SpotDetails = () => {
               <img
                 className="big-image"
                 src={spot.SpotImages.find(image => image.preview)?.url}
-                alt="big-spot-image" />
+                alt="big-spot-image"
+              />
 
               <div id="small-images-container">
                 {spot.SpotImages
                   .filter(image => !image.preview)
                   .slice(0, 4)
                   .map((image, index) => (
-
                     <img
                       key={image.id}
                       className={`small-image small-image-${index + 1}`}
@@ -183,7 +206,11 @@ const SpotDetails = () => {
           .sort((a, b) => (b.id) - (a.id))
           .map(review => (
             review.spotId === spot.id ?
-              <Reviews review={review} key={review.id} />
+              <Reviews
+                review={review}
+                key={review.id}
+                onDelete={handleReviewDelete}
+              />
               :
               null
           ))}

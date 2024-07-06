@@ -5,24 +5,27 @@ import { deleteReview } from "../../store/reviews";
 import "./Reviews.css";
 
 
-const Reviews = ({ review }) => {
-  const currentUser = useSelector((state) => state.session.user);
+const Reviews = ({ review, onDelete }) => {
+  const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const [reviewToDelete, setReviewToDelete] = useState(null);
 
   const handleDelete = (reviewId) => {
-    dispatch(deleteReview(reviewId));
-    setReviewToDelete(null);
-  }
+    dispatch(deleteReview(reviewId))
+      .then(() => {
+        onDelete();
+        setReviewToDelete(null);
+      });
+  };
 
   const onDeletePopup = (reviewId) => {
     setReviewToDelete(reviewId);
-  }
+  };
 
   const closeDeletePopup = () => {
     setReviewToDelete(null);
-  }
+  };
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -94,13 +97,17 @@ const Reviews = ({ review }) => {
                   id="delete-review-button-no"
                   className="delete-review-buttons"
                   onClick={closeDeletePopup}
-                >No, Keep</button>
+                >
+                  No, Keep
+                </button>
                 <button
                   type="submit"
                   id="delete-review-button-yes"
                   className="delete-review-buttons"
                   onClick={() => handleDelete(review.id)}
-                >Yes... Delete</button>
+                >
+                  Yes... Delete
+                </button>
               </div>
             </div>
           </div>
