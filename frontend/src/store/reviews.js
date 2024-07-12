@@ -59,6 +59,7 @@ export const getAllReviews = () => async (dispatch) => {
     if (res.ok) {
       const reviews = await res.json();
       dispatch(loadReviews(reviews));
+      return reviews;
     } else {
       const error = await res.json();
       console.error(error)
@@ -73,9 +74,7 @@ export const getAllReviews = () => async (dispatch) => {
 export const submitReview = (spotId, review) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(review)
   });
 
@@ -91,19 +90,18 @@ export const submitReview = (spotId, review) => async (dispatch) => {
   }
 };
 
-export const updateReview = (reviewId, review) => async (dispatch) => {
+export const updateReview = (review) => async (dispatch) => {
   try {
-    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    const res = await csrfFetch(`/api/reviews/${review.id}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review)
     });
 
     if (res.ok) {
-      const review = await res.json();
-      dispatch(loadUpdatedReview(review));
+      const updatedReview = await res.json();
+      dispatch(loadUpdatedReview(updatedReview));
+      return updatedReview
     } else {
       const error = await res.json();
       console.error(error);
@@ -140,30 +138,30 @@ export const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case LOAD_REVIEWS: {
-      const reviewsState = { ...state };
+      const newState = { ...state };
       action.reviews.Reviews
         .forEach(review => {
-          reviewsState[review.id] = review;
+          newState[review.id] = review;
         });
-      return reviewsState;
+      return newState;
     }
 
     case SUBMIT_REVIEW: {
-      const submitReviewState = { ...state };
-      submitReviewState[action.review.id] = action.review;
-      return submitReviewState;
+      const newState = { ...state };
+      newState[action.review.id] = action.review;
+      return newState;
     }
 
     case UPDATE_REVIEW: {
-      const updateReviewState = { ...state };
-      updateReviewState[action.review.id] = action.review;
-      return updateReviewState
+      const newState = { ...state };
+      newState[action.review.id] = action.review;
+      return newState
     }
 
     case REMOVE_REVIEW: {
-      const removeReviewState = { ...state };
-      delete removeReviewState[action.payload];
-      return removeReviewState;
+      const newState = { ...state };
+      delete newState[action.payload];
+      return newState;
     }
 
     default:

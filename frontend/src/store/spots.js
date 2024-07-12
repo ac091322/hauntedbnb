@@ -89,9 +89,7 @@ export const createSpot = (spotImage) => async (dispatch) => {
   try {
     const res = await csrfFetch(`/api/spots`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(spotImage)
     });
 
@@ -116,9 +114,7 @@ export const createSpotImage = (imagePayload) => async (dispatch) => {
   try {
     const res = await csrfFetch(`/api/spots/${spotId}/images`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url, preview })
     });
 
@@ -161,40 +157,50 @@ let initialState = {};
 export const spotsReducer = (state = initialState, action) => {
   switch (action.type) {
 
+    // case LOAD_SPOTS: {
+    //   const newState = { ...state };
+    //   action.spots
+    //     .forEach(spot => {
+    //       newState[spot.id] = spot;
+    //     });
+    //   return newState;
+    // }
+
     case LOAD_SPOTS: {
-      const spotsState = { ...state };
-      action.spots
-        .forEach(spot => {
-          spotsState[spot.id] = spot;
-        });
-      return spotsState;
+      return {
+        ...state,
+        ...action.spots.reduce((acc, spot) => {
+          acc[spot.id] = spot;
+          return acc;
+        }, {})
+      };
     }
 
     case LOAD_SPOT_DETAILS: {
-      const spotDetailsState = { ...state };
-      spotDetailsState[action.spot.id] = action.spot;
-      return spotDetailsState;
+      const newState = { ...state };
+      newState[action.spot.id] = action.spot;
+      return newState;
     }
 
     case SUBMIT_SPOT: {
-      const submitSpotState = { ...state };
-      submitSpotState[action.payload.id] = action.payload;
-      return submitSpotState;
+      const newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
     }
 
     case SUBMIT_SPOT_IMAGE: {
-      const spotImageState = { ...state };
+      const newState = { ...state };
       const { spotId, url, preview } = action.payload;
-      if (spotId && spotImageState[spotId]) {
-        spotImageState[spotId].images = [...(spotImageState[spotId].images || []), { url, preview }];
+      if (spotId && newState[spotId]) {
+        newState[spotId].images = [...(newState[spotId].images || []), { url, preview }];
       }
       return spotImageState;
     }
 
     case REMOVE_SPOT: {
-      const removeSpotState = { ...state };
-      delete removeSpotState[action.payload];
-      return removeSpotState;
+      const newState = { ...state };
+      delete newState[action.payload];
+      return newState;
     }
 
     default:

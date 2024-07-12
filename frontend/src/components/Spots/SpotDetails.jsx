@@ -27,9 +27,7 @@ const SpotDetails = () => {
   useEffect(() => {
     setLoading(true);
     dispatch(getASpot(spotId))
-      .then(() =>
-        dispatch(getSpotReviews(spotId))
-      )
+      .then(() => dispatch(getSpotReviews(spotId)))
       .finally(() => setLoading(false));
   }, [dispatch, spotId]);
 

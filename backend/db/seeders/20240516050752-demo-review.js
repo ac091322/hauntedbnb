@@ -20,25 +20,31 @@ module.exports = {
       {
         spotId: 1,
         userId: 3,
-        review: "This spot sucked! Never coming here again!",
-        stars: 1
+        review: "What an amazing haunted house! I was scarred every night of my stay. The whole family loved it. Every dark corner was filled with thrills and mysteries.",
+        stars: 5
       },
       {
         spotId: 1,
         userId: 4,
-        review: "The spot was beautiful and well-maintained. The host was also very responsive to our needs. Would definitely stay here again!",
+        review: "The spot was beautiful scarry and well-maintained. The host was also dreadfully responsive to our needs, almost too response. How he did know? Would definitely stay here again though!",
         stars: 4
       },
       {
         spotId: 1,
         userId: 5,
         review: "Unfortunately, our experience at this spot was disappointing. The cleanliness was lacking and some amenities were broken. Would not recommend.",
-        stars: 2
+        stars: 3
       },
       {
         spotId: 2,
         userId: 5,
         review: "Unfortunately, our experience at this spot was disappointing. The cleanliness was lacking and some amenities were broken. Would not recommend.",
+        stars: 1
+      },
+      {
+        spotId: 2,
+        userId: 4,
+        review: "This place sucks! It wasn't scarry at all! I'm never coming back here again. I wouldn't recommend this place to anyone either",
         stars: 2
       },
       {
@@ -112,6 +118,12 @@ module.exports = {
         userId: 5,
         review: "Absolutely hated my stay at this cozy spot! The location was perfect and the amenities provided were excellent. Would definitely recommend to anyone visiting the area.",
         stars: 2
+      },
+      {
+        spotId: 20,
+        userId: 1,
+        review: "This island is insane! The location was perfectly isloated and the amenities were falling apart. Almost didn't make it off the island. I recomment anyone who is looking for a true horror adventure experience.",
+        stars: 4
       }
       // {
       //   spotId: 21,

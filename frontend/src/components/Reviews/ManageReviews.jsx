@@ -39,17 +39,9 @@ const ManageReviews = () => {
     setReviewToDelete(null);
   }
 
-  // const handleUpdate = (reviewId) => {
-  //   dispatch()
-  // }
-
   const onUpdatePopup = (reviewId) => {
     setReviewToUpdate(reviewId);
   }
-
-  // const closeUpdatePopup = () => {
-  //   setReviewToUpdate(null)
-  // }
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -69,7 +61,6 @@ const ManageReviews = () => {
     const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
     return `${month} ${day}, ${year} @ ${formattedTime}`;
   };
-
 
   const filteredReviews = useMemo(() => {
     if (currentUser) {
@@ -160,10 +151,12 @@ const ManageReviews = () => {
 
               {reviewToUpdate === review.id && (
                 <UpdateReviewForm
-
+                  value={reviewToUpdate}
+                  spoId={review.spotId}
+                  reviewId={review.id}
+                  onClose={() => setReviewToUpdate(false)}
                 />
               )}
-
             </div>
           )
         })}
