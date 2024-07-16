@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { getAllSpots } from "../../store/spots";
+import Loader from "../Loader/Loader";
 import "./SpotsListing.css"
 
 
@@ -12,12 +13,14 @@ const SpotsListing = () => {
   const spots = Object.values(spotsObj)//.sort((a, b) => (b.id) - (a.id));
 
   const [toolTip, setToolTip] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getAllSpots());
+    dispatch(getAllSpots())
+      .then(() => setLoading(false));
   }, [dispatch]);
 
-  return (
+  return loading ? <Loader /> : (
     <div id="all-spots-container">
       {spots.map(spot => {
         const priceWithComma = new Intl.NumberFormat().format(spot.price);

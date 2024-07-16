@@ -5,12 +5,13 @@ import { updateReview } from "../../store/reviews";
 import "./UpdateReview.css"
 
 
-const UpdateReviewForm = ({ spotId, reviewId, onClose, onReviewSubmit }) => {
+const UpdateReviewForm = ({ spotId, reviewId, onClose }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const reviewsObj = useSelector(state => state.reviews);
   const reviews = Object.values(reviewsObj);
-  const reviewToUpdate = reviews.find(review => review.id === reviewId);
+
+  const reviewToUpdate = reviews.find(review => review.id === +reviewId);
 
   const [text, setText] = useState(reviewToUpdate ? reviewToUpdate.review : "");
   const [rating, setRating] = useState(reviewToUpdate ? reviewToUpdate.stars : "");
@@ -25,7 +26,7 @@ const UpdateReviewForm = ({ spotId, reviewId, onClose, onReviewSubmit }) => {
     if (!rating) formErrors.rating = "Blood-rating is required";
     setHasChanged(text !== reviewToUpdate.review || rating !== reviewToUpdate.stars);
     setValidations(formErrors);
-  }, [text, rating]);
+  }, [text, rating, reviewToUpdate.review, reviewToUpdate.stars]);
 
   const handleIconClick = (newRating) => {
     setRating(newRating);
@@ -43,19 +44,16 @@ const UpdateReviewForm = ({ spotId, reviewId, onClose, onReviewSubmit }) => {
       return formErrors;
     }
 
-    const reviewToUpdate = {
-      id: reviewToUpdate.id,
-      userId: currentUser.id,
+    const updatedReview = {
+      id: Number(reviewToUpdate.id),
+      userId: Number(currentUser.id),
       review: text,
-      stars: rating,
-      spotId: spotId
+      stars: Number(rating),
+      spotId: Number(spotId)
     };
 
-    dispatch(updateReview(reviewToUpdate))
-      .then(() => {
-        onReviewSubmit();
-        onClose();
-      });
+    dispatch(updateReview(updatedReview))
+      .then(() => onClose());
   };
 
   return (

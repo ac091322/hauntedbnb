@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { LuDot } from "react-icons/lu";
-import { ImSpinner3 } from "react-icons/im";
+import Loader from "../Loader/Loader";
 import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
 import Reviews from "../Reviews/Reviews";
@@ -25,7 +25,6 @@ const SpotDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     dispatch(getASpot(spotId))
       .then(() => dispatch(getSpotReviews(spotId)))
       .finally(() => setLoading(false));
@@ -41,18 +40,7 @@ const SpotDetails = () => {
     dispatch(getSpotReviews(spotId));
   };
 
-  if (loading) {
-    return (<div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      color: "var(--palette2)"
-    }}>
-      <span>Loading</span>
-      <ImSpinner3 style={{ fontSize: "5em", }} />
-    </div>)
-  }
+  if (loading) return <Loader />
 
   if (isNaN(parseInt(spotId)) || !spot || !spot.id) return <PageNotFound />;
 

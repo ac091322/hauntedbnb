@@ -27,7 +27,7 @@ router.get("/current", requireAuth, async (req, res) => {
   });
 
   res.status(200);
-  return res.json({ "Reviews": reviews });
+  return res.json({ Reviews: reviews });
 });
 
 
@@ -35,20 +35,18 @@ router.get("/current", requireAuth, async (req, res) => {
 router.put("/:reviewId", requireAuth, async (req, res) => {
   let currentUser = req.user;
   let reviewId = req.params.reviewId;
-
   let { review, stars } = req.body;
 
   let existingReview = await Review.findByPk(reviewId);
   if (!existingReview) {
     res.status(404);
-    return res.json({ "message": "Review could not be found" });
+    return res.json({ message: "Review could not be found" });
 
   } else if (currentUser.id !== existingReview.userId) {
     res.status(403);
-    return res.json({ "message": "Forbidden" });
+    return res.json({ message: "Forbidden" });
 
   } else {
-
     let editReview = await Review.findOne({
       where: {
         id: reviewId,
@@ -65,7 +63,7 @@ router.put("/:reviewId", requireAuth, async (req, res) => {
     if (Object.keys(errors).length > 0) {
       res.status(400);
       return res.json({
-        "message": "Bad Request",
+        message: "Bad Request",
         errors
       });
     }
@@ -85,11 +83,11 @@ router.post("/:reviewId/images", requireAuth, async (req, res) => {
   let existingReview = await Review.findByPk(reviewId);
   if (!existingReview) {
     res.status(404);
-    return res.json({ "message": "Review could not be found" });
+    return res.json({ message: "Review could not be found" });
 
   } else if (currentUser.id !== existingReview.userId) {
     res.status(403);
-    return res.json({ "message": "Forbidden" });
+    return res.json({ message: "Forbidden" });
 
   } else {
     let review = await Review.findOne({
@@ -116,7 +114,7 @@ router.post("/:reviewId/images", requireAuth, async (req, res) => {
 
     } else {
       res.status(403);
-      return res.json({ "message": "Maximum number of images for this resource reached" });
+      return res.json({ message: "Maximum number of images for this resource reached" });
     }
   }
 });
@@ -130,11 +128,11 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
   let existingReview = await Review.findByPk(reviewId);
   if (!existingReview) {
     res.status(404);
-    return res.json({ "message": "Review could not be found" });
+    return res.json({ message: "Review could not be found" });
 
   } else if (currentUser.id !== existingReview.userId) {
     res.status(403);
-    return res.json({ "message": "Forbidden" });
+    return res.json({ message: "Forbidden" });
 
   } else {
     let deleteReview = await Review.findOne({
@@ -146,7 +144,7 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
 
     await deleteReview.destroy();
     res.status(200);
-    return res.json({ "message": "Review successfully deleted" });
+    return res.json({ message: "Review successfully deleted" });
   }
 });
 

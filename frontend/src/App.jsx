@@ -7,6 +7,7 @@ import { Modal } from './context/Modal';
 import SpotsListing from './components/Spots/SpotsListing';
 import SpotDetails from './components/Spots/SpotDetails';
 import SpotForm from './components/Spots/CreateSpot';
+import UpdateSpotForm from './components/Spots/UpdateSpot';
 import ManageSpots from './components/Spots/ManageSpots';
 import ManageReviews from './components/Reviews/ManageReviews';
 import PageNotFound from './components/PageNotFound/PageNotFound';
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/spots/:userId/manage",
         element: <ManageSpots />
+      },
+      {
+        path: "/spots/:spotId/edit",
+        element: <UpdateSpotForm />
       },
       {
         path: "/reviews/:userId/manage",

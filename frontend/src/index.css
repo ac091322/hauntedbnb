@@ -17,11 +17,10 @@
 }
 
 body {
-  background-color: var(--palette3);
+  background: linear-gradient(var(--palette3), rgb(100, 88, 101));
   color: var(--palette1);
   min-height: 120vh;
   min-width: 380px;
-
 }
 
 main {
@@ -67,6 +66,10 @@ button {
   border: none;
   background-color: var(--palette5);
   color: var(--blood-color);
+}
+
+img:not(#logo) {
+  box-shadow: 0 0 15px var(--palette5);
 }
 
 .error-group {

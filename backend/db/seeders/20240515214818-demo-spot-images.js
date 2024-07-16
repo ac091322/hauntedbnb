@@ -138,13 +138,13 @@ module.exports = {
       },
       {
         spotId: 6,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_mvhg96mvhg96mvhg.jpeg",
-        preview: false
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_9cqlrc9cqlrc9cql.jpeg",
+        preview: true
       },
       {
         spotId: 6,
-        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_9cqlrc9cqlrc9cql.jpeg",
-        preview: true
+        url: "https://hauntedbnb.s3.us-east-2.amazonaws.com/Spot+06/Gemini_Generated_Image_mvhg96mvhg96mvhg.jpeg",
+        preview: false
       },
       {
         spotId: 6,

@@ -105,7 +105,7 @@ form hr {
   gap: 10px;
 }
 
-#button-create-spot {
+.create-update-spot-buttons {
   width: 100%;
   margin-top: 10px;
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { createSpot, createSpotImage } from "../../store/spots";
+import { createSpot, createSpotImages } from "../../store/spots";
 import "./CreateSpot.css";
 
 
@@ -62,7 +62,7 @@ const SpotForm = () => {
           formErrors.spotName = "Spot name is too long";
         }
       }
-      if (!price || !Number.isInteger(Number(price))) formErrors.price = "Price must be an integer";
+      if (price === "" || !Number.isInteger(Number(price))) formErrors.price = "Price must be a number between 0 and 9,999";
       if (!primaryURL) formErrors.primaryURL = "Primary URL is required";
       setValidations(formErrors);
     }
@@ -73,52 +73,43 @@ const SpotForm = () => {
     setSubmitted(true);
 
     if (Object.values(validations).length === 0) {
-
       const requiredFields = [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL];
       if (requiredFields.some(field => field === "" || field === undefined || field === null)) {
         return;
       }
 
-      const newSpot = {
+      const createdSpotBody = {
         ownerId: Number(currentUser.id),
         address: address,
         city: city,
         state: state.toUpperCase(),
         country: country,
-        longitude: Number(longitude),
-        latitude: Number(latitude),
+        lng: Number(longitude),
+        lat: Number(latitude),
         name: spotName,
         description: description,
-        price: Number(price),
-        lat: latitude,
-        lng: longitude
+        price: Number(price)
       };
 
-      try {
-        const createdSpot = await dispatch(createSpot(newSpot));
+      const createdSpot = await dispatch(createSpot(createdSpotBody));
+      const imagePayloads = [
+        { spotId: Number(createdSpot.id), url: primaryURL, preview: true },
+        ...(imageURL1 ? [{ spotId: Number(createdSpot.id), url: imageURL1, preview: false }] : []),
+        ...(imageURL2 ? [{ spotId: Number(createdSpot.id), url: imageURL2, preview: false }] : []),
+        ...(imageURL3 ? [{ spotId: Number(createdSpot.id), url: imageURL3, preview: false }] : []),
+        ...(imageURL4 ? [{ spotId: Number(createdSpot.id), url: imageURL4, preview: false }] : [])
+      ];
 
-        const imagePayloads = [
-          { spotId: createdSpot.id, url: primaryURL, preview: true },
-          ...(imageURL1 ? [{ spotId: createdSpot.id, url: imageURL1, preview: false }] : []),
-          ...(imageURL2 ? [{ spotId: createdSpot.id, url: imageURL2, preview: false }] : []),
-          ...(imageURL3 ? [{ spotId: createdSpot.id, url: imageURL3, preview: false }] : []),
-          ...(imageURL4 ? [{ spotId: createdSpot.id, url: imageURL4, preview: false }] : [])
-        ];
+      const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImages(imagePayload)));
+      await Promise.all(imageCreationPromises);
 
-        const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImage(imagePayload)));
-        await Promise.all(imageCreationPromises);
-        navigate(`/spots/${createdSpot.id}`);
-
-      } catch (err) {
-        console.error("Failed to create spot or images:", err);
-      }
+      navigate(`/spots/${createdSpot.id}`, { replace: true });
     }
   };
 
   return (
     <div id="form-container-create-spot">
       <h1>Create a New Spot</h1>
-
       <form onSubmit={handleSubmit}>
 
         <div className="section-container-create-spot">
@@ -196,10 +187,10 @@ const SpotForm = () => {
                 </div>
                 <input
                   value={longitude}
-                  type="text"
+                  type="number" min="-180" max="180" step="0.0001"
                   className="lng-lat"
-                  name="longitude"
-                  placeholder="Longitude"
+                  name="lng"
+                  placeholder=" Longitude"
                   onChange={e => setLongitude(e.target.value)}
                 />
               </div>
@@ -211,9 +202,9 @@ const SpotForm = () => {
                 </div>
                 <input
                   value={latitude}
-                  type="text"
+                  type="number" min="-90" max="90" step="0.0001"
                   className="lng-lat"
-                  name="latitude"
+                  name="lat"
                   placeholder=" Latitude"
                   onChange={e => setLatitude(e.target.value)}
                 />
@@ -227,7 +218,7 @@ const SpotForm = () => {
 
         <div className="section-container-create-spot">
           <h3>Describe your place to guests</h3>
-          <p>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</p>
+          <p>Mention the best features of your space, any special amenities like fast wifi or parking, and what you love about the neighborhood.</p>
           <textarea
             value={description}
             id="description-create-spot"
@@ -246,7 +237,7 @@ const SpotForm = () => {
             value={spotName}
             type="text"
             className="input-field-create-spot"
-            name="spot-name"
+            name="name"
             placeholder=" Name your spot"
             onChange={e => setSpotName(e.target.value)}
           />
@@ -262,10 +253,12 @@ const SpotForm = () => {
             <label htmlFor="price">$</label>
             <input
               value={price}
-              type="text"
+              type="number"
+              min="0"
+              max="9999"
               id="price"
               className="input-field-create-spot"
-              name="state"
+              name="price"
               placeholder=" Price per night (USD)"
               onChange={e => setPrice(e.target.value)}
             />
@@ -333,8 +326,15 @@ const SpotForm = () => {
 
         <button
           type="submit"
-          id="button-create-spot"
+          className="create-update-spot-buttons"
         >Create Spot
+        </button>
+
+        <button
+          type="button"
+          className="create-update-spot-buttons"
+          onClick={() => navigate(-1)}
+        >Nevermind, Go Back
         </button>
 
       </form >

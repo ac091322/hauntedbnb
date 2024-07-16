@@ -9,22 +9,22 @@ const REMOVE_REVIEW = "REVIEWS/remove_review;";
 export const loadReviews = (reviews) => {
   return {
     type: LOAD_REVIEWS,
-    reviews
+    payload: reviews
   }
 };
 
 export const loadNewReview = (review) => {
   return {
     type: SUBMIT_REVIEW,
-    review
+    payload: review
   }
 };
 
-export const loadUpdatedReview = (reviewId) => {
+export const loadUpdatedReview = (review) => {
   return {
     type: UPDATE_REVIEW,
-    payload: reviewId
-  }
+    payload: review
+  };
 };
 
 export const removeReview = (reviewId) => {
@@ -35,9 +35,7 @@ export const removeReview = (reviewId) => {
 };
 
 export const getSpotReviews = (spotId) => async (dispatch) => {
-  const res = await fetch(`/api/spots/${spotId}/reviews`, {
-    method: "GET"
-  });
+  const res = await fetch(`/api/spots/${spotId}/reviews`);
 
   if (res.ok) {
     const reviews = await res.json();
@@ -46,15 +44,13 @@ export const getSpotReviews = (spotId) => async (dispatch) => {
 
   } else {
     const error = await res.json();
-    console.error(error)
+    console.error(error);
   }
 };
 
 export const getAllReviews = () => async (dispatch) => {
   try {
-    const res = await csrfFetch(`/api/reviews/current`, {
-      method: "GET"
-    });
+    const res = await csrfFetch(`/api/reviews/current`);
 
     if (res.ok) {
       const reviews = await res.json();
@@ -62,7 +58,7 @@ export const getAllReviews = () => async (dispatch) => {
       return reviews;
     } else {
       const error = await res.json();
-      console.error(error)
+      console.error(error);
     }
 
   } catch (err) {
@@ -101,14 +97,14 @@ export const updateReview = (review) => async (dispatch) => {
     if (res.ok) {
       const updatedReview = await res.json();
       dispatch(loadUpdatedReview(updatedReview));
-      return updatedReview
+      return updatedReview;
     } else {
       const error = await res.json();
       console.error(error);
     }
 
   } catch (err) {
-    console.error(err)
+    console.error(err);
     return err;
   }
 }
@@ -127,7 +123,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
     }
 
   } catch (err) {
-    console.error(err)
+    console.error(err);
     return err;
   }
 };
@@ -139,7 +135,7 @@ export const reviewsReducer = (state = initialState, action) => {
 
     case LOAD_REVIEWS: {
       const newState = { ...state };
-      action.reviews.Reviews
+      action.payload.Reviews
         .forEach(review => {
           newState[review.id] = review;
         });
@@ -148,13 +144,13 @@ export const reviewsReducer = (state = initialState, action) => {
 
     case SUBMIT_REVIEW: {
       const newState = { ...state };
-      newState[action.review.id] = action.review;
+      newState[action.payload.id] = action.payload;
       return newState;
     }
 
     case UPDATE_REVIEW: {
       const newState = { ...state };
-      newState[action.review.id] = action.review;
+      newState[action.payload.id] = action.payload;
       return newState
     }
 
