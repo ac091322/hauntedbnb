@@ -167,16 +167,16 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 export const createSpotImages = (image) => async (dispatch) => {
   const { spotId, url, preview } = image;
   try {
-    const res = await csrfFetch(`/api/spots/${image.id}/images`, {
+    const res = await csrfFetch(`/api/spots/${spotId}/images`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ spotId, url, preview })
+      body: JSON.stringify({ url, preview })
     });
 
     if (res.ok) {
-      const newImages = await res.json();
-      dispatch(loadSpotImages(newImages));
-      return newImages;
+      const newImage = await res.json();
+      dispatch(loadSpotImages(newImage));
+      return newImage;
     } else {
       const error = await res.json();
       console.error(error);
