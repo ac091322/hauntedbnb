@@ -6,7 +6,7 @@ import { LuDot } from "react-icons/lu";
 import Loader from "../Loader/Loader";
 import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
-import Reviews from "../Reviews/Reviews";
+import Review from "../Reviews/Review";
 import ReviewForm from "../Reviews/ReviewForm";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./SpotDetails.css";
@@ -160,10 +160,6 @@ const SpotDetails = () => {
           :
           <></>}
 
-        {reviews.some(review => (
-          review.userId === currentUser?.id && review.spotId === spotId
-        ))}
-
         <button
           type="button"
           id="button-review"
@@ -192,7 +188,7 @@ const SpotDetails = () => {
           .sort((a, b) => (b.id) - (a.id))
           .map(review => (
             review.spotId === spot.id ?
-              <Reviews
+              <Review
                 review={review}
                 key={review.id}
                 onDelete={handleReviewDelete}

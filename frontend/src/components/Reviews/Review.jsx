@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { deleteReview } from "../../store/reviews";
-import "./Reviews.css";
+import "./Review.css";
 
 
-const Reviews = ({ review, onDelete }) => {
+const Review = ({ review, onDelete }) => {
   const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -118,4 +118,4 @@ const Reviews = ({ review, onDelete }) => {
   );
 };
 
-export default Reviews;
+export default Review;
