@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllReviews, deleteReview } from "../../store/reviews";
 import { getAllSpots } from "../../store/spots";
 import UpdateReviewForm from "./UpdateReview";
+import Loader from "../Loader/Loader";
 import { TbDropletFilled } from "react-icons/tb";
 import { FaArrowCircleRight } from "react-icons/fa";
 import "./ManageReviews.css";
@@ -18,13 +19,15 @@ const ManageReviews = () => {
   const currentUser = useSelector(state => state.session.user);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(getAllReviews());
-    dispatch(getAllSpots());
-  }, [dispatch]);
-
   const [reviewToDelete, setReviewToDelete] = useState(null);
   const [reviewToUpdate, setReviewToUpdate] = useState(null);
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    dispatch(getAllReviews())
+      .then(() => dispatch(getAllSpots()))
+      .finally(() => setLoading(false));
+  }, [dispatch]);
 
   const handleDelete = (reviewId) => {
     dispatch(deleteReview(reviewId));
@@ -39,17 +42,9 @@ const ManageReviews = () => {
     setReviewToDelete(null);
   }
 
-  // const handleUpdate = (reviewId) => {
-  //   dispatch()
-  // }
-
   const onUpdatePopup = (reviewId) => {
     setReviewToUpdate(reviewId);
   }
-
-  // const closeUpdatePopup = () => {
-  //   setReviewToUpdate(null)
-  // }
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -70,7 +65,6 @@ const ManageReviews = () => {
     return `${month} ${day}, ${year} @ ${formattedTime}`;
   };
 
-
   const filteredReviews = useMemo(() => {
     if (currentUser) {
       return reviews.filter(review => review.userId === currentUser.id);
@@ -78,7 +72,7 @@ const ManageReviews = () => {
     return [];
   }, [currentUser, reviews]);
 
-  return (
+  return loading ? <Loader/> : (
     <div id="page-container-manage-reviews">
       <h1>Manage Reviews</h1>
 
@@ -100,12 +94,19 @@ const ManageReviews = () => {
           const spot = spots.find(spot => (spot.id === review.spotId));
 
           return (
-            <div
-              key={review.id}
-              id="individual-reviews-container">
-              <h3>{spot && spot.name}</h3>
-              <span id="review-date">{formatDateTime(review.updatedAt)}</span>
-              <span>{spot && spot.city}, {spot && spot.state}</span>
+            <div key={review.id} id="individual-reviews-container">
+
+              <div id="image-title-date-location-container">
+                <img
+                  src={spot && spot.SpotImages && spot.SpotImages.find(image => image.preview)?.url}
+                  alt="Spot Image"
+                />
+                <div id="title-date-location-container">
+                  <h3>{spot && spot.name}</h3>
+                  <span id="review-date">{formatDateTime(review.updatedAt)}</span>
+                  <span>{spot && spot.city}, {spot && spot.state}</span>
+                </div>
+              </div>
               <div id="star-rating-blod-container-manage-spots">
                 <span>{review.stars}.0&nbsp;</span>
                 <TbDropletFilled className="blood-icon" />
@@ -160,10 +161,12 @@ const ManageReviews = () => {
 
               {reviewToUpdate === review.id && (
                 <UpdateReviewForm
-
+                  value={reviewToUpdate}
+                  spoId={review.spotId}
+                  reviewId={review.id}
+                  onClose={() => setReviewToUpdate(false)}
                 />
               )}
-
             </div>
           )
         })}

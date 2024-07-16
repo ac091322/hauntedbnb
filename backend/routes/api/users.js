@@ -72,7 +72,7 @@ router.delete("/:userId", async (req, res) => {
   let deleteUser = await User.findByPk(userId);
   await deleteUser.destroy();
   res.status(200);
-  return res.json({ "message": `User of the id ${userId} was deleted` });
+  return res.json({ message: `User of the id ${userId} was deleted` });
 });
 
 

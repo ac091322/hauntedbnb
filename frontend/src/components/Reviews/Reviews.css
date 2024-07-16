@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 20px;
   margin-bottom: 40px;
+  background-color: var(--palette2);
+  box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette3);
 }
 
 #reviews-container>button {

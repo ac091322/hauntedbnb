@@ -53,7 +53,6 @@ function LoginFormModal() {
         className="form-container-login"
         onSubmit={handleSubmit}
       >
-
         <input
           type="text"
           value={credential}
@@ -77,7 +76,7 @@ function LoginFormModal() {
 
         <button
           type="submit"
-          className={`input-field-login ${Object.values(validations).length > 0 ? 'disabled' : ''}`}
+          className={`input-field-login ${Object.values(validations).length > 0 ? "disabled" : ""}`}
           disabled={Object.values(validations).length > 0}
         >Log In</button>
 

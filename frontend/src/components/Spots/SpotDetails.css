@@ -91,8 +91,9 @@
   background-color: var(--palette2);
   border-radius: 15px;
   padding: 10px 40px 25px 40px;
-  min-width: 460px;
+  min-width: 500px;
   height: 140px;
+  box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette3);
 }
 
 #price-rating-review-container {

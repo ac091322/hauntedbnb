@@ -17,7 +17,7 @@ module.exports = {
         city: "New Orleans",
         state: "LA",
         country: "USA",
-        lat: 29.9330,
+        lat: 29.9331,
         lng: -90.0756,
         name: "Unveiling Whispers: The Blackwood Manor",
         description: "Dare to step into the captivating, yet eerily silent, Blackwood Manor. Nestled in the heart of New Orleans' historic Garden District, this meticulously restored Victorian mansion holds secrets beneath its ornate facade. Soaring ceilings and intricate moldings cast long shadows, while rich hardwood floors creak with whispers of the past. Four spacious guest rooms await, each elegantly appointed with period furniture and plush bedding. But will sleep find you? Or will you be kept awake by the unseen residents who linger within these walls? Unwind by a crackling fireplace in the grand parlor, if you dare.  Indulge in a cup of tea in the sunroom overlooking the lush courtyard, but keep an eye out for fleeting shadows that flit across the glass. Explore the hidden nooks and crannies of this captivating residence, but remember, you may not be alone. Blackwood Manor offers a unique experience, perfect for those seeking a taste of history... and perhaps a brush with the unknown.",
@@ -41,7 +41,7 @@ module.exports = {
         city: "Thurmond",
         state: "WV",
         country: "USA",
-        lat: 37.8000,
+        lat: 37.8005,
         lng: -81.2333,
         name: "Crimson Hook Slaughter",
         description: "Nestled in the forgotten shadows of Shanksville, West Virginia, the Crimson Hook Slaughter stands as a chilling monument to a bygone era.  Erected in the late 18th century, the slaughterhouse processed countless souls before its closure in the early 1900s.  Legends of mistreated cattle and whispers of unexplained accidents linger in the decaying timber.  The locals avoid the area, their fear a palpable presence that chills you to the bone.  Now, the slaughterhouse awaits...could it be your next eerie escape? But be warned, the rumors of restless spirits and lingering moans may not be mere whispers.  The Crimson Hook Slaughter promises a hauntingly unforgettable stay,  but only for the brave souls who dare to unlock its dark secrets.",
@@ -102,7 +102,7 @@ module.exports = {
         state: "NY",
         country: "USA",
         lat: 40.7126,
-        lng: -74.0040,
+        lng: -74.0039,
         name: "City Hall Station",
         description: "City Hall Station, which opened in 1904 and was closed in 1945, is renowned not only for its stunning architecture but also for reports of paranormal activity. Visitors and workers have reported hearing unexplained voices, footsteps, and even seeing apparitions, contributing to its reputation as a haunted location.",
         price: 20
@@ -117,7 +117,7 @@ module.exports = {
         lng: -105.5217,
         name: "Grimhaven Castle",
         description: "High atop a craggy peak overlooking Estes Park, shrouded in perpetual mist, stands Grimhaven Castle. Its once-proud ramparts are now a jagged silhouette against the stormy Colorado sky.  Legends whisper of a powerful sorcerer who once resided within, his dark magic leaving a permanent stain on the land.  Now, the castle stands as a chilling monument to his misdeeds.  Ominous silence hangs heavy in the air, broken only by the mournful cry of ravens circling the crumbling towers.  Foolish souls who dare venture near Grimhaven speak of flickering lights in the dead of night, disembodied voices echoing through the halls, and a sense of unseen eyes watching their every move.  Will you become the next victim of Grimhaven's curse, or can you unravel the secrets that bind this forsaken castle to its sinister past?",
-        price: 800
+        price: 801
       },
       {
         ownerId: 2,
@@ -126,7 +126,7 @@ module.exports = {
         state: "GA",
         country: "USA",
         lat: 32.0817,
-        lng: -81.0800,
+        lng: -81.0809,
         name: "Dreadland Amusement Park",
         description: "Step into the whimsical and mysterious world of Dreadland, nestled in the heart of historic Savannah, Georgia. This enchanting park blends the thrill of rides with the allure of the supernatural. Wander through the Ghostly Grove, where ancient oak trees cast eerie shadows and whispers of ghostly laughter echo through the air. Brave the Haunted House of Mirrors, where reflections twist and turn, revealing phantoms lurking just beyond the glass. The Phantom Coaster races through the misty marshes, its tracks disappearing into the fog, rumored to be haunted by the spirits of past riders. At dusk, the Carousel of Whispers spins softly, playing haunting melodies that seem to beckon lost souls to dance. Dreadland Amusement Park offers an unforgettable blend of eerie charm and thrilling adventure, where every corner holds a ghostly surprise.",
         price: 166
@@ -137,8 +137,8 @@ module.exports = {
         city: "St. Augustine",
         state: "Florida",
         country: "USA",
-        lat: 29.89,
-        lng: 81.31,
+        lat: 29.8911,
+        lng: 81.3102,
         name: "The Wysteria",
         description: "Step into a bygone era at The Wysteria, a meticulously restored Victorian gem nestled amidst a bustling modern city. Its crimson brick facade, adorned with delicate white trim and overflowing wisteria vines, whispers of a bygone elegance. But beneath the surface, a darker history lingers. The Wysteria Manor isn't for the faint of heart. It's a place where the veil between worlds seems thin, where shadows dance with a life of their own, and the air is thick with the scent of forgotten memories. Are you brave enough to become part of its chilling legacy?",
         price: 1500

@@ -39,8 +39,8 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
 
     const review = {
       review: text,
-      stars: rating,
-      userId: currentUser.id
+      stars: Number(rating),
+      userId: Number(currentUser.id)
     };
 
     dispatch(submitReview(spotId, review))

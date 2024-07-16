@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpots, deleteSpot } from "../../store/spots";
+import Loader from "../Loader/Loader";
 import { TbDropletFilled } from "react-icons/tb";
 import { FaArrowCircleRight } from "react-icons/fa";
 import "./ManageSpots.css";
@@ -14,9 +15,11 @@ const ManageSpots = () => {
   const navigate = useNavigate();
 
   const [spotToDelete, setSpotToDelete] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getAllSpots());
+    dispatch(getAllSpots())
+      .then(() => setLoading(false));
   }, [dispatch]);
 
   const filteredSpots = useMemo(() => {
@@ -39,7 +42,7 @@ const ManageSpots = () => {
     setSpotToDelete(null);
   };
 
-  return (
+  return loading ? <Loader /> : (
     <div id="page-container-manage-spots">
       <h1>Manage Spots</h1>
 
