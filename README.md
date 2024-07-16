@@ -523,7 +523,7 @@ Creates and returns a new spot.
 
 ### Add an Image to a Spot based on the Spot's id
 
-Create and return a new image for a spot specified by id.
+Create and return a new image for a spot specified by spot id.
 
 * Require Authentication: true
 * Require proper authorization: Spot must belong to the current user
@@ -556,6 +556,53 @@ Create and return a new image for a spot specified by id.
     ```
 
 * Error response: Couldn't find a Spot with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Spot couldn't be found"
+    }
+    ```
+
+### Update an Image to a Spot based on the Image's id
+
+Update and return a new image for a spot specified by image id.
+
+* Require Authentication: true
+* Require proper authorization: Image must belong to the current user
+* Request
+  * Method: PUT
+  * URL: /api/spot-images/:imageId
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "url": "image url",
+      "preview": false
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "spotId": 1,
+      "url": "image url",
+      "preview": false
+    }
+    ```
+
+* Error response: Couldn't find an Image with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
