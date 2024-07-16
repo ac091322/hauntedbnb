@@ -100,7 +100,8 @@ const SpotForm = () => {
         ...(imageURL4 ? [{ spotId: Number(createdSpot.id), url: imageURL4, preview: false }] : [])
       ];
 
-      const imageCreationPromises = imagePayloads.map((imagePayload) => dispatch(createSpotImages(imagePayload)));
+      const imageCreationPromises = imagePayloads.map((imagePayload) =>
+        dispatch(createSpotImages(imagePayload)));
       await Promise.all(imageCreationPromises);
 
       navigate(`/spots/${createdSpot.id}`, { replace: true });

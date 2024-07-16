@@ -98,12 +98,12 @@ export const getASpot = (spotId) => async (dispatch) => {
   }
 };
 
-export const createSpot = (spotImage) => async (dispatch) => {
+export const createSpot = (spot) => async (dispatch) => {
   try {
-    const res = await csrfFetch(`/api/spots`, {
+    const res = await csrfFetch("/api/spots", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(spotImage)
+      body: JSON.stringify(spot)
     });
 
     if (res.ok) {
@@ -167,16 +167,16 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 export const createSpotImages = (image) => async (dispatch) => {
   const { spotId, url, preview } = image;
   try {
-    const res = await csrfFetch(`/api/spots/${image.id}/images`, {
+    const res = await csrfFetch(`/api/spots/${spotId}/images`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ spotId, url, preview })
+      body: JSON.stringify({ url, preview })
     });
 
     if (res.ok) {
-      const newImages = await res.json();
-      dispatch(loadSpotImages(newImages));
-      return newImages;
+      const newImage = await res.json();
+      dispatch(loadSpotImages(newImage));
+      return newImage;
     } else {
       const error = await res.json();
       console.error(error);
