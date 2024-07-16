@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getASpot, updateASpot, updateSpotImages } from "../../store/spots";
+import { getASpot, updateASpot, updateSpotImages, createSpotImages } from "../../store/spots";
 import Loader from "../Loader/Loader";
 import "./UpdateSpot.css";
 
@@ -139,16 +139,45 @@ const UpdateSpotForm = () => {
 
     const updatedSpot = await dispatch(updateASpot(updatedSpotBody));
 
-    const imagePayloads = [
-      { id: spotToUpdate.SpotImages.find(image => image.preview)?.id, spotId: Number(updatedSpot.id), url: primaryURL, preview: true },
-      ...(imageURL1 ? [{ id: spotToUpdate.SpotImages.filter(image => !image.preview)[0]?.id, spotId: Number(updatedSpot.id), url: imageURL1, preview: false }] : []),
-      ...(imageURL2 ? [{ id: spotToUpdate.SpotImages.filter(image => !image.preview)[1]?.id, spotId: Number(updatedSpot.id), url: imageURL2, preview: false }] : []),
-      ...(imageURL3 ? [{ id: spotToUpdate.SpotImages.filter(image => !image.preview)[2]?.id, spotId: Number(updatedSpot.id), url: imageURL3, preview: false }] : []),
-      ...(imageURL4 ? [{ id: spotToUpdate.SpotImages.filter(image => !image.preview)[3]?.id, spotId: Number(updatedSpot.id), url: imageURL4, preview: false }] : [])
+    const imagesToUpdate = [
+      {
+        id: spotToUpdate.SpotImages.find(image =>
+          image.preview)?.id, spotId: Number(updatedSpot.id), url: primaryURL, preview: true
+      },
+      ...(imageURL1 ? [{
+        id: spotToUpdate.SpotImages.filter(image =>
+          !image.preview)[0]?.id, spotId: Number(updatedSpot.id), url: imageURL1, preview: false
+      }] : []),
+      ...(imageURL2 ? [{
+        id: spotToUpdate.SpotImages.filter(image =>
+          !image.preview)[1]?.id, spotId: Number(updatedSpot.id), url: imageURL2, preview: false
+      }] : []),
+      ...(imageURL3 ? [{
+        id: spotToUpdate.SpotImages.filter(image =>
+          !image.preview)[2]?.id, spotId: Number(updatedSpot.id), url: imageURL3, preview: false
+      }] : []),
+      ...(imageURL4 ? [{
+        id: spotToUpdate.SpotImages.filter(image =>
+          !image.preview)[3]?.id, spotId: Number(updatedSpot.id), url: imageURL4, preview: false
+      }] : [])
     ];
 
-    await Promise.all(imagePayloads.map((imagePayload) =>
+    const imagesToCreate = [
+      ...(spotToUpdate.SpotImages.filter(image =>
+        !image.preview).length < 1 ? [{ spotId: Number(updatedSpot.id), url: imageURL1, preview: false }] : []),
+      ...(spotToUpdate.SpotImages.filter(image =>
+        !image.preview).length < 2 ? [{ spotId: Number(updatedSpot.id), url: imageURL2, preview: false }] : []),
+      ...(spotToUpdate.SpotImages.filter(image =>
+        !image.preview).length < 3 ? [{ spotId: Number(updatedSpot.id), url: imageURL3, preview: false }] : []),
+      ...(spotToUpdate.SpotImages.filter(image =>
+        !image.preview).length < 4 ? [{ spotId: Number(updatedSpot.id), url: imageURL4, preview: false }] : [])
+    ];
+
+    await Promise.all(imagesToUpdate.map((imagePayload) =>
       dispatch(updateSpotImages(imagePayload))));
+
+    await Promise.all(imagesToCreate.map((imagePayload) =>
+      dispatch(createSpotImages(imagePayload))));
 
     navigate(`/spots/${updatedSpot.id}`, { replace: true });
   };
