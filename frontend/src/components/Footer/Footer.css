@@ -3,12 +3,19 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--palette5);
   padding: 40px 0 40px 0;
   text-align: center;
+}
+
+body.dark footer {
+  background-color: var(--palette5);
   color: var(--blood-color);
 }
 
+body.light footer {
+  background-color: var(--palette5);
+  color: var(--primary-color);
+}
 
 @media screen and (max-width: 1000px) {
   footer {

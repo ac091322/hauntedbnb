@@ -17,10 +17,18 @@
 }
 
 body {
-  background: linear-gradient(var(--palette3), rgb(100, 88, 101));
-  color: var(--palette1);
   min-height: 120vh;
   min-width: 380px;
+}
+
+body.dark {
+  background: linear-gradient(var(--palette3), rgb(100, 88, 101));
+  color: var(--palette1);
+}
+
+body.light {
+  background: linear-gradient(var(--palette1), rgb(183, 179, 188));
+  color: var(--palette3)
 }
 
 main {
@@ -64,12 +72,24 @@ textarea {
 button {
   border-radius: 8px;
   border: none;
-  background-color: var(--palette5);
-  color: var(--blood-color);
 }
 
-img:not(#logo) {
-  box-shadow: 0 0 15px var(--palette5);
+body.dark button {
+  background-color: var(--palette1);
+  color: var(--palette3);
+}
+
+body.light button {
+  background-color: var(--palette6);
+  color: var(--primary-color);
+}
+
+body.dark img:not(#logo) {
+  box-shadow: 0 0 15px var(--palette4);
+}
+
+body.light img:not(#logo) {
+  box-shadow: 0 0 15px var(--palette6);
 }
 
 .error-group {

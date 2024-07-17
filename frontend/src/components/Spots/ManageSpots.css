@@ -66,6 +66,10 @@
   text-align: center;
 }
 
+body.light #delete-spot-popup-background {
+  background-color: var(--palette1);
+}
+
 #delete-popup-buttons-container {
   display: flex;
   gap: 20px;
@@ -76,6 +80,10 @@
   color: var(--palette1);
 }
 
+body.light #delete-spot-popup-background>h1 {
+  color: var(--palette3);
+}
+
 .delete-spot-popup-buttons {
   width: 100%;
 }
@@ -84,6 +92,10 @@
   background-color: var(--palette6);
   color: var(--palette5);
   font-weight: bold;
+}
+
+body.light #delete-spot-button-no {
+  color: var(--palette1);
 }
 
 #delete-spot-button-yes {

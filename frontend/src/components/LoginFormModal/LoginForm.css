@@ -7,8 +7,16 @@
   background-color: var(--palette2);
 }
 
+body.light #popup-container-login  {
+  background-color: var(--palette1);
+}
+
 #popup-container-login>h1 {
-  color: var(--palette1)
+  color: var(--palette1);
+}
+
+#popup-container-login>h1 {
+  color: var(--palette3);
 }
 
 .form-container-login {

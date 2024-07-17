@@ -96,6 +96,11 @@
   box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette3);
 }
 
+body.light #description-details-right-container {
+  background-color: var(--palette6);
+  color: var(--palette1);
+}
+
 #price-rating-review-container {
   grid-area: price;
   display: flex;
@@ -133,6 +138,10 @@
   width: 300px;
 }
 
+body.light #button-reserve {
+  background-color: var(--palette5);
+}
+
 .popup-container-reserve-review {
   position: fixed;
   top: 0;
@@ -148,10 +157,6 @@
   z-index: 1;
 }
 
-#feature-popup {
-  background-color: var(--palette1);
-}
-
 #reserve-form-background {
   display: flex;
   flex-direction: column;
@@ -162,8 +167,17 @@
   padding: 40px 40px;
 }
 
+body.light #reserve-form-background {
+  background-color: var(--palette1);
+  color: var(--palette3)
+}
+
 #reserve-form-background>h1 {
-  color: var(--palette1)
+  color: var(--palette1);
+}
+
+body.light #reserve-form-background>h1 {
+  color: var(--palette3);
 }
 
 #reserve-button-close {
@@ -182,7 +196,6 @@
   gap: 5px;
   margin: 40px 0 20px 0;
   font-size: 2em;
-
 }
 
 #ratings-subcontainer {

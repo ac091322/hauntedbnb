@@ -1,15 +1,21 @@
-import { useState } from "react";
 import { AiFillMoon, AiFillSun } from "react-icons/ai";
+import { useThemeContext } from "../../context/Theme";
 import "./ThemeToggle.css";
 
+
 const ThemeToggle = () => {
-  const [isToggled, setIsToggled] = useState(false);
+  const { theme, setTheme } = useThemeContext();
+  const isToggled = theme === "light";
+
+  const toggleTheme = () => {
+    setTheme(isToggled ? "dark" : "light");
+  };
 
   return (
     <div
       id="theme-toggle-container"
       className={isToggled ? "toggled" : ""}
-      onClick={() => setIsToggled(!isToggled)}
+      onClick={toggleTheme}
     >
       <div className={`thumb ${isToggled ? "slide-right" : "slide-left"}`}></div>
       <span
@@ -27,5 +33,6 @@ const ThemeToggle = () => {
     </div>
   );
 };
+
 
 export default ThemeToggle;

@@ -27,6 +27,14 @@
   text-align: center;
 }
 
+body.light #review-form-background-manage-reviews {
+  background-color: var(--palette1);
+}
+
 #review-form-background-manage-reviews>h1 {
   color: var(--palette1);
+}
+
+body.light #review-form-background-manage-reviews>h1 {
+  color: var(--palette3);
 }
