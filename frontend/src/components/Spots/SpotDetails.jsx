@@ -8,6 +8,7 @@ import { getASpot } from "../../store/spots";
 import { getSpotReviews } from "../../store/reviews";
 import Review from "../Reviews/Review";
 import ReviewForm from "../Reviews/ReviewForm";
+import MapContainer from "../Maps/MapContainer";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./SpotDetails.css";
 
@@ -86,29 +87,35 @@ const SpotDetails = () => {
             <p>{spot.description}</p>
           </div>
 
-          <div id="description-details-right-container">
-            <div id="price-rating-review-container">
-              <div id="price-container">
-                <span id="spot-price">${priceWithComma}</span>
-                <span>&nbsp;night</span>
+          <div id="description-map-right-container">
+            <div id="description-details-right-container">
+              <div id="price-rating-review-container">
+                <div id="price-container">
+                  <span id="spot-price">${priceWithComma}</span>
+                  <span>&nbsp;night</span>
+                </div>
+
+                <div id="rating-review-container">
+                  <span>
+                    {Number.isInteger(spot.avgStarRating) ? `${spot.avgStarRating}.0` : spot.avgStarRating}
+                  </span>
+                  <TbDropletFilled className="blood-icon" />
+                  {spot.numReviews === 0 ? <>New spot!</> : <></>}
+                  <LuDot id="dot-top" />
+                  {spot.numReviews} {spot.numReviews === 1 ? <>review</> : <>reviews</>}
+                </div>
               </div>
 
-              <div id="rating-review-container">
-                <span>
-                  {Number.isInteger(spot.avgStarRating) ? `${spot.avgStarRating}.0` : spot.avgStarRating}
-                </span>
-                <TbDropletFilled className="blood-icon" />
-                {spot.numReviews === 0 ? <>New spot!</> : <></>}
-                <LuDot id="dot-top" />
-                {spot.numReviews} {spot.numReviews === 1 ? <>review</> : <>reviews</>}
-              </div>
+              <button
+                type="button"
+                id="button-reserve"
+                onClick={() => setShowReservePopup(true)}
+              >Reserve</button>
             </div>
 
-            <button
-              type="button"
-              id="button-reserve"
-              onClick={() => setShowReservePopup(true)}
-            >Reserve</button>
+            <div id="map-container">
+              <MapContainer lat={spot.lat} lng={spot.lng} />
+            </div>
           </div>
         </div>
       </div>

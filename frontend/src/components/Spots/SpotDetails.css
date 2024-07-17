@@ -62,7 +62,6 @@
   border-bottom-right-radius: 15px
 }
 
-
 #description-details-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -183,6 +182,25 @@ body.light #reserve-form-background>h1 {
 #reserve-button-close {
   width: 200px;
   font-family: "Nosifer", sans-serif;
+}
+
+#description-map-right-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+#map-container {
+  border: 5px solid var(--palette1);
+  box-shadow: 0 0 5px var(--palette1);
+  max-width: 510px;
+  align-self: center;
+}
+
+body.light #map-container {
+  border: 5px solid var(--palette3);
+  box-shadow: 0 0 5px var(--palette3);
 }
 
 #section-separator {

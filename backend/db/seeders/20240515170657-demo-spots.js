@@ -137,8 +137,8 @@ module.exports = {
         city: "St. Augustine",
         state: "Florida",
         country: "USA",
-        lat: 29.8911,
-        lng: 81.3102,
+        lat: 29.8852,
+        lng: -81.2883,
         name: "The Wysteria",
         description: "Step into a bygone era at The Wysteria, a meticulously restored Victorian gem nestled amidst a bustling modern city. Its crimson brick facade, adorned with delicate white trim and overflowing wisteria vines, whispers of a bygone elegance. But beneath the surface, a darker history lingers. The Wysteria Manor isn't for the faint of heart. It's a place where the veil between worlds seems thin, where shadows dance with a life of their own, and the air is thick with the scent of forgotten memories. Are you brave enough to become part of its chilling legacy?",
         price: 1500
