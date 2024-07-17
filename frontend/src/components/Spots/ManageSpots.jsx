@@ -8,10 +8,10 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import "./ManageSpots.css";
 
 const ManageSpots = () => {
-  const dispatch = useDispatch();
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
   const currentUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [spotToDelete, setSpotToDelete] = useState(null);

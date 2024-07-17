@@ -92,6 +92,7 @@ const SpotForm = () => {
       };
 
       const createdSpot = await dispatch(createSpot(createdSpotBody));
+
       const imagePayloads = [
         { spotId: Number(createdSpot.id), url: primaryURL, preview: true },
         ...(imageURL1 ? [{ spotId: Number(createdSpot.id), url: imageURL1, preview: false }] : []),
