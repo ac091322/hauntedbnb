@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf.js';
 
+
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
@@ -69,5 +70,6 @@ function sessionReducer(state = initialState, action) {
       return state;
   }
 }
+
 
 export default sessionReducer;
