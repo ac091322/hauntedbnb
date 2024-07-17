@@ -38,10 +38,14 @@
   padding-left: 5px;
   font-size: 0.75rem;
   position: absolute;
+  color: var(--palette1);
+}
+
+body.light #tooltip {
   color: var(--palette2);
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1600px) {
   #all-spots-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -54,7 +58,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-  #spot-content-container{
+  #spot-content-container {
     font-size: 0.9em;
   }
 }

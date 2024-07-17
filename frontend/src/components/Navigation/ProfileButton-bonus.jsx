@@ -63,19 +63,19 @@ function ProfileButton({ user }) {
           <>
             <div className="drop-down-container">
               <li
-                style={{ cursor: "not-allowed", color: "gray" }}
+                style={{ cursor: "not-allowed" }}
               >
                 Hello, {user.firstName}
               </li>
               <hr />
               <li
-                style={{ cursor: "not-allowed", color: "gray" }}
+                style={{ cursor: "not-allowed" }}
               >
                 Username: {user.username}
               </li>
               <hr />
               <li
-                style={{ cursor: "not-allowed", color: "gray" }}
+                style={{ cursor: "not-allowed" }}
               >
                 {user.email}
               </li>

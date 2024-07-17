@@ -49,10 +49,18 @@
   flex-direction: column;
   gap: 5px;
   margin-bottom: 40px;
-  background-color: var(--palette2);
   padding: 20px;
-  box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette3);
+}
 
+body.dark #individual-reviews-container {
+  background-color: var(--palette2);
+  box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette3);
+}
+
+body.light #individual-reviews-container {
+  background-color: var(--palette6);
+  box-shadow: 0 0 15px var(--palette5), inset 0 0 15px var(--palette5);
+  color: var(--palette1);
 }
 
 #star-rating-blod-container-manage-spots {
@@ -67,6 +75,11 @@
 
 #crud-reviews-buttons-container>button {
   width: 200px;
+}
+
+body.light #crud-reviews-buttons-container>button {
+  background-color: var(--palette5);
+  color: var(--primary-color)
 }
 
 @media screen and (max-width: 600px) {

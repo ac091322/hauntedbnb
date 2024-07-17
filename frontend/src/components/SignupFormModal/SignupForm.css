@@ -7,14 +7,23 @@
   background-color: var(--palette2);
 }
 
+body.light #popup-container-signup {
+  background-color: var(--palette1);
+}
+
+
 #popup-container-signup>h1 {
   color: var(--palette1);
+}
+
+body.light #popup-container-signup>h1 {
+  color: var(--palette3)；
 }
 
 .form-container-signup {
   display: flex;
   flex-direction: column;
-  gap: 20px
+  gap: 20px;
 }
 
 .input-field-signup {

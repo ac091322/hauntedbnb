@@ -6,6 +6,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import { ModalProvider, Modal } from './context/Modal';
+import ThemeProvider from './context/Theme';
 import './index.css';
 
 
@@ -23,8 +24,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <ModalProvider>
       <Provider store={store}>
+        <ThemeProvider>
           <App />
-        <Modal />
+          <Modal />
+        </ThemeProvider>
       </Provider>
     </ModalProvider>
 

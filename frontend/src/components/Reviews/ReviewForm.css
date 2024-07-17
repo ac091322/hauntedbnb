@@ -8,9 +8,17 @@
   padding: 40px 40px;
 }
 
+body.light #review-form-background {
+  background-color: var(--palette1);
+}
+
 #review-form-background>h1 {
   text-align: center;
   color: var(--palette1)
+}
+
+body.light #review-form-background>h1 {
+  color: var(--palette3);
 }
 
 #form-container-review {
@@ -52,6 +60,10 @@
   font-weight: bold;
 }
 
+body.light #leave-review-button-close {
+  color: var(--palette1)
+}
+
 #leave-review-button-submit {
   font-family: "Nosifer", sans-serif;
 }
@@ -66,6 +78,10 @@
 
 .empty {
   color: var(--palette1);
+}
+
+body.light .empty {
+  color: var(--palette2)
 }
 
 .blood-icon-position {
