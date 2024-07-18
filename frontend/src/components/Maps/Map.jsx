@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
+
 const containerStyle = {
   width: "500px",
   height: "500px",
@@ -33,5 +34,6 @@ const Map = React.memo(({ apiKey, lat, lng }) => {
 });
 
 Map.displayName = "Map";
+
 
 export default Map;
