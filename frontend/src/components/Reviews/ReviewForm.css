@@ -55,12 +55,13 @@ body.light #review-form-background>h1 {
 }
 
 #leave-review-button-close {
-  background-color: var(--palette6);
-  color: var(--palette5);
+  background-color: var(--palette5);
+  color: var(--palette2);
   font-weight: bold;
 }
 
 body.light #leave-review-button-close {
+  background-color: var(--palette6);
   color: var(--palette1)
 }
 

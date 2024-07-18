@@ -134,7 +134,7 @@ body.light #description-details-right-container {
 #button-reserve {
   grid-area: button;
   justify-self: center;
-  width: 300px;
+  width: 100%;
 }
 
 body.light #button-reserve {
@@ -333,5 +333,11 @@ body.light #map-container {
 
   #ratings-container-bottom {
     font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #description-details-right-container {
+    min-width: 300px;
   }
 }

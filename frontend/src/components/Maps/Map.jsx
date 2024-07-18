@@ -1,11 +1,12 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import "./Map.css"
 
 
-const containerStyle = {
-  width: "500px",
-  height: "500px",
-};
+// const containerStyle = {
+//   width: "500px",
+//   height: "500px",
+// };
 
 const Map = React.memo(({ apiKey, lat, lng }) => {
   const { isLoaded } = useJsApiLoader({
@@ -22,7 +23,8 @@ const Map = React.memo(({ apiKey, lat, lng }) => {
     <>
       {isLoaded && (
         <GoogleMap
-          mapContainerStyle={containerStyle}
+          // mapContainerStyle={containerStyle}
+          id="google-map"
           center={center}
           zoom={12}
         >
