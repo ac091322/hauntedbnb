@@ -19,7 +19,9 @@ const SpotDetails = () => {
   const spot = useSelector(state => state.spots[spotId]);
   const currentUser = useSelector(state => state.session.user);
   const reviewsObj = useSelector(state => state.reviews);
+  console.log("🚀 ~ SpotDetails ~ reviewsObj:", reviewsObj)
   const reviews = Object.values(reviewsObj);
+  console.log("🚀 ~ SpotDetails ~ reviews:", reviews)
 
   const [showReservePopup, setShowReservePopup] = useState(false);
   const [showReviewPopup, setShowReviewPopup] = useState(false);
