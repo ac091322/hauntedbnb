@@ -1,4 +1,5 @@
-import "./Footer.css"
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 
 const Footer = () => {
@@ -6,9 +7,10 @@ const Footer = () => {
 
   return (
     <footer>
-      © {currentYear} hauntedbnb, inc.
+      © {currentYear} hauntedbnb, inc.s
+      <Link to="/privacy-policy">Privacy Policy</Link>
     </footer>
-  )
+  );
 }
 
 

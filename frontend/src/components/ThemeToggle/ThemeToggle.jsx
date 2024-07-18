@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       </span>
     </div>
   );
-};
+}
 
 
 export default ThemeToggle;

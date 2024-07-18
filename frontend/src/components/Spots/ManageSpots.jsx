@@ -7,6 +7,7 @@ import { TbDropletFilled } from "react-icons/tb";
 import { FaArrowCircleRight } from "react-icons/fa";
 import "./ManageSpots.css";
 
+
 const ManageSpots = () => {
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
@@ -147,6 +148,7 @@ const ManageSpots = () => {
       </div>
     </div>
   );
-};
+}
+
 
 export default ManageSpots;

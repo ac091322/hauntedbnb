@@ -12,6 +12,7 @@ import ManageSpots from './components/Spots/ManageSpots';
 import ManageReviews from './components/Reviews/ManageReviews';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Footer from './components/Footer/Footer';
+import PrivacyPolicy from './components/Footer/PrivacyPolicy';
 
 
 function Layout() {
@@ -29,6 +30,7 @@ function Layout() {
       <Modal />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
+      <Footer />
     </>
   );
 }
@@ -67,6 +69,10 @@ const router = createBrowserRouter([
         element: <ManageReviews />
       },
       {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />
+      },
+      {
         path: "*",
         element: <PageNotFound />
       }
@@ -76,12 +82,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router} />
 }
 
 

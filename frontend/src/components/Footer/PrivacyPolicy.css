@@ -1,0 +1,10 @@
+#page-container-privacy-policy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#page-container-privacy-policy>h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}

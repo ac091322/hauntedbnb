@@ -21,7 +21,7 @@ const MapContainer = ({ lat, lng }) => {
   return (
     <Map apiKey={key} lat={lat} lng={lng} />
   );
-};
+}
 
 
 export default MapContainer;
