@@ -44,7 +44,7 @@ module.exports = {
       {
         spotId: 2,
         userId: 4,
-        review: "This place sucks! It wasn't scarry at all! I'm never coming back here again. I wouldn't recommend this place to anyone either",
+        review: "This place sucks! It wasn't scarry at all! I'm never coming back here again. I wouldn't recommend this place to anyone either! Glad I'm leaving today,",
         stars: 2
       },
       {

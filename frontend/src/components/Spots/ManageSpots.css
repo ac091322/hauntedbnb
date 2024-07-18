@@ -89,12 +89,13 @@ body.light #delete-spot-popup-background>h1 {
 }
 
 #delete-spot-button-no {
-  background-color: var(--palette6);
-  color: var(--palette5);
+  background-color: var(--palette5);
+  color: var(--palette2);
   font-weight: bold;
 }
 
 body.light #delete-spot-button-no {
+  background-color: var(--palette6);
   color: var(--palette1);
 }
 
