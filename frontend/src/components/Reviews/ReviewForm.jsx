@@ -4,6 +4,7 @@ import { TbDropletFilled } from "react-icons/tb";
 import { submitReview } from "../../store/reviews";
 import "./ReviewForm.css";
 
+
 const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
@@ -147,7 +148,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
       </div >
     </div >
   );
-};
+}
 
 
 export default ReviewForm;

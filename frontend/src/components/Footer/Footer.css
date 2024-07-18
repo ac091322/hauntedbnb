@@ -5,6 +5,8 @@ footer {
   bottom: 0;
   padding: 40px 0 40px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 body.dark footer {

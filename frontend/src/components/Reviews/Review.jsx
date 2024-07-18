@@ -116,6 +116,7 @@ const Review = ({ review, onDelete }) => {
       </div>
     </div >
   );
-};
+}
+
 
 export default Review;

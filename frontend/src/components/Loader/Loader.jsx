@@ -12,7 +12,7 @@ const Loader = () => {
     <span>Loading</span>
     <ImSpinner3 style={{ fontSize: "5em", }} />
   </div>)
-};
+}
 
 
 export default Loader;

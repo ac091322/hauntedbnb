@@ -19,11 +19,11 @@ const SpotForm = () => {
   const [description, setDescription] = useState("");
   const [spotName, setSpotName] = useState("");
   const [price, setPrice] = useState("");
-  const [primaryURL, setPrimaryURL] = useState("");
-  const [imageURL1, setImageURL1] = useState("");
-  const [imageURL2, setImageURL2] = useState("");
-  const [imageURL3, setImageURL3] = useState("");
-  const [imageURL4, setImageURL4] = useState("");
+  const [primaryURL, setPrimaryURL] = useState("https://picsum.photos/300/300?random=1");
+  const [imageURL1, setImageURL1] = useState("https://picsum.photos/300/300?random=2");
+  const [imageURL2, setImageURL2] = useState("https://picsum.photos/300/300?random=3");
+  const [imageURL3, setImageURL3] = useState("https://picsum.photos/300/300?random=4");
+  const [imageURL4, setImageURL4] = useState("https://picsum.photos/300/300?random=5");
   const [validations, setValidations] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -271,8 +271,7 @@ const SpotForm = () => {
 
         <div className="section-container-create-spot">
           <h3>Liven up your spot with photos</h3>
-          <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px.</p>
-          <p className="form-error-text">Can copy and paste the following link: https://picsum.photos/300/300?random=1</p>
+          <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px. You can choose to use the preset URLs below or your own.</p>
           <div id="image-url-container">
             <div
               className="error-group"

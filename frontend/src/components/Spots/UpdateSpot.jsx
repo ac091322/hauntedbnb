@@ -418,7 +418,7 @@ const UpdateSpotForm = () => {
       </form >
     </div>
   );
-};
+}
 
 
 export default UpdateSpotForm;
