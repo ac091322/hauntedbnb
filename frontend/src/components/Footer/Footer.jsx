@@ -7,8 +7,8 @@ const Footer = () => {
 
   return (
     <footer>
-      © {currentYear} hauntedbnb, inc.s
       <Link to="/privacy-policy">Privacy Policy</Link>
+      <span>© {currentYear} hauntedbnb, inc.s</span>
     </footer>
   );
 }
