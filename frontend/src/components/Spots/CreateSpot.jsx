@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { createSpot, createSpotImages } from "../../store/spots";
 import "./CreateSpot.css";
@@ -10,22 +10,52 @@ const SpotForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [country, setCountry] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [description, setDescription] = useState("");
-  const [spotName, setSpotName] = useState("");
-  const [price, setPrice] = useState("");
-  const [primaryURL, setPrimaryURL] = useState("https://picsum.photos/300/300?random=1");
-  const [imageURL1, setImageURL1] = useState("https://picsum.photos/300/300?random=2");
-  const [imageURL2, setImageURL2] = useState("https://picsum.photos/300/300?random=3");
-  const [imageURL3, setImageURL3] = useState("https://picsum.photos/300/300?random=4");
-  const [imageURL4, setImageURL4] = useState("https://picsum.photos/300/300?random=5");
   const [validations, setValidations] = useState({});
   const [submitted, setSubmitted] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams({
+    country: "",
+    address: "",
+    city: "",
+    state: "",
+    longitude: "",
+    latitude: "",
+    description: "",
+    spotName: "",
+    price: "",
+    primaryURL: "https://picsum.photos/300/300?random=1",
+    imageURL1: "https://picsum.photos/300/300?random=2",
+    imageURL2: "https://picsum.photos/300/300?random=3",
+    imageURL3: "https://picsum.photos/300/300?random=4",
+    imageURL4: "https://picsum.photos/300/300?random=5"
+  });
+
+  const country = searchParams.get("country") || "";
+  const address = searchParams.get("address") || "";
+  const city = searchParams.get("city") || "";
+  const state = searchParams.get("state") || "";
+  const longitude = searchParams.get("longitude") || "";
+  const latitude = searchParams.get("latitude") || "";
+  const description = searchParams.get("description") || "";
+  const spotName = searchParams.get("spotName") || "";
+  const price = searchParams.get("price") || "";
+  const primaryURL = searchParams.get("primaryURL") || "https://picsum.photos/300/300?random=1";
+  const imageURL1 = searchParams.get("imageURL1") || "https://picsum.photos/300/300?random=2";
+  const imageURL2 = searchParams.get("imageURL2") || "https://picsum.photos/300/300?random=3";
+  const imageURL3 = searchParams.get("imageURL3") || "https://picsum.photos/300/300?random=4";
+  const imageURL4 = searchParams.get("imageURL4") || "https://picsum.photos/300/300?random=5";
+
+  useEffect(() => {
+    const storedFormData = JSON.parse(localStorage.getItem("formData"));
+    if (storedFormData) {
+      Object.keys(storedFormData).forEach(key => {
+        setSearchParams(prev => {
+          prev.set(key, storedFormData[key]);
+          return prev;
+        }, { replace: true });
+      });
+    }
+  }, []);
 
   useEffect(() => {
     let formErrors = {};
@@ -68,6 +98,18 @@ const SpotForm = () => {
     }
   }, [country, address, city, state, longitude, latitude, description, spotName, price, primaryURL, submitted]);
 
+  const handleChange = (key, value) => {
+    setSearchParams(prev => {
+      prev.set(key, value);
+      return prev;
+    }, { replace: true });
+    const formData = {
+      country, address, city, state, longitude, latitude, description, spotName, price, primaryURL, imageURL1, imageURL2, imageURL3, imageURL4
+    };
+    formData[key] = value;
+    localStorage.setItem('formData', JSON.stringify(formData));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -104,6 +146,24 @@ const SpotForm = () => {
       await Promise.all(imagePayloads.map((imagePayload) =>
         dispatch(createSpotImages(imagePayload))));
 
+      localStorage.removeItem('formData');
+      setSearchParams({
+        country: "",
+        address: "",
+        city: "",
+        state: "",
+        longitude: "",
+        latitude: "",
+        description: "",
+        spotName: "",
+        price: "",
+        primaryURL: "https://picsum.photos/300/300?random=1",
+        imageURL1: "https://picsum.photos/300/300?random=2",
+        imageURL2: "https://picsum.photos/300/300?random=3",
+        imageURL3: "https://picsum.photos/300/300?random=4",
+        imageURL4: "https://picsum.photos/300/300?random=5"
+      }, { replace: true });
+
       navigate(`/spots/${createdSpot.id}`, { replace: true });
     }
   };
@@ -129,7 +189,7 @@ const SpotForm = () => {
                 id="country"
                 name="country"
                 placeholder=" Country"
-                onChange={e => setCountry(e.target.value)}
+                onChange={e => handleChange("country", e.target.value)}
               />
             </div>
 
@@ -144,7 +204,7 @@ const SpotForm = () => {
                 id="street-address"
                 name="street-address"
                 placeholder=" Street address"
-                onChange={e => setAddress(e.target.value)}
+                onChange={e => handleChange("address", e.target.value)}
               />
             </div>
 
@@ -160,7 +220,7 @@ const SpotForm = () => {
                   id="city"
                   name="city"
                   placeholder=" City"
-                  onChange={e => setCity(e.target.value)}
+                  onChange={e => handleChange("city", e.target.value)}
                 />
               </div>
               <span className="comma">,</span>
@@ -175,7 +235,7 @@ const SpotForm = () => {
                   id="state"
                   name="state"
                   placeholder=" State"
-                  onChange={e => setState(e.target.value)}
+                  onChange={e => handleChange("state", e.target.value)}
                 />
               </div>
             </div>
@@ -192,7 +252,7 @@ const SpotForm = () => {
                   className="lng-lat"
                   name="lng"
                   placeholder=" Longitude"
-                  onChange={e => setLongitude(e.target.value)}
+                  onChange={e => handleChange("longitude", e.target.value)}
                 />
               </div>
               <span className="comma">,</span>
@@ -207,7 +267,7 @@ const SpotForm = () => {
                   className="lng-lat"
                   name="lat"
                   placeholder=" Latitude"
-                  onChange={e => setLatitude(e.target.value)}
+                  onChange={e => handleChange("latitude", e.target.value)}
                 />
               </div>
             </div>
@@ -224,7 +284,7 @@ const SpotForm = () => {
             value={description}
             id="description-create-spot"
             placeholder=" Please write at least 30 characters"
-            onChange={e => setDescription(e.target.value)}
+            onChange={e => handleChange("description", e.target.value)}
           />
           {submitted && validations.description && <span className="form-error-text">{validations.description}</span>}
         </div>
@@ -240,7 +300,7 @@ const SpotForm = () => {
             className="input-field-create-spot"
             name="name"
             placeholder=" Name your spot"
-            onChange={e => setSpotName(e.target.value)}
+            onChange={e => handleChange("spotName", e.target.value)}
           />
           {submitted && validations.spotName && <span className="form-error-text">{validations.spotName}</span>}
           <hr />
@@ -261,7 +321,7 @@ const SpotForm = () => {
               className="input-field-create-spot"
               name="price"
               placeholder=" Price per night (USD)"
-              onChange={e => setPrice(e.target.value)}
+              onChange={e => handleChange("price", e.target.value)}
             />
           </div>
           {submitted && validations.price && <span className="form-error-text">{validations.price}</span>}
@@ -283,7 +343,7 @@ const SpotForm = () => {
                 name="url"
                 placeholder=" Preview image URL"
                 id="primary-url-field"
-                onChange={e => setPrimaryURL(e.target.value)}
+                onChange={e => handleChange("primaryURL", e.target.value)}
               />
               {submitted && validations.primaryURL && <span className="form-error-text">{validations.primaryURL}</span>}
             </div>
@@ -294,7 +354,7 @@ const SpotForm = () => {
               name="url"
               placeholder=" Image URL"
               className="optional-url-field"
-              onChange={e => setImageURL1(e.target.value)}
+              onChange={e => handleChange("imageURL1", e.target.value)}
             />
             <input
               value={imageURL2}
@@ -302,7 +362,7 @@ const SpotForm = () => {
               name="url"
               placeholder=" Image URL"
               className="optional-url-field"
-              onChange={e => setImageURL2(e.target.value)}
+              onChange={e => handleChange("imageURL2", e.target.value)}
             />
             <input
               value={imageURL3}
@@ -310,7 +370,7 @@ const SpotForm = () => {
               name="url"
               placeholder=" Image URL"
               className="optional-url-field"
-              onChange={e => setImageURL3(e.target.value)}
+              onChange={e => handleChange("imageURL3", e.target.value)}
             />
             <input
               value={imageURL4}
@@ -318,7 +378,8 @@ const SpotForm = () => {
               name="url"
               placeholder=" Image URL"
               className="optional-url-field"
-              onChange={e => setImageURL4(e.target.value)} />
+              onChange={e => handleChange("imageURL4", e.target.value)}
+            />
           </div>
         </div>
 
