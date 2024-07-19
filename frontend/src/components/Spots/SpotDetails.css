@@ -194,7 +194,6 @@ body.light #reserve-form-background>h1 {
 #map-container {
   border: 5px solid var(--palette1);
   box-shadow: 0 0 5px var(--palette1);
-  max-width: 510px;
   align-self: center;
 }
 
@@ -325,10 +324,6 @@ body.light #map-container {
 @media screen and (max-width: 500px) {
   #description-details-right-container {
     min-width: 380px;
-  }
-
-  #description-details-left-container {
-    text-align: center;
   }
 
   #ratings-container-bottom {

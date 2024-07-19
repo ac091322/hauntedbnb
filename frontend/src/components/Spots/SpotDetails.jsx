@@ -14,13 +14,12 @@ import "./SpotDetails.css";
 
 
 const SpotDetails = () => {
-  const dispatch = useDispatch();
   const { spotId } = useParams();
-  const spot = useSelector(state => state.spots[spotId]);
   const currentUser = useSelector(state => state.session.user);
+  const spot = useSelector(state => state.spots[spotId]);
   const reviewsObj = useSelector(state => state.reviews);
   const reviews = Object.values(reviewsObj);
-
+  const dispatch = useDispatch();
 
   const [showReservePopup, setShowReservePopup] = useState(false);
   const [showReviewPopup, setShowReviewPopup] = useState(false);

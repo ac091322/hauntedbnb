@@ -3,24 +3,54 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TbDropletFilled } from "react-icons/tb";
 import { getAllSpots } from "../../store/spots";
-import Loader from "../Loader/Loader";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import "./SpotsListing.css"
 
 
+const loadingTime = 500;
+
 const SpotsListing = () => {
-  const dispatch = useDispatch();
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj)//.sort((a, b) => (b.id) - (a.id));
+  const dispatch = useDispatch();
 
   const [toolTip, setToolTip] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let timer;
     dispatch(getAllSpots())
-      .then(() => setLoading(false));
+      .then(() => {
+        timer = setTimeout(() => setLoading(false), loadingTime);
+      });
+
+    return () => clearTimeout(timer);
   }, [dispatch]);
 
-  return loading ? <Loader /> : (
+
+  if (loading) {
+    return (
+      <div id="all-spots-container">
+        {Array(20).fill().map((_, index) => (
+          <div key={index} className="spot-skeleton">
+            <Skeleton height="100%" borderRadius={8} style={{ aspectRatio: '1 / 1' }} />
+            <div className="spot-skeleton-content">
+              <div className="spot-skeleton-left">
+                <Skeleton width={150} />
+                <Skeleton width={100} />
+              </div>
+              <span className="spot-skeleton-rating">
+                <Skeleton width={60} height={20} />
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
     <div id="all-spots-container">
       {spots.map(spot => {
         const priceWithComma = new Intl.NumberFormat().format(spot.price);
@@ -45,8 +75,7 @@ const SpotsListing = () => {
                   <span>${priceWithComma} night</span>
                 </div>
 
-                <div id="spot-right-content-container"
-                >
+                <div id="spot-right-content-container">
                   {spot.numReviews === 0 ? (
                     <>
                       <TbDropletFilled className="blood-icon" /><span>New spot!</span>
@@ -60,6 +89,7 @@ const SpotsListing = () => {
                 </div>
               </div>
             </Link>
+
             {toolTip === spot.id && <span id="tooltip">{spot.name}</span>}
           </div >
         )

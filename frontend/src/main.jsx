@@ -6,6 +6,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import { ModalProvider, Modal } from './context/Modal';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import ThemeProvider from './context/Theme';
 import './index.css';
 
@@ -24,10 +25,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <ModalProvider>
       <Provider store={store}>
-        <ThemeProvider>
-          <App />
-          <Modal />
-        </ThemeProvider>
+      <SkeletonTheme baseColor="var(--skeleton-base-color)" highlightColor="var(--skeleton-highlight-color)">
+          <ThemeProvider>
+            <App />
+            <Modal />
+          </ThemeProvider>
+        </SkeletonTheme>
       </Provider>
     </ModalProvider>
 
