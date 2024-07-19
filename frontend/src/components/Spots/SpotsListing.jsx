@@ -8,8 +8,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import "./SpotsListing.css"
 
 
-const loadingTime = 500;
-
 const SpotsListing = () => {
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj)//.sort((a, b) => (b.id) - (a.id));
@@ -22,7 +20,7 @@ const SpotsListing = () => {
     let timer;
     dispatch(getAllSpots())
       .then(() => {
-        timer = setTimeout(() => setLoading(false), loadingTime);
+        timer = setTimeout(() => setLoading(false), 500);
       });
 
     return () => clearTimeout(timer);
