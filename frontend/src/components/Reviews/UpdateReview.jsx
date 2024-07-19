@@ -6,10 +6,10 @@ import "./UpdateReview.css"
 
 
 const UpdateReviewForm = ({ spotId, reviewId, onClose }) => {
-  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const reviewsObj = useSelector(state => state.reviews);
   const reviews = Object.values(reviewsObj);
+  const dispatch = useDispatch();
 
   const reviewToUpdate = reviews.find(review => review.id === +reviewId);
 

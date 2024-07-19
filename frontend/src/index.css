@@ -107,3 +107,35 @@ body.light img:not(#logo) {
 .blood-icon {
   color: var(--blood-color)
 }
+
+:root {
+  --skeleton-base-color: var(--palette5);
+  --skeleton-highlight-color: var(--palette6);
+}
+
+body.light {
+  --skeleton-base-color: var(--palette6);
+  --skeleton-highlight-color: var(--palette2);
+}
+
+.spot-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spot-skeleton-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.spot-skeleton-content .spot-skeleton-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-skeleton-rating {
+  display: flex;
+  align-items: flex-start;
+}

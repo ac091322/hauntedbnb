@@ -6,8 +6,8 @@ import "./CreateSpot.css";
 
 
 const SpotForm = () => {
-  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [country, setCountry] = useState("");
