@@ -55,7 +55,7 @@ const SpotForm = () => {
         }, { replace: true });
       });
     }
-  }, []);
+  }, [setSearchParams]);
 
   useEffect(() => {
     let formErrors = {};
@@ -68,7 +68,7 @@ const SpotForm = () => {
           formErrors.city = "City name is too long";
         }
       }
-      if (typeof state !== "string" || state.length !== 2 || !/^[a-zA-Z]+$/.test(state)) formErrors.state = "State must be 2 letters";
+      if (!state || state.length !== 2 || !/^[a-zA-Z]+$/.test(state)) formErrors.state = "State must be 2 letters";
       if (!longitude) formErrors.longitude = "Longitude is required"
       if (longitude) {
         if (isNaN(Number(longitude)) || Number(longitude) < -180 || Number(longitude) > 180) {
@@ -167,6 +167,15 @@ const SpotForm = () => {
       navigate(`/spots/${createdSpot.id}`, { replace: true });
     }
   };
+
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const formData = new FormData();
+  //     FormData.append("file", file)
+  //     dispatch(uploadImage(formData));
+  //   }
+  // };
 
   return (
     <div id="form-container-create-spot">
@@ -331,7 +340,7 @@ const SpotForm = () => {
 
         <div className="section-container-create-spot">
           <h3>Liven up your spot with photos</h3>
-          <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px. You can choose to use the preset URLs below or your own.</p>
+          <p>Submit a link to at least one photo to publish your spot. For best results, images should be squares, for example 300px by 300px. You can choose to use the preset URLs below, or your own.</p>
           <div id="image-url-container">
             <div
               className="error-group"
@@ -382,6 +391,16 @@ const SpotForm = () => {
             />
           </div>
         </div>
+
+        <hr />
+
+        <input
+          className="upload-local-image-container"
+          type="file"
+          accept="image/*"
+          placeholder="Upload local image"
+        // onChange={handleFileChange}
+        />
 
         <hr />
 

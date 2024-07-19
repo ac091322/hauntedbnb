@@ -110,6 +110,18 @@ form hr {
   margin-top: 10px;
 }
 
+.upload-local-image-container {
+  background-color: var(--palette5);
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+}
+
+body.light .upload-local-image-container{
+  background-color: var(--palette2);
+  color: var(--palette1);
+}
+
 @media screen and (max-width: 500px) {
   #city-state-container {
     flex-direction: column;
