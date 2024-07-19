@@ -11,12 +11,12 @@ import "./ManageReviews.css";
 
 
 const ManageReviews = () => {
-  const dispatch = useDispatch();
   const reviewsObj = useSelector(state => state.reviews);
   const reviews = Object.values(reviewsObj);
   const spotsObj = useSelector(state => state.spots);
   const spots = Object.values(spotsObj);
   const currentUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [reviewToDelete, setReviewToDelete] = useState(null);

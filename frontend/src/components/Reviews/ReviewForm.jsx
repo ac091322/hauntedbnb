@@ -6,8 +6,8 @@ import "./ReviewForm.css";
 
 
 const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
-  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
 
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
