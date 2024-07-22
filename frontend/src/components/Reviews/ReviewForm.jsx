@@ -57,7 +57,7 @@ const ReviewForm = ({ spotId, onClose, onReviewSubmit }) => {
     <div className="popup-container-reserve-review" onClick={onClose}>
       <div
         id="review-form-background"
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
         }}
       >

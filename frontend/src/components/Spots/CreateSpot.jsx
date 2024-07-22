@@ -168,15 +168,6 @@ const SpotForm = () => {
     }
   };
 
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const formData = new FormData();
-  //     FormData.append("file", file)
-  //     dispatch(uploadImage(formData));
-  //   }
-  // };
-
   return (
     <div id="form-container-create-spot">
       <h1>Create a New Spot</h1>
@@ -394,15 +385,20 @@ const SpotForm = () => {
 
         <hr />
 
+        {/* <label
+          htmlFor="upload-image-primary"
+        >
+          Upload primary image (will be used as the preview image)
+        </label>
         <input
+          id="upload-image-primary"
+          // value={primaryImage}
           className="upload-local-image-container"
           type="file"
           accept="image/*"
-          placeholder="Upload local image"
-        // onChange={handleFileChange}
         />
 
-        <hr />
+        <hr /> */}
 
         <button
           type="submit"
