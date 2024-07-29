@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       <Link to="/privacy-policy">Privacy Policy</Link>
-      <span>© {currentYear} hauntedbnb, inc.s</span>
+      <span>© {currentYear} hauntedbnb, inc.</span>
     </footer>
   );
 }
