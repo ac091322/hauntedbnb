@@ -394,7 +394,7 @@ const SpotForm = () => {
 
         <hr />
 
-        <input
+        {/* <input
           className="upload-local-image-container"
           type="file"
           accept="image/*"
@@ -402,7 +402,7 @@ const SpotForm = () => {
         // onChange={handleFileChange}
         />
 
-        <hr />
+        <hr /> */}
 
         <button
           type="submit"
