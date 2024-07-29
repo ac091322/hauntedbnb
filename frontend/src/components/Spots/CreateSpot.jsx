@@ -385,14 +385,7 @@ const SpotForm = () => {
 
         <hr />
 
-        {/* <label
-          htmlFor="upload-image-primary"
-        >
-          Upload primary image (will be used as the preview image)
-        </label>
-        <input
-          id="upload-image-primary"
-          // value={primaryImage}
+        {/* <input
           className="upload-local-image-container"
           type="file"
           accept="image/*"
