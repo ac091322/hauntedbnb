@@ -4,13 +4,13 @@
 
 ![db-schema]
 
-[db-schema]: ./images/db-schema.png
+[db-schema]: ./frontend/public/db-schema.png
 
 ## Color Palette
 
 ![color-palette]
 
-[color-palette]: ./images/color-palette.png
+[color-palette]: ./frontend//public/color-palette.png
 
 ## API Documentation
 
