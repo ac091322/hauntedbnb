@@ -5,9 +5,7 @@ const SkeletonLoader = ({ classes }) => {
   const classNames = `skeleton ${classes} animate-pulse`
 
   return (
-    <div className={classNames}>
-
-    </div>
+    <div className={classNames}></div>
   );
 }
 
