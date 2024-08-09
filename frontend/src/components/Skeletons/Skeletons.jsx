@@ -1,4 +1,3 @@
-import Skeleton from "react-loading-skeleton";
 import "./Skeletons.css";
 
 
