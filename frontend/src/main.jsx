@@ -19,13 +19,17 @@ if (import.meta.env.MODE !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
 }
+// in browser console: window.store
+// in browser console: window.store.getState()
+// in browser console: window.session
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
     <ModalProvider>
       <Provider store={store}>
-      <SkeletonTheme baseColor="var(--skeleton-base-color)" highlightColor="var(--skeleton-highlight-color)">
+        <SkeletonTheme baseColor="var(--skeleton-base-color)" highlightColor="var(--skeleton-highlight-color)">
           <ThemeProvider>
             <App />
             <Modal />
