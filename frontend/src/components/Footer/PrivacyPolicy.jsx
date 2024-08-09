@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
       <p>We may update this privacy policy from time to time to reflect changes in our practices and services. We encourage you to review this policy periodically.</p>
 
       <h3>7. Contact Us</h3>
-      <p>If you have any questions or concerns about this privacy policy or our data practices, please contact us at <a href="mailto:alanc091322@gmail.com">alanc091322@gmail.com</a>.</p>
+      <p>If you have any questions or concerns about this privacy policy or our data practices, please contact us at <a href="mailto:ask@gme.com">ask@me.com</a>.</p>
     </div>
   );
 }
