@@ -18,7 +18,8 @@ Environment Variables:
 JWT_SECRET (click "Generate" to generate a secure secret for production)
 JWT_EXPIRES_IN (copy value from local .env file)
 NODE_ENV production
-SCHEMA (custom name, in snake_case)
+SCHEMA hauntedbnb_schema
+DATABASE_URL (copy from PostgreSQL internal URL)
 
 Auto-Deply: Yes
 
