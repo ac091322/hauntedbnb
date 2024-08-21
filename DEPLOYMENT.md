@@ -21,8 +21,9 @@ NODE_ENV production
 SCHEMA hauntedbnb_schema
 DATABASE_URL (copy from PostgreSQL internal URL)
 
-Auto-Deply: Yes
+MAPS_API_KEY (copy from local .env file, name must match with name in local .env file)
 
+Auto-Deploy: Yes
 Instance Type: Free
 
 
