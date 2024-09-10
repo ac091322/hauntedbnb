@@ -1,4 +1,6 @@
-# Airbnb
+# Hauntedbnb
+
+Welcome to HauntBnB, where your stay is a thrilling journey through the eerie and mysterious! Inspired by the beloved Airbnb platform, HauntBnB embraces a haunted theme that pays homage to the chilling world of American Horror Story. Our fictional spots are "owned" by characters reminiscent of those from the show, adding a touch of suspense to your stay. While these spots are purely make-believe and our owners are simply inspired by the show, they are set in a variety of fictional locations across the United States. Whether you're seeking a ghostly getaway or a chilling escape, HauntBnB promises a hauntingly memorable experience.
 
 
 ## Database Schema Design
