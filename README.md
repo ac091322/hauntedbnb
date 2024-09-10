@@ -1,16 +1,50 @@
 # Airbnb
 
+
 ## Database Schema Design
 
 ![db-schema]
 
 [db-schema]: ./frontend/public/db-schema.png
 
+
+## Live Site Preview
+
+
+### Homepage - Skeleton Loader
+![homepage skeleton loader](frontend/public/homepage-skeleton-loader.png)
+
+### Homepage - Dark
+![homepage - dark](frontend/public/homepage-dark.png)
+
+### Homepage - Light
+![homepage - light](frontend/public/homepage-light.png)
+
+### Spot Details - Dark
+![spot details - dark](frontend/public/spot-details-dark.png)
+
+### Spot Details - Light
+![spot details - light](frontend/public/spot-details-light.png)
+
+### Log In
+![log in](frontend/public//login.png)
+
+### Leave Review Popup
+![leave review](frontend/public/leave-review.png)
+
+### Create Spot Form
+![create spot](frontend/public/create-spot.png)
+
+### Manage Reviews
+![manage reviews](frontend/public/manage-reviews.png)
+
+
 ## Color Palette
 
 ![color-palette]
 
 [color-palette]: ./frontend//public/color-palette.png
+
 
 ## API Documentation
 
@@ -33,6 +67,7 @@ All endpoints that require a current user to be logged in.
     }
     ```
 
+
 ### All endpoints that require proper authorization
 
 All endpoints that require authentication and the current user does not have the
@@ -50,6 +85,7 @@ correct role(s) or permission(s).
       "message": "Forbidden"
     }
     ```
+
 
 ### Get the Current User
 
@@ -90,6 +126,7 @@ Returns the information about the current user that is logged in.
       "user": null
     }
     ```
+
 
 ### Log In a User
 
@@ -157,6 +194,7 @@ information.
     }
     ```
 
+
 ### Log Out a User
 
 Logs out a current user with valid credentials and returns a message. Doesn't check if there is already a logged in user.
@@ -180,6 +218,7 @@ Logs out a current user with valid credentials and returns a message. Doesn't ch
         "message": "success"
     }
     ```
+
 
 ### Sign Up a User
 
@@ -270,6 +309,7 @@ user's information.
     }
     ```
 
+
 ### Get all Users
 
 Gets all the users. Backend-only route. Email, password, and hashed password are excluded.
@@ -296,6 +336,7 @@ Successful Response
       },
     ]
     ```
+
 
 ## SPOTS
 
@@ -341,6 +382,7 @@ Returns all the spots.
     }
     ```
 
+
 ### Get all Spots owned by the Current User
 
 Returns all the spots owned (created) by the current user.
@@ -378,6 +420,7 @@ Returns all the spots owned (created) by the current user.
       ]
     }
     ```
+
 
 ### Get details of a Spot from an id
 
@@ -443,6 +486,7 @@ Returns the details of a spot specified by its id.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ### Create a Spot
 
@@ -521,6 +565,7 @@ Creates and returns a new spot.
     }
     ```
 
+
 ### Add an Image to a Spot based on the Spot's id
 
 Create and return a new image for a spot specified by spot id.
@@ -566,6 +611,7 @@ Create and return a new image for a spot specified by spot id.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ### Update an Image to a Spot based on the Image's id
 
@@ -613,6 +659,7 @@ Update and return a new image for a spot specified by image id.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ### Edit a Spot
 
@@ -700,6 +747,7 @@ Updates and returns an existing spot.
     }
     ```
 
+
 ### Delete a Spot
 
 Deletes an existing spot.
@@ -734,6 +782,7 @@ Deletes an existing spot.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ## REVIEWS
 
@@ -792,6 +841,7 @@ Returns all the reviews written by the current user.
     }
     ```
 
+
 ### Get all Reviews by a Spot's id
 
 Returns all the reviews that belong to a spot specified by id.
@@ -846,6 +896,7 @@ Returns all the reviews that belong to a spot specified by id.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ### Create a Review for a Spot based on the Spot's id
 
@@ -924,6 +975,7 @@ Create and return a new review for a spot specified by id.
     }
     ```
 
+
 ### Add an Image to a Review based on the Review's id
 
 Create and return a new image for a review specified by id.
@@ -980,6 +1032,7 @@ Create and return a new image for a review specified by id.
       "message": "Maximum number of images for this resource was reached"
     }
     ```
+
 
 ### Edit a Review
 
@@ -1047,6 +1100,7 @@ Update and return an existing review.
     }
     ```
 
+
 ### Delete a Review
 
 Delete an existing review.
@@ -1081,6 +1135,7 @@ Delete an existing review.
       "message": "Review couldn't be found"
     }
     ```
+
 
 ## BOOKINGS
 
@@ -1127,6 +1182,7 @@ Return all the bookings that the current user has made.
       ]
     }
     ```
+
 
 ### Get all Bookings for a Spot based on the Spot's id
 
@@ -1194,6 +1250,7 @@ Return all the bookings for a spot specified by id.
       "message": "Spot couldn't be found"
     }
     ```
+
 
 ### Create a Booking from a Spot based on the Spot's id
 
@@ -1273,6 +1330,7 @@ Create and return a new booking from a spot specified by id.
       }
     }
     ```
+
 
 ### Edit a Booking
 
@@ -1367,6 +1425,7 @@ Update and return an existing booking.
     }
     ```
 
+
 ### Delete a Booking
 
 Delete an existing booking.
@@ -1415,6 +1474,7 @@ Delete an existing booking.
     }
     ```
 
+
 ## IMAGES
 
 ### Delete a Spot Image
@@ -1452,6 +1512,7 @@ Delete an existing image for a Spot.
     }
     ```
 
+
 ### Delete a Review Image
 
 Delete an existing image for a Review.
@@ -1486,6 +1547,7 @@ Delete an existing image for a Review.
       "message": "Review Image couldn't be found"
     }
     ```
+
 
 ## Add Query Filters to Get All Spots
 
