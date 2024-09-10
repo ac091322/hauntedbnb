@@ -10,7 +10,6 @@
 
 ## Live Site Preview
 
-
 ### Homepage - Skeleton Loader
 ![homepage skeleton loader](frontend/public/homepage-skeleton-loader.png)
 
